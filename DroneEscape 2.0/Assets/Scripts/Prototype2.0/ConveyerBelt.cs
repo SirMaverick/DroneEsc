@@ -39,6 +39,7 @@ public class ConveyerBelt : MonoBehaviour {
         if (other.tag == "Object" && other.GetComponent<MoveOnBelt>().isActiveAndEnabled) {
 
             StopCoroutine(obj.GetComponent<MoveOnBelt>().MoveObject());
+            obj.GetComponent<MoveOnBelt>().enabled = false;
         }
     }
 }
