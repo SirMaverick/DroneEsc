@@ -62,7 +62,7 @@ public class EmptyDrone : MonoBehaviour {
     // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)
     private void UpdateGuards()
     {
-        GuardFOV[] guards = GetComponents<GuardFOV>();
+        GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
         foreach (GuardFOV guard in guards)
         {
             guard.ChangePlayer(gameObject);

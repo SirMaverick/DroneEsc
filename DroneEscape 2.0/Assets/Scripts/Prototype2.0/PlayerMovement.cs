@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void UpdateGuardsCore()
     {
-        GuardFOV[] guards = GetComponents<GuardFOV>();
+        GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
         // yes ugly
         GameObject core = coreCamera.GetComponent<CoreCamera>().core;
         foreach (GuardFOV guard in guards) {
