@@ -98,6 +98,12 @@ class GuardFOV: MonoBehaviour
         Debug.Log("enabled");
     }
 
+    // Switch the GameObject which is being tracked
+    // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)
+    public void ChangePlayer(GameObject newPlayer)
+    {
+        player = newPlayer;
+    }
 
 
     /*private void OnTriggerStay(Collider other)
