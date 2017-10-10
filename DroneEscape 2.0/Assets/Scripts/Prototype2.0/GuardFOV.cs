@@ -53,6 +53,7 @@ class GuardFOV: MonoBehaviour
                     if (!spotted)
                     {
                         GetComponentInParent<MeshRenderer>().material.color = new Color(255, 0, 0);
+                        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
                     }
                     /*ParticleSystem sm = GetComponent<ParticleSystem>();
                     //ParticleSystem.MinMaxGradient colorGradient = sm.main.startColor;
@@ -69,6 +70,7 @@ class GuardFOV: MonoBehaviour
                     if (spotted)
                     {
                         GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
+                        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
                     }
                     spotted = false;
                 }
@@ -79,6 +81,7 @@ class GuardFOV: MonoBehaviour
                 if (spotted)
                 {
                     GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
+                    GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
                 }
                 spotted = false;
             }
@@ -88,6 +91,7 @@ class GuardFOV: MonoBehaviour
             if (spotted)
             {
                 GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
+                GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
             }
             spotted = false;
         }
@@ -96,6 +100,7 @@ class GuardFOV: MonoBehaviour
     public void DisableGuard()
     {
         GetComponentInParent<MeshRenderer>().material.color = new Color(255, 255, 255);
+        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 255, 255));
         disabled = true;
         Debug.Log("Disabled");
     }
@@ -103,6 +108,7 @@ class GuardFOV: MonoBehaviour
     public void EnableGuard()
     {
         GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
+        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
         disabled = false;
         Debug.Log("enabled");
     }
