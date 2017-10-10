@@ -22,6 +22,8 @@ class GuardFOV: MonoBehaviour
 
     private bool disabled = false;
 
+    private int detectionLevel = 0;
+
     private void Start()
     {
         
@@ -52,6 +54,13 @@ class GuardFOV: MonoBehaviour
                     {
                         GetComponentInParent<MeshRenderer>().material.color = new Color(255, 0, 0);
                     }
+                    /*ParticleSystem sm = GetComponent<ParticleSystem>();
+                    //ParticleSystem.MinMaxGradient colorGradient = sm.main.startColor;
+                    ParticleSystem.MainModule mainPS = sm.main;
+                    //mainPS.startColor = new ParticleSystem.MinMaxGradient(new Color(detectionLevel, 0, 0));
+                    mainPS.startColor = new Color(detectionLevel, 0, 0);*/
+
+                    detectionLevel++;
                     spotted = true;
                 }
                 else
