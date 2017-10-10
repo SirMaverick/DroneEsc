@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
         GetComponent<EmptyDrone>().enabled = true;
         ownCamera.GetComponent<PlayerMouseLook>().enabled = false;
         ownCamera.GetComponent<Camera>().enabled = false;
+        ownCamera.GetComponent<AudioListener>().enabled = false;
         enabled = false;
     }
 

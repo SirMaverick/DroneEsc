@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EmptyDrone : MonoBehaviour {
 
-    private Transform coreCamera;
+    private Transform cameraObject;
+    private GameObject coreCamera;
     private GameObject corePickUp;
     private bool walk;
     private GameObject ownCamera;
+    [SerializeField] GameObject objectPlacement;
 
     public float minDist;
     [SerializeField] float moveSpeed;
@@ -20,9 +22,9 @@ public class EmptyDrone : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (walk) {
-                transform.LookAt(new Vector3 (coreCamera.position.x, transform.position.y, coreCamera.position.z));
+                transform.LookAt(new Vector3 (cameraObject.position.x, transform.position.y, cameraObject.position.z));
 
-            if (Vector3.Distance(transform.position, coreCamera.position) >= minDist) {
+            if (Vector3.Distance(transform.position, cameraObject.position) >= minDist) {
 
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
             } else {
@@ -33,20 +35,25 @@ public class EmptyDrone : MonoBehaviour {
         }
     }
     public void WalkToPlayer(Transform tempCore) {
-        coreCamera = tempCore.parent;
+        cameraObject = tempCore.parent;
+        coreCamera = tempCore.gameObject;
         walk = true;
 
     }
 
     void PickUpCore() {
-        coreCamera.transform.Find("CoreCamera").GetComponent<Camera>().enabled = false;
-        coreCamera.transform.position = transform.position;
-        corePickUp = coreCamera.GetComponent<CoreCamera>().core;
-        coreCamera.GetComponent<CoreCamera>().core.GetComponent<BoxCollider>().enabled = false;
+        coreCamera.GetComponent<Camera>().enabled = false;
+        coreCamera.GetComponent<AudioListener>().enabled = false;
+        coreCamera.GetComponent<CoreMouseMovement>().enabled = false;
+        cameraObject.transform.position = transform.position;
+        corePickUp = cameraObject.GetComponent<CoreCamera>().core;
+        cameraObject.GetComponent<CoreCamera>().core.GetComponent<BoxCollider>().enabled = false;
         corePickUp.GetComponent<MeshRenderer>().enabled = false;
         corePickUp.GetComponent<Rigidbody>().useGravity = false;
         corePickUp.GetComponent<MoveOnBelt>().sent = false;
         corePickUp.transform.parent = transform;
+        corePickUp.transform.position = objectPlacement.transform.position;
+
         TurnOnDrone();
     }
 
@@ -54,8 +61,10 @@ public class EmptyDrone : MonoBehaviour {
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<PlayerMovement>().enabled = true;
         GetComponent<ThrowCore>().enabled = true;
+        ownCamera.GetComponent<AudioListener>().enabled = true;
         ownCamera.GetComponent<Camera>().enabled = true;
         ownCamera.GetComponent<PlayerMouseLook>().enabled = true;
+
         enabled = false;
 
     }

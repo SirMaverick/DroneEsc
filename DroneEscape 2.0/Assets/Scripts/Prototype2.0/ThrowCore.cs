@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThrowCore : MonoBehaviour {
 
     [SerializeField] private GameObject core;
+    [SerializeField] private GameObject cameraObject;
     [SerializeField] private GameObject coreCamera;
     bool isThrown;
     Vector3 lastPos;
@@ -17,22 +18,22 @@ public class ThrowCore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.T)) {
+		if(Input.GetKeyDown(KeyCode.T) && !isThrown) {
             lastPos = transform.position;
-            coreCamera.transform.position = core.transform.position;
-            coreCamera.GetComponent<CoreCamera>().core = core.gameObject; 
+            cameraObject.transform.position = core.transform.position;
+            cameraObject.GetComponent<CoreCamera>().core = core.gameObject; 
             core.transform.parent = null;
-            core.GetComponent<BoxCollider>().enabled = true;
-            core.GetComponent<MeshRenderer>().enabled = true;
-            core.GetComponent<Rigidbody>().useGravity = true;
+            TurnOnCore();
             core.GetComponent<Rigidbody>().AddForce(transform.Find("DroneCamera").TransformDirection(Vector3.forward) * force, ForceMode.Impulse);
             CoreFlying();
             StartCoroutine(CheckGrounded());
         }
 
         if (isThrown) {
-            coreCamera.transform.position = core.transform.position;
+            cameraObject.transform.position = core.transform.position;
         }
+
+        print(isThrown);
 
 	}
 
@@ -42,8 +43,19 @@ public class ThrowCore : MonoBehaviour {
     }
 
     void CoreOnGround() {
-        coreCamera.transform.parent = null;
+        cameraObject.transform.parent = null;
+        core.GetComponent<MoveOnBelt>().flying = false;
         enabled = false;
+    }
+
+    private void TurnOnCore() {
+        core.GetComponent<BoxCollider>().enabled = true;
+        core.GetComponent<MeshRenderer>().enabled = true;
+        core.GetComponent<Rigidbody>().useGravity = true;
+        core.GetComponent<MoveOnBelt>().flying = true;
+
+        coreCamera.GetComponent<AudioListener>().enabled = true;
+        coreCamera.GetComponent<CoreMouseMovement>().enabled = true;
     }
 
     IEnumerator CheckGrounded() {

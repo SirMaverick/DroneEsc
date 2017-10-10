@@ -10,8 +10,10 @@ public class MoveOnBelt : MonoBehaviour {
     public int currentPart = 0;
     GameObject nextPart;
     [SerializeField] float speed;
+    [SerializeField] GameObject cameraCore;
     bool move;
     public bool sent;
+    public bool flying;
 
     // Use this for initialization
     void Start() {
@@ -19,9 +21,10 @@ public class MoveOnBelt : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (move && currentPart <= beltParts.Length - 2) {
+        if (move && currentPart <= beltParts.Length - 2 && !flying) {
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, beltParts[currentPart + 1].transform.position, step);
+            cameraCore.transform.position = transform.position;
         }
     }
 

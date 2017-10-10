@@ -16,10 +16,13 @@ public class BeltInfo : MonoBehaviour {
 	}
 
     private void OnTriggerEnter(Collider other) {
-        if (!other.GetComponent<MoveOnBelt>().sent) {
-            other.GetComponent<MoveOnBelt>().currentPart = currentBeltPart;
-            other.GetComponent<MoveOnBelt>().sent = true;
+        if (other.tag == "Object" && other.GetComponent<MoveOnBelt>().isActiveAndEnabled) {
+            if (!other.GetComponent<MoveOnBelt>().sent) {
+                other.GetComponent<MoveOnBelt>().currentPart = currentBeltPart;
+                other.GetComponent<MoveOnBelt>().sent = true;
+            }
         }
+
     }
 
 }
