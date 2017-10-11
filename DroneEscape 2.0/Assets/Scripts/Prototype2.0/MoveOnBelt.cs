@@ -35,6 +35,8 @@ public class MoveOnBelt : MonoBehaviour {
         currentPart++;
         if (currentPart < beltParts.Length - 1) {
             currentCoroutine = StartCoroutine(MoveObject());
+        } else {
+            sent = false;
         }
 
         
