@@ -51,6 +51,7 @@ public class EmptyDrone : MonoBehaviour {
         corePickUp.GetComponent<MeshRenderer>().enabled = false;
         corePickUp.GetComponent<Rigidbody>().useGravity = false;
         corePickUp.GetComponent<MoveOnBelt>().sent = false;
+        corePickUp.GetComponent<MoveOnBelt>().pickedUp = true;
         corePickUp.transform.parent = transform;
         corePickUp.transform.position = objectPlacement.transform.position;
 

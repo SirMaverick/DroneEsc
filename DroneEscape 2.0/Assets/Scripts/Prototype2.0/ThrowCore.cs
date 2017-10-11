@@ -7,7 +7,9 @@ public class ThrowCore : MonoBehaviour {
     [SerializeField] private GameObject core;
     [SerializeField] private GameObject cameraObject;
     [SerializeField] private GameObject coreCamera;
+    [SerializeField] private float maxDistance;
     bool isThrown;
+    bool nearBelt;
     Vector3 lastPos;
     Vector3 currentPos;
     [SerializeField] float force;
@@ -18,7 +20,15 @@ public class ThrowCore : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.T) && !isThrown) {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, maxDistance)) {
+            if (hit.collider.tag == "ConveyerBelt") {
+                nearBelt = true;
+            } else {
+                nearBelt = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.T) && !isThrown && !nearBelt) {
             lastPos = transform.position;
             cameraObject.transform.position = core.transform.position;
             cameraObject.GetComponent<CoreCamera>().core = core.gameObject; 
@@ -27,6 +37,14 @@ public class ThrowCore : MonoBehaviour {
             core.GetComponent<Rigidbody>().AddForce(transform.Find("DroneCamera").TransformDirection(Vector3.forward) * force, ForceMode.Impulse);
             CoreFlying();
             StartCoroutine(CheckGrounded());
+        } else if (Input.GetKeyDown(KeyCode.T) && !isThrown && nearBelt) {
+            core.transform.position = hit.transform.position + new Vector3(0, 1.0f, 0);
+            cameraObject.transform.position = core.transform.position;
+            cameraObject.GetComponent<CoreCamera>().core = core.gameObject;
+            core.transform.parent = null;
+            TurnOnCore();
+
+            
         }
 
         if (isThrown) {
@@ -53,6 +71,7 @@ public class ThrowCore : MonoBehaviour {
         core.GetComponent<MeshRenderer>().enabled = true;
         core.GetComponent<Rigidbody>().useGravity = true;
         core.GetComponent<MoveOnBelt>().flying = true;
+        core.GetComponent<MoveOnBelt>().pickedUp = false;
 
         coreCamera.GetComponent<AudioListener>().enabled = true;
         coreCamera.GetComponent<CoreMouseMovement>().enabled = true;

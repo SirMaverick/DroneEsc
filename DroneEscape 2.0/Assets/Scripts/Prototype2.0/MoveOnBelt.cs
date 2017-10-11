@@ -14,6 +14,7 @@ public class MoveOnBelt : MonoBehaviour {
     bool move;
     public bool sent;
     public bool flying;
+    public bool pickedUp;
 
     // Use this for initialization
     void Start() {
@@ -21,11 +22,15 @@ public class MoveOnBelt : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (move && currentPart <= beltParts.Length - 2 && !flying) {
+        if (move && currentPart <= beltParts.Length - 2 && !flying && !pickedUp) {
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, beltParts[currentPart + 1].transform.position, step);
             cameraCore.transform.position = transform.position;
         }
+    }
+
+    public void StopMoving() {
+        StopCoroutine("MoveObject");
     }
 
     public IEnumerator MoveObject() { 
@@ -33,8 +38,8 @@ public class MoveOnBelt : MonoBehaviour {
         yield return new WaitForSeconds(2.0f);
         move = false;
         currentPart++;
-        if (currentPart < beltParts.Length - 1) {
-            currentCoroutine = StartCoroutine(MoveObject());
+        if (currentPart < beltParts.Length - 1 && !pickedUp) {
+            currentCoroutine = StartCoroutine("MoveObject");
         } else {
             sent = false;
         }
