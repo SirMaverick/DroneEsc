@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
 
 class GuardFOV: MonoBehaviour
 {
@@ -23,9 +25,15 @@ class GuardFOV: MonoBehaviour
     private bool disabled = false;
 
     private int detectionLevel = 0;
+    private float time = 0;
+    [SerializeField]
+    private float minDetectionTime = 3;
 
     [SerializeField]
     private MeshRenderer cone;
+
+    [SerializeField]
+    private Text caughtText;
 
     private void Start()
     {
@@ -52,19 +60,30 @@ class GuardFOV: MonoBehaviour
                 if (rayCastHit.collider.gameObject == player)
                 {
                     Debug.DrawRay(transform.position, direction, new Color(0, 255, 0));
-                    Debug.Log("spotted");
+                    
                     if (!spotted)
                     {
                         GetComponentInParent<MeshRenderer>().material.color = new Color(255, 0, 0);
                         GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
+                        time = Time.time;
                     }
                     /*ParticleSystem sm = GetComponent<ParticleSystem>();
                     //ParticleSystem.MinMaxGradient colorGradient = sm.main.startColor;
                     ParticleSystem.MainModule mainPS = sm.main;
                     //mainPS.startColor = new ParticleSystem.MinMaxGradient(new Color(detectionLevel, 0, 0));
                     mainPS.startColor = new Color(detectionLevel, 0, 0);*/
-
+                    if(time + minDetectionTime < Time.time)
+                    {
+                        // you are caught
+                        Debug.Log("spotted");
+                        // ui you got caught
+                        caughtText.enabled = true;
+                        //@TODO fix bad habbit but just for testing
+                        StartCoroutine(RestartLevel());
+                        
+                    }
                     detectionLevel++;
+
                     spotted = true;
                 }
                 else
@@ -75,6 +94,8 @@ class GuardFOV: MonoBehaviour
                         GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
                         GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
                     }
+                    detectionLevel = 0;
+                    time = 0;
                     spotted = false;
                 }
 
@@ -125,6 +146,12 @@ class GuardFOV: MonoBehaviour
         player = newPlayer;
     }
 
+
+    private IEnumerator RestartLevel()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
     /*private void OnTriggerStay(Collider other)
     {
