@@ -5,11 +5,11 @@ using UnityEngine;
 public class ConveyerBelt : MonoBehaviour {
 
     public int currentPart;
-    GameObject[] beltParts;
+    [SerializeField] GameObject[] beltParts;
     GameObject obj;
-
+        
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         int i = transform.childCount;
         beltParts = new GameObject[i];
         int counter = 0;
