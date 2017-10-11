@@ -24,6 +24,9 @@ class GuardFOV: MonoBehaviour
 
     private int detectionLevel = 0;
 
+    [SerializeField]
+    private MeshRenderer cone;
+
     private void Start()
     {
         
@@ -101,6 +104,7 @@ class GuardFOV: MonoBehaviour
     {
         GetComponentInParent<MeshRenderer>().material.color = new Color(255, 255, 255);
         GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 255, 255));
+        cone.enabled = false;
         disabled = true;
         Debug.Log("Disabled");
     }
@@ -109,6 +113,7 @@ class GuardFOV: MonoBehaviour
     {
         GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
         GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
+        cone.enabled = true;
         disabled = false;
         Debug.Log("enabled");
     }

@@ -9,6 +9,8 @@ class CameraButton : MonoBehaviour
     [SerializeField]
     private Camera cam;
 
+    private string tag = "Drone";
+
 
     private void Start()
     {
@@ -25,6 +27,7 @@ class CameraButton : MonoBehaviour
                 {
                     playerCameraController.SwapCamera(cam);
                     swapped = true;
+                    Debug.Log("Switching camera");
                     return;
                 }
             }
@@ -41,7 +44,7 @@ class CameraButton : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == tag)
         {
             inRange = true;
         }
@@ -49,7 +52,7 @@ class CameraButton : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == tag)
         { 
             inRange = false;
         }

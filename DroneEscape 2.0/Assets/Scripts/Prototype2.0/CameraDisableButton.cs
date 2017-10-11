@@ -9,6 +9,8 @@ public class CameraDisableButton : MonoBehaviour {
     [SerializeField]
     private GuardFOV cameraGuard;
 
+    private string tag = "Drone";
+
     private void Start()
     {
         
@@ -41,7 +43,7 @@ public class CameraDisableButton : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == tag)
         {
             inRange = true;
         }
@@ -49,7 +51,7 @@ public class CameraDisableButton : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == tag)
         {
             inRange = false;
         }

@@ -3,11 +3,12 @@
 class PlayerCameraController : MonoBehaviour
 {
     Camera previousCamera;
+    [SerializeField]
     Camera activeCamera;
 
     private void Start()
     {
-        activeCamera = Camera.main;
+      
     }
 
     public void SwapCamera(Camera camera)
