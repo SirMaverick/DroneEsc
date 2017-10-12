@@ -9,7 +9,7 @@ public class ThrowCore : MonoBehaviour {
     [SerializeField] private GameObject coreCamera;
     [SerializeField] private GameObject objectPlacement;
     [SerializeField] private float maxDistance;
-    bool isThrown;
+    public bool isThrown;
     bool nearBelt;
     Vector3 lastPos;
     Vector3 currentPos;
@@ -29,7 +29,7 @@ public class ThrowCore : MonoBehaviour {
                 nearBelt = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.T) && !isThrown && !nearBelt) {
+        if (Input.GetMouseButtonDown(1) && !isThrown && !nearBelt) {
             lastPos = transform.position;
             cameraObject.transform.position = core.transform.position;
             cameraObject.GetComponent<CoreCamera>().core = core.gameObject; 
@@ -38,7 +38,7 @@ public class ThrowCore : MonoBehaviour {
             core.GetComponent<Rigidbody>().AddForce(transform.Find("DroneCamera").TransformDirection(Vector3.forward) * force, ForceMode.Impulse);
             CoreFlying();
             StartCoroutine(CheckGrounded());
-        } else if (Input.GetKeyDown(KeyCode.T) && !isThrown && nearBelt) {
+        } else if (Input.GetMouseButtonDown(1) && !isThrown && nearBelt) {
             core.transform.position = hit.transform.position + new Vector3(0, 1.0f, 0);
             cameraObject.transform.position = core.transform.position;
             cameraObject.GetComponent<CoreCamera>().core = core.gameObject;

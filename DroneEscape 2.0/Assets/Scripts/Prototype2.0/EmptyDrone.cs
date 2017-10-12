@@ -62,6 +62,7 @@ public class EmptyDrone : MonoBehaviour {
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<PlayerMovement>().enabled = true;
         GetComponent<ThrowCore>().enabled = true;
+        GetComponent<ThrowCore>().isThrown = false;
         ownCamera.GetComponent<AudioListener>().enabled = true;
         ownCamera.GetComponent<Camera>().enabled = true;
         ownCamera.GetComponent<PlayerMouseLook>().enabled = true;
