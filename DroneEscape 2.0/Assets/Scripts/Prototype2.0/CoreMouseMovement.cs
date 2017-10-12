@@ -14,7 +14,10 @@ public class CoreMouseMovement : MonoBehaviour {
     private Ray ray;
     private RaycastHit hit;
 
-    GameObject character;
+    private GameObject character;
+
+    private Material lastMaterialHit;
+    private bool hitEmptyDrone;
 
     // Use this for initialization
     void Start() {
@@ -35,13 +38,40 @@ public class CoreMouseMovement : MonoBehaviour {
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 
-        if (Input.GetMouseButtonDown(0)) {
-            Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            if (Physics.Raycast(transform.position, fwd, out hit, 100.0f)) {
-                if(hit.collider.tag == "Drone") {
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        if (Physics.Raycast(transform.position, fwd, out hit, 100.0f))
+        {
+            if (hit.collider.tag == "Drone")
+            {
+                hitEmptyDrone = true;
+                lastMaterialHit = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
+                lastMaterialHit.EnableKeyword("_EMISSION");
+                //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
+                if (Input.GetMouseButtonDown(0))
+                {
                     hit.collider.gameObject.GetComponent<EmptyDrone>().WalkToPlayer(gameObject.transform);
                 }
+                
+            }
+            else
+            {
+                if (hitEmptyDrone) {
+                    lastMaterialHit.DisableKeyword("_EMISSION");
+                    hitEmptyDrone = false;
+                }
+
             }
         }
+        else
+        {
+            if (hitEmptyDrone)
+            {
+                lastMaterialHit.DisableKeyword("_EMISSION");
+                hitEmptyDrone = false;
+            }
+
+        }
+
+
     }
 }
