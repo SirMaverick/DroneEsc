@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if(throwCore) {
             coreCamera.GetComponent<CoreCamera>().SetCamera();
+            UpdateGuards();
             TurnDroneOff();
             throwCore = false;
             
@@ -45,5 +46,16 @@ public class PlayerMovement : MonoBehaviour {
 
     void TurnMenuOn() {
 
+    }
+
+    // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)
+    private void UpdateGuards()
+    {
+        GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
+        GameObject core = coreCamera.GetComponent<CoreCamera>().core;
+        foreach (GuardFOV guard in guards)
+        {
+            guard.ChangePlayer(core);
+        }
     }
 }
