@@ -9,51 +9,24 @@ public class CameraDisableButton : MonoBehaviour {
     [SerializeField]
     private GuardFOV cameraGuard;
 
-    private string tag = "Drone";
-
     private void Start()
     {
         
     }
 
-    private void Update()
+
+    public void ToggleEnableCamera()
     {
-        if (inRange)
+        if (!disabled)
         {
-            if (!disabled)
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    cameraGuard.DisableGuard();
-                    disabled = true;
-                    return;
-                }
-            }
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    cameraGuard.EnableGuard();
-                    disabled = false;
-                    return;
-                }
-            }
+            cameraGuard.DisableGuard();
+            disabled = true;
+        }
+        else
+        {
+            cameraGuard.EnableGuard();
+            disabled = false;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == tag)
-        {
-            inRange = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == tag)
-        {
-            inRange = false;
-        }
-    }
 }
