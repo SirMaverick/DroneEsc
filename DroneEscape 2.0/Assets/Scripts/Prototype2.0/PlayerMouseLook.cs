@@ -11,7 +11,12 @@ public class PlayerMouseLook : MonoBehaviour {
     public float sensitivity = 5.0f;
     public float smoothing = 2.0f;
 
+    [SerializeField] private float selectionRange = 1.5f;
+
     GameObject character;
+
+    private Material lastMaterialHit;
+    private bool hitButton = false;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +26,42 @@ public class PlayerMouseLook : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        RaycastHit hit;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
+        if (Physics.Raycast(transform.position, fwd, out hit, selectionRange))
+        {
+            if (hit.collider.tag == "Button")
+            {
+                hitButton = true;
+                lastMaterialHit = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
+                lastMaterialHit.EnableKeyword("_EMISSION");
+                //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
+                if (Input.GetMouseButtonDown(0))
+                {
+                    hit.collider.gameObject.GetComponent<CameraDisableButton>().ToggleEnableCamera();
+                }
+
+            }
+            else
+            {
+                if (hitButton)
+                {
+                    lastMaterialHit.DisableKeyword("_EMISSION");
+                    hitButton = false;
+                }
+
+            }
+        }
+        else
+        {
+            if (hitButton)
+            {
+                lastMaterialHit.DisableKeyword("_EMISSION");
+                hitButton = false;
+            }
+
+        }
         md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
         smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
