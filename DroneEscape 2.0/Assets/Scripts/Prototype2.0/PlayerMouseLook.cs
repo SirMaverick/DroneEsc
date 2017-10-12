@@ -35,11 +35,13 @@ public class PlayerMouseLook : MonoBehaviour {
             {
                 hitButton = true;
                 lastMaterialHit = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
-                lastMaterialHit.EnableKeyword("_EMISSION");
+                EnableEmission(0);
                 //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     hit.collider.gameObject.GetComponent<CameraDisableButton>().ToggleEnableCamera();
+                    lastMaterialHit.DisableKeyword("_EMISSION");
+                    //StartCoroutine(EnableEmission(1));
                 }
 
             }
@@ -73,4 +75,9 @@ public class PlayerMouseLook : MonoBehaviour {
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 		
 	}
+
+    private IEnumerator EnableEmission(int seconds) {
+        yield return new WaitForSeconds(seconds);
+        lastMaterialHit.EnableKeyword("_EMISSION");
+    }
 }

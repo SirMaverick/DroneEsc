@@ -54,6 +54,7 @@ public class EmptyDrone : MonoBehaviour {
         corePickUp.GetComponent<MoveOnBelt>().pickedUp = true;
         corePickUp.transform.parent = transform;
         corePickUp.transform.position = objectPlacement.transform.position;
+        corePickUp.GetComponent<MoveOnBelt>().currentPart = 0;
 
         TurnOnDrone();
     }
