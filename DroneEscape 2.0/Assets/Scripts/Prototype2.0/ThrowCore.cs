@@ -7,6 +7,7 @@ public class ThrowCore : MonoBehaviour {
     [SerializeField] private GameObject core;
     [SerializeField] private GameObject cameraObject;
     [SerializeField] private GameObject coreCamera;
+    [SerializeField] private GameObject objectPlacement;
     [SerializeField] private float maxDistance;
     bool isThrown;
     bool nearBelt;
@@ -67,6 +68,7 @@ public class ThrowCore : MonoBehaviour {
     }
 
     private void TurnOnCore() {
+        core.transform.position = objectPlacement.transform.position;
         core.GetComponent<BoxCollider>().enabled = true;
         core.GetComponent<MeshRenderer>().enabled = true;
         core.GetComponent<Rigidbody>().useGravity = true;
