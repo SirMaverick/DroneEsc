@@ -52,7 +52,7 @@ public class ThrowCore : MonoBehaviour {
             cameraObject.transform.position = core.transform.position;
         }
 
-        print(isThrown);
+        //print(isThrown);
 
 	}
 
