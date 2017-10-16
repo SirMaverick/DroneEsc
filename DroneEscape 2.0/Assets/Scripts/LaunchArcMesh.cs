@@ -7,6 +7,7 @@ public class LaunchArcMesh : MonoBehaviour {
 
 
     Mesh mesh;
+    GameObject camera;
     public float meshWidth;
 
     public float velocity;
@@ -19,17 +20,31 @@ public class LaunchArcMesh : MonoBehaviour {
     private void Awake() {
         mesh = GetComponent<MeshFilter>().mesh;
         g = Mathf.Abs(Physics2D.gravity.y);
+        camera = transform.parent.GetComponentInChildren<Camera>().gameObject;
     }
 
     private void OnValidate() {
         if (mesh != null && Application.isPlaying) {
-            MakeArcMesh(CalculateArcArray());
+
         }
     }
 
     // Use this for initialization
     void Start() {
-        MakeArcMesh(CalculateArcArray());
+    }
+
+    private void Update() {
+
+        if(Input.GetButton("Fire2")) {
+            angle = camera.transform.localRotation.eulerAngles.x * -1;
+            MakeArcMesh(CalculateArcArray());
+        } 
+
+        if(Input.GetButtonUp("Fire2")) {
+            TurnOffArc();
+        }
+
+
     }
 
     void MakeArcMesh(Vector3[] arcVerts) {
@@ -61,6 +76,11 @@ public class LaunchArcMesh : MonoBehaviour {
 
 
 
+    }
+
+    void TurnOffArc() {
+        mesh.vertices = new Vector3[(resolution + 1) * 2];
+        mesh.triangles = new int[resolution * 6 * 2];
     }
 
     Vector3[] CalculateArcArray() {
