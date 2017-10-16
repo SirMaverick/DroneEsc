@@ -30,25 +30,25 @@ public class PushBlock : MonoBehaviour {
             
             if (angle >= 0 && angle < 45.0f || angle >= 315 && angle <= 360)
             {
-                // up
+                // push to left
                 movement.x = Mathf.Sin(Mathf.PI - transform.localRotation.y * Mathf.Deg2Rad);
                 movement.z = Mathf.Cos(Mathf.PI - transform.localRotation.y * Mathf.Deg2Rad);
             }
             else if (angle >= 45  && angle < 135)
             {
-                // right
+                // push down
                 movement.x = -Mathf.Sin(Mathf.PI / 2 - transform.localEulerAngles.y * Mathf.Deg2Rad);
                 movement.z = -Mathf.Cos(Mathf.PI / 2 - transform.localEulerAngles.y * Mathf.Deg2Rad);
             }
             else if (angle >= 135 && angle < 225)
             {
-                // down
+                // push to right
                 movement.x = Mathf.Sin(0 - transform.localRotation.y * Mathf.Deg2Rad);
                 movement.z = Mathf.Cos(0 - transform.localRotation.y * Mathf.Deg2Rad);
             }
             else if (angle >= 225 && angle < 315)
             {
-                // left
+                // push up
                 movement.x = Mathf.Sin(Mathf.PI / 2 - transform.localRotation.y * Mathf.Deg2Rad);
                 movement.z = Mathf.Cos(Mathf.PI / 2 - transform.localRotation.y * Mathf.Deg2Rad);
             }

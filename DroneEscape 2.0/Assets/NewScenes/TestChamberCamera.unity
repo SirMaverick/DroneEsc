@@ -436,6 +436,7 @@ MonoBehaviour:
   maxClamp: 60
   sensitivity: 5
   smoothing: 2
+  selectionRange: 1.5
 --- !u!81 &187239837
 AudioListener:
   m_ObjectHideFlags: 0
@@ -710,6 +711,113 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46e7dbf5d62bee8408f2122ffdb1787c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &241072839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 241072844}
+  - component: {fileID: 241072843}
+  - component: {fileID: 241072842}
+  - component: {fileID: 241072841}
+  - component: {fileID: 241072840}
+  - component: {fileID: 241072845}
+  m_Layer: 0
+  m_Name: PushableCube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &241072840
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 241072839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &241072841
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 241072839}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &241072842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 241072839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &241072843
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 241072839}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &241072844
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 241072839}
+  m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: -9.679, y: 2.883, z: 5.845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &241072845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 241072839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6fc6ef0cb1b2374498810fd7160b71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &243088253
 Prefab:
   m_ObjectHideFlags: 0
@@ -819,6 +927,9 @@ MonoBehaviour:
   core: {fileID: 429924711}
   cameraObject: {fileID: 1799545794}
   coreCamera: {fileID: 1223526091}
+  objectPlacement: {fileID: 0}
+  maxDistance: 0
+  isThrown: 0
   force: 8
 --- !u!54 &386449105
 Rigidbody:
@@ -1075,6 +1186,7 @@ MonoBehaviour:
   cameraCore: {fileID: 1799545794}
   sent: 0
   flying: 0
+  pickedUp: 0
 --- !u!1 &440634277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1235,7 @@ MonoBehaviour:
   maxClamp: 60
   sensitivity: 5
   smoothing: 2
+  selectionRange: 1.5
 --- !u!81 &440634280
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1417,6 +1530,9 @@ MonoBehaviour:
   core: {fileID: 429924711}
   cameraObject: {fileID: 1799545794}
   coreCamera: {fileID: 1223526091}
+  objectPlacement: {fileID: 0}
+  maxDistance: 0
+  isThrown: 0
   force: 8
 --- !u!54 &711571265
 Rigidbody:
@@ -1588,6 +1704,7 @@ MonoBehaviour:
   maxClamp: 60
   sensitivity: 5
   smoothing: 2
+  selectionRange: 1.5
 --- !u!81 &753995639
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1908,6 +2025,9 @@ MonoBehaviour:
   core: {fileID: 429924711}
   cameraObject: {fileID: 1799545794}
   coreCamera: {fileID: 1223526091}
+  objectPlacement: {fileID: 0}
+  maxDistance: 0
+  isThrown: 0
   force: 8
 --- !u!136 &875303156
 CapsuleCollider:
@@ -2387,6 +2507,9 @@ MonoBehaviour:
   core: {fileID: 429924711}
   cameraObject: {fileID: 1799545794}
   coreCamera: {fileID: 1223526091}
+  objectPlacement: {fileID: 0}
+  maxDistance: 0
+  isThrown: 0
   force: 8
 --- !u!54 &1223663846
 Rigidbody:
@@ -2558,6 +2681,7 @@ MonoBehaviour:
   maxClamp: 60
   sensitivity: 5
   smoothing: 2
+  selectionRange: 1.5
 --- !u!81 &1236488616
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3020,6 +3144,9 @@ MonoBehaviour:
   core: {fileID: 429924711}
   cameraObject: {fileID: 1799545794}
   coreCamera: {fileID: 1223526091}
+  objectPlacement: {fileID: 0}
+  maxDistance: 0
+  isThrown: 0
   force: 8
 --- !u!54 &1506089180
 Rigidbody:
@@ -3191,6 +3318,7 @@ MonoBehaviour:
   maxClamp: 60
   sensitivity: 5
   smoothing: 2
+  selectionRange: 1.5
 --- !u!81 &1528526673
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3584,6 +3712,7 @@ MonoBehaviour:
   maxClamp: 60
   sensitivity: 5
   smoothing: 2
+  selectionRange: 1.5
 --- !u!81 &1773099297
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3993,6 +4122,9 @@ MonoBehaviour:
   core: {fileID: 429924711}
   cameraObject: {fileID: 1799545794}
   coreCamera: {fileID: 1223526091}
+  objectPlacement: {fileID: 0}
+  maxDistance: 0
+  isThrown: 0
   force: 8
 --- !u!54 &2032746105
 Rigidbody:
