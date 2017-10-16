@@ -35,12 +35,13 @@ public class PlayerMouseLook : MonoBehaviour {
             {
                 hitButton = true;
                 lastMaterialHit = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
-                EnableEmission(0);
+                //EnableEmission(0);
+                lastMaterialHit.EnableKeyword("_EMISSION");
                 //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     hit.collider.gameObject.GetComponent<CameraDisableButton>().ToggleEnableCamera();
-                    lastMaterialHit.DisableKeyword("_EMISSION");
+                    //lastMaterialHit.DisableKeyword("_EMISSION");
                     //StartCoroutine(EnableEmission(1));
                 }
 

@@ -102,7 +102,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1058202883371062}
   m_LocalRotation: {x: -0, y: 0.99816036, z: -0, w: 0.060628854}
-  m_LocalPosition: {x: -2.34, y: 3.54, z: -4.68}
+  m_LocalPosition: {x: -14.98, y: -119.76129, z: 178.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4905211590370090}
@@ -240,6 +240,9 @@ MonoBehaviour:
   core: {fileID: 0}
   cameraObject: {fileID: 0}
   coreCamera: {fileID: 0}
+  objectPlacement: {fileID: 1381229252271388}
+  maxDistance: 1
+  isThrown: 0
   force: 8
 --- !u!114 &114394288061766542
 MonoBehaviour:
@@ -256,6 +259,7 @@ MonoBehaviour:
   maxClamp: 60
   sensitivity: 5
   smoothing: 2
+  selectionRange: 2
 --- !u!114 &114640325348586168
 MonoBehaviour:
   m_ObjectHideFlags: 1

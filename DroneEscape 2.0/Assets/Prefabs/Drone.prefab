@@ -196,8 +196,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 0}
+  cameraObject: {fileID: 0}
   coreCamera: {fileID: 0}
-  force: 8
+  objectPlacement: {fileID: 0}
+  maxDistance: 0
+  isThrown: 0
+  force: 10
 --- !u!114 &114252546044686518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +231,7 @@ MonoBehaviour:
   maxClamp: 60
   sensitivity: 5
   smoothing: 2
+  selectionRange: 1.5
 --- !u!114 &114518818017942614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52b35098fe32a848b6f94fa8c3e8823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPlacement: {fileID: 0}
   minDist: 2
   moveSpeed: 2
 --- !u!124 &124902884275439698
