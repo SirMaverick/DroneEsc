@@ -35,6 +35,21 @@ class GuardFOV: MonoBehaviour
     [SerializeField]
     private Text caughtText;
 
+    [SerializeField]
+    private bool followTargetWhenSpotted = true;
+
+    [SerializeField]
+    private float speed = 10;
+
+    [SerializeField]
+    private Transform[] targets;
+    private int nextTarget;
+
+    private bool done = false;
+    private float nextTime;
+    [SerializeField]
+    private float waitTime = 1;
+
     private void Start()
     {
         
@@ -118,6 +133,47 @@ class GuardFOV: MonoBehaviour
                 GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
             }
             spotted = false;
+        }
+
+
+        // spotted follow target
+        if ( spotted && followTargetWhenSpotted)
+        {
+            // direction based on the 
+            Vector3 direction = player.transform.position - transform.root.position;
+            transform.root.rotation = Quaternion.Slerp(transform.root.rotation, Quaternion.LookRotation(direction), Time.deltaTime * speed);
+        }
+        else
+        {
+            if (done)
+            {
+                if (Time.time >= nextTime)
+                {
+                    nextTarget++;
+                    if (nextTarget >= targets.Length)
+                    {
+                        nextTarget = 0;
+                    }
+                    done = false;
+                }
+                else { 
+                    return;
+                }
+                
+            }
+            Vector3 direction = targets[nextTarget].position - transform.root.position;
+            Quaternion newRotation = Quaternion.Slerp(transform.root.rotation, Quaternion.LookRotation(direction), Time.deltaTime * speed);
+            if (newRotation != transform.root.rotation)
+            {
+                transform.root.rotation = newRotation;
+            }
+            else
+            {
+                done = true;
+                nextTime = Time.time + waitTime;
+               
+            }
+
         }
     }
 
