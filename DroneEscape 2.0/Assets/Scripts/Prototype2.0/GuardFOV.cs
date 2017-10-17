@@ -39,7 +39,7 @@ class GuardFOV: MonoBehaviour
     private bool followTargetWhenSpotted = true;
 
     [SerializeField]
-    private float speed = 10;
+    private float speed = 0.25f;
 
     [SerializeField]
     private Transform[] targets;
