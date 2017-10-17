@@ -13,6 +13,7 @@ public class PushBlock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKey(KeyCode.E)) 
         transform.position += movement * Time.deltaTime;
     }
 
