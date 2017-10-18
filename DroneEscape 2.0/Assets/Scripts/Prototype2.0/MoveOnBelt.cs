@@ -24,7 +24,7 @@ public class MoveOnBelt : MonoBehaviour {
     void Update() {
         if (move && currentPart <= beltParts.Length - 2 && !flying && !pickedUp) {
             float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, beltParts[currentPart + 1].transform.position, step);
+            transform.position = Vector3.MoveTowards(transform.position, beltParts[currentPart + 1].transform.position + new Vector3 (0, beltParts[currentPart + 1].transform.localScale.y / 2 + gameObject.transform.localScale.y / 2, 0), step);
             cameraCore.transform.position = transform.position;
         }
     }
