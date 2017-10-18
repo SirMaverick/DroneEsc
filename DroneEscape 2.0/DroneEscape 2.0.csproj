@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -53,10 +55,8 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-<<<<<<< HEAD
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
 =======
-      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
 >>>>>>> 90fe2aaf8435f897b624e702cf4789a8e861f746
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
@@ -205,14 +205,12 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Timeline">
-<<<<<<< HEAD
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
 =======
-      <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>
 >>>>>>> 90fe2aaf8435f897b624e702cf4789a8e861f746
     </Reference>
     <Reference Include="UnityEngine.UIAutomation">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GoogleAudioSpatializer">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
@@ -239,7 +237,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Effects\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
+    <Compile Include="Assets\Button.cs" />
     <Compile Include="Assets\Effects\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\Effects\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
     <Compile Include="Assets\Effects\PostProcessing\Runtime\Attributes\TrackballGroupAttribute.cs" />
@@ -298,9 +296,14 @@
     <Compile Include="Assets\Scripts\Blockout\SacrificeEndingSequence.cs" />
     <Compile Include="Assets\Scripts\CameraCollision.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\ElevatorButton.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\AbstractPlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\CameraPlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\DronePlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\ElevatorPlayerController.cs" />
     <Compile Include="Assets\Scripts\HackTimingLight.cs" />
+    <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\LaunchArcMesh.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\PlayerControllerSupervisor.cs" />
     <Compile Include="Assets\Scripts\Prototype2.0\BeltInfo.cs" />
     <Compile Include="Assets\Scripts\Prototype2.0\CameraButton.cs" />
     <Compile Include="Assets\Scripts\Prototype2.0\CameraDisableButton.cs" />
