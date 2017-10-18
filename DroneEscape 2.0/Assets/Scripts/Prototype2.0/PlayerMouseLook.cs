@@ -29,27 +29,32 @@ public class PlayerMouseLook : MonoBehaviour {
         RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-        if (Physics.Raycast(transform.position, fwd, out hit, selectionRange))
-        {
-            if (hit.collider.tag == "Button")
-            {
+        if (Physics.Raycast(transform.position, fwd, out hit, selectionRange)) {
+
+            if (hit.collider.tag == "Button") {
                 hitButton = true;
                 lastMaterialHit = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
                 //EnableEmission(0);
                 lastMaterialHit.EnableKeyword("_EMISSION");
                 //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
-                if (Input.GetKeyDown(KeyCode.E))
-                {
+                if (Input.GetKeyDown(KeyCode.E)) {
                     hit.collider.gameObject.GetComponent<CameraDisableButton>().ToggleEnableCamera();
                     //lastMaterialHit.DisableKeyword("_EMISSION");
                     //StartCoroutine(EnableEmission(1));
                 }
 
-            }
-            else
-            {
-                if (hitButton)
-                {
+            } else if (hit.collider.tag == "Elevator") {
+                Debug.Log("PlayerMouseLook - Elevator");
+                if (Input.GetKeyDown(KeyCode.U)) {
+                    Debug.Log("Press U");
+                    hit.transform.GetComponent<ElevatorButton>().MoveElevatorUp();
+                } else if (Input.GetKeyDown(KeyCode.O)) {
+                    hit.transform.GetComponent<ElevatorButton>().MoveElevatorDown();
+                } else if (Input.GetKeyUp(KeyCode.U) || Input.GetKeyUp(KeyCode.O)) {
+                    hit.transform.GetComponent<ElevatorButton>().StopElevatorMove();
+                }
+            } else {
+                if (hitButton) {
                     lastMaterialHit.DisableKeyword("_EMISSION");
                     hitButton = false;
                 }
