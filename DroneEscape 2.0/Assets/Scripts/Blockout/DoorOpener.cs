@@ -12,20 +12,14 @@ public class DoorOpener : MonoBehaviour {
     private Animator _animatorR2;
     private Animator _animatorL3;
     private Animator _animatorR3;
-    public GameObject DoorL;
-    public GameObject DoorR;
-    public GameObject DoorL1;
-    public GameObject DoorR1;
-    public GameObject DoorL2;
-    public GameObject DoorR2;
-    public GameObject DoorL3;
-    public GameObject DoorR3;
-    public GameObject DoorL4;
-    public GameObject DoorR4;
-    public GameObject DoorL5;
-    public GameObject DoorR5;
-    public GameObject DoorL6;
-    public GameObject DoorR6;
+    [SerializeField] private GameObject DoorL;
+    [SerializeField] private GameObject DoorR;
+    [SerializeField] private GameObject DoorL1;
+    [SerializeField] private GameObject DoorR1;
+    [SerializeField] private GameObject DoorL2;
+    [SerializeField] private GameObject DoorR2;
+    [SerializeField] private GameObject DoorL3;
+    [SerializeField] private GameObject DoorR3;
 
     // Use this for initialization
     void Start () {
@@ -41,7 +35,7 @@ public class DoorOpener : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Drone")
         {
             _animatorL.SetBool("Open", true);
             _animatorR.SetBool("Open", true);
@@ -53,9 +47,4 @@ public class DoorOpener : MonoBehaviour {
             _animatorR3.SetBool("Open", true);
         }    
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }
