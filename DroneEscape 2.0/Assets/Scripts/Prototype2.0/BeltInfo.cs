@@ -17,9 +17,7 @@ public class BeltInfo : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Object" && !other.GetComponent<MoveOnBelt>().flying) {
-            Debug.Log("ollah jeroen");
             if (!other.GetComponent<MoveOnBelt>().sent) {
-                Debug.Log("Jeroen, Ollah");
                 other.GetComponent<MoveOnBelt>().currentPart = currentBeltPart;
                 other.GetComponent<MoveOnBelt>().sent = true;
             }
