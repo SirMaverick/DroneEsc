@@ -22,9 +22,10 @@ public class PlayerMouseLook : MonoBehaviour {
 	void Start () {
         character = transform.parent.gameObject;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    private Button button;
+    // Update is called once per frame
+    void Update () {
         Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -34,23 +35,15 @@ public class PlayerMouseLook : MonoBehaviour {
             if (hit.collider.tag == "Button")
             {
                 hitButton = true;
-                lastMaterialHit = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
-                //EnableEmission(0);
-                lastMaterialHit.EnableKeyword("_EMISSION");
-                //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    hit.collider.gameObject.GetComponent<CameraDisableButton>().ToggleEnableCamera();
-                    //lastMaterialHit.DisableKeyword("_EMISSION");
-                    //StartCoroutine(EnableEmission(1));
-                }
+                button = hit.collider.gameObject.GetComponent<Button>();
+                button.LookingAt();
 
             }
             else
             {
                 if (hitButton)
                 {
-                    lastMaterialHit.DisableKeyword("_EMISSION");
+                    button.StopLookingAt();
                     hitButton = false;
                 }
 
@@ -60,7 +53,7 @@ public class PlayerMouseLook : MonoBehaviour {
         {
             if (hitButton)
             {
-                lastMaterialHit.DisableKeyword("_EMISSION");
+                button.StopLookingAt();
                 hitButton = false;
             }
 

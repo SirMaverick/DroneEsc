@@ -1,60 +1,35 @@
 ﻿using UnityEngine;
 
 
-class CameraButton : MonoBehaviour
+class CameraButton : Button
 {
-    private bool inRange = false;
-    private bool swapped = false;
-    private PlayerCameraController playerCameraController;
-    [SerializeField]
-    private Camera cam;
+    private PlayerControllerSupervisor playerControllerSupervisor;
 
-    private string tag = "Drone";
+    [SerializeField]
+    private CameraPlayerController playerController = new CameraPlayerController();
+
+    
+   // private Camera cam;
 
 
     private void Start()
     {
-        playerCameraController = FindObjectOfType<PlayerCameraController>();
+        playerControllerSupervisor = FindObjectOfType<PlayerControllerSupervisor>();
     }
 
-    private void Update()
+    public override void Toggle()
     {
-        if (inRange)
+        if (!enabled)
         {
-            if (!swapped)
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    playerCameraController.SwapCamera(cam);
-                    swapped = true;
-                    Debug.Log("Switching camera");
-                    return;
-                }
-            }
+            playerControllerSupervisor.SwitchPlayerController(playerController);
+            enabled = true;
         }
-        if (swapped)
+        else
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                playerCameraController.SwapCameraToPrevious();
-                swapped = false;
-            }
+            playerControllerSupervisor.SwitchPlayerControllerPrevious();
+            enabled = false;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == tag)
-        {
-            inRange = true;
-        }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == tag)
-        { 
-            inRange = false;
-        }
-    }
 }
