@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraDisableButton : MonoBehaviour {
+public class CameraDisableButton : Button {
 
-    private bool inRange = false;
-    private bool disabled = false;
     [SerializeField]
     private GuardFOV cameraGuard;
 
@@ -15,17 +13,18 @@ public class CameraDisableButton : MonoBehaviour {
     }
 
 
-    public void ToggleEnableCamera()
+
+    public override void Toggle()
     {
-        if (!disabled)
+        if (!enabled)
         {
             cameraGuard.DisableGuard();
-            disabled = true;
+            enabled = true;
         }
         else
         {
             cameraGuard.EnableGuard();
-            disabled = false;
+            enabled = false;
         }
     }
 
