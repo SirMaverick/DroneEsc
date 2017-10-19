@@ -11,7 +11,6 @@ public class DroneConveyorMove : MonoBehaviour {
     // Use this for initialization
     void Start () {
         AtTarget = false;
-		
 	}
 	
 	// Update is called once per frame
