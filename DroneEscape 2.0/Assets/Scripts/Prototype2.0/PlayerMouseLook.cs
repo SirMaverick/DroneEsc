@@ -82,9 +82,4 @@ public class PlayerMouseLook : MonoBehaviour {
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 		
 	}
-
-    private IEnumerator EnableEmission(int seconds) {
-        yield return new WaitForSeconds(seconds);
-        lastMaterialHit.EnableKeyword("_EMISSION");
-    }
 }

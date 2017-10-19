@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-abstract class Button : MonoBehaviour
+public abstract class Button : MonoBehaviour
 {
     private Material lastMaterialHit;
     [SerializeField]

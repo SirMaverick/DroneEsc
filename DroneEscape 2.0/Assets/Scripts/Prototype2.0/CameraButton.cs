@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-class CameraButton : Button
+public class CameraButton : Button
 {
     private PlayerControllerSupervisor playerControllerSupervisor;
 
