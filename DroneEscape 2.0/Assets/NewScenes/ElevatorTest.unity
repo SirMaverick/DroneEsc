@@ -77,15 +77,17 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -107,6 +109,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &59897953
 Prefab:
@@ -204,6 +208,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114260267111412100, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: core
+      value: 
+      objectReference: {fileID: 59897954}
+    - target: {fileID: 114260267111412100, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: coreCamera
+      value: 
+      objectReference: {fileID: 1185677554}
+    - target: {fileID: 114260267111412100, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 1358585408}
+    - target: {fileID: 114674618397644506, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: coreCamera
+      value: 
+      objectReference: {fileID: 1358585408}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e586887e9cdb5014ebc40c80d994b560, type: 2}
   m_IsPrefabParent: 0
@@ -250,6 +274,26 @@ Prefab:
       propertyPath: m_Name
       value: Empty Shell (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114260267111412100, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: core
+      value: 
+      objectReference: {fileID: 59897954}
+    - target: {fileID: 114260267111412100, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: coreCamera
+      value: 
+      objectReference: {fileID: 1185677554}
+    - target: {fileID: 114260267111412100, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 1358585408}
+    - target: {fileID: 114674618397644506, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: coreCamera
+      value: 
+      objectReference: {fileID: 1358585408}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e586887e9cdb5014ebc40c80d994b560, type: 2}
   m_IsPrefabParent: 0
@@ -295,6 +339,16 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 407b5a13a6258c14491df8146cd4c6f8, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1185677554 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1344489925301168, guid: 1e23bf7a5d6cbb94c836e171064262cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1849285831}
+--- !u!1 &1358585408 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1969677759228328, guid: 1e23bf7a5d6cbb94c836e171064262cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1849285831}
 --- !u!1 &1474724983
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +498,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -459,6 +514,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
