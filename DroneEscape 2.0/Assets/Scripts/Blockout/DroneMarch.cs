@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DroneConveyorMove : MonoBehaviour {
+public class DroneMarch : MonoBehaviour {
 
     public Transform TargetA;
     public Transform TargetB;

@@ -19,8 +19,8 @@ public class DroneSpawner : MonoBehaviour {
     {
         yield return new WaitForSeconds(TimeBetweenSpawns);
         GameObject go = Instantiate(Drone, SpawnPoint.position, SpawnPoint.rotation);
-        go.GetComponent<DroneConveyorMove>().TargetA = TargetA;
-        go.GetComponent<DroneConveyorMove>().TargetB = TargetB;
+        go.GetComponent<DroneMarch>().TargetA = TargetA;
+        go.GetComponent<DroneMarch>().TargetB = TargetB;
         StartCoroutine(Spawn());
     }
 }

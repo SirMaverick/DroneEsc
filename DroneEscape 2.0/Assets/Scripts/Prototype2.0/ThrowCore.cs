@@ -44,6 +44,8 @@ public class ThrowCore : MonoBehaviour {
             cameraObject.GetComponent<CoreCamera>().core = core.gameObject;
             core.transform.parent = null;
             TurnOnCore();
+            CoreFlying();
+            StartCoroutine(CheckGrounded());
 
             
         }
