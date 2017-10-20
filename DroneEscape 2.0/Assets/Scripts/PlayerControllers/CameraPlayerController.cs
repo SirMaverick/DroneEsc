@@ -8,11 +8,13 @@ class CameraPlayerController : AbstractPlayerController
     {
         
         camera.enabled = true;
+        movementController.enabled = true;
     }
 
     public override void DisableController()
     {
         
         camera.enabled = false;
+        movementController.enabled = false;
     }
 }

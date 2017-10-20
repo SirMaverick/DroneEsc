@@ -14,10 +14,13 @@ public class EmptyDrone : MonoBehaviour {
     public float minDist;
     [SerializeField] float moveSpeed;
 
-	// Use this for initialization
-	void Start () {
+    PlayerControllerSupervisor pcs;
+
+    // Use this for initialization
+    void Start () {
         ownCamera = transform.Find("DroneCamera").gameObject;
-	}
+        pcs = FindObjectOfType<PlayerControllerSupervisor>();
+    }
 
     // Update is called once per frame
     void Update() {
@@ -61,12 +64,14 @@ public class EmptyDrone : MonoBehaviour {
 
     void TurnOnDrone() {
         GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<PlayerMovement>().enabled = true;
+        //GetComponent<PlayerMovement>().enabled = true;
+
+        pcs.SwitchPlayerController(GetComponent<DronePlayerController>());
         GetComponent<ThrowCore>().enabled = true;
         GetComponent<ThrowCore>().isThrown = false;
         ownCamera.GetComponent<AudioListener>().enabled = true;
         ownCamera.GetComponent<Camera>().enabled = true;
-        ownCamera.GetComponent<PlayerMouseLook>().enabled = true;
+        //ownCamera.GetComponent<PlayerMouseLook>().enabled = true;
 
         enabled = false;
 
