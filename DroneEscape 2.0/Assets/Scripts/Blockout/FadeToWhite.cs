@@ -8,35 +8,48 @@ using UnityEngine.SceneManagement;
 
 public class FadeToWhite : MonoBehaviour {
 
+    public static FadeToWhite _instance;
+    public static FadeToWhite Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindObjectOfType<FadeToWhite>();
+
+                if (_instance == null)
+                {
+                    GameObject container = new GameObject("Fader");
+                    _instance = container.AddComponent<FadeToWhite>();
+                }
+            }
+            return _instance;
+        }
+    }
+
     [SerializeField] private Image whiteImage;
     [SerializeField] private Animator animImage;
     [SerializeField] private Animator animText;
     [SerializeField] private float timeTilReset;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Drone")
         {
-            StartCoroutine(Fading());   
+            CallFading();
         }
+    }
+
+    public void CallFading()
+    {
+        StartCoroutine(Fading());
     }
 
     IEnumerator Fading()
     {
         animImage.SetBool("Fade", true);
         yield return new WaitUntil(() => whiteImage.color.a == 1);
-        animText.SetBool("FadeText", true);
         yield return new WaitForSeconds(timeTilReset);
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene(0);
     }
 }
