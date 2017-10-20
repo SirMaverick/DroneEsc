@@ -6,9 +6,9 @@ public class MagnetMove : MonoBehaviour {
 
     public bool turnedOn;
     [SerializeField] private float speed = 2.5f;
-    bool turnedOff;
+    public bool turnedOff;
     bool on;
-    List<GameObject> listOfDrones = new List<GameObject>();
+    public List<GameObject> listOfDrones = new List<GameObject>();
 
 	// Use this for initialization
 	void Start () {
@@ -27,9 +27,16 @@ public class MagnetMove : MonoBehaviour {
 
     }
 
+    void ReleaseDrone(GameObject drone) {
+        drone.transform.parent = null;
+        drone.GetComponent<Rigidbody>().useGravity = true;
+        listOfDrones.Remove(drone);
+    }
+
     void ReleaseDrones() {
         turnedOff = false;
-        foreach (Transform child in transform) {
+        on = false;
+        foreach (GameObject child in listOfDrones) {
             child.transform.parent = null;
             child.GetComponent<Rigidbody>().useGravity = true;
         }
@@ -62,9 +69,6 @@ public class MagnetMove : MonoBehaviour {
     }
 
     private void OnTriggerExit(Collider other) {
-        if (on) {
-            ReleaseDrones();
-        }
-        
+            ReleaseDrone(other.gameObject);     
     }
 }
