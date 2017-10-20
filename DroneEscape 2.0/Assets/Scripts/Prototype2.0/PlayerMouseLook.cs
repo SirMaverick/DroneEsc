@@ -44,7 +44,6 @@ public class PlayerMouseLook : MonoBehaviour {
                 }
 
             } else if (hit.collider.tag == "Elevator") {
-                Debug.Log("PlayerMouseLook - Elevator");
                 if (Input.GetKeyDown(KeyCode.U)) {
                     Debug.Log("Press U");
                     hit.transform.GetComponent<ElevatorButton>().MoveElevatorUp();
@@ -52,6 +51,14 @@ public class PlayerMouseLook : MonoBehaviour {
                     hit.transform.GetComponent<ElevatorButton>().MoveElevatorDown();
                 } else if (Input.GetKeyUp(KeyCode.U) || Input.GetKeyUp(KeyCode.O)) {
                     hit.transform.GetComponent<ElevatorButton>().StopElevatorMove();
+                }
+            } else if (hit.collider.tag == "Magnet") {
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    hit.transform.GetComponent<MagnetButton>().TurnMagnetOn();
+                } else if (Input.GetKeyUp(KeyCode.R)) {
+                    hit.transform.GetComponent<MagnetButton>().TurnMagnetOff();
+                } else if (Input.GetKeyUp(KeyCode.Space)) {
+                    hit.transform.GetComponent<MagnetButton>().coreInside = true;
                 }
             } else {
                 if (hitButton) {
