@@ -6,7 +6,7 @@ public class CameraButton : Button
     private PlayerControllerSupervisor playerControllerSupervisor;
 
     [SerializeField]
-    private CameraPlayerController playerController = new CameraPlayerController();
+    private CameraPlayerController playerController;
 
     
    // private Camera cam;

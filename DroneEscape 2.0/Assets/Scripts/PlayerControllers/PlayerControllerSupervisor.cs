@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-class PlayerControllerSupervisor : MonoBehaviour
+public class PlayerControllerSupervisor : MonoBehaviour
 {
+    [SerializeField]
     private AbstractPlayerController currentPlayerController;
     private AbstractPlayerController previousPlayerController;
 
@@ -8,6 +9,7 @@ class PlayerControllerSupervisor : MonoBehaviour
     {
         apc.EnableController();
         currentPlayerController.DisableController();
+        previousPlayerController = currentPlayerController;
         currentPlayerController = apc;
     }
 

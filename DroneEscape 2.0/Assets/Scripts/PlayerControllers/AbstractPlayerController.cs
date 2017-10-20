@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 [System.Serializable]
-abstract class AbstractPlayerController
+public abstract class AbstractPlayerController : MonoBehaviour
 {
     [SerializeField]
     protected MeshCollider meshCollider;
@@ -12,14 +12,14 @@ abstract class AbstractPlayerController
 
     public virtual void EnableController()
     {
-        meshCollider.enabled = true;
+       // meshCollider.enabled = true;
         camera.enabled = true;
         movementController.enabled = true;
     }
 
     public virtual void DisableController()
     {
-        meshCollider.enabled = false;
+       // meshCollider.enabled = false;
         camera.enabled = false;
         movementController.enabled = false;
     }
