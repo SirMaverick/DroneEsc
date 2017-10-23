@@ -57,94 +57,11 @@ class GuardFOV: MonoBehaviour
 
     private void Update()
     {
-        if (disabled)
-        {
-            return;
-        }
-        //http://answers.unity3d.com/questions/720447/if-game-object-is-in-cameras-field-of-view.html
-        Vector3 screenPoint = guardCamera.WorldToViewportPoint(player.transform.position);
-        bool inFOV = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
 
-        if (inFOV)
-        {
-            Vector3 direction = player.transform.position - transform.position;
-            RaycastHit rayCastHit;
-            if (Physics.Raycast(transform.position, direction, out rayCastHit, maxDistance, layerMask.value))
-            {
-                Debug.Log(rayCastHit.collider.gameObject.name);
-                if (rayCastHit.collider.gameObject == player)
-                {
-                    Debug.DrawRay(transform.position, direction, new Color(0, 255, 0));
 
-                    if (!spotted)
-                    {
-                        GetComponentInParent<MeshRenderer>().material.color = new Color(255, 0, 0);
-                        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
-                        time = Time.time;
-                    }
-                    /*ParticleSystem sm = GetComponent<ParticleSystem>();
-                    //ParticleSystem.MinMaxGradient colorGradient = sm.main.startColor;
-                    ParticleSystem.MainModule mainPS = sm.main;
-                    //mainPS.startColor = new ParticleSystem.MinMaxGradient(new Color(detectionLevel, 0, 0));
-                    mainPS.startColor = new Color(detectionLevel, 0, 0);*/
                     if (time + minDetectionTime < Time.time)
-                    {
-                        // you are caught
-                        Debug.Log("spotted");
-                        // ui you got caught
-                        caughtText.enabled = true;
-                        //@TODO fix bad habbit but just for testing
-                        StartCoroutine(RestartLevel());
 
-                    }
-                    detectionLevel++;
-
-                    spotted = true;
-                }
-                else
-                {
-                    // not spotted
-                    if (spotted)
-                    {
-                        GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
-                        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
-                    }
-                    detectionLevel = 0;
-                    time = 0;
-                    spotted = false;
-                }
-
-            }
-            else
-            {
-                if (spotted)
-                {
-                    GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
-                    GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
-                }
-                spotted = false;
-            }
-        }
-        else
-        {
-            if (spotted)
-            {
-                GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
-                GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
-            }
-            spotted = false;
-        }
-
-
-        // spotted follow target
         if (spotted && followTargetWhenSpotted)
-        {
-            // direction based on the 
-            Vector3 direction = player.transform.position - transform.root.position;
-            transform.root.rotation = Quaternion.Slerp(transform.root.rotation, Quaternion.LookRotation(direction), Time.deltaTime * speed);
-        }
-        else
-        {
             if (done)
             {
                 if (Time.time >= nextTime)
@@ -153,7 +70,7 @@ class GuardFOV: MonoBehaviour
                     if (nextTarget >= targets.Length)
                     {
                         Debug.Log("0");
-                        nextTarget = 0;
+                    nextTarget = 0;
                     }
                     done = false;
                     Debug.Log("Time");
@@ -185,7 +102,7 @@ class GuardFOV: MonoBehaviour
                 nextTime = Time.time + waitTime;
 
             }
-        }
+        
 
         
     }

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -138,6 +140,11 @@
     <Compile Include="Assets\Scripts\CameraCollision.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\ElevatorButton.cs" />
+    <Compile Include="Assets\Scripts\MovementControllers\MovementController.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\AbstractPlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\CameraPlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\DronePlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\ElevatorPlayerController.cs" />
     <Compile Include="Assets\Scripts\HackTimingLight.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\LaunchArcMesh.cs" />
