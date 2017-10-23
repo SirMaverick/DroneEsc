@@ -36,7 +36,6 @@ public class PlayerMouseLook : MonoBehaviour {
                 hitButton = true;
                 button = hit.collider.gameObject.GetComponent<Button>();
                 button.LookingAt();
-                if (Input.GetKeyDown(KeyCode.E)) {
 
             } else if (hit.collider.tag == "Elevator") {
                 if (Input.GetKeyDown(KeyCode.U)) {
