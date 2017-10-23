@@ -4244,6 +4244,21 @@ Prefab:
       propertyPath: targets.Array.data[1]
       value: 
       objectReference: {fileID: 1676326203}
+    - target: {fileID: 114457602228062578, guid: 4f2562eceaf37d74da75ee2af4c56e49,
+        type: 2}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 33951156224867062, guid: 4f2562eceaf37d74da75ee2af4c56e49,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 3681c421c012a8a4d97b4fe2262f98f1, type: 3}
+    - target: {fileID: 114835970263953216, guid: 4f2562eceaf37d74da75ee2af4c56e49,
+        type: 2}
+      propertyPath: guardFOV
+      value: 
+      objectReference: {fileID: 1196134032}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f2562eceaf37d74da75ee2af4c56e49, type: 2}
   m_IsPrefabParent: 0
@@ -4889,13 +4904,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1058202883371062, guid: e586887e9cdb5014ebc40c80d994b560,
     type: 2}
   m_PrefabInternal: {fileID: 547195573}
+--- !u!23 &1528748222 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23345726851253608, guid: e586887e9cdb5014ebc40c80d994b560,
+    type: 2}
+  m_PrefabInternal: {fileID: 547195573}
 --- !u!114 &1528748227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1528748217}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f578016573128b142871e304531a6a24, type: 3}
   m_Name: 
@@ -4920,7 +4940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0504f4eaf80634cbf82995fcbcd4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshCollider: {fileID: 0}
+  meshRenderer: {fileID: 1528748222}
   camera: {fileID: 500898991}
   movementController: {fileID: 1528748227}
 --- !u!1 &1561507561
