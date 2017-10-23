@@ -21,7 +21,7 @@ public class MagnetMove : MonoBehaviour {
             ReleaseDrones();
         }
         foreach (GameObject drone in listOfDrones) {
-            if(drone.transform.position.y < transform.position.y - transform.localScale.y / 2 - 0.7f)
+            if(drone.transform.position.y < transform.position.y - 1.2f)
             drone.transform.Translate(0, Time.deltaTime * speed, 0, Space.World);
         }
 
