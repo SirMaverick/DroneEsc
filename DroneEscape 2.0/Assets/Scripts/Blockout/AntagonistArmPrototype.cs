@@ -7,16 +7,17 @@ public class AntagonistArmPrototype : MonoBehaviour {
     [SerializeField] private GameObject antagonistArm;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private GameObject playerGameObject;
-    [SerializeField] private Camera animationCamera;
+    [SerializeField] private GameObject animationCamera;
     [SerializeField] private float timeBeforeGrab;
     [SerializeField] private float yPositionArm;
+    [SerializeField] private bool updateRotation;
 
 
     // Use this for initialization
     void Start ()
     {
-		
-	}
+        updateRotation = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,13 +29,14 @@ public class AntagonistArmPrototype : MonoBehaviour {
 
     IEnumerator ArmGrabSequence()
     {
-        yield return new WaitForSeconds(timeBeforeGrab);
-        Instantiate(antagonistArm, new Vector3(playerTransform.transform.position.x, yPositionArm, playerTransform.transform.position.z), Quaternion.identity);
         playerGameObject.GetComponent<PlayerMovement>().enabled = false;
-        Instantiate(animationCamera, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.position, Quaternion.identity);
+        GameObject go = Instantiate(animationCamera, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.position, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.rotation);
         playerGameObject.SetActive(false);
+        Instantiate(antagonistArm, new Vector3(go.transform.position.x, yPositionArm, go.transform.position.z), Quaternion.identity);
+        yield return new WaitForSeconds(timeBeforeGrab);
+        FadeToWhite.Instance.CallFading();
 
-        
+
         //Deactivate shell, activate seperate camera, activate arm animation
     }
 }

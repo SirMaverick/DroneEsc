@@ -17,8 +17,9 @@ public class MagnetButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(coreInside) {
-            Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            magnet.transform.position += new Vector3(direction.x, 0, direction.y) * Time.deltaTime * speed;
+            Vector2 direction = new Vector2(Input.GetAxisRaw("HorizontalArrow"), Input.GetAxisRaw("VerticalArrow"));
+            //magnet.transform.position += new Vector3(direction.x, 0, direction.y) * Time.deltaTime * speed;
+            magnet.transform.Translate(direction.x * Time.deltaTime * speed, 0, direction.y * Time.deltaTime * speed);
         }
 	}
 
