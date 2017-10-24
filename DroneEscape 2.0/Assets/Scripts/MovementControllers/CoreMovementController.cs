@@ -18,6 +18,10 @@ public class CoreMovementController : MovementController
     private Material lastMaterialHit;
     private bool hitEmptyDrone;
 
+    private bool isThrown;
+    private bool nearBelt;
+   
+
     protected override void Start()
     {
         base.Start();
@@ -89,6 +93,9 @@ public class CoreMovementController : MovementController
     {
         
     }
+
+
+
 
 }
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 class DroneMovementController : MovementController
 {
+
     [SerializeField] private float speed;
     [SerializeField] private GameObject coreCamera;
     private GameObject ownCamera;
@@ -24,6 +25,12 @@ class DroneMovementController : MovementController
     private bool hitButton = false;
 
     private Button button;
+
+    [SerializeField]
+    private CorePlayerController corePlayerController;
+
+    [SerializeField]
+    private DronePlayerController dronePlayerController;
 
 
     // Use this for initialization
@@ -109,9 +116,14 @@ class DroneMovementController : MovementController
 
     public override void RightClick(bool key)
     {
+        if (key)
+        {
+            dronePlayerController.Throw();
+            playerControllerSupervisor.SwitchPlayerController(corePlayerController);
+        }
+
         if (throwCore)
         {
-            coreCamera.GetComponent<CoreCamera>().SetCamera();
             UpdateGuards();
             TurnDroneOff();
             throwCore = false;

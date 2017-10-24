@@ -61,7 +61,7 @@ public abstract class MovementController : MonoBehaviour
 
         Use(Input.GetKeyDown(KeyCode.E));
 
-        RightClick(Input.GetMouseButtonDown(1));
+        RightClick(Input.GetMouseButtonUp(1));
     }
 }
 
