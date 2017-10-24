@@ -64,14 +64,11 @@ public class EmptyDrone : MonoBehaviour {
 
     void TurnOnDrone() {
         GetComponent<MeshRenderer>().enabled = false;
-        //GetComponent<PlayerMovement>().enabled = true;
-
+        
         pcs.SwitchPlayerController(GetComponent<DronePlayerController>());
-        GetComponent<ThrowCore>().enabled = true;
-        GetComponent<ThrowCore>().isThrown = false;
         ownCamera.GetComponent<AudioListener>().enabled = true;
         ownCamera.GetComponent<Camera>().enabled = true;
-        //ownCamera.GetComponent<PlayerMouseLook>().enabled = true;
+       
 
         enabled = false;
 

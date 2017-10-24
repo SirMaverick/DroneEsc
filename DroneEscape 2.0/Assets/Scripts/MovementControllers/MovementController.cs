@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 public abstract class MovementController : MonoBehaviour
 {
-    [SerializeField]
-    protected GameObject gameObject;
+    /*[SerializeField]
+    protected GameObject gameObject;*/
     protected PlayerControllerSupervisor playerControllerSupervisor;
 
-    protected void Start()
+    protected virtual void Start()
     {
         playerControllerSupervisor = FindObjectOfType<PlayerControllerSupervisor>();
     }
@@ -50,6 +50,8 @@ public abstract class MovementController : MonoBehaviour
 
     public abstract void Use(bool key);
 
+    public virtual void RightClick(bool key) { }
+
     private void Update()
     {
         Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
@@ -58,6 +60,8 @@ public abstract class MovementController : MonoBehaviour
         Vertical(Input.GetAxis("Vertical"));
 
         Use(Input.GetKeyDown(KeyCode.E));
+
+        RightClick(Input.GetMouseButtonDown(1));
     }
 }
 

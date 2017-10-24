@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CoreMouseMovement : MonoBehaviour {
+public class CoreMovementController : MovementController
+{
 
     private Vector2 mouseLook;
     private Vector2 smoothV;
@@ -19,16 +18,27 @@ public class CoreMouseMovement : MonoBehaviour {
     private Material lastMaterialHit;
     private bool hitEmptyDrone;
 
-    // Use this for initialization
-    void Start() {
+    protected override void Start()
+    {
+        base.Start();
         Cursor.lockState = CursorLockMode.Locked;
-        character = transform.parent.gameObject;
+        character = transform.gameObject;
+
     }
 
-    // Update is called once per frame
-    void Update() {
-        Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+    // the core cannot move on its own
+    public override void Horizontal(float direction)
+    {
 
+    }
+
+    public override void Vertical(float direction)
+    {
+
+    }
+
+    public override void Look(Vector2 md)
+    {
         md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
         smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
@@ -36,11 +46,11 @@ public class CoreMouseMovement : MonoBehaviour {
 
         mouseLook.y = Mathf.Clamp(mouseLook.y, minClamp, maxClamp);
 
-        transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+        transform.GetChild(0).transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        if (Physics.Raycast(transform.position, fwd, out hit, 100.0f))
+        Vector3 fwd = transform.GetChild(0).transform.TransformDirection(Vector3.forward);
+        if (Physics.Raycast(transform.GetChild(0).transform.position, fwd, out hit, 100.0f))
         {
             if (hit.collider.tag == "Drone")
             {
@@ -50,13 +60,14 @@ public class CoreMouseMovement : MonoBehaviour {
                 //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
                 if (Input.GetMouseButtonDown(0))
                 {
-                    hit.collider.gameObject.GetComponent<EmptyDrone>().WalkToPlayer(gameObject.transform.GetComponentInChildren<Transform>());
+                    hit.collider.gameObject.GetComponent<EmptyDrone>().WalkToPlayer(transform.GetChild(0).transform);
                 }
-                
+
             }
             else
             {
-                if (hitEmptyDrone) {
+                if (hitEmptyDrone)
+                {
                     lastMaterialHit.DisableKeyword("_EMISSION");
                     hitEmptyDrone = false;
                 }
@@ -72,7 +83,12 @@ public class CoreMouseMovement : MonoBehaviour {
             }
 
         }
-
-
     }
+
+    public override void Use(bool key)
+    {
+        
+    }
+
 }
+

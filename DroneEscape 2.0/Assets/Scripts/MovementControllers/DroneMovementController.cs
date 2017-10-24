@@ -107,7 +107,7 @@ class DroneMovementController : MovementController
 
     }
 
-    public void RightClick(bool key)
+    public override void RightClick(bool key)
     {
         if (throwCore)
         {
