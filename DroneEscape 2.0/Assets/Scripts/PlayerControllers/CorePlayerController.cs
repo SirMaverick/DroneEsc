@@ -12,7 +12,7 @@ public class CorePlayerController : AbstractPlayerController
     Vector3 lastPos;
     Vector3 currentPos;
 
-    private bool isThrown;
+    private bool isFlying;
 
 
     public GameObject GetCore()
@@ -32,6 +32,8 @@ public class CorePlayerController : AbstractPlayerController
         base.DisableController();
         GetComponentInChildren<CameraCollision>().enabled = false;
     }
+
+
     
 
     private void TurnOnCore()
@@ -45,7 +47,7 @@ public class CorePlayerController : AbstractPlayerController
         camera.GetComponent<AudioListener>().enabled = true;
 
         StartCoroutine(CheckGrounded());
-        isThrown = true;
+        isFlying = true;
     }
 
     void CoreOnGround()
@@ -55,18 +57,26 @@ public class CorePlayerController : AbstractPlayerController
         //enabled = false;
     }
 
+    private void Update()
+    {
+        if (isFlying)
+        {
+            cameraCenter.transform.position = core.transform.position;
+        }
+    }
+
     IEnumerator CheckGrounded()
     {
         lastPos = core.transform.position;
         yield return new WaitForSeconds(0.02f);
         currentPos = core.transform.position;
-        cameraCenter.transform.position = core.transform.position;
+        
         if (Vector3.Distance(lastPos, currentPos) == 0)
         {
-            isThrown = false;
+            isFlying = false;
             CoreOnGround();
         }
-        if (isThrown)
+        if (isFlying)
         {
             StartCoroutine(CheckGrounded());
         }
