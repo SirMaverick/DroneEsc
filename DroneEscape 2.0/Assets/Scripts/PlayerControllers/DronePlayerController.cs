@@ -51,8 +51,6 @@ using System.Collections;
             // actual throwing
             core.GetComponent<Rigidbody>().AddForce(transform.Find("DroneCamera").TransformDirection(Vector3.forward) * force, ForceMode.Impulse);
             core.transform.parent = null;
-            PlayerControllerSupervisor playerControllerSupervisor = FindObjectOfType<PlayerControllerSupervisor>();
-            playerControllerSupervisor.SwitchPlayerController(corePlayerController);
             
         }
         else
@@ -61,11 +59,6 @@ using System.Collections;
             cameraObject.transform.position = core.transform.position;
   //          cameraObject.GetComponent<CoreCamera>().core = core.gameObject;
             core.transform.parent = null;
-            PlayerControllerSupervisor playerControllerSupervisor = FindObjectOfType<PlayerControllerSupervisor>();
-            playerControllerSupervisor.SwitchPlayerController(corePlayerController);
-
-
-
         }
         
     }

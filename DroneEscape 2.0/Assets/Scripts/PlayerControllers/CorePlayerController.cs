@@ -6,6 +6,8 @@ public class CorePlayerController : AbstractPlayerController
  
     [SerializeField]
     private GameObject core;
+    [SerializeField]
+    private GameObject cameraCenter;
 
     Vector3 lastPos;
     Vector3 currentPos;
@@ -21,8 +23,16 @@ public class CorePlayerController : AbstractPlayerController
     public override void EnableController()
     {
         base.EnableController();
+        GetComponentInChildren<CameraCollision>().enabled = true;
         TurnOnCore();
     }
+
+    public override void DisableController()
+    {
+        base.DisableController();
+        GetComponentInChildren<CameraCollision>().enabled = false;
+    }
+    
 
     private void TurnOnCore()
     {
@@ -40,16 +50,17 @@ public class CorePlayerController : AbstractPlayerController
 
     void CoreOnGround()
     {
-        camera.transform.parent = null;
+        //camera.transform.parent = null;
         core.GetComponent<MoveOnBelt>().flying = false;
-        enabled = false;
+        //enabled = false;
     }
 
     IEnumerator CheckGrounded()
     {
         lastPos = core.transform.position;
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.02f);
         currentPos = core.transform.position;
+        cameraCenter.transform.position = core.transform.position;
         if (Vector3.Distance(lastPos, currentPos) == 0)
         {
             isThrown = false;

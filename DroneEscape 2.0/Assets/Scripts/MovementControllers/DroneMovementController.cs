@@ -7,7 +7,7 @@ class DroneMovementController : MovementController
     private GameObject ownCamera;
     private float xMovement;
     private float zMovement;
-    public bool throwCore;
+    //public bool throwCore;
 
 
     private Vector2 mouseLook;
@@ -120,13 +120,10 @@ class DroneMovementController : MovementController
         {
             dronePlayerController.Throw();
             playerControllerSupervisor.SwitchPlayerController(corePlayerController);
-        }
-
-        if (throwCore)
-        {
-            UpdateGuards();
+        
+           // UpdateGuards();
             TurnDroneOff();
-            throwCore = false;
+        //    throwCore = false;
 
 
         }
@@ -137,10 +134,9 @@ class DroneMovementController : MovementController
     {
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<EmptyDrone>().enabled = true;
-        ownCamera.GetComponent<PlayerMouseLook>().enabled = false;
         ownCamera.GetComponent<Camera>().enabled = false;
         ownCamera.GetComponent<AudioListener>().enabled = false;
-        enabled = false;
+        //enabled = false;
     }
 
 
