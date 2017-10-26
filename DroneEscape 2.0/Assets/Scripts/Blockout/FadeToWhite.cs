@@ -29,7 +29,6 @@ public class FadeToWhite : MonoBehaviour {
 
     [SerializeField] private Image whiteImage;
     [SerializeField] private Animator animImage;
-    [SerializeField] private Animator animText;
     [SerializeField] private float timeTilReset;
 
     private void OnTriggerEnter(Collider other)
