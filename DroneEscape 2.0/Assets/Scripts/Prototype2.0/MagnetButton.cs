@@ -31,10 +31,10 @@ public class MagnetButton : MonoBehaviour {
             if (Input.GetMouseButtonDown(1)) {
                 surveillanceCamera.enabled = false;
                 coreInside = false;
-                drone.GetComponent<PlayerMovement>().enabled = true;
+                //drone.GetComponent<PlayerMovement>().enabled = true;
                 drone.GetComponent<MeshRenderer>().enabled = false;
-                drone.GetComponentInChildren<PlayerMouseLook>().enabled = true;
-                drone.GetComponentInChildren<Camera>().enabled = true;
+                //drone.GetComponentInChildren<PlayerMouseLook>().enabled = true;
+                //drone.GetComponentInChildren<Camera>().enabled = true;
             }
         }
 	}
