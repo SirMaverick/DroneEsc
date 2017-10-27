@@ -23,6 +23,7 @@ public class PlayerMouseLook : MonoBehaviour {
         character = transform.parent.gameObject;
 	}
 
+    private Button button;
     // Update is called once per frame
     void Update() {
         Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
@@ -33,15 +34,8 @@ public class PlayerMouseLook : MonoBehaviour {
 
             if (hit.collider.tag == "Button") {
                 hitButton = true;
-                lastMaterialHit = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
-                //EnableEmission(0);
-                lastMaterialHit.EnableKeyword("_EMISSION");
-                //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
-                if (Input.GetKeyDown(KeyCode.E)) {
-                    hit.collider.gameObject.GetComponent<CameraDisableButton>().ToggleEnableCamera();
-                    //lastMaterialHit.DisableKeyword("_EMISSION");
-                    //StartCoroutine(EnableEmission(1));
-                }
+                button = hit.collider.gameObject.GetComponent<Button>();
+                button.LookingAt();
 
             } else if (hit.collider.tag == "Elevator") {
                 if (Input.GetKeyUp(KeyCode.E)) {
