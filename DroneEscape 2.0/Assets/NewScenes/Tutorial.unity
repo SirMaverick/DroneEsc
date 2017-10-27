@@ -1331,6 +1331,11 @@ Prefab:
       propertyPath: corePlayerController
       value: 
       objectReference: {fileID: 1750296390}
+    - target: {fileID: 54371125597894312, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e586887e9cdb5014ebc40c80d994b560, type: 2}
   m_IsPrefabParent: 0
@@ -1466,16 +1471,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 239040132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0d8c83f5e396fc48a075b353071bd95, type: 3}
+  m_Script: {fileID: 11500000, guid: 328f8e570b92ad3489d3f946012be312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevator: {fileID: 408400858}
-  lowestPos: {fileID: 188212451}
-  highestPos: {fileID: 687927560}
-  speed: 0.5
+  enabled: 0
+  elevator: {fileID: 0}
+  lowestPos: {fileID: 0}
+  highestPos: {fileID: 0}
+  speed: 0
   coreInside: 0
   drone: {fileID: 0}
   surveillanceCamera: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!23 &239040135
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4962,7 +4969,13 @@ Prefab:
       propertyPath: meshRenderer
       value: 
       objectReference: {fileID: 529719641}
-    m_RemovedComponents: []
+    - target: {fileID: 114021508962747260, guid: 1e23bf7a5d6cbb94c836e171064262cd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114021508962747260, guid: 1e23bf7a5d6cbb94c836e171064262cd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1e23bf7a5d6cbb94c836e171064262cd, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1026453351
@@ -8804,9 +8817,11 @@ GameObject:
   - component: {fileID: 1661917686}
   - component: {fileID: 1661917685}
   - component: {fileID: 1661917684}
+  - component: {fileID: 1661917689}
+  - component: {fileID: 1661917688}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Elevator
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8834,16 +8849,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1661917682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0d8c83f5e396fc48a075b353071bd95, type: 3}
+  m_Script: {fileID: 11500000, guid: 328f8e570b92ad3489d3f946012be312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 0
   elevator: {fileID: 184383211}
   lowestPos: {fileID: 32533079}
   highestPos: {fileID: 1616584366}
   speed: 0.5
   coreInside: 0
   drone: {fileID: 0}
-  surveillanceCamera: {fileID: 157945685}
+  surveillanceCamera: {fileID: 0}
+  playerController: {fileID: 1661917689}
 --- !u!23 &1661917685
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8859,7 +8876,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d770e810bf2f9c547af55caa08ead21b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8900,6 +8917,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1661917682}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1661917688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1661917682}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e2d9757c2c5ea4692bae66155ba537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elevator: {fileID: 184383211}
+  lowestPos: {fileID: 32533079}
+  highestPos: {fileID: 1616584366}
+  speed: 0.5
+--- !u!114 &1661917689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1661917682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ecc615693576f4a9127e3c6015467b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
+  camera: {fileID: 157945685}
+  movementController: {fileID: 1661917688}
 --- !u!1001 &1663619507
 Prefab:
   m_ObjectHideFlags: 0
@@ -8988,6 +9034,21 @@ Prefab:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114012188203034978, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: core
+      value: 
+      objectReference: {fileID: 529719638}
+    - target: {fileID: 114012188203034978, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 1750296388}
+    - target: {fileID: 114012188203034978, guid: e586887e9cdb5014ebc40c80d994b560,
+        type: 2}
+      propertyPath: coreCamera
+      value: 
+      objectReference: {fileID: 1507980019}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e586887e9cdb5014ebc40c80d994b560, type: 2}
   m_IsPrefabParent: 0
