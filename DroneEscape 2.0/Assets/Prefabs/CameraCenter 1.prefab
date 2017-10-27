@@ -21,9 +21,8 @@ GameObject:
   - component: {fileID: 4858265210790838}
   - component: {fileID: 20467823066009018}
   - component: {fileID: 124430976809672900}
-  - component: {fileID: 92627089473149890}
   - component: {fileID: 81895073275371346}
-  - component: {fileID: 114997612250252986}
+  - component: {fileID: 114021508962747260}
   m_Layer: 0
   m_Name: CoreCamera
   m_TagString: Untagged
@@ -39,7 +38,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4672041183198640}
-  - component: {fileID: 114445744543946882}
+  - component: {fileID: 114079329201394200}
+  - component: {fileID: 114096763771358098}
   m_Layer: 0
   m_Name: CameraCenter 1
   m_TagString: Untagged
@@ -53,14 +53,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1969677759228328}
-  m_LocalRotation: {x: -0, y: 0.040871482, z: -0, w: 0.99916446}
-  m_LocalPosition: {x: 1.106261, y: -0.94017625, z: 9.638679}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.9985535, z: -0, w: 0.05376677}
+  m_LocalPosition: {x: -26.3, y: -120.60147, z: 173.56}
+  m_LocalScale: {x: 0.31964785, y: 0.31964785, z: 0.31964785}
   m_Children:
   - {fileID: 4858265210790838}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -1795.315, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -173.83601, z: 0}
 --- !u!4 &4858265210790838
 Transform:
   m_ObjectHideFlags: 1
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344489925301168}
   m_LocalRotation: {x: 0.18974629, y: -0, z: -0, w: 0.9818332}
-  m_LocalPosition: {x: 0.04, y: 1.5, z: -2.28}
+  m_LocalPosition: {x: 0.04, y: 2.74, z: -5.36}
   m_LocalScale: {x: 0.3310703, y: 0.33107072, z: 0.33107072}
   m_Children: []
   m_Father: {fileID: 4672041183198640}
@@ -80,7 +80,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344489925301168}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -115,15 +115,24 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344489925301168}
-  m_Enabled: 0
---- !u!92 &92627089473149890
-Behaviour:
+  m_Enabled: 1
+--- !u!114 &114021508962747260
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344489925301168}
   m_Enabled: 1
---- !u!114 &114445744543946882
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddd0c13528431547927e7b7b587b2fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 1
+  maxDistance: 4
+  smooth: 10
+  dollyDirAdjusted: {x: 0, y: 0, z: 0}
+  distance: 0
+--- !u!114 &114079329201394200
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -131,26 +140,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1969677759228328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874ec0c933214084294cca10aba1d6e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  core: {fileID: 0}
-  drone: {fileID: 0}
---- !u!114 &114997612250252986
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1344489925301168}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 496c21e57cac0f649a0b3290e1871efd, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a6eca109d6aa89419abef67f11e3366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minClamp: -45
   maxClamp: 0
   sensitivity: 2
   smoothing: 2
+--- !u!114 &114096763771358098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969677759228328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8a0b50ed11ba244abf8e2eb74f2612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
+  camera: {fileID: 20467823066009018}
+  movementController: {fileID: 114079329201394200}
+  core: {fileID: 0}
+  cameraCenter: {fileID: 1969677759228328}
 --- !u!124 &124430976809672900
 Behaviour:
   m_ObjectHideFlags: 1
