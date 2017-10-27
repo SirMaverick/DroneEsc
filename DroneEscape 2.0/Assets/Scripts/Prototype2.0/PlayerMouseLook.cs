@@ -23,9 +23,8 @@ public class PlayerMouseLook : MonoBehaviour {
         character = transform.parent.gameObject;
 	}
 
-    private Button button;
     // Update is called once per frame
-    void Update () {
+    void Update() {
         Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -34,38 +33,48 @@ public class PlayerMouseLook : MonoBehaviour {
 
             if (hit.collider.tag == "Button") {
                 hitButton = true;
-                button = hit.collider.gameObject.GetComponent<Button>();
-                button.LookingAt();
+                lastMaterialHit = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
+                //EnableEmission(0);
+                lastMaterialHit.EnableKeyword("_EMISSION");
+                //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    hit.collider.gameObject.GetComponent<CameraDisableButton>().ToggleEnableCamera();
+                    //lastMaterialHit.DisableKeyword("_EMISSION");
+                    //StartCoroutine(EnableEmission(1));
+                }
 
             } else if (hit.collider.tag == "Elevator") {
-                if (Input.GetKeyDown(KeyCode.U)) {
-                    Debug.Log("Press U");
-                    hit.transform.GetComponent<ElevatorButton>().MoveElevatorUp();
-                } else if (Input.GetKeyDown(KeyCode.O)) {
-                    hit.transform.GetComponent<ElevatorButton>().MoveElevatorDown();
-                } else if (Input.GetKeyUp(KeyCode.U) || Input.GetKeyUp(KeyCode.O)) {
-                    hit.transform.GetComponent<ElevatorButton>().StopElevatorMove();
+                if (Input.GetKeyUp(KeyCode.E)) {
+                    hit.transform.GetComponent<ElevatorButton>().coreInside = true;
+                    hit.transform.GetComponent<ElevatorButton>().surveillanceCamera.enabled = true;
+                    hit.transform.GetComponent<ElevatorButton>().drone = transform.parent.gameObject;
+                    transform.parent.GetComponent<PlayerMovement>().enabled = false;
+                    transform.parent.GetComponent<MeshRenderer>().enabled = true;
+                    GetComponent<Camera>().enabled = false;
+                    enabled = false;
+
                 }
             } else if (hit.collider.tag == "Magnet") {
-                if (Input.GetKeyDown(KeyCode.E)) {
-                    hit.transform.GetComponent<MagnetButton>().TurnMagnetOn();
-                } else if (Input.GetKeyUp(KeyCode.R)) {
-                    hit.transform.GetComponent<MagnetButton>().TurnMagnetOff();
-                } else if (Input.GetKeyUp(KeyCode.Space)) {
+                if (Input.GetKeyUp(KeyCode.E)) {
                     hit.transform.GetComponent<MagnetButton>().coreInside = true;
+                    hit.transform.GetComponent<MagnetButton>().surveillanceCamera.enabled = true;
+                    hit.transform.GetComponent<MagnetButton>().drone = transform.parent.gameObject;
+                    transform.parent.GetComponent<PlayerMovement>().enabled = false;
+                    transform.parent.GetComponent<MeshRenderer>().enabled = true;
+                    GetComponent<Camera>().enabled = false;
+                    enabled = false;
+
                 }
             } else {
                 if (hitButton) {
+                    lastMaterialHit.DisableKeyword("_EMISSION");
                     hitButton = false;
                 }
 
             }
-        }
-        else
-        {
-            if (hitButton)
-            {
-                button.StopLookingAt();
+        } else {
+            if (hitButton) {
+                lastMaterialHit.DisableKeyword("_EMISSION");
                 hitButton = false;
             }
 
@@ -79,6 +88,11 @@ public class PlayerMouseLook : MonoBehaviour {
 
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-		
-	}
+
+    }
+
+    private IEnumerator EnableEmission(int seconds) {
+        yield return new WaitForSeconds(seconds);
+        lastMaterialHit.EnableKeyword("_EMISSION");
+    }
 }
