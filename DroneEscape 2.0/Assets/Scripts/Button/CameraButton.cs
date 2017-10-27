@@ -3,7 +3,7 @@
 
 public class CameraButton : Button
 {
-    private PlayerControllerSupervisor playerControllerSupervisor;
+    
 
     [SerializeField]
     private CameraPlayerController playerController;
@@ -13,12 +13,6 @@ public class CameraButton : Button
 
     
    // private Camera cam;
-
-
-    private void Start()
-    {
-        playerControllerSupervisor = FindObjectOfType<PlayerControllerSupervisor>();
-    }
 
     public override void Toggle()
     {

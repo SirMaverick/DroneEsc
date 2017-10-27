@@ -9,21 +9,22 @@ public class ElevatorMovementController : MovementController
     
     [SerializeField] private float speed;
 
-    public override void Horizontal(float speed)
+    public override void Horizontal(float direction)
     {
-        if (speed >= 0)
-        {
-            elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, highestPos.position, speed * Time.deltaTime);
-        }
-        else
-        {
-            elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, lowestPos.position, speed * Time.deltaTime);
-        }
+
     }
 
     public override void Vertical(float direction)
     {
-       // Do nothing
+        // Do nothing
+        if (direction > 0)
+        {
+            elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, highestPos.position, speed * Time.deltaTime);
+        }
+        else if ( direction < 0)
+        {
+            elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, lowestPos.position, speed * Time.deltaTime);
+        }
     }
 
     public override void Look(Vector2 md)

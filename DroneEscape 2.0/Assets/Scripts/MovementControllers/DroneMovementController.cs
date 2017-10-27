@@ -70,20 +70,7 @@ class DroneMovementController : MovementController
 
             }
 
-            else if (hit.collider.tag == "Elevator")
-            {
-                if (Input.GetKeyUp(KeyCode.E))
-                {
-                    hit.transform.GetComponent<ElevatorButton>().coreInside = true;
-                    hit.transform.GetComponent<ElevatorButton>().surveillanceCamera.enabled = true;
-                    hit.transform.GetComponent<ElevatorButton>().drone = transform.gameObject;
-                   // transform.parent.GetComponent<PlayerMovement>().enabled = false;
-                    transform.GetComponent<MeshRenderer>().enabled = true;
-                    //GetComponent<Camera>().enabled = false;
-                    enabled = false;
-
-                }
-            }
+          
             else if (hit.collider.tag == "Magnet")
             {
                 if (Input.GetKeyUp(KeyCode.E))

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElevatorButton : MonoBehaviour {
+public class ElevatorButton : Button {
 
 
     [SerializeField] private GameObject elevator;
@@ -15,13 +15,12 @@ public class ElevatorButton : MonoBehaviour {
     public GameObject drone;
     public Camera surveillanceCamera;
 
-    // Use this for initialization
-    void Start () {
-        step = speed * Time.deltaTime;
-	}
+    [SerializeField]
+    private ElevatorPlayerController playerController;
+
 	
 	// Update is called once per frame
-	void Update () { 
+	/*void Update () { 
         if(coreInside) {
             if (up) {
                 elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, highestPos.position, step);
@@ -56,5 +55,20 @@ public class ElevatorButton : MonoBehaviour {
             }
         }
 
+    }*/
+
+    public override void Toggle()
+    {
+        if (!enabled)
+        {
+            playerControllerSupervisor.SwitchPlayerController(playerController );
+            enabled = true;
+        }
+        else
+        {
+            playerControllerSupervisor.SwitchPlayerControllerPrevious();
+            
+            enabled = false;
+        }
     }
 }

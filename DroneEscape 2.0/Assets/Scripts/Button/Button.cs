@@ -7,6 +7,13 @@ public abstract class Button : MonoBehaviour
     [SerializeField]
     protected bool enabled = false;
 
+    protected PlayerControllerSupervisor playerControllerSupervisor;
+
+    private void Start()
+    {
+        playerControllerSupervisor = FindObjectOfType<PlayerControllerSupervisor>();
+    }
+
     public void LookingAt()
     {
         // emision
@@ -24,8 +31,5 @@ public abstract class Button : MonoBehaviour
         lastMaterialHit.DisableKeyword("_EMISSION");
     }
 
-    public virtual void Toggle()
-    {
-        // on / off
-    }
+    public abstract void Toggle();
 }
