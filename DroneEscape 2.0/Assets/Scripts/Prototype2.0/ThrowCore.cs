@@ -17,6 +17,10 @@ public class ThrowCore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        core = GameObject.Find("Core");
+        cameraObject = GameObject.Find("CameraCenter");
+        coreCamera = GameObject.Find("CoreCamera");
+        objectPlacement = transform.GetChild(1).gameObject;
 	}
 	
 	// Update is called once per frame
