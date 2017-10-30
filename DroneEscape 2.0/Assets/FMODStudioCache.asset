@@ -13,14 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114995083460649048}
-  - {fileID: 114889953332059372}
+  - {fileID: 114110920702716204}
   EditorEvents:
   - {fileID: 114962844251665012}
   - {fileID: 114033139664353194}
   - {fileID: 114639791008390792}
-  MasterBankRef: {fileID: 114889953332059372}
+  MasterBankRef: {fileID: 114110920702716204}
   StringsBankRef: {fileID: 114995083460649048}
-  stringsBankWriteTime: 636447211766653884
+  stringsBankWriteTime: 636449582424742822
   cacheVersion: 2
 --- !u!114 &114033139664353194
 MonoBehaviour:
@@ -36,13 +36,32 @@ MonoBehaviour:
   Path: event:/Drone/Drone Start Movement
   guid: ab347fc1270e74478dd84f74f11a1987
   Banks:
-  - {fileID: 114889953332059372}
+  - {fileID: 114110920702716204}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114110920702716204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\epsil\Desktop\Github Drone.esc\DroneEscape 2.0\Assets\Audio\Drone.Esc\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636449582424612481
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 2452448
+  Exists: 1
 --- !u!114 &114639791008390792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,7 +76,7 @@ MonoBehaviour:
   Path: event:/Drone/Drone Stop Movement
   guid: e5d3cd839f82c945ba9d39c921c8caac
   Banks:
-  - {fileID: 114889953332059372}
+  - {fileID: 114110920702716204}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -97,7 +116,7 @@ MonoBehaviour:
   Path: event:/Drone/Drone Movement
   guid: 5193a3f581272544ac5a346a672b29d6
   Banks:
-  - {fileID: 114889953332059372}
+  - {fileID: 114110920702716204}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -116,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets/Audio/Drone.Esc\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636447211766653884
+  lastModified: 636449582424742822
   LoadResult: 0
   FileSizes:
   - Name: Desktop
