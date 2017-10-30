@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -6,6 +6,7 @@ using UnityEngine;
 public class PushBlock : MonoBehaviour {
     bool xAxis, yAxis, zAxis;
     Vector3 movement = new Vector3(0, 0, 0);
+    public float speed;
     // Use this for initialization
     void Start () {
 		
@@ -49,7 +50,7 @@ public class PushBlock : MonoBehaviour {
                 movement = transform.right;
             }
             
-            transform.position += movement * Time.deltaTime;
+            transform.position += movement * Time.deltaTime * speed;
         }
     }
 
