@@ -1,14 +1,20 @@
 ﻿using UnityEngine;
 class CameraMovementController : MovementController
 {
-    /*private Vector2 mouseLook;
-    private Vector2 smoothV;
-    [SerializeField] private float minClamp;
-    [SerializeField] private float maxClamp;
-    public float sensitivity = 5.0f;
-    public float smoothing = 2.0f;
+    [SerializeField] private float clampX;
+    [SerializeField] private float clampY;
+    [SerializeField] private float speed;
 
-    [SerializeField] private float selectionRange = 1.5f;*/
+    private Vector3 initAngles;
+
+    private Vector3 currentRotation; //intended
+
+    protected override void Start()
+    {
+        base.Start();
+        initAngles = gameObject.transform.localRotation.eulerAngles;
+        currentRotation = initAngles;
+    }
 
     // no movement only looking
 
@@ -39,12 +45,22 @@ class CameraMovementController : MovementController
 
     public override void Vertical(float direction)
     {
-        gameObject.transform.Rotate(new Vector3(1, 0, 0), -direction, Space.Self);
+        //Vector3 rotation = gameObject.transform.localRotation.eulerAngles;
+      
+        float xValue = Mathf.Clamp(currentRotation.x + (direction * speed * Time.deltaTime), initAngles.x - clampX, initAngles.x + clampX);
+        currentRotation.x = xValue;
+
+        gameObject.transform.eulerAngles = currentRotation;
+        //gameObject.transform.Rotate(new Vector3(1, 0, 0), -direction, Space.Self);
     }
 
     public override void Horizontal(float direction)
     {
-        gameObject.transform.Rotate(new Vector3(0, 1, 0), direction, Space.Self);
+        float yValue = Mathf.Clamp(currentRotation.y + (direction * speed * Time.deltaTime), initAngles.y - clampY, initAngles.y + clampY);
+        currentRotation.y= yValue;
+
+        gameObject.transform.eulerAngles = currentRotation;
+        //gameObject.transform.Rotate(new Vector3(0, 1, 0), direction, Space.Self);
     }
 
     public override void Use(bool key)
