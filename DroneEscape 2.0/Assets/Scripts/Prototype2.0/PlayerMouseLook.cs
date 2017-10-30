@@ -22,9 +22,9 @@ public class PlayerMouseLook : MonoBehaviour {
 	void Start () {
         character = transform.parent.gameObject;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -44,21 +44,26 @@ public class PlayerMouseLook : MonoBehaviour {
                 }
 
             } else if (hit.collider.tag == "Elevator") {
-                if (Input.GetKeyDown(KeyCode.U)) {
-                    Debug.Log("Press U");
-                    hit.transform.GetComponent<ElevatorButton>().MoveElevatorUp();
-                } else if (Input.GetKeyDown(KeyCode.O)) {
-                    hit.transform.GetComponent<ElevatorButton>().MoveElevatorDown();
-                } else if (Input.GetKeyUp(KeyCode.U) || Input.GetKeyUp(KeyCode.O)) {
-                    hit.transform.GetComponent<ElevatorButton>().StopElevatorMove();
+                if (Input.GetKeyUp(KeyCode.E)) {
+                    hit.transform.GetComponent<ElevatorButton>().coreInside = true;
+                    hit.transform.GetComponent<ElevatorButton>().surveillanceCamera.enabled = true;
+                    hit.transform.GetComponent<ElevatorButton>().drone = transform.parent.gameObject;
+                    transform.parent.GetComponent<PlayerMovement>().enabled = false;
+                    transform.parent.GetComponent<MeshRenderer>().enabled = true;
+                    GetComponent<Camera>().enabled = false;
+                    enabled = false;
+
                 }
             } else if (hit.collider.tag == "Magnet") {
-                if (Input.GetKeyDown(KeyCode.E)) {
-                    hit.transform.GetComponent<MagnetButton>().TurnMagnetOn();
-                } else if (Input.GetKeyUp(KeyCode.R)) {
-                    hit.transform.GetComponent<MagnetButton>().TurnMagnetOff();
-                } else if (Input.GetKeyUp(KeyCode.Space)) {
+                if (Input.GetKeyUp(KeyCode.E)) {
                     hit.transform.GetComponent<MagnetButton>().coreInside = true;
+                    hit.transform.GetComponent<MagnetButton>().surveillanceCamera.enabled = true;
+                    hit.transform.GetComponent<MagnetButton>().drone = transform.parent.gameObject;
+                    transform.parent.GetComponent<PlayerMovement>().enabled = false;
+                    transform.parent.GetComponent<MeshRenderer>().enabled = true;
+                    GetComponent<Camera>().enabled = false;
+                    enabled = false;
+
                 }
             } else {
                 if (hitButton) {
@@ -67,11 +72,8 @@ public class PlayerMouseLook : MonoBehaviour {
                 }
 
             }
-        }
-        else
-        {
-            if (hitButton)
-            {
+        } else {
+            if (hitButton) {
                 lastMaterialHit.DisableKeyword("_EMISSION");
                 hitButton = false;
             }
@@ -86,8 +88,8 @@ public class PlayerMouseLook : MonoBehaviour {
 
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-		
-	}
+
+    }
 
     private IEnumerator EnableEmission(int seconds) {
         yield return new WaitForSeconds(seconds);

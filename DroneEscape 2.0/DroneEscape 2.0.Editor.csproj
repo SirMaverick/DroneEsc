@@ -267,12 +267,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="DroneEscape 2.0.Plugins.csproj">
+      <Project>{421516EE-775E-8F79-D069-772E7DF064AE}</Project>
+      <Name>DroneEscape 2.0.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="DroneEscape 2.0.csproj">
       <Project>{413AA165-0A3B-7910-1058-123867F2562E}</Project>
       <Name>DroneEscape 2.0</Name>
     </ProjectReference>
+    <ProjectReference Include="DroneEscape 2.0.Editor.Plugins.csproj">
+      <Project>{8FBB8C47-3763-12EC-F009-85CB77DF2276}</Project>
+      <Name>DroneEscape 2.0.Editor.Plugins</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\FMODMigrationUtil.cs" />
     <Compile Include="Assets\Effects\PostProcessing\Editor\Attributes\PostProcessingModelEditorAttribute.cs" />
     <Compile Include="Assets\Effects\PostProcessing\Editor\Models\AmbientOcclusionModelEditor.cs" />
     <Compile Include="Assets\Effects\PostProcessing\Editor\Models\AntialiasingModelEditor.cs" />
@@ -307,6 +316,7 @@
     <Compile Include="Assets\Effects\PostProcessing\Editor\Utils\EditorResources.cs" />
     <Compile Include="Assets\Effects\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\Effects\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
+    <Compile Include="Assets\GoogleVR\Editor\FmodGvrAudioRoomEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Effects\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
@@ -350,6 +360,7 @@
     <None Include="Assets\Effects\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\Effects\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\Effects\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Plugins\FMOD\LICENSE.TXT" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
