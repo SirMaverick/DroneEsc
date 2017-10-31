@@ -49,6 +49,6 @@ public class FadeToWhite : MonoBehaviour {
         animImage.SetBool("Fade", true);
         yield return new WaitUntil(() => whiteImage.color.a == 1);
         yield return new WaitForSeconds(timeTilReset);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

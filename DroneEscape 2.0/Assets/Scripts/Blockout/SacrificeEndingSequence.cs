@@ -7,8 +7,6 @@ public class SacrificeEndingSequence : MonoBehaviour
 
     [SerializeField] private Camera playerCamera, camera1, camera2, camera3;
     [SerializeField] private float timeBetweenCamera;
-    [SerializeField] private float timeForCore;
-    [SerializeField] private GameObject core;
     [SerializeField] private GameObject spawner1, spawner2, spawner3;
 
 
@@ -22,7 +20,6 @@ public class SacrificeEndingSequence : MonoBehaviour
         spawner1.SetActive(false);
         spawner2.SetActive(false);
         spawner3.SetActive(false);
-        core.SetActive(false);
     }
 
     private void OnTriggerStay(Collider other)
@@ -39,8 +36,7 @@ public class SacrificeEndingSequence : MonoBehaviour
 
     IEnumerator sacrificeSequence()
     {
-        core.SetActive(true);
-        yield return new WaitForSeconds(timeForCore);
+        
         playerCamera.enabled = false;
         spawner1.SetActive(true);
         camera1.enabled = true;
