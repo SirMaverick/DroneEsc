@@ -39,7 +39,7 @@ public class ConveyerBelt : MonoBehaviour {
     private void OnTriggerExit(Collider other) {
         if (other.tag == "Object" && other.GetComponent<MoveOnBelt>().isActiveAndEnabled) {
 
-            StopCoroutine(obj.GetComponent<MoveOnBelt>().MoveObject());
+            obj.GetComponent<MoveOnBelt>().StopMoving();
             obj.GetComponent<MoveOnBelt>().enabled = false;
         }
     }
