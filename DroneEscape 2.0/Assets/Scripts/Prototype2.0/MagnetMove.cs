@@ -38,6 +38,7 @@ public class MagnetMove : MonoBehaviour {
         foreach (GameObject child in listOfDrones) {
             child.transform.parent = null;
             child.GetComponent<Rigidbody>().useGravity = true;
+            child.GetComponent<Rigidbody>().isKinematic = false;
         }
         listOfDrones.Clear();
 

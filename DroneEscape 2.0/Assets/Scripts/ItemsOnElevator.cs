@@ -29,7 +29,7 @@ public class ItemsOnElevator : MonoBehaviour {
 
             items.Remove(other.gameObject);
             other.GetComponent<Rigidbody>().useGravity = true;
-            other.GetComponent<Rigidbody>().isKinematic = true;
+            other.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 }
