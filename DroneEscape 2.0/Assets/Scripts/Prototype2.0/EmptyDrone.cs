@@ -49,7 +49,7 @@ public class EmptyDrone : MonoBehaviour {
         coreCamera.GetComponent<AudioListener>().enabled = false;
         cameraObject.transform.position = transform.position;
         corePickUp = cameraObject.GetComponent<CorePlayerController>().GetCore();
-        cameraObject.GetComponent<CorePlayerController>().GetCore().GetComponent<BoxCollider>().enabled = false;
+        corePickUp.GetComponent<BoxCollider>().enabled = false;
         corePickUp.GetComponent<MeshRenderer>().enabled = false;
         corePickUp.GetComponent<Rigidbody>().useGravity = false;
         corePickUp.GetComponent<MoveOnBelt>().sent = false;

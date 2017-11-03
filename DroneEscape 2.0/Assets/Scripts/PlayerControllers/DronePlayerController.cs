@@ -3,16 +3,21 @@ using System.Collections;
     class DronePlayerController : AbstractPlayerController
     {
     [SerializeField] private GameObject core;
-    [SerializeField] private GameObject cameraObject;
-    [SerializeField] private GameObject coreCamera;
-    
+    private GameObject cameraObject;
+    private CorePlayerController corePlayerController;
+
     [SerializeField] private float maxDistance;
 
     bool nearBelt;
     [SerializeField] float force;
 
-    [SerializeField] private CorePlayerController corePlayerController;
     [SerializeField] private GameObject objectPlacement;
+
+    protected void Start()
+    {
+        corePlayerController = FindObjectOfType<CorePlayerController>();
+        cameraObject = corePlayerController.gameObject;
+    }
 
     public override void EnableController()
     {
@@ -46,21 +51,19 @@ using System.Collections;
         if (!nearBelt)
         {
             cameraObject.transform.position = core.transform.position;
-            //cameraObject.GetComponent<CoreCamera>().core = core.gameObject;
 
             // actual throwing
             core.GetComponent<Rigidbody>().AddForce(transform.Find("DroneCamera").TransformDirection(Vector3.forward) * force, ForceMode.Impulse);
-            core.transform.parent = null;
             
         }
         else
         {
             core.transform.position = hit.transform.position + new Vector3(0, 1.0f, 0);
             cameraObject.transform.position = core.transform.position;
-  //          cameraObject.GetComponent<CoreCamera>().core = core.gameObject;
-            core.transform.parent = null;
+           
         }
-        
+        core.transform.parent = null;
+
     }
 
 

@@ -26,7 +26,7 @@ class DroneMovementController : MovementController
 
     private Button button;
 
-    [SerializeField]
+    
     private CorePlayerController corePlayerController;
 
     [SerializeField]
@@ -40,6 +40,7 @@ class DroneMovementController : MovementController
         character = gameObject;
         Cursor.lockState = CursorLockMode.Locked;
         ownCamera = transform.Find("DroneCamera").gameObject;
+        corePlayerController = FindObjectOfType<CorePlayerController>();
     }
 
     // no movement only looking
@@ -151,7 +152,7 @@ class DroneMovementController : MovementController
     private void UpdateGuards()
     {
         GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
-        GameObject core = coreCamera.GetComponent<CoreCamera>().core;
+        GameObject core = coreCamera.GetComponent<CorePlayerController>().GetCore();
         foreach (GuardFOV guard in guards)
         {
             guard.ChangePlayer(core);
