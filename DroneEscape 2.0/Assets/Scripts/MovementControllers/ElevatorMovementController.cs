@@ -8,6 +8,13 @@ public class ElevatorMovementController : MovementController
     [SerializeField] private Transform highestPos;
     
     [SerializeField] private float speed;
+    private ItemsOnElevator items;
+
+    protected void Start()
+    {
+        base.Start();
+        items = elevator.GetComponent<ItemsOnElevator>();
+    }
 
     public override void Horizontal(float direction)
     {
@@ -20,10 +27,16 @@ public class ElevatorMovementController : MovementController
         if (direction > 0)
         {
             elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, highestPos.position, speed * Time.deltaTime);
+            items.enableElevator = true;
         }
         else if ( direction < 0)
         {
             elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, lowestPos.position, speed * Time.deltaTime);
+            items.enableElevator = true;
+        }
+        else
+        {
+            items.enableElevator = false;
         }
     }
 
@@ -36,6 +49,7 @@ public class ElevatorMovementController : MovementController
     {
         if (key)
         {
+            items.enableElevator = false;
             playerControllerSupervisor.SwitchPlayerControllerPrevious();
         }
     }

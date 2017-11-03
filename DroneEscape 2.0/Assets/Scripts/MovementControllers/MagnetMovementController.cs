@@ -51,6 +51,7 @@ public class MagnetMovementController : MovementController
         if (key)
         {
             playerControllerSupervisor.SwitchPlayerControllerPrevious();
+            magnet.GetComponent<MagnetMove>().turnedOn = false;
         }
     }
 
