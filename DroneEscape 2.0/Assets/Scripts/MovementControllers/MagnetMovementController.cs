@@ -25,17 +25,24 @@ public class MagnetMovementController : MovementController
         // Do nothing
     }
 
-    public override void RightClick(bool key)
+    public override void LeftPress(bool key)
     {
         if (key)
         {
-            magnet.GetComponent<MagnetMove>().turnedOn = true;
-        }
-        else
-        {
-            magnet.GetComponent<MagnetMove>().turnedOn = false;
+            if(!magnet.GetComponent<MagnetMove>().turnedOn)
+                magnet.GetComponent<MagnetMove>().turnedOn = true;
         }
 
+    }
+
+    public override void LeftClick(bool key)
+    {
+        if (key)
+        {
+            // released the button
+            if (magnet.GetComponent<MagnetMove>().turnedOn)
+                magnet.GetComponent<MagnetMove>().turnedOn = false;
+        }
     }
 
 
