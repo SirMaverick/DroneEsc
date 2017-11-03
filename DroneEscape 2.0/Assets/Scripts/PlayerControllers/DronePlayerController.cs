@@ -2,7 +2,7 @@
 using System.Collections;
     class DronePlayerController : AbstractPlayerController
     {
-    [SerializeField] private GameObject core;
+    private GameObject core;
     private GameObject cameraObject;
     private CorePlayerController corePlayerController;
 
@@ -17,6 +17,7 @@ using System.Collections;
     {
         corePlayerController = FindObjectOfType<CorePlayerController>();
         cameraObject = corePlayerController.gameObject;
+        core = FindObjectOfType<CoreObject>().gameObject;
     }
 
     public override void EnableController()

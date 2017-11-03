@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4976064518862320}
   - component: {fileID: 33187091992612582}
   - component: {fileID: 23345726851253608}
-  - component: {fileID: 114640325348586168}
   - component: {fileID: 54371125597894312}
+  - component: {fileID: 114966095952728582}
   - component: {fileID: 136932867207464868}
   - component: {fileID: 114756896674703608}
   - component: {fileID: 114012188203034978}
@@ -300,12 +300,8 @@ MonoBehaviour:
   meshRenderer: {fileID: 23345726851253608}
   camera: {fileID: 20466579848382922}
   movementController: {fileID: 114756896674703608}
-  core: {fileID: 0}
-  cameraObject: {fileID: 0}
-  coreCamera: {fileID: 0}
   maxDistance: 1
   force: 8
-  corePlayerController: {fileID: 0}
   objectPlacement: {fileID: 1381229252271388}
 --- !u!114 &114444394749978432
 MonoBehaviour:
@@ -322,20 +318,6 @@ MonoBehaviour:
   velocity: 8
   angle: 45
   resolution: 10
---- !u!114 &114640325348586168
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1058202883371062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f52b35098fe32a848b6f94fa8c3e8823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPlacement: {fileID: 1381229252271388}
-  minDist: 2
-  moveSpeed: 2
 --- !u!114 &114756896674703608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,8 +336,21 @@ MonoBehaviour:
   sensitivity: 2
   smoothing: 2
   selectionRange: 1.5
-  corePlayerController: {fileID: 0}
   dronePlayerController: {fileID: 114012188203034978}
+--- !u!114 &114966095952728582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1058202883371062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34682cc4ac700304ea72c7da7f07ab46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPlacement: {fileID: 1381229252271388}
+  minDist: 1
+  moveSpeed: 2
 --- !u!124 &124855318540748206
 Behaviour:
   m_ObjectHideFlags: 1
