@@ -47,7 +47,7 @@ class CameraMovementController : MovementController
     {
         //Vector3 rotation = gameObject.transform.localRotation.eulerAngles;
       
-        float xValue = Mathf.Clamp(currentRotation.x + (direction * speed * Time.deltaTime), initAngles.x - clampX, initAngles.x + clampX);
+        float xValue = Mathf.Clamp(currentRotation.x + (-direction * speed * Time.deltaTime), initAngles.x - clampX, initAngles.x + clampX);
         currentRotation.x = xValue;
 
         gameObject.transform.eulerAngles = currentRotation;
