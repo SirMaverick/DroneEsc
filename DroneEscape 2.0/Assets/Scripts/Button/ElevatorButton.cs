@@ -45,7 +45,7 @@ public class ElevatorButton : Button {
                 down = false;
             }
 
-            if(Input.GetMouseButtonDown(1)) {
+            if(Input.GetKeyUp(KeyCode.E)) {
                 surveillanceCamera.enabled = false;
                 coreInside = false;
                 drone.GetComponent<PlayerMovement>().enabled = true;

@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
         Cursor.lockState = CursorLockMode.Locked;
         ownCamera = transform.Find("DroneCamera").gameObject;
+        coreCamera = GameObject.Find("CameraCenter");
 	}
 	
 	// Update is called once per frame
