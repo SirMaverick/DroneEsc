@@ -1100,7 +1100,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 184383211}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: -0.647, z: -0.4}
+  m_LocalPosition: {x: 2.5, y: -0.57, z: -0.4}
   m_LocalScale: {x: 3.2128603, y: 0.11907091, z: 3.9032018}
   m_Children:
   - {fileID: 1872977146}
@@ -1118,8 +1118,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 2.323362, z: 1.0000002}
-  m_Center: {x: 0.00000382169, y: 0.6616195, z: -1.19322936e-20}
+  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_Center: {x: 0.00000382169, y: 1, z: -1.19322936e-20}
 --- !u!114 &184383217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,6 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  enableElevator: 0
 --- !u!1 &188212450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +1996,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnedOn: 0
   speed: 2.5
-  turnedOff: 0
   listOfDrones: []
 --- !u!136 &396706694
 CapsuleCollider:
@@ -2199,6 +2199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  enableElevator: 0
 --- !u!4 &418486582 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4976064518862320, guid: e586887e9cdb5014ebc40c80d994b560,
@@ -4945,7 +4946,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 864497162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 950, y: 493.5, z: 0}
+  m_LocalPosition: {x: 190, y: 303.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1237504427}
@@ -5908,7 +5909,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1026453351}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 950, y: 493.5, z: 0}
+  m_LocalPosition: {x: 190, y: 303.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1769284130}
@@ -14064,7 +14065,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1769284129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.197052, y: 0.000030517578, z: 0}
+  m_LocalPosition: {x: -0.039413452, y: 0.000015258789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1026453355}
