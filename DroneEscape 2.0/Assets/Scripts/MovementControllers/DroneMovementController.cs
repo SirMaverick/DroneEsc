@@ -72,7 +72,7 @@ class DroneMovementController : MovementController
             }
 
           
-            else if (hit.collider.tag == "Magnet")
+            /*else if (hit.collider.tag == "Magnet")
             {
                 if (Input.GetKeyUp(KeyCode.E))
                 {
@@ -85,7 +85,7 @@ class DroneMovementController : MovementController
                     enabled = false;
 
                 }
-            }
+            }*/
         }
         else
         {
@@ -119,7 +119,10 @@ class DroneMovementController : MovementController
 
     public override void Use(bool key)
     {
-
+        if (key)
+        {
+           // button.Toggle();
+        }
     }
 
     public override void RightClick(bool key)

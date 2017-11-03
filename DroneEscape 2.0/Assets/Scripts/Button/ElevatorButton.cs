@@ -5,7 +5,7 @@ using UnityEngine;
 public class ElevatorButton : Button {
 
 
-    [SerializeField] private GameObject elevator;
+    /*[SerializeField] private GameObject elevator;
     [SerializeField] private Transform lowestPos;
     [SerializeField] private Transform highestPos;
     private bool up, down;
@@ -13,7 +13,7 @@ public class ElevatorButton : Button {
     [SerializeField] private float speed;
     public bool coreInside;
     public GameObject drone;
-    public Camera surveillanceCamera;
+    public Camera surveillanceCamera;*/
 
     [SerializeField]
     private ElevatorPlayerController playerController;
