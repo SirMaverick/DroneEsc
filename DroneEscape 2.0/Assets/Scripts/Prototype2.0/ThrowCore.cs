@@ -78,6 +78,7 @@ public class ThrowCore : MonoBehaviour {
         core.GetComponent<BoxCollider>().enabled = true;
         core.GetComponent<MeshRenderer>().enabled = true;
         core.GetComponent<Rigidbody>().useGravity = true;
+        core.GetComponent<Rigidbody>().isKinematic = false;
         core.GetComponent<MoveOnBelt>().flying = true;
         core.GetComponent<MoveOnBelt>().pickedUp = false;
 
