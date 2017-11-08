@@ -5,6 +5,7 @@ using System.Collections;
 
 class GuardFOV: MonoBehaviour
 {
+    // max distance a player can get detected
     [SerializeField]
     private float maxDistance = 100;
 
@@ -16,39 +17,55 @@ class GuardFOV: MonoBehaviour
     //[SerializeField]
     //private float fieldOfView = 60.0f;
 
+    // the actual camera used when to verify if the player is in "range" than we raytrace to check for walls and stuff (and to rotate towards)
     [SerializeField]
     private Camera guardCamera;
 
     [SerializeField]
     private GameObject player;
 
-    private bool disabled = false;
+    // is the camera disabled
+    private bool isDisabled = false;
 
     private int detectionLevel = 0;
     private float time = 0;
+
+    // time it takes when the player gets spotted/detected to be caught
     [SerializeField]
     private float minDetectionTime = 3;
 
+    // fov visualation mesh
     [SerializeField]
     private MeshRenderer cone;
 
     [SerializeField]
     private Text caughtText;
 
+    // follow the player when it has been spotted by the camera (not caught yet)
     [SerializeField]
-    private bool followTargetWhenSpotted = true;
+    private bool followPlayerWhenSpotted = true;
 
     [SerializeField]
     private float speed = 0.25f;
 
+    // Used to rotate between points/targets
     [SerializeField]
     private Transform[] targets;
     private int nextTarget;
 
+    // Reached the target point
     private bool done = false;
+    // at which time the camera should start rotating to the next target point
     private float nextTime;
+
+    // Time the camera should wait after arriving at a target point
     [SerializeField]
     private float waitTime = 1;
+
+    // Colors used for the visualition of the detection state using the cone
+    [SerializeField] private Color detectionColor;
+    [SerializeField] private Color defaultColor;
+
 
     private void Start()
     {
@@ -57,7 +74,7 @@ class GuardFOV: MonoBehaviour
 
     private void Update()
     {
-        if (disabled)
+        if (isDisabled)
         {
             return;
         }
@@ -90,14 +107,18 @@ class GuardFOV: MonoBehaviour
                     if (time + minDetectionTime < Time.time)
                     {
                         // you are caught
-                        Debug.Log("spotted");
+                        //Debug.Log("spotted");
                         // ui you got caught
                         caughtText.enabled = true;
                         //@TODO fix bad habbit but just for testing
                         StartCoroutine(RestartLevel());
 
                     }
-                    detectionLevel++;
+                    float someScale = time + minDetectionTime - Time.time;
+                    someScale = 1 - Mathf.Clamp(someScale / minDetectionTime, 0, 1);
+                    //detectionLevel++;
+                    
+
 
                     spotted = true;
                 }
@@ -137,7 +158,7 @@ class GuardFOV: MonoBehaviour
 
 
         // spotted follow target
-        if (spotted && followTargetWhenSpotted)
+        if (spotted && followPlayerWhenSpotted)
         {
             // direction based on the 
             Vector3 direction = player.transform.position - transform.root.position;
@@ -152,15 +173,12 @@ class GuardFOV: MonoBehaviour
                     nextTarget++;
                     if (nextTarget >= targets.Length)
                     {
-                        Debug.Log("0");
                         nextTarget = 0;
                     }
                     done = false;
-                    Debug.Log("Time");
                 }
                 else
                 {
-                    Debug.Log("Return");
                     return;
                 }
 
@@ -175,12 +193,10 @@ class GuardFOV: MonoBehaviour
                 || (newRotation.z >= transform.root.rotation.z + offset || newRotation.z <= transform.root.rotation.z - offset))
             //if (newRotation != transform.root.rotation)
             {
-                Debug.Log("rotate");
                 transform.root.rotation = newRotation;
             }
             else
             {
-                Debug.Log("Done");
                 done = true;
                 nextTime = Time.time + waitTime;
 
@@ -195,7 +211,7 @@ class GuardFOV: MonoBehaviour
         GetComponentInParent<MeshRenderer>().material.color = new Color(255, 255, 255);
         GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 255, 255));
         cone.enabled = false;
-        disabled = true;
+        isDisabled = true;
         Debug.Log("Disabled");
     }
 
@@ -204,7 +220,7 @@ class GuardFOV: MonoBehaviour
         GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
         GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
         cone.enabled = true;
-        disabled = false;
+        isDisabled = false;
         Debug.Log("enabled");
     }
 
