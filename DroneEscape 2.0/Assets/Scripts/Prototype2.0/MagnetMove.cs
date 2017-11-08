@@ -6,8 +6,6 @@ public class MagnetMove : MonoBehaviour {
 
     public bool turnedOn;
     [SerializeField] private float speed = 2.5f;
-    public bool turnedOff;
-    bool on;
     public List<GameObject> listOfDrones = new List<GameObject>();
 
 	// Use this for initialization
@@ -16,7 +14,7 @@ public class MagnetMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(turnedOff) {
+        if(!turnedOn) {
             ReleaseDrones();
         }
         foreach (GameObject drone in listOfDrones) {
@@ -33,8 +31,7 @@ public class MagnetMove : MonoBehaviour {
     }
 
     void ReleaseDrones() {
-        turnedOff = false;
-        on = false;
+        turnedOn = false;
         foreach (GameObject child in listOfDrones) {
             child.transform.parent = null;
             child.GetComponent<Rigidbody>().useGravity = true;
@@ -46,7 +43,7 @@ public class MagnetMove : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.transform.tag == "Drone" && on && other.GetComponent<Rigidbody>().useGravity) {
+        if (other.transform.tag == "Drone" && turnedOn && other.GetComponent<Rigidbody>().useGravity) {
             if (other.GetComponent<Rigidbody>().useGravity) {
                 other.transform.parent = transform;
                 other.GetComponent<Rigidbody>().useGravity = false;
@@ -58,13 +55,12 @@ public class MagnetMove : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if(turnedOn) {
-            if(other.transform.tag == "Drone" && other.transform.parent != gameObject) {
+            if(other.transform.tag == "Drone" && other.transform.parent != transform) {
                 other.transform.parent = transform;
                 other.GetComponent<Rigidbody>().useGravity = false;
                 listOfDrones.Add(other.gameObject);
             }
-            turnedOn = false;
-            on = true;
+
         }
     }
 
