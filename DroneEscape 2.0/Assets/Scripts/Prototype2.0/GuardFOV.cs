@@ -66,7 +66,6 @@ class GuardFOV: MonoBehaviour
     [SerializeField] private Color detectionColor;
     [SerializeField] private Color defaultColor;
 
-
     private void Start()
     {
 
@@ -114,8 +113,7 @@ class GuardFOV: MonoBehaviour
                         StartCoroutine(RestartLevel());
 
                     }
-                    float someScale = time + minDetectionTime - Time.time;
-                    someScale = 1 - Mathf.Clamp(someScale / minDetectionTime, 0, 1);
+
                     //detectionLevel++;
                     
 
@@ -155,6 +153,16 @@ class GuardFOV: MonoBehaviour
             }
             spotted = false;
         }
+
+        // change color
+        float someScale = time + minDetectionTime - Time.time;
+        someScale = Mathf.Clamp(someScale / minDetectionTime, 0, 1);
+
+        Color c = new Color(detectionColor.r * someScale + defaultColor.r * (1 - someScale),
+                             detectionColor.g * someScale + defaultColor.g * (1 - someScale),
+                             detectionColor.b * someScale + defaultColor.b * (1 - someScale));
+
+        cone.material.SetColor("_Screenlines", c);
 
 
         // spotted follow target
