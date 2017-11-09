@@ -70,10 +70,13 @@ class GuardFOV: MonoBehaviour
     private string defaultColorString = "_Screenlines";
     private string lineColorString = "_Scanlines";
 
+
     private void Start()
     {
         defaultColor = cone.material.GetColor(defaultColorString);
         lineColor = cone.material.GetColor(lineColorString);
+
+        colorNotSpotted();
     }
 
     private void Update()
@@ -92,26 +95,22 @@ class GuardFOV: MonoBehaviour
             RaycastHit rayCastHit;
             if (Physics.Raycast(transform.position, direction, out rayCastHit, maxDistance, layerMask.value))
             {
-                Debug.Log(rayCastHit.collider.gameObject.name);
+                //Debug.Log(rayCastHit.collider.gameObject.name);
                 if (rayCastHit.collider.gameObject == player)
                 {
-                    Debug.DrawRay(transform.position, direction, new Color(0, 255, 0));
+                    //Debug.DrawRay(transform.position, direction, new Color(0, 255, 0));
 
                     if (!spotted)
                     {
-                        GetComponentInParent<MeshRenderer>().material.color = new Color(255, 0, 0);
-                        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
+                        // first time spotted so change color
+                        colorSpotted();
+
                         time = Time.time;
                     }
-                    /*ParticleSystem sm = GetComponent<ParticleSystem>();
-                    //ParticleSystem.MinMaxGradient colorGradient = sm.main.startColor;
-                    ParticleSystem.MainModule mainPS = sm.main;
-                    //mainPS.startColor = new ParticleSystem.MinMaxGradient(new Color(detectionLevel, 0, 0));
-                    mainPS.startColor = new Color(detectionLevel, 0, 0);*/
+
                     if (time + minDetectionTime < Time.time)
                     {
                         // you are caught
-                        //Debug.Log("spotted");
                         // ui you got caught
                         caughtText.enabled = true;
                         //@TODO fix bad habbit but just for testing
@@ -142,8 +141,8 @@ class GuardFOV: MonoBehaviour
                     // not spotted
                     if (spotted)
                     {
-                        GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
-                        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
+                        colorNotSpotted();
+
                     }
                     detectionLevel = 0;
                     time = 0;
@@ -153,10 +152,13 @@ class GuardFOV: MonoBehaviour
             }
             else
             {
+                //not spotted anymore
                 if (spotted)
                 {
-                    GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
-                    GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
+                    // first time here after detecting 
+                    colorNotSpotted();
+
+                    time = Time.time;
                 }
                 spotted = false;
             }
@@ -165,8 +167,7 @@ class GuardFOV: MonoBehaviour
         {
             if (spotted)
             {
-                GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
-                GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
+                colorNotSpotted();
             }
             spotted = false;
         }
@@ -180,7 +181,7 @@ class GuardFOV: MonoBehaviour
             // direction based on the 
             Vector3 direction = player.transform.position - transform.root.position;
             transform.root.rotation = Quaternion.Slerp(transform.root.rotation, Quaternion.LookRotation(direction), Time.deltaTime * speed);
-        }
+        }   
         else
         {
             if (done)
@@ -223,22 +224,32 @@ class GuardFOV: MonoBehaviour
 
     }
 
+    private void colorSpotted()
+    {
+        GetComponentInParent<MeshRenderer>().material.color = detectionDefaultColor;
+        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", detectionDefaultColor);
+    }
+
+    private void colorNotSpotted()
+    {
+        GetComponentInParent<MeshRenderer>().material.color = defaultColor;
+        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", defaultColor);
+    }
+
     public void DisableGuard()
     {
-        GetComponentInParent<MeshRenderer>().material.color = new Color(255, 255, 255);
-        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 255, 255));
+        colorNotSpotted();
         cone.enabled = false;
         isDisabled = true;
-        Debug.Log("Disabled");
+       // Debug.Log("Disabled");
     }
 
     public void EnableGuard()
     {
-        GetComponentInParent<MeshRenderer>().material.color = new Color(0, 0, 0);
-        GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(0, 0, 0));
+        colorNotSpotted();
         cone.enabled = true;
         isDisabled = false;
-        Debug.Log("enabled");
+       // Debug.Log("enabled");
     }
 
     // Switch the GameObject which is being tracked
@@ -254,7 +265,6 @@ class GuardFOV: MonoBehaviour
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
 
 
 }
