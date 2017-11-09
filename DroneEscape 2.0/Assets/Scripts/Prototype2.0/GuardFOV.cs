@@ -63,12 +63,17 @@ class GuardFOV: MonoBehaviour
     private float waitTime = 1;
 
     // Colors used for the visualition of the detection state using the cone
-    [SerializeField] private Color detectionColor;
-    [SerializeField] private Color defaultColor;
+    [SerializeField] private Color detectionDefaultColor;
+    [SerializeField] private Color detectionLineColor;
+    private Color defaultColor;
+    private Color lineColor;
+    private string defaultColorString = "_Screenlines";
+    private string lineColorString = "_Scanlines";
 
     private void Start()
     {
-
+        defaultColor = cone.material.GetColor(defaultColorString);
+        lineColor = cone.material.GetColor(lineColorString);
     }
 
     private void Update()
@@ -114,8 +119,20 @@ class GuardFOV: MonoBehaviour
 
                     }
 
-                    //detectionLevel++;
-                    
+                    // change color
+                    float someScale = time + minDetectionTime - Time.time;
+                    someScale = Mathf.Clamp(someScale / minDetectionTime, 0, 1);
+
+                    Color defaultMix = new Color(detectionDefaultColor.r * (1 - someScale) + defaultColor.r * (someScale),
+                                                detectionDefaultColor.g * (1 - someScale) + defaultColor.g * (someScale),
+                                                detectionDefaultColor.b * (1 - someScale) + defaultColor.b * (someScale));
+                    Color lineMix = new Color(detectionLineColor.r * (1 - someScale) + lineColor.r * (someScale),
+                            detectionLineColor.g * (1 - someScale) + lineColor.g * (someScale),
+                            detectionLineColor.b * (1 - someScale) + lineColor.b * (someScale));
+
+                    cone.material.SetColor(defaultColorString, defaultMix);
+                    cone.material.SetColor(lineColorString, lineMix);
+
 
 
                     spotted = true;
@@ -154,15 +171,7 @@ class GuardFOV: MonoBehaviour
             spotted = false;
         }
 
-        // change color
-        float someScale = time + minDetectionTime - Time.time;
-        someScale = Mathf.Clamp(someScale / minDetectionTime, 0, 1);
 
-        Color c = new Color(detectionColor.r * someScale + defaultColor.r * (1 - someScale),
-                             detectionColor.g * someScale + defaultColor.g * (1 - someScale),
-                             detectionColor.b * someScale + defaultColor.b * (1 - someScale));
-
-        cone.material.SetColor("_Screenlines", c);
 
 
         // spotted follow target
