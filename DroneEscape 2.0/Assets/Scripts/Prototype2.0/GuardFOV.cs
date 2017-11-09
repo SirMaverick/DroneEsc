@@ -138,43 +138,23 @@ class GuardFOV: MonoBehaviour
                 }
                 else
                 {
-                    // not spotted
-                    if (spotted)
-                    {
-                        colorNotSpotted();
-
-                    }
-                    detectionLevel = 0;
-                    time = 0;
-                    spotted = false;
+                    notSpotted();
                 }
 
             }
             else
             {
-                //not spotted anymore
-                if (spotted)
-                {
-                    // first time here after detecting 
-                    colorNotSpotted();
-
-                    time = Time.time;
-                }
-                spotted = false;
+                notSpotted();
             }
         }
         else
         {
-            if (spotted)
-            {
-                colorNotSpotted();
-            }
-            spotted = false;
+            notSpotted();
         }
 
 
 
-
+        /// For the rotation between target points
         // spotted follow target
         if (spotted && followPlayerWhenSpotted)
         {
@@ -250,6 +230,44 @@ class GuardFOV: MonoBehaviour
         cone.enabled = true;
         isDisabled = false;
        // Debug.Log("enabled");
+    }
+
+    public void notSpotted()
+    {
+        if (spotted)
+        {
+            // first time here after detecting 
+            colorNotSpotted();
+            time = Time.time - time + Time.time;
+            // fully detected (shouln't happen)
+            if (time <= Time.time)
+            {
+                time = Time.time + minDetectionTime;
+            }
+            spotted = false;
+        }
+
+        if (time >= Time.time)
+        {
+            // change color
+            float someScale = time  - Time.time;
+            someScale = Mathf.Clamp(someScale / minDetectionTime, 0, 1);
+
+            Color defaultMix = new Color(detectionDefaultColor.r * ( someScale) + defaultColor.r * (1 - someScale),
+                                        detectionDefaultColor.g * ( someScale) + defaultColor.g * (1 - someScale),
+                                        detectionDefaultColor.b * (someScale) + defaultColor.b * (1 - someScale));
+            Color lineMix = new Color(detectionLineColor.r * (someScale) + lineColor.r * (1 - someScale),
+                    detectionLineColor.g * (someScale) + lineColor.g * (1 - someScale),
+                    detectionLineColor.b * (someScale) + lineColor.b * (1- someScale));
+
+            cone.material.SetColor(defaultColorString, defaultMix);
+            cone.material.SetColor(lineColorString, lineMix);
+
+        }
+
+
+
+        
     }
 
     // Switch the GameObject which is being tracked
