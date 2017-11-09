@@ -105,10 +105,15 @@ class GuardFOV: MonoBehaviour
                         // first time spotted so change color
                         colorSpotted();
 
-                        time = Time.time;
+                        time = Time.time - (time - minDetectionTime) + Time.time;
+                        //time = Time.time;
+                        if (time <= Time.time || time > Time.time + minDetectionTime)
+                        {
+                            time = Time.time + minDetectionTime;
+                        }
                     }
 
-                    if (time + minDetectionTime < Time.time)
+                    if (time <= Time.time)
                     {
                         // you are caught
                         // ui you got caught
@@ -119,7 +124,7 @@ class GuardFOV: MonoBehaviour
                     }
 
                     // change color
-                    float someScale = time + minDetectionTime - Time.time;
+                    float someScale = time - Time.time;
                     someScale = Mathf.Clamp(someScale / minDetectionTime, 0, 1);
 
                     Color defaultMix = new Color(detectionDefaultColor.r * (1 - someScale) + defaultColor.r * (someScale),
@@ -238,7 +243,7 @@ class GuardFOV: MonoBehaviour
         {
             // first time here after detecting 
             colorNotSpotted();
-            time = Time.time - time + Time.time;
+            time = Time.time - (time - minDetectionTime) + Time.time;
             // fully detected (shouln't happen)
             if (time <= Time.time)
             {
