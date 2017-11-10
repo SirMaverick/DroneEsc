@@ -173,7 +173,7 @@ Transform:
   m_GameObject: {fileID: 1196289488455318}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: -0.5}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 250, y: 250, z: 550}
+  m_LocalScale: {x: 83.3, y: 83.3, z: 550}
   m_Children: []
   m_Father: {fileID: 4072342672877760}
   m_RootOrder: 2
@@ -184,8 +184,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267039760185300}
-  m_LocalRotation: {x: -0.00000009362675, y: 0.8660254, z: -0.5, w: -0.00000016216629}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.27059805, y: 0.6532815, z: -0.27059805, w: -0.6532815}
+  m_LocalPosition: {x: -25.38, y: 8.566175, z: -26.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4072342672877760}
@@ -193,7 +193,7 @@ Transform:
   - {fileID: 4715243223559190}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 60, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 270, z: 0}
 --- !u!4 &4668603645209404
 Transform:
   m_ObjectHideFlags: 1
@@ -251,7 +251,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 20
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -487,14 +487,16 @@ MonoBehaviour:
     m_Bits: 261
   guardCamera: {fileID: 20501008473854978}
   player: {fileID: 0}
-  minDetectionTime: 1.5
+  minDetectionTime: 1
   cone: {fileID: 23363495433125156}
   caughtText: {fileID: 0}
-  followTargetWhenSpotted: 1
-  speed: 0.25
+  followPlayerWhenSpotted: 1
+  speed: 5
   targets:
   - {fileID: 0}
   waitTime: 1
+  detectionDefaultColor: {r: 0.6397059, g: 0.3292604, b: 0.3292604, a: 0}
+  detectionLineColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &114498656858809788
 MonoBehaviour:
   m_ObjectHideFlags: 1
