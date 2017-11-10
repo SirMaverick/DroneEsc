@@ -14,10 +14,13 @@ public class EmptyDrone : MonoBehaviour {
     public float minDist;
     [SerializeField] float moveSpeed;
 
-	// Use this for initialization
-	void Start () {
+    PlayerControllerSupervisor pcs;
+
+    // Use this for initialization
+    void Start () {
         ownCamera = transform.Find("DroneCamera").gameObject;
-	}
+        pcs = FindObjectOfType<PlayerControllerSupervisor>();
+    }
 
     // Update is called once per frame
     void Update() {
@@ -44,10 +47,9 @@ public class EmptyDrone : MonoBehaviour {
     void PickUpCore() {
         coreCamera.GetComponent<Camera>().enabled = false;
         coreCamera.GetComponent<AudioListener>().enabled = false;
-        coreCamera.GetComponent<CoreMouseMovement>().enabled = false;
         cameraObject.transform.position = transform.position;
-        corePickUp = cameraObject.GetComponent<CoreCamera>().core;
-        cameraObject.GetComponent<CoreCamera>().core.GetComponent<BoxCollider>().enabled = false;
+        corePickUp = cameraObject.GetComponent<CorePlayerController>().GetCore();
+        corePickUp.GetComponent<BoxCollider>().enabled = false;
         corePickUp.GetComponent<MeshRenderer>().enabled = false;
         corePickUp.GetComponent<Rigidbody>().useGravity = false;
         corePickUp.GetComponent<MoveOnBelt>().sent = false;
@@ -62,12 +64,11 @@ public class EmptyDrone : MonoBehaviour {
 
     void TurnOnDrone() {
         GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<PlayerMovement>().enabled = true;
-        GetComponent<ThrowCore>().enabled = true;
-        GetComponent<ThrowCore>().isThrown = false;
+        
+        pcs.SwitchPlayerController(GetComponent<DronePlayerController>());
         ownCamera.GetComponent<AudioListener>().enabled = true;
         ownCamera.GetComponent<Camera>().enabled = true;
-        ownCamera.GetComponent<PlayerMouseLook>().enabled = true;
+       
 
         enabled = false;
 

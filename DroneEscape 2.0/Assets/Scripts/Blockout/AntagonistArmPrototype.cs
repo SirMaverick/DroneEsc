@@ -30,7 +30,7 @@ public class AntagonistArmPrototype : MonoBehaviour {
 
     IEnumerator ArmGrabSequence()
     {
-        playerGameObject.GetComponent<PlayerMovement>().enabled = false;
+        //playerGameObject.GetComponent<PlayerMovement>().enabled = false;
         GameObject target = Instantiate(targetPoint, new Vector3(playerTransform.transform.position.x, playerTransform.transform.position.y + 10, playerTransform.transform.position.z), Quaternion.identity);
         GameObject go = Instantiate(animationCamera, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.position, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.rotation);
         go.GetComponent<ArmCameraRotation>().target = target.transform;
