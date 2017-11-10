@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 class SystemMovementController : MovementController
 {
-    private int cameraId = -1;
-    private SystemCameraPlayerController[] cameraPCS;
+    [SerializeField]
     private SystemPlayerController playerController;
 
 
@@ -23,22 +22,11 @@ class SystemMovementController : MovementController
     }
 
     public override void RightClick(bool key) {
-        cameraId++;
-        if(cameraId >= cameraPCS.Length)
-        {
-            cameraId = 0;
-        }
-        cameraPCS[cameraId].SetSystemMovementController(this);
-        playerControllerSupervisor.SwitchPlayerController(cameraPCS[cameraId]);
+        playerController.SwitchToNextCamera();
     }
 
     public override void LeftClick(bool key) {
-        cameraId--;
-        if (cameraId < 0)
-        {
-            cameraId = cameraPCS.Length-1;
-        }
-        playerControllerSupervisor.SwitchPlayerController(cameraPCS[cameraId]);
+        playerController.SwitchToPreviousCamera();
     }
 
     public override void Use(bool key)
@@ -46,7 +34,7 @@ class SystemMovementController : MovementController
         if (key)
         {
             // switch to the playerController which used to be used before this one
-            playerControllerSupervisor.SwitchPlayerController(playerController.GetPreviousPlayerController());
+            playerController.SwitchToPreviousPlayerController();
         }
     }
 
