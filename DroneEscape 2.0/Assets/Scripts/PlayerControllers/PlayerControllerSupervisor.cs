@@ -1,9 +1,20 @@
 ﻿using UnityEngine;
-public class PlayerControllerSupervisor : MonoBehaviour
+public class PlayerControllerSupervisor
 {
+    private static PlayerControllerSupervisor instance = null;
+
     [SerializeField]
     private AbstractPlayerController currentPlayerController;
     private AbstractPlayerController previousPlayerController;
+
+    public static PlayerControllerSupervisor GetInstance()
+    {
+        if(instance == null)
+        {
+            instance = new PlayerControllerSupervisor();
+        }
+        return instance;
+    }
 
     public void SwitchPlayerController(AbstractPlayerController apc)
     {
@@ -22,4 +33,11 @@ public class PlayerControllerSupervisor : MonoBehaviour
     {
         return currentPlayerController;
     }
+
+    public void SetCurrentPlayerController(AbstractPlayerController apc)
+    {
+        currentPlayerController = apc;
+    }
+
+
 }

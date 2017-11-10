@@ -11,7 +11,7 @@ public abstract class Button : MonoBehaviour
 
     private void Start()
     {
-        playerControllerSupervisor = FindObjectOfType<PlayerControllerSupervisor>();
+        playerControllerSupervisor = PlayerControllerSupervisor.GetInstance();
     }
 
     public void LookingAt()
