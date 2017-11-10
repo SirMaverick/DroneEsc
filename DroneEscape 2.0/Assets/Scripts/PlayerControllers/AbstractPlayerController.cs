@@ -10,6 +10,14 @@ public abstract class AbstractPlayerController : MonoBehaviour
     [SerializeField]
     protected MovementController movementController;
 
+    private void Start()
+    {
+        if (camera.enabled)
+        {
+            PlayerControllerSupervisor.GetInstance().SetCurrentPlayerController(this);
+        }
+    }
+
     public virtual void EnableController()
     {
         // meshRenderer.enabled = true;

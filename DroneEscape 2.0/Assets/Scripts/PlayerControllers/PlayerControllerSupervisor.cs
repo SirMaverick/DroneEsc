@@ -4,7 +4,7 @@ public class PlayerControllerSupervisor
     private static PlayerControllerSupervisor instance = null;
 
     [SerializeField]
-    private static AbstractPlayerController currentPlayerController = null;
+    private AbstractPlayerController currentPlayerController;
     private AbstractPlayerController previousPlayerController;
 
     public static PlayerControllerSupervisor GetInstance()
@@ -19,10 +19,6 @@ public class PlayerControllerSupervisor
     public void SwitchPlayerController(AbstractPlayerController apc)
     {
         apc.EnableController();
-        if(currentPlayerController == null)
-        {
-            currentPlayerController = Camera.main.GetComponentInParent<AbstractPlayerController>();
-        }
         currentPlayerController.DisableController();
         previousPlayerController = currentPlayerController;
         currentPlayerController = apc;
@@ -38,5 +34,10 @@ public class PlayerControllerSupervisor
         return currentPlayerController;
     }
 
-    
+    public void SetCurrentPlayerController(AbstractPlayerController apc)
+    {
+        currentPlayerController = apc;
+    }
+
+
 }
