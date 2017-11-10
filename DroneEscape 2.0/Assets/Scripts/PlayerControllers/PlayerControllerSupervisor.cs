@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 public class PlayerControllerSupervisor
 {
     private static PlayerControllerSupervisor instance = null;
@@ -14,6 +15,11 @@ public class PlayerControllerSupervisor
             instance = new PlayerControllerSupervisor();
         }
         return instance;
+    }
+
+    public AbstractPlayerController GetPreviousPlayerController()
+    {
+        return previousPlayerController;
     }
 
     public void SwitchPlayerController(AbstractPlayerController apc)
