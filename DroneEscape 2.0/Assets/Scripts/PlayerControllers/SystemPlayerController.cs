@@ -3,12 +3,12 @@
 [System.Serializable]
 class SystemPlayerController : AbstractPlayerController
 {
-    private int cameraId = -1;
+    private int cameraId = 0;
     [SerializeField]
     private SystemCameraPlayerController[] cameraPCS;
 
     private AbstractPlayerController previousPlayerController;
-    private new SystemMovementController movementController;
+    private SystemMovementController movementControllerSM;
 
     protected PlayerControllerSupervisor playerControllerSupervisor;
 
@@ -16,7 +16,7 @@ class SystemPlayerController : AbstractPlayerController
     public void Start()
     {
         // kind of ugly to hide it and cast it
-        movementController = (SystemMovementController) base.movementController;
+        movementControllerSM = (SystemMovementController) movementController;
         playerControllerSupervisor = PlayerControllerSupervisor.GetInstance();
     }
 
@@ -54,7 +54,8 @@ class SystemPlayerController : AbstractPlayerController
 
     private void SwitchToSystemCamera()
     {
-        cameraPCS[cameraId].SetSystemMovementController(movementController);
+        // stupid movementcontroller ;(
+        cameraPCS[cameraId].SetSystemMovementController(movementControllerSM);
         playerControllerSupervisor.SwitchPlayerController(cameraPCS[cameraId]);
     }
 

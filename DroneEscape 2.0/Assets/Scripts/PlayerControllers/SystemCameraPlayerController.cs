@@ -3,18 +3,17 @@
 [System.Serializable]
 class SystemCameraPlayerController : AbstractPlayerController
 {
-    private new SystemCameraMovementController movementController;
+    private SystemCameraMovementController movementControllerSC;
 
     public void Start()
     {
-        // kind of ugly to hide it and cast it
-        movementController = (SystemCameraMovementController)base.movementController;
+        movementControllerSC = (SystemCameraMovementController)base.movementController;
     }
 
     public void SetSystemMovementController(SystemMovementController smc)
     {
-
-        movementController.SetSystemMovementController(smc);
+        // really shit :(
+        movementControllerSC.SetSystemMovementController(smc);
     }
 
     public Camera GetCamera()
