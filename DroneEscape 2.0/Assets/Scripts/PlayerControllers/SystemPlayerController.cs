@@ -22,9 +22,11 @@ class SystemPlayerController : AbstractPlayerController
 
     public override void EnableController()
     {
-        camera = cameraPCS[0].GetCamera();
+        //camera = cameraPCS[0].GetCamera();
         previousPlayerController = playerControllerSupervisor.GetCurrentPlayerController();
-        base.EnableController();
+        //base.EnableController();
+        movementController.enabled = true;
+        SwitchToSystemCamera();
     }
 
     public override void DisableController()
