@@ -4,6 +4,7 @@
 class SystemPlayerController : AbstractPlayerController
 {
     private int cameraId = -1;
+    [SerializeField]
     private SystemCameraPlayerController[] cameraPCS;
 
     private AbstractPlayerController previousPlayerController;

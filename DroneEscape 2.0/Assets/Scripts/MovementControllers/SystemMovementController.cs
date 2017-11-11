@@ -22,11 +22,17 @@ class SystemMovementController : MovementController
     }
 
     public override void RightClick(bool key) {
-        playerController.SwitchToNextCamera();
+        if (key)
+        {
+            playerController.SwitchToNextCamera();
+        }
     }
 
     public override void LeftClick(bool key) {
-        playerController.SwitchToPreviousCamera();
+        if (key)
+        {
+            playerController.SwitchToPreviousCamera();
+        }
     }
 
     public override void Use(bool key)

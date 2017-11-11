@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-class SystemCameraPlayerController : CameraPlayerController
+class SystemCameraPlayerController : AbstractPlayerController
 {
     private new SystemCameraMovementController movementController;
 
