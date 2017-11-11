@@ -17,4 +17,9 @@ class SystemCameraMovementController : CameraMovementController
     {
         systemMovementController.LeftClick(key);
     }
+
+    public override void Use(bool key)
+    {
+        systemMovementController.Use(key);
+    }
 }
