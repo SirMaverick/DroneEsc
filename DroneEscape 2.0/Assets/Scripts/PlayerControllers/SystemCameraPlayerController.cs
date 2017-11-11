@@ -16,4 +16,9 @@ class SystemCameraPlayerController : CameraPlayerController
 
         movementController.SetSystemMovementController(smc);
     }
+
+    public Camera GetCamera()
+    {
+        return camera;
+    }
 }
