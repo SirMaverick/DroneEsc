@@ -17,6 +17,7 @@ public class SystemButton : Button
         if (!enabled)
         {
             playerControllerSupervisor.SwitchPlayerController(playerController);
+            playerController.SwitchToNextCamera();
             enabled = true;
         }
         else
