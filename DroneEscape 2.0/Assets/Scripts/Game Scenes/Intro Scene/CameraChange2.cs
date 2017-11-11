@@ -31,6 +31,5 @@ public class CameraChange2 : MonoBehaviour
         yield return new WaitForSeconds(animLength);
         cam.enabled = false;
         coreCam.enabled = true;
-        coreCam.GetComponent<CoreMouseMovement>().enabled = true;
     }
 }
