@@ -64,6 +64,15 @@ using System.Collections;
            
         }
         core.transform.parent = null;
+        // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)
+       // private void UpdateGuards()
+        {
+            GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
+            foreach (GuardFOV guard in guards)
+            {
+                guard.ChangePlayer(core);
+            }
+        }
 
     }
 

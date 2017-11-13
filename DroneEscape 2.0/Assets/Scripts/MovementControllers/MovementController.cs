@@ -7,7 +7,7 @@ public abstract class MovementController : MonoBehaviour
 
     protected virtual void Start()
     {
-        playerControllerSupervisor = FindObjectOfType<PlayerControllerSupervisor>();
+        playerControllerSupervisor = PlayerControllerSupervisor.GetInstance();
     }
     
     /*public void Forward(float speed)
