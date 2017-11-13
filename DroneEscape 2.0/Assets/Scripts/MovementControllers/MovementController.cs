@@ -52,9 +52,11 @@ public abstract class MovementController : MonoBehaviour
 
     public virtual void RightClick(bool key) { }
     public virtual void RightPress(bool key) { }
+    public virtual void RightHold(bool key) { }
 
     public virtual void LeftClick(bool key) { }
     public virtual void LeftPress(bool key) { }
+    public virtual void LeftHold(bool key) { }
 
     private void Update()
     {
@@ -67,8 +69,10 @@ public abstract class MovementController : MonoBehaviour
 
         RightClick(Input.GetMouseButtonUp(1));
         RightPress(Input.GetMouseButtonDown(1));
+        RightHold(Input.GetMouseButton(1));
         LeftPress(Input.GetMouseButtonDown(0));
         LeftClick(Input.GetMouseButtonUp(0));
+        LeftHold(Input.GetMouseButton(0));
 
     }
 }
