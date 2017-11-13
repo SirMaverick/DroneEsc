@@ -19,7 +19,7 @@ public class EmptyDrone : MonoBehaviour {
     // Use this for initialization
     void Start () {
         ownCamera = transform.Find("DroneCamera").gameObject;
-        pcs = FindObjectOfType<PlayerControllerSupervisor>();
+        pcs = PlayerControllerSupervisor.GetInstance();
     }
 
     // Update is called once per frame

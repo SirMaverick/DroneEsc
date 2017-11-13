@@ -24,6 +24,9 @@ class GuardFOV: MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    [SerializeField]
+    private GameObject cameraObject;
+
     // is the camera disabled
     private bool isDisabled = false;
 
@@ -164,8 +167,8 @@ class GuardFOV: MonoBehaviour
         if (spotted && followPlayerWhenSpotted)
         {
             // direction based on the 
-            Vector3 direction = player.transform.position - transform.root.position;
-            transform.root.rotation = Quaternion.Slerp(transform.root.rotation, Quaternion.LookRotation(direction), Time.deltaTime * speed);
+            Vector3 direction = player.transform.position - cameraObject.transform.position;
+            cameraObject.transform.rotation = Quaternion.Slerp(cameraObject.transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * speed);
         }   
         else
         {
@@ -186,17 +189,17 @@ class GuardFOV: MonoBehaviour
                 }
 
             }
-            Vector3 direction = targets[nextTarget].position - transform.root.position;
+            Vector3 direction = targets[nextTarget].position - cameraObject.transform.position;
 
-            Quaternion newRotation = Quaternion.RotateTowards(transform.root.rotation, Quaternion.LookRotation(direction), Time.deltaTime * speed);
+            Quaternion newRotation = Quaternion.RotateTowards(cameraObject.transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * speed);
             float offset = 0.00001f;
-            if ((newRotation.w >= transform.root.rotation.w + offset || newRotation.w <= transform.root.rotation.w - offset)
-                || (newRotation.x >= transform.root.rotation.x + offset || newRotation.x <= transform.root.rotation.x - offset)
-                || (newRotation.y >= transform.root.rotation.y + offset || newRotation.y <= transform.root.rotation.y - offset)
-                || (newRotation.z >= transform.root.rotation.z + offset || newRotation.z <= transform.root.rotation.z - offset))
-            //if (newRotation != transform.root.rotation)
+            if ((newRotation.w >= cameraObject.transform.rotation.w + offset || newRotation.w <= cameraObject.transform.rotation.w - offset)
+                || (newRotation.x >= cameraObject.transform.rotation.x + offset || newRotation.x <= cameraObject.transform.rotation.x - offset)
+                || (newRotation.y >= cameraObject.transform.rotation.y + offset || newRotation.y <= cameraObject.transform.rotation.y - offset)
+                || (newRotation.z >= cameraObject.transform.rotation.z + offset || newRotation.z <= cameraObject.transform.rotation.z - offset))
+            //if (newRotation != cameraObject.transform.rotation)
             {
-                transform.root.rotation = newRotation;
+                cameraObject.transform.rotation = newRotation;
             }
             else
             {
