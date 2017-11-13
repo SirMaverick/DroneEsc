@@ -46,7 +46,7 @@ public class CorePlayerController : AbstractPlayerController
 
         camera.GetComponent<AudioListener>().enabled = true;
 
-        StartCoroutine(CheckGrounded());
+     //   StartCoroutine(CheckGrounded());
         isFlying = true;
     }
 
@@ -57,28 +57,23 @@ public class CorePlayerController : AbstractPlayerController
         //enabled = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (isFlying)
         {
-            cameraCenter.transform.position = core.transform.position;
-        }
-    }
+            currentPos = core.transform.position;
 
-    IEnumerator CheckGrounded()
-    {
+            if (Vector3.Distance(lastPos, currentPos) == 0)
+            {
+                isFlying = false;
+                CoreOnGround();
+            }
+
+
+            cameraCenter.transform.position = core.transform.position;
+
+           
+        }
         lastPos = core.transform.position;
-        yield return new WaitForSeconds(0.02f);
-        currentPos = core.transform.position;
-        
-        if (Vector3.Distance(lastPos, currentPos) == 0)
-        {
-            isFlying = false;
-            CoreOnGround();
-        }
-        if (isFlying)
-        {
-            StartCoroutine(CheckGrounded());
-        }
     }
 }
