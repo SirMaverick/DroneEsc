@@ -33,19 +33,29 @@ public class LaunchArcMesh : MonoBehaviour {
     void Start() {
     }
 
-    private void Update() {
+    public void Enable()
+    {
+        angle = camera.transform.localRotation.eulerAngles.x * -1;
+        MakeArcMesh(CalculateArcArray());
+    }
+
+    public void Disable()
+    {
+        TurnOffArc();
+    }
+
+    /*private void Update() {
 
         if(Input.GetButton("Fire2")) {
-            angle = camera.transform.localRotation.eulerAngles.x * -1;
-            MakeArcMesh(CalculateArcArray());
+
         } 
 
         if(Input.GetButtonUp("Fire2")) {
-            TurnOffArc();
+            
         }
 
 
-    }
+    }*/
 
     void MakeArcMesh(Vector3[] arcVerts) {
         mesh.Clear();
