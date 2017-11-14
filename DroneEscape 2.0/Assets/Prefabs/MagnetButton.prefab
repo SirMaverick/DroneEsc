@@ -65,6 +65,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1284944060286916
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4524273624855678}
+  - component: {fileID: 33173473243026994}
+  - component: {fileID: 23586610925919464}
+  m_Layer: 0
+  m_Name: MagnetForcefield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1585567597724984
 GameObject:
   m_ObjectHideFlags: 1
@@ -101,6 +118,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4524273624855678
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1284944060286916}
+  m_LocalRotation: {x: -0, y: -0.70055616, z: -0, w: -0.7135973}
+  m_LocalPosition: {x: 0, y: -26.852528, z: 0}
+  m_LocalScale: {x: 0.8414308, y: 26.190495, z: 0.8414308}
+  m_Children: []
+  m_Father: {fileID: 4730336614731486}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4606903844935470
 Transform:
   m_ObjectHideFlags: 1
@@ -108,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173565631660118}
   m_LocalRotation: {x: -0, y: 0.7135973, z: -0, w: 0.70055616}
-  m_LocalPosition: {x: -0.062561035, y: -1.0602722, z: -2.8820953}
+  m_LocalPosition: {x: -10.9, y: -1.06, z: -25.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4650752668448474}
@@ -136,14 +166,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1763417830088286}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -9.3, y: 4.499911, z: 4.63}
-  m_LocalScale: {x: 1.9318964, y: 0.16569112, z: 1.931897}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -14.05, y: 9.45, z: 13.11}
+  m_LocalScale: {x: 3.5, y: 0.18657461, z: 3.5}
   m_Children:
   - {fileID: 4933739142457374}
+  - {fileID: 4524273624855678}
   m_Father: {fileID: 4606903844935470}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4933739142457374
 Transform:
   m_ObjectHideFlags: 1
@@ -238,6 +269,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23586610925919464
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1284944060286916}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 3fb287b9dce4fb54abf553a9b97bdc29, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23989262647535598
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -272,6 +337,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!33 &33173473243026994
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1284944060286916}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33205048403466332
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -304,7 +376,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
@@ -411,6 +483,6 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.32635292
-  m_Height: 39.848328
+  m_Height: 70
   m_Direction: 1
-  m_Center: {x: 0, y: -11.875295, z: 0}
+  m_Center: {x: 0, y: -24.6, z: 0}
