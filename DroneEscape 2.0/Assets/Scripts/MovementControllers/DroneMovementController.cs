@@ -152,7 +152,6 @@ class DroneMovementController : MovementController
 
     void TurnDroneOff()
     {
-        GetComponent<MeshRenderer>().enabled = true;
         GetComponent<EmptyDrone>().enabled = true;
         ownCamera.GetComponent<Camera>().enabled = false;
         ownCamera.GetComponent<AudioListener>().enabled = false;

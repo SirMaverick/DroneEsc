@@ -3,8 +3,6 @@
 public abstract class AbstractPlayerController : MonoBehaviour
 {
     [SerializeField]
-    protected MeshRenderer meshRenderer;
-    [SerializeField]
     protected Camera camera;
 
     [SerializeField]
