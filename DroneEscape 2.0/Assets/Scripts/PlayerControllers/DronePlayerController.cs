@@ -53,8 +53,10 @@ using System.Collections;
         {
             cameraObject.transform.position = core.transform.position;
 
-            // actual throwing
+            // actual throwing.
+            core.GetComponent<Rigidbody>().isKinematic = false;
             core.GetComponent<Rigidbody>().AddForce(transform.Find("DroneCamera").TransformDirection(Vector3.forward) * force, ForceMode.Impulse);
+            
             
         }
         else

@@ -121,6 +121,8 @@ class GuardFOV: MonoBehaviour
                         // you are caught
                         // ui you got caught
                         caughtText.enabled = true;
+                        AntagonistArmPrototype arm = FindObjectOfType<AntagonistArmPrototype>();
+                        StartCoroutine(arm.ArmGrabSequence());
                         //@TODO fix bad habbit but just for testing
                         StartCoroutine(RestartLevel());
 
