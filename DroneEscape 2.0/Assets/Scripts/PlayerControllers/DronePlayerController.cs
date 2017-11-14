@@ -55,6 +55,7 @@ using System.Collections;
 
             // actual throwing.
             core.GetComponent<Rigidbody>().isKinematic = false;
+            core.GetComponent<Rigidbody>().velocity = Vector3.zero;
             core.GetComponent<Rigidbody>().AddForce(transform.Find("DroneCamera").TransformDirection(Vector3.forward) * force, ForceMode.Impulse);
             
             
