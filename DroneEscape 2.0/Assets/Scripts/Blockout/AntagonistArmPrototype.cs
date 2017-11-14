@@ -20,15 +20,15 @@ public class AntagonistArmPrototype : MonoBehaviour {
         updateRotation = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Drone")
         {
             StartCoroutine(ArmGrabSequence());
         }
-    }
+    }*/
 
-    IEnumerator ArmGrabSequence()
+    public IEnumerator ArmGrabSequence()
     {
         //playerGameObject.GetComponent<PlayerMovement>().enabled = false;
         GameObject target = Instantiate(targetPoint, new Vector3(playerTransform.transform.position.x, playerTransform.transform.position.y + 10, playerTransform.transform.position.z), Quaternion.identity);
