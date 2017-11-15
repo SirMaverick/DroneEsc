@@ -5,8 +5,8 @@ using UnityEngine;
 public class AntagonistArmPrototype : MonoBehaviour {
 
     [SerializeField] private GameObject antagonistArm;
-    [SerializeField] private Transform playerTransform;
-    [SerializeField] private GameObject playerGameObject;
+   // [SerializeField] private Transform playerTransform;
+    //[SerializeField] private GameObject playerGameObject;
     [SerializeField] private GameObject animationCamera;
     [SerializeField] private GameObject targetPoint;
     [SerializeField] private float timeBeforeGrab;
@@ -28,10 +28,10 @@ public class AntagonistArmPrototype : MonoBehaviour {
         }
     }*/
 
-    public IEnumerator ArmGrabSequence()
+    public IEnumerator ArmGrabSequence(GameObject playerGameObject)
     {
         //playerGameObject.GetComponent<PlayerMovement>().enabled = false;
-        GameObject target = Instantiate(targetPoint, new Vector3(playerTransform.transform.position.x, playerTransform.transform.position.y + 10, playerTransform.transform.position.z), Quaternion.identity);
+        GameObject target = Instantiate(targetPoint, new Vector3(playerGameObject.transform.position.x, playerGameObject.transform.position.y + 10, playerGameObject.transform.position.z), Quaternion.identity);
         GameObject go = Instantiate(animationCamera, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.position, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.rotation);
         go.GetComponent<ArmCameraRotation>().target = target.transform;
         Instantiate(antagonistArm, new Vector3(go.transform.position.x, yPositionArm, go.transform.position.z), Quaternion.identity);
