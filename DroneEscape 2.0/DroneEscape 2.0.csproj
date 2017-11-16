@@ -290,6 +290,7 @@
     <Compile Include="Assets\Scripts\Button\CameraDisableButton.cs" />
     <Compile Include="Assets\Scripts\Button\ElevatorButton.cs" />
     <Compile Include="Assets\Scripts\Button\MagnetButton.cs" />
+    <Compile Include="Assets\Scripts\Button\SystemButton.cs" />
     <Compile Include="Assets\Scripts\CameraCollision.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CoreObject.cs" />
@@ -302,12 +303,15 @@
     <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\ItemsOnElevator.cs" />
     <Compile Include="Assets\Scripts\LaunchArcMesh.cs" />
+    <Compile Include="Assets\Scripts\Menu\LoadSceneOnClick.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\CameraMovementController.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\CoreMovementController.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\DroneMovementController.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\ElevatorMovementController.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\MagnetMovementController.cs" />
     <Compile Include="Assets\Scripts\MovementControllers\MovementController.cs" />
+    <Compile Include="Assets\Scripts\MovementControllers\SystemCameraMovementController.cs" />
+    <Compile Include="Assets\Scripts\MovementControllers\SystemMovementController.cs" />
     <Compile Include="Assets\Scripts\NewBehaviourScript1.cs" />
     <Compile Include="Assets\Scripts\PlayerControllers\AbstractPlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerControllers\CameraPlayerController.cs" />
@@ -316,6 +320,8 @@
     <Compile Include="Assets\Scripts\PlayerControllers\ElevatorPlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerControllers\MagnetPlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerControllers\PlayerControllerSupervisor.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\SystemCameraPlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerControllers\SystemPlayerController.cs" />
     <Compile Include="Assets\Scripts\Prototype2.0\BeltInfo.cs" />
     <Compile Include="Assets\Scripts\Prototype2.0\ConveyerBelt.cs" />
     <Compile Include="Assets\Scripts\Prototype2.0\DailyJob3D.cs" />
@@ -333,7 +339,6 @@
     <Compile Include="Assets\TestParticleSystem.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Drone\Drone.shader" />
     <None Include="Assets\DroneShader.shader" />
     <None Include="Assets\Effects\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
     <None Include="Assets\Effects\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />

@@ -20,6 +20,7 @@ public class MagnetMove : MonoBehaviour {
         foreach (GameObject drone in listOfDrones) {
             if(drone.transform.position.y < transform.position.y - 2f)
             drone.transform.Translate(0, Time.deltaTime * speed, 0, Space.World);
+            drone.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);    
         }
 
     }
@@ -43,10 +44,11 @@ public class MagnetMove : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.transform.tag == "Drone" && turnedOn && other.GetComponent<Rigidbody>().useGravity) {
+        if ((other.transform.tag == "Drone" || other.transform.tag == "Magnetic") && turnedOn && other.GetComponent<Rigidbody>().useGravity) {
             if (other.GetComponent<Rigidbody>().useGravity) {
                 other.transform.parent = transform;
                 other.GetComponent<Rigidbody>().useGravity = false;
+                other.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                 listOfDrones.Add(other.gameObject);
             }
 
@@ -55,9 +57,10 @@ public class MagnetMove : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if(turnedOn) {
-            if(other.transform.tag == "Drone" && other.transform.parent != transform) {
+            if((other.transform.tag == "Drone" || other.transform.tag == "Magnetic") && other.transform.parent != transform) {
                 other.transform.parent = transform;
                 other.GetComponent<Rigidbody>().useGravity = false;
+                other.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                 listOfDrones.Add(other.gameObject);
             }
 
@@ -65,6 +68,6 @@ public class MagnetMove : MonoBehaviour {
     }
 
     private void OnTriggerExit(Collider other) {
-        if(other.transform.tag == "Drone") ReleaseDrone(other.gameObject);     
+        if(other.transform.tag == "Drone" || other.transform.tag == "Magnetic") ReleaseDrone(other.gameObject);     
     }
 }

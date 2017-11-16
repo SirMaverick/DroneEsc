@@ -30,6 +30,7 @@ public class FadeToWhite : MonoBehaviour {
     [SerializeField] private Image whiteImage;
     [SerializeField] private Animator animImage;
     [SerializeField] private float timeTilReset;
+    [SerializeField] private int sceneIndex;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,6 +50,6 @@ public class FadeToWhite : MonoBehaviour {
         animImage.SetBool("Fade", true);
         yield return new WaitUntil(() => whiteImage.color.a == 1);
         yield return new WaitForSeconds(timeTilReset);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneIndex);
     }
 }

@@ -125,10 +125,19 @@ class DroneMovementController : MovementController
         }
     }
 
+    public override void RightHold(bool key)
+    {
+        if (key)
+        {
+            GetComponentInChildren<LaunchArcMesh>().Enable();
+        }
+    }
+
     public override void RightClick(bool key)
     {
         if (key)
         {
+            GetComponentInChildren<LaunchArcMesh>().Disable();
             dronePlayerController.Throw();
             playerControllerSupervisor.SwitchPlayerController(corePlayerController);
         
@@ -143,7 +152,6 @@ class DroneMovementController : MovementController
 
     void TurnDroneOff()
     {
-        GetComponent<MeshRenderer>().enabled = true;
         GetComponent<EmptyDrone>().enabled = true;
         ownCamera.GetComponent<Camera>().enabled = false;
         ownCamera.GetComponent<AudioListener>().enabled = false;

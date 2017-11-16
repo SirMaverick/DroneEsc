@@ -20,7 +20,8 @@ public class CoreMovementController : MovementController
 
     private bool isThrown;
     private bool nearBelt;
-   
+
+    private bool activate = false;
 
     protected override void Start()
     {
@@ -59,10 +60,10 @@ public class CoreMovementController : MovementController
             if (hit.collider.tag == "Drone")
             {
                 hitEmptyDrone = true;
-                lastMaterialHit = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
-                lastMaterialHit.EnableKeyword("_EMISSION");
+                lastMaterialHit = hit.collider.gameObject.GetComponent<DronePlayerController>().GetMaterial();
+                EnableHighlite();
                 //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
-                if (Input.GetMouseButtonDown(0))
+                if (activate)
                 {
                     hit.collider.gameObject.GetComponent<EmptyDrone>().WalkToPlayer(transform.GetChild(0).transform);
                 }
@@ -72,8 +73,7 @@ public class CoreMovementController : MovementController
             {
                 if (hitEmptyDrone)
                 {
-                    lastMaterialHit.DisableKeyword("_EMISSION");
-                    hitEmptyDrone = false;
+                    DisableHighlite();
                 }
 
             }
@@ -82,16 +82,33 @@ public class CoreMovementController : MovementController
         {
             if (hitEmptyDrone)
             {
-                lastMaterialHit.DisableKeyword("_EMISSION");
-                hitEmptyDrone = false;
+                DisableHighlite();
             }
 
         }
     }
 
+    private void DisableHighlite()
+    {
+        //lastMaterialHit.DisableKeyword("_EMISSION");
+        lastMaterialHit.SetInt("_ON", 0);
+        hitEmptyDrone = false;
+    }
+
+    private void EnableHighlite()
+    {
+        //lastMaterialHit.EnableKeyword("_EMISSION");
+        lastMaterialHit.SetInt("_ON", 1);
+    }
+
     public override void Use(bool key)
     {
         
+    }
+
+    public override void LeftClick(bool key)
+    {
+        activate = key;
     }
 
 
