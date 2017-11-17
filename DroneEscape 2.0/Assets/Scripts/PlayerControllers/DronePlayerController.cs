@@ -2,6 +2,9 @@
 using System.Collections;
     class DronePlayerController : AbstractPlayerController
     {
+    [SerializeField]
+    protected SkinnedMeshRenderer meshRenderer;
+
     private GameObject core;
     private GameObject cameraObject;
     private CorePlayerController corePlayerController;
@@ -53,8 +56,11 @@ using System.Collections;
         {
             cameraObject.transform.position = core.transform.position;
 
-            // actual throwing
+            // actual throwing.
+            core.GetComponent<Rigidbody>().isKinematic = false;
+            core.GetComponent<Rigidbody>().velocity = Vector3.zero;
             core.GetComponent<Rigidbody>().AddForce(transform.Find("DroneCamera").TransformDirection(Vector3.forward) * force, ForceMode.Impulse);
+            
             
         }
         else
@@ -76,7 +82,10 @@ using System.Collections;
 
     }
 
-
+    public Material GetMaterial()
+    {
+        return meshRenderer.material;
+    }
 
 }
 
