@@ -15,7 +15,7 @@ public class CoreMovementController : MovementController
 
     private GameObject character;
 
-    private Material lastMaterialHit;
+    private EmptyDrone lastDroneHit;
     private bool hitEmptyDrone;
 
     private bool isThrown;
@@ -60,12 +60,16 @@ public class CoreMovementController : MovementController
             if (hit.collider.tag == "Drone")
             {
                 hitEmptyDrone = true;
-                lastMaterialHit = hit.collider.gameObject.GetComponent<DronePlayerController>().GetMaterial();
-                EnableHighlite();
-                //hit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", new Color(255, 0, 0));
+                EmptyDrone newHit = hit.collider.gameObject.GetComponent<EmptyDrone>();
+                if (lastDroneHit != newHit) {
+                    newHit.StopLookingAt();
+                    lastDroneHit = newHit;
+                    lastDroneHit.LookingAt();
+                }
+
                 if (activate)
                 {
-                    hit.collider.gameObject.GetComponent<EmptyDrone>().WalkToPlayer(transform.GetChild(0).transform);
+                    lastDroneHit.WalkToPlayer(transform.GetChild(0).transform);
                 }
 
             }
@@ -73,7 +77,7 @@ public class CoreMovementController : MovementController
             {
                 if (hitEmptyDrone)
                 {
-                    DisableHighlite();
+                    lastDroneHit.StopLookingAt();
                 }
 
             }
@@ -82,23 +86,10 @@ public class CoreMovementController : MovementController
         {
             if (hitEmptyDrone)
             {
-                DisableHighlite();
+                lastDroneHit.StopLookingAt();
             }
 
         }
-    }
-
-    private void DisableHighlite()
-    {
-        //lastMaterialHit.DisableKeyword("_EMISSION");
-        lastMaterialHit.SetInt("_ON", 0);
-        hitEmptyDrone = false;
-    }
-
-    private void EnableHighlite()
-    {
-        //lastMaterialHit.EnableKeyword("_EMISSION");
-        lastMaterialHit.SetInt("_ON", 1);
     }
 
     public override void Use(bool key)

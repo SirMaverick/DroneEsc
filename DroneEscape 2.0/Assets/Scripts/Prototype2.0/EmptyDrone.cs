@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmptyDrone : MonoBehaviour {
+public class EmptyDrone : MonoBehaviour, Selectable {
 
     private Transform cameraObject;
     private GameObject coreCamera;
@@ -10,6 +10,8 @@ public class EmptyDrone : MonoBehaviour {
     private bool walk;
     private GameObject ownCamera;
     [SerializeField] GameObject objectPlacement;
+
+    [SerializeField] SkinnedMeshRenderer meshRenderer;
 
     public float minDist;
     [SerializeField] float moveSpeed;
@@ -81,5 +83,15 @@ public class EmptyDrone : MonoBehaviour {
         {
             guard.ChangePlayer(gameObject);
         }
+    }
+
+    public void LookingAt()
+    {
+        meshRenderer.material.SetInt("_ON", 1);
+    }
+
+    public void StopLookingAt()
+    {
+        meshRenderer.material.SetInt("_ON", 0);
     }
 }
