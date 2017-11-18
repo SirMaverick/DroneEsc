@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// DO NOT USE goto Jeroen for help
 public class CameraChange2 : MonoBehaviour
 {
+    
+    
     public Animation anim;
     public AnimationClip animClip;
     public Camera cam;
     public Camera coreCam;
 
-
+/*
     // Use this for initialization
     void Start()
     {
@@ -31,5 +34,5 @@ public class CameraChange2 : MonoBehaviour
         yield return new WaitForSeconds(animLength);
         cam.enabled = false;
         coreCam.enabled = true;
-    }
+    }*/
 }

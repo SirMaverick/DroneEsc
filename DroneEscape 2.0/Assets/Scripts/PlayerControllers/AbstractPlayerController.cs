@@ -8,7 +8,7 @@ public abstract class AbstractPlayerController : MonoBehaviour
     [SerializeField]
     protected MovementController movementController;
 
-    private void Start()
+    protected virtual void Start()
     {
         if (camera.enabled)
         {
