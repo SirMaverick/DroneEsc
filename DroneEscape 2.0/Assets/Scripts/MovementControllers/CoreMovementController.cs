@@ -10,9 +10,6 @@ public class CoreMovementController : MovementController
     public float sensitivity = 5.0f;
     public float smoothing = 2.0f;
 
-    private Ray ray;
-    private RaycastHit hit;
-
     private GameObject character;
 
     private EmptyDrone lastDroneHit;
@@ -53,8 +50,8 @@ public class CoreMovementController : MovementController
 
         transform.GetChild(0).transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-
-        Vector3 fwd = transform.GetChild(0).transform.TransformDirection(Vector3.forward);
+    RaycastHit hit;
+    Vector3 fwd = transform.GetChild(0).transform.TransformDirection(Vector3.forward);
         if (Physics.Raycast(transform.GetChild(0).transform.position, fwd, out hit, 100.0f))
         {
             if (hit.collider.tag == "Drone")
@@ -77,7 +74,7 @@ public class CoreMovementController : MovementController
             {
                 if (hitEmptyDrone)
                 {
-                    lastDroneHit.StopLookingAt();
+                    NoHit();
                 }
 
             }
@@ -86,7 +83,7 @@ public class CoreMovementController : MovementController
         {
             if (hitEmptyDrone)
             {
-                lastDroneHit.StopLookingAt();
+                NoHit();
             }
 
         }
@@ -102,6 +99,21 @@ public class CoreMovementController : MovementController
         activate = key;
     }
 
+    private void NoHit()
+    {
+        lastDroneHit.StopLookingAt();
+        lastDroneHit = null;
+        hitEmptyDrone = false;
+    }
+
+    public override void DisableController()
+    {
+        if (lastDroneHit != null)
+        {
+            lastDroneHit.StopLookingAt();
+        }
+        base.DisableController();
+    }
 
 
 
