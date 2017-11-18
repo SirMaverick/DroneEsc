@@ -158,6 +158,12 @@ class DroneMovementController : MovementController
         //enabled = false;
     }
 
+    public override void DisableController()
+    {
+        button.StopLookingAt();
+        base.DisableController();
+    }
+
 
     // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)
     private void UpdateGuards()
