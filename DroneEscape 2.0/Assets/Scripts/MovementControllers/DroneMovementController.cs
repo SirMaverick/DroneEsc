@@ -160,7 +160,10 @@ class DroneMovementController : MovementController
 
     public override void DisableController()
     {
-        button.StopLookingAt();
+        if (button != null)
+        {
+            button.StopLookingAt();
+        }
         base.DisableController();
     }
 
