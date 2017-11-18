@@ -27,6 +27,7 @@ public class SystemButton : Button
          }*/
 
         playerControllerSupervisor.SwitchPlayerController(playerController);
+        // be sure to load the same one ;) yes ugly :D
         playerController.SwitchToPreviousCamera();
         playerController.SwitchToNextCamera();
     }
