@@ -59,7 +59,7 @@ public class ElevatorButton : Button {
 
     public override void Toggle()
     {
-        if (!enabled)
+        /*if (!enabled)
         {
             playerControllerSupervisor.SwitchPlayerController(playerController );
             enabled = true;
@@ -69,6 +69,7 @@ public class ElevatorButton : Button {
             playerControllerSupervisor.SwitchPlayerControllerPrevious();
             
             enabled = false;
-        }
+        }*/
+        playerControllerSupervisor.SwitchPlayerController(playerController);
     }
 }
