@@ -14,6 +14,20 @@ public class CorePlayerController : AbstractPlayerController
 
     private bool isFlying;
 
+    protected override void Start()
+    {
+        base.Start();
+        if (camera.enabled)
+        {
+            GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
+
+            foreach (GuardFOV guard in guards)
+            {
+                guard.ChangePlayer(core);
+            }
+        }
+    }
+
 
     public GameObject GetCore()
     {

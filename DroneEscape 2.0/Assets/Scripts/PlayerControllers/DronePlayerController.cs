@@ -16,11 +16,13 @@ using System.Collections;
 
     [SerializeField] private GameObject objectPlacement;
 
-    protected void Start()
+    protected override void Start()
     {
         corePlayerController = FindObjectOfType<CorePlayerController>();
         cameraObject = corePlayerController.gameObject;
         core = FindObjectOfType<CoreObject>().gameObject;
+
+        base.Start();
     }
 
     public override void EnableController()
