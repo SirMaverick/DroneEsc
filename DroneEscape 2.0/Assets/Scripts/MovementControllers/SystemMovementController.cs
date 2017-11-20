@@ -28,13 +28,6 @@ class SystemMovementController : MovementController
         }
     }
 
-    public override void LeftClick(bool key) {
-        if (key)
-        {
-            playerController.SwitchToPreviousCamera();
-        }
-    }
-
     public override void Use(bool key)
     {
         if (key)
