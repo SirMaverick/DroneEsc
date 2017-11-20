@@ -30,6 +30,8 @@ class SystemArm : MonoBehaviour
             {
                 reachedTarget = true;
                 reachedRoof = false;
+                SystemEnergyController sec = FindObjectOfType<SystemEnergyController>();
+                sec.AddEnergyFromCore();
             } 
         }else if (!reachedRoof)
         {
