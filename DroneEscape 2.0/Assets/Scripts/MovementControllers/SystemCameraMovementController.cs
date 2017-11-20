@@ -7,9 +7,7 @@ class SystemCameraMovementController : CameraMovementController
     private bool pickupDrone = false;
     private bool pickingUpDrone = false;
 
-    [SerializeField] private GameObject antagonistArm;
-    [SerializeField] private GameObject targetPoint;
-    [SerializeField] private float yPositionArm;
+    [SerializeField] private SystemArm systemArm;
 
     [SerializeField]
     private Camera ownCamera;
@@ -54,11 +52,7 @@ class SystemCameraMovementController : CameraMovementController
 
                 if (pickupDrone)
                 {
-                    if (!pickingUpDrone)
-                    {
                         PickUpDrone(newHit);
-                        pickingUpDrone = true;
-                    }
                 }
 
             }
@@ -100,9 +94,7 @@ class SystemCameraMovementController : CameraMovementController
 
     private void PickUpDrone(EmptyDrone drone)
     {
-        GameObject target = Instantiate(targetPoint, new Vector3(drone.transform.position.x, drone.transform.position.y + 10, drone.transform.position.z), Quaternion.identity);
-        //GameObject go = Instantiate(animationCamera, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.position, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.rotation);
-        //go.GetComponent<ArmCameraRotation>().target = target.transform;
-        Instantiate(antagonistArm, new Vector3(drone.transform.position.x, yPositionArm, drone.transform.position.z), Quaternion.identity);
+        systemArm.MoveTo(drone.transform.position);
+
     }
 }
