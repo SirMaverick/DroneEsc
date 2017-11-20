@@ -16,7 +16,6 @@ public class CorePlayerController : AbstractPlayerController
 
     protected override void Start()
     {
-        base.Start();
         if (camera.enabled)
         {
             GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
@@ -26,6 +25,7 @@ public class CorePlayerController : AbstractPlayerController
                 guard.ChangePlayer(core);
             }
         }
+        base.Start();
     }
 
 
