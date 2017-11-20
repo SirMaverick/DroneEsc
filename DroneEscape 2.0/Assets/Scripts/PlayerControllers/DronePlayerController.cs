@@ -22,6 +22,15 @@ using System.Collections;
         cameraObject = corePlayerController.gameObject;
         core = FindObjectOfType<CoreObject>().gameObject;
 
+        if (camera.enabled) { 
+            GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
+            foreach (GuardFOV guard in guards)
+            {
+                // useless but prevents errors
+                guard.ChangePlayer(gameObject);
+            }
+        }
+
         base.Start();
     }
 
