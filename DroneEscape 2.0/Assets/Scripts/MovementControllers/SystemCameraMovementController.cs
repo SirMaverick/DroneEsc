@@ -94,7 +94,7 @@ class SystemCameraMovementController : CameraMovementController
 
     private void PickUpDrone(EmptyDrone drone)
     {
-        systemArm.MoveTo(drone.transform.position);
+        systemArm.MoveTo(drone.gameObject);
 
     }
 }

@@ -11,6 +11,8 @@ class SystemArm : MonoBehaviour
     [SerializeField]
     private float speed = 5;
 
+    private GameObject targetDrone;
+
     private void Start()
     {
         
@@ -29,19 +31,25 @@ class SystemArm : MonoBehaviour
         }else if (!reachedRoof)
         {
             gameObject.transform.Translate(Vector3.up * Time.deltaTime * speed);
+            targetDrone.transform.Translate(Vector3.up * Time.deltaTime * speed);
             if (gameObject.transform.position.y >= roofPosition.y)
             {
+                targetDrone.GetComponent<Rigidbody>().isKinematic = false;
+                //Destroy(targetDrone);
                 reachedRoof = true;
             }
         }
     }
 
 
-    public void MoveTo(Vector3 targetPos)
+    public void MoveTo(GameObject target)
     {
         if (reachedRoof)
         {
-            targetPosition = targetPos;
+            targetDrone = target;
+            targetDrone.GetComponent<Rigidbody>().isKinematic = true;
+            targetPosition = target.transform.position;
+            // length of the arm, yea ...
             targetPosition.y += 6.5f;
             gameObject.transform.position = new Vector3(targetPosition.x, roofPosition.y, targetPosition.z);
             reachedTarget = false;
