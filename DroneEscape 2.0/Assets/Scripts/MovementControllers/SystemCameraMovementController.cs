@@ -4,6 +4,12 @@ class SystemCameraMovementController : CameraMovementController
     private SystemMovementController systemMovementController;
     private EmptyDrone lastDroneHit;
     private bool hitEmptyDrone = false;
+    private bool pickupDrone = false;
+    private bool pickingUpDrone = false;
+
+    [SerializeField] private GameObject antagonistArm;
+    [SerializeField] private GameObject targetPoint;
+    [SerializeField] private float yPositionArm;
 
     [SerializeField]
     private Camera ownCamera;
@@ -20,7 +26,7 @@ class SystemCameraMovementController : CameraMovementController
 
     public override void LeftClick(bool key)
     {
-        systemMovementController.LeftClick(key);
+        pickupDrone = key;
     }
 
     public override void Use(bool key)
@@ -44,6 +50,15 @@ class SystemCameraMovementController : CameraMovementController
                     newHit.StopLookingAt();
                     lastDroneHit = newHit;
                     lastDroneHit.LookingAt();
+                }
+
+                if (pickupDrone)
+                {
+                    if (!pickingUpDrone)
+                    {
+                        PickUpDrone(newHit);
+                        pickingUpDrone = true;
+                    }
                 }
 
             }
@@ -81,5 +96,13 @@ class SystemCameraMovementController : CameraMovementController
             lastDroneHit.StopLookingAt();
         }
         base.DisableController();
+    }
+
+    private void PickUpDrone(EmptyDrone drone)
+    {
+        GameObject target = Instantiate(targetPoint, new Vector3(drone.transform.position.x, drone.transform.position.y + 10, drone.transform.position.z), Quaternion.identity);
+        //GameObject go = Instantiate(animationCamera, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.position, playerGameObject.GetComponentInChildren(typeof(Camera)).transform.rotation);
+        //go.GetComponent<ArmCameraRotation>().target = target.transform;
+        Instantiate(antagonistArm, new Vector3(drone.transform.position.x, yPositionArm, drone.transform.position.z), Quaternion.identity);
     }
 }
