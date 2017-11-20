@@ -59,7 +59,7 @@ class SystemArm : MonoBehaviour
 
     public void MoveTo(GameObject target)
     {
-        if (reachedRoof)
+        if (reachedRoof && reachedTarget)
         {
             targetDrone = target;
             targetDrone.GetComponent<Rigidbody>().isKinematic = true;
