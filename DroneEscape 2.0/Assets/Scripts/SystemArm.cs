@@ -3,13 +3,16 @@ class SystemArm : MonoBehaviour
 {
     private bool reachedTarget = true;
     private bool reachedRoof = true;
-    
+    private bool droneLift = true;
+
     private Vector3 targetPosition;
     [SerializeField]
     private Vector3 roofPosition;
 
     [SerializeField]
     private float speed = 5;
+    [SerializeField]
+    private float liftHeight = 3;
 
     private GameObject targetDrone;
 
@@ -31,11 +34,23 @@ class SystemArm : MonoBehaviour
         }else if (!reachedRoof)
         {
             gameObject.transform.Translate(Vector3.up * Time.deltaTime * speed);
-            targetDrone.transform.Translate(Vector3.up * Time.deltaTime * speed);
+
+            if (droneLift)
+            {
+                if (targetDrone.transform.position.y < liftHeight)
+                {
+                    targetDrone.transform.Translate(Vector3.up * Time.deltaTime * speed);
+                    
+                }
+                else
+                {
+                    targetDrone.GetComponent<Rigidbody>().isKinematic = false;
+                    droneLift = false;
+                }
+
+            }
             if (gameObject.transform.position.y >= roofPosition.y)
             {
-                targetDrone.GetComponent<Rigidbody>().isKinematic = false;
-                //Destroy(targetDrone);
                 reachedRoof = true;
             }
         }
@@ -53,6 +68,7 @@ class SystemArm : MonoBehaviour
             targetPosition.y += 6.5f;
             gameObject.transform.position = new Vector3(targetPosition.x, roofPosition.y, targetPosition.z);
             reachedTarget = false;
+            droneLift = true;
         }
     }
 }
