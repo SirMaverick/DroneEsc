@@ -13,6 +13,12 @@ public abstract class AbstractPlayerController : MonoBehaviour
         if (camera.enabled)
         {
             PlayerControllerSupervisor.GetInstance().SetCurrentPlayerController(this);
+            GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
+            foreach (GuardFOV guard in guards)
+            {
+                // useless but prevents errors
+                guard.ChangePlayer(gameObject);
+            }
         }
     }
 
