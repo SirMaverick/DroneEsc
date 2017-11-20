@@ -2,6 +2,9 @@
 using System.Collections;
     class DronePlayerController : AbstractPlayerController
     {
+    [SerializeField]
+    protected SkinnedMeshRenderer meshRenderer;
+
     private GameObject core;
     private GameObject cameraObject;
     private CorePlayerController corePlayerController;
@@ -79,7 +82,10 @@ using System.Collections;
 
     }
 
-
+    public Material GetMaterial()
+    {
+        return meshRenderer.material;
+    }
 
 }
 

@@ -44,7 +44,7 @@ public class CorePlayerController : AbstractPlayerController
         core.GetComponent<MoveOnBelt>().flying = true;
         core.GetComponent<MoveOnBelt>().pickedUp = false;
 
-        camera.GetComponent<AudioListener>().enabled = true;
+        
 
      //   StartCoroutine(CheckGrounded());
         isFlying = true;
