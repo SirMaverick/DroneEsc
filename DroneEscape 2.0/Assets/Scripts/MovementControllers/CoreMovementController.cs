@@ -84,7 +84,7 @@ public class CoreMovementController : MovementController
             {
                 if (hitEmptyDrone)
                 {
-                    NoHit();
+                    //NoHit();
                     
                 }
 
@@ -94,7 +94,7 @@ public class CoreMovementController : MovementController
         {
             if (hitEmptyDrone)
             {
-                NoHit();
+                //NoHit();
                 TurnOnPulse();
             }
 
@@ -142,7 +142,7 @@ public class CoreMovementController : MovementController
         }
     }
 
-
+    /*
     private void NoHit()
     {
         lastDroneHit.StopLookingAt();
@@ -158,7 +158,7 @@ public class CoreMovementController : MovementController
         }
         base.DisableController();
     }
-
+    */
 
 
 }
