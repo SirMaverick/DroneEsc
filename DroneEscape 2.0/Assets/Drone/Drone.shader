@@ -1,20 +1,15 @@
 // Shader created with Shader Forge v1.38 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:1,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:3,bdst:7,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:False,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:32879,y:32983,varname:node_2865,prsc:2|diff-6343-OUT,spec-7828-R,gloss-7828-G,normal-5964-RGB,emission-9764-OUT,difocc-7828-B,spcocc-7828-B,alpha-7828-A,clip-7828-A;n:type:ShaderForge.SFN_Multiply,id:6343,x:32114,y:32712,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31921,y:32805,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5019608,c2:0.5019608,c3:0.5019608,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31921,y:32620,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32359,y:32892,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Tex2d,id:7828,x:32335,y:32751,ptovrint:False,ptlb:Metal_Rough_AO,ptin:_Metal_Rough_AO,varname:node_7828,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:1420,x:32152,y:33215,ptovrint:False,ptlb:Emission,ptin:_Emission,varname:node_1420,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Fresnel,id:6960,x:31971,y:33263,varname:node_6960,prsc:2|EXP-87-OUT;n:type:ShaderForge.SFN_Slider,id:87,x:31566,y:33259,ptovrint:False,ptlb:Fresnell,ptin:_Fresnell,varname:node_87,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_Color,id:9148,x:31954,y:33490,ptovrint:False,ptlb:ColorFresh,ptin:_ColorFresh,varname:node_9148,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0,c2:0.2965517,c3:1,c4:1;n:type:ShaderForge.SFN_Multiply,id:7760,x:32152,y:33421,varname:node_7760,prsc:2|A-6960-OUT,B-9148-RGB;n:type:ShaderForge.SFN_If,id:9764,x:32398,y:33109,varname:node_9764,prsc:2|A-3497-OUT,B-8979-OUT,GT-1420-RGB,EQ-1420-RGB,LT-8842-OUT;n:type:ShaderForge.SFN_ValueProperty,id:3497,x:32152,y:33044,ptovrint:False,ptlb:Off,ptin:_Off,varname:node_3497,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:0;n:type:ShaderForge.SFN_ValueProperty,id:8979,x:32152,y:33119,ptovrint:False,ptlb:ON,ptin:_ON,varname:_Yes_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:0;n:type:ShaderForge.SFN_Add,id:8802,x:32319,y:33337,varname:node_8802,prsc:2|A-1420-RGB,B-7760-OUT;n:type:ShaderForge.SFN_Slider,id:9808,x:32513,y:33498,ptovrint:False,ptlb:Intensity,ptin:_Intensity,varname:node_9808,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Blend,id:8842,x:32539,y:33276,varname:node_8842,prsc:2,blmd:12,clmp:True|SRC-8802-OUT,DST-9808-OUT;proporder:7736-5964-6665-7828-1420-87-9148-3497-8979-9808;pass:END;sub:END;*/
+/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:1,uamb:True,mssp:True,bkdf:True,hqlp:True,rprd:True,enco:False,rmgx:True,imps:False,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:3,bdst:7,dpts:2,wrdp:False,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:32719,y:32712,varname:node_2865,prsc:2|diff-6343-OUT,spec-985-R,gloss-985-G,normal-5964-RGB,emission-5843-RGB,alpha-985-A,clip-985-A;n:type:ShaderForge.SFN_Multiply,id:6343,x:32377,y:32587,varname:node_6343,prsc:2|A-7209-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:32184,y:32715,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5019608,c2:0.5019608,c3:0.5019608,c4:1;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32377,y:32931,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Tex2d,id:7209,x:32184,y:32526,ptovrint:False,ptlb:Albedo,ptin:_Albedo,varname:node_7209,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:5843,x:32377,y:33115,ptovrint:False,ptlb:Emission,ptin:_Emission,varname:node_5843,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:985,x:32377,y:32738,ptovrint:False,ptlb:MetalR_GlossG_EmmisionB_AOA,ptin:_MetalR_GlossG_EmmisionB_AOA,varname:node_1811,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;proporder:5964-6665-7209-5843-985;pass:END;sub:END;*/
 
-Shader "Shader Forge/DroneShader" {
+Shader "Shader Forge/Drone" {
     Properties {
-        _MainTex ("Base Color", 2D) = "white" {}
         _BumpMap ("Normal Map", 2D) = "bump" {}
         _Color ("Color", Color) = (0.5019608,0.5019608,0.5019608,1)
-        _Metal_Rough_AO ("Metal_Rough_AO", 2D) = "white" {}
+        _Albedo ("Albedo", 2D) = "white" {}
         _Emission ("Emission", 2D) = "white" {}
-        _Fresnell ("Fresnell", Range(0, 1)) = 1
-        _ColorFresh ("ColorFresh", Color) = (0,0.2965517,1,1)
-        _Off ("Off", Float ) = 0
-        _ON ("ON", Float ) = 0
-        _Intensity ("Intensity", Range(0, 1)) = 0
+        _MetalR_GlossG_EmmisionB_AOA ("MetalR_GlossG_EmmisionB_AOA", 2D) = "white" {}
         [HideInInspector]_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
     }
     SubShader {
@@ -29,7 +24,7 @@ Shader "Shader Forge/DroneShader" {
                 "LightMode"="ForwardBase"
             }
             Blend SrcAlpha OneMinusSrcAlpha
-            
+            ZWrite Off
             
             CGPROGRAM
             #pragma vertex vert
@@ -49,15 +44,10 @@ Shader "Shader Forge/DroneShader" {
             #pragma only_renderers d3d9 d3d11 glcore gles 
             #pragma target 3.0
             uniform float4 _Color;
-            uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
             uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
-            uniform sampler2D _Metal_Rough_AO; uniform float4 _Metal_Rough_AO_ST;
+            uniform sampler2D _Albedo; uniform float4 _Albedo_ST;
             uniform sampler2D _Emission; uniform float4 _Emission_ST;
-            uniform float _Fresnell;
-            uniform float4 _ColorFresh;
-            uniform float _Off;
-            uniform float _ON;
-            uniform float _Intensity;
+            uniform sampler2D _MetalR_GlossG_EmmisionB_AOA; uniform float4 _MetalR_GlossG_EmmisionB_AOA_ST;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -88,7 +78,6 @@ Shader "Shader Forge/DroneShader" {
                 #ifdef LIGHTMAP_ON
                     o.ambientOrLightmapUV.xy = v.texcoord1.xy * unity_LightmapST.xy + unity_LightmapST.zw;
                     o.ambientOrLightmapUV.zw = 0;
-                #elif UNITY_SHOULD_SAMPLE_SH
                 #endif
                 #ifdef DYNAMICLIGHTMAP_ON
                     o.ambientOrLightmapUV.zw = v.texcoord2.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
@@ -110,8 +99,8 @@ Shader "Shader Forge/DroneShader" {
                 float3 normalLocal = _BumpMap_var.rgb;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
                 float3 viewReflectDirection = reflect( -viewDirection, normalDirection );
-                float4 _Metal_Rough_AO_var = tex2D(_Metal_Rough_AO,TRANSFORM_TEX(i.uv0, _Metal_Rough_AO));
-                clip(_Metal_Rough_AO_var.a - 0.5);
+                float4 _MetalR_GlossG_EmmisionB_AOA_var = tex2D(_MetalR_GlossG_EmmisionB_AOA,TRANSFORM_TEX(i.uv0, _MetalR_GlossG_EmmisionB_AOA));
+                clip(_MetalR_GlossG_EmmisionB_AOA_var.a - 0.5);
                 float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
                 float3 lightColor = _LightColor0.rgb;
                 float3 halfDirection = normalize(viewDirection+lightDirection);
@@ -121,8 +110,8 @@ Shader "Shader Forge/DroneShader" {
                 float Pi = 3.141592654;
                 float InvPi = 0.31830988618;
 ///////// Gloss:
-                float gloss = 1.0 - _Metal_Rough_AO_var.g; // Convert roughness to gloss
-                float perceptualRoughness = _Metal_Rough_AO_var.g;
+                float gloss = 1.0 - _MetalR_GlossG_EmmisionB_AOA_var.g; // Convert roughness to gloss
+                float perceptualRoughness = _MetalR_GlossG_EmmisionB_AOA_var.g;
                 float roughness = perceptualRoughness * perceptualRoughness;
                 float specPow = exp2( gloss * 10.0 + 1.0 );
 /////// GI Data:
@@ -167,12 +156,11 @@ Shader "Shader Forge/DroneShader" {
                 lightColor = gi.light.color;
 ////// Specular:
                 float NdotL = saturate(dot( normalDirection, lightDirection ));
-                float3 specularAO = _Metal_Rough_AO_var.b;
                 float LdotH = saturate(dot(lightDirection, halfDirection));
-                float3 specularColor = _Metal_Rough_AO_var.r;
+                float3 specularColor = _MetalR_GlossG_EmmisionB_AOA_var.r;
                 float specularMonochrome;
-                float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 diffuseColor = (_MainTex_var.rgb*_Color.rgb); // Need this for specular when using metallic
+                float4 _Albedo_var = tex2D(_Albedo,TRANSFORM_TEX(i.uv0, _Albedo));
+                float3 diffuseColor = (_Albedo_var.rgb*_Color.rgb); // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -197,7 +185,7 @@ Shader "Shader Forge/DroneShader" {
                 specularPBL *= any(specularColor) ? 1.0 : 0.0;
                 float3 directSpecular = attenColor*specularPBL*FresnelTerm(specularColor, LdotH);
                 half grazingTerm = saturate( gloss + specularMonochrome );
-                float3 indirectSpecular = (gi.indirect.specular) * specularAO;
+                float3 indirectSpecular = (gi.indirect.specular);
                 indirectSpecular *= FresnelLerp (specularColor, grazingTerm, NdotV);
                 indirectSpecular *= surfaceReduction;
                 float3 specular = (directSpecular + indirectSpecular);
@@ -209,17 +197,13 @@ Shader "Shader Forge/DroneShader" {
                 float3 directDiffuse = ((1 +(fd90 - 1)*nlPow5) * (1 + (fd90 - 1)*nvPow5) * NdotL) * attenColor;
                 float3 indirectDiffuse = float3(0,0,0);
                 indirectDiffuse += gi.indirect.diffuse;
-                indirectDiffuse *= _Metal_Rough_AO_var.b; // Diffuse AO
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 ////// Emissive:
-                float node_9764_if_leA = step(_Off,_ON);
-                float node_9764_if_leB = step(_ON,_Off);
                 float4 _Emission_var = tex2D(_Emission,TRANSFORM_TEX(i.uv0, _Emission));
-                float3 node_8802 = (_Emission_var.rgb+(pow(1.0-max(0,dot(normalDirection, viewDirection)),_Fresnell)*_ColorFresh.rgb));
-                float3 emissive = lerp((node_9764_if_leA*saturate((node_8802 > 0.5 ?  (1.0-(1.0-2.0*(node_8802-0.5))*(1.0-_Intensity)) : (2.0*node_8802*_Intensity)) ))+(node_9764_if_leB*_Emission_var.rgb),_Emission_var.rgb,node_9764_if_leA*node_9764_if_leB);
+                float3 emissive = _Emission_var.rgb;
 /// Final Color:
                 float3 finalColor = diffuse + specular + emissive;
-                fixed4 finalRGBA = fixed4(finalColor,_Metal_Rough_AO_var.a);
+                fixed4 finalRGBA = fixed4(finalColor,_MetalR_GlossG_EmmisionB_AOA_var.a);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
                 return finalRGBA;
             }
@@ -231,7 +215,7 @@ Shader "Shader Forge/DroneShader" {
                 "LightMode"="ForwardAdd"
             }
             Blend One One
-            
+            ZWrite Off
             
             CGPROGRAM
             #pragma vertex vert
@@ -252,15 +236,10 @@ Shader "Shader Forge/DroneShader" {
             #pragma only_renderers d3d9 d3d11 glcore gles 
             #pragma target 3.0
             uniform float4 _Color;
-            uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
             uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
-            uniform sampler2D _Metal_Rough_AO; uniform float4 _Metal_Rough_AO_ST;
+            uniform sampler2D _Albedo; uniform float4 _Albedo_ST;
             uniform sampler2D _Emission; uniform float4 _Emission_ST;
-            uniform float _Fresnell;
-            uniform float4 _ColorFresh;
-            uniform float _Off;
-            uniform float _ON;
-            uniform float _Intensity;
+            uniform sampler2D _MetalR_GlossG_EmmisionB_AOA; uniform float4 _MetalR_GlossG_EmmisionB_AOA_ST;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -303,8 +282,8 @@ Shader "Shader Forge/DroneShader" {
                 float3 _BumpMap_var = UnpackNormal(tex2D(_BumpMap,TRANSFORM_TEX(i.uv0, _BumpMap)));
                 float3 normalLocal = _BumpMap_var.rgb;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
-                float4 _Metal_Rough_AO_var = tex2D(_Metal_Rough_AO,TRANSFORM_TEX(i.uv0, _Metal_Rough_AO));
-                clip(_Metal_Rough_AO_var.a - 0.5);
+                float4 _MetalR_GlossG_EmmisionB_AOA_var = tex2D(_MetalR_GlossG_EmmisionB_AOA,TRANSFORM_TEX(i.uv0, _MetalR_GlossG_EmmisionB_AOA));
+                clip(_MetalR_GlossG_EmmisionB_AOA_var.a - 0.5);
                 float3 lightDirection = normalize(lerp(_WorldSpaceLightPos0.xyz, _WorldSpaceLightPos0.xyz - i.posWorld.xyz,_WorldSpaceLightPos0.w));
                 float3 lightColor = _LightColor0.rgb;
                 float3 halfDirection = normalize(viewDirection+lightDirection);
@@ -314,17 +293,17 @@ Shader "Shader Forge/DroneShader" {
                 float Pi = 3.141592654;
                 float InvPi = 0.31830988618;
 ///////// Gloss:
-                float gloss = 1.0 - _Metal_Rough_AO_var.g; // Convert roughness to gloss
-                float perceptualRoughness = _Metal_Rough_AO_var.g;
+                float gloss = 1.0 - _MetalR_GlossG_EmmisionB_AOA_var.g; // Convert roughness to gloss
+                float perceptualRoughness = _MetalR_GlossG_EmmisionB_AOA_var.g;
                 float roughness = perceptualRoughness * perceptualRoughness;
                 float specPow = exp2( gloss * 10.0 + 1.0 );
 ////// Specular:
                 float NdotL = saturate(dot( normalDirection, lightDirection ));
                 float LdotH = saturate(dot(lightDirection, halfDirection));
-                float3 specularColor = _Metal_Rough_AO_var.r;
+                float3 specularColor = _MetalR_GlossG_EmmisionB_AOA_var.r;
                 float specularMonochrome;
-                float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 diffuseColor = (_MainTex_var.rgb*_Color.rgb); // Need this for specular when using metallic
+                float4 _Albedo_var = tex2D(_Albedo,TRANSFORM_TEX(i.uv0, _Albedo));
+                float3 diffuseColor = (_Albedo_var.rgb*_Color.rgb); // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -352,7 +331,7 @@ Shader "Shader Forge/DroneShader" {
                 float3 diffuse = directDiffuse * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse + specular;
-                fixed4 finalRGBA = fixed4(finalColor * _Metal_Rough_AO_var.a,0);
+                fixed4 finalRGBA = fixed4(finalColor * _MetalR_GlossG_EmmisionB_AOA_var.a,0);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
                 return finalRGBA;
             }
@@ -384,7 +363,7 @@ Shader "Shader Forge/DroneShader" {
             #pragma multi_compile_fog
             #pragma only_renderers d3d9 d3d11 glcore gles 
             #pragma target 3.0
-            uniform sampler2D _Metal_Rough_AO; uniform float4 _Metal_Rough_AO_ST;
+            uniform sampler2D _MetalR_GlossG_EmmisionB_AOA; uniform float4 _MetalR_GlossG_EmmisionB_AOA_ST;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float2 texcoord0 : TEXCOORD0;
@@ -410,95 +389,9 @@ Shader "Shader Forge/DroneShader" {
             }
             float4 frag(VertexOutput i) : COLOR {
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
-                float4 _Metal_Rough_AO_var = tex2D(_Metal_Rough_AO,TRANSFORM_TEX(i.uv0, _Metal_Rough_AO));
-                clip(_Metal_Rough_AO_var.a - 0.5);
+                float4 _MetalR_GlossG_EmmisionB_AOA_var = tex2D(_MetalR_GlossG_EmmisionB_AOA,TRANSFORM_TEX(i.uv0, _MetalR_GlossG_EmmisionB_AOA));
+                clip(_MetalR_GlossG_EmmisionB_AOA_var.a - 0.5);
                 SHADOW_CASTER_FRAGMENT(i)
-            }
-            ENDCG
-        }
-        Pass {
-            Name "Meta"
-            Tags {
-                "LightMode"="Meta"
-            }
-            Cull Off
-            
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            #define UNITY_PASS_META 1
-            #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
-            #define _GLOSSYENV 1
-            #include "UnityCG.cginc"
-            #include "Lighting.cginc"
-            #include "UnityPBSLighting.cginc"
-            #include "UnityStandardBRDF.cginc"
-            #include "UnityMetaPass.cginc"
-            #pragma fragmentoption ARB_precision_hint_fastest
-            #pragma multi_compile_shadowcaster
-            #pragma multi_compile LIGHTMAP_OFF LIGHTMAP_ON
-            #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
-            #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
-            #pragma multi_compile_fog
-            #pragma only_renderers d3d9 d3d11 glcore gles 
-            #pragma target 3.0
-            uniform float4 _Color;
-            uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
-            uniform sampler2D _Metal_Rough_AO; uniform float4 _Metal_Rough_AO_ST;
-            uniform sampler2D _Emission; uniform float4 _Emission_ST;
-            uniform float _Fresnell;
-            uniform float4 _ColorFresh;
-            uniform float _Off;
-            uniform float _ON;
-            uniform float _Intensity;
-            struct VertexInput {
-                float4 vertex : POSITION;
-                float3 normal : NORMAL;
-                float2 texcoord0 : TEXCOORD0;
-                float2 texcoord1 : TEXCOORD1;
-                float2 texcoord2 : TEXCOORD2;
-            };
-            struct VertexOutput {
-                float4 pos : SV_POSITION;
-                float2 uv0 : TEXCOORD0;
-                float2 uv1 : TEXCOORD1;
-                float2 uv2 : TEXCOORD2;
-                float4 posWorld : TEXCOORD3;
-                float3 normalDir : TEXCOORD4;
-            };
-            VertexOutput vert (VertexInput v) {
-                VertexOutput o = (VertexOutput)0;
-                o.uv0 = v.texcoord0;
-                o.uv1 = v.texcoord1;
-                o.uv2 = v.texcoord2;
-                o.normalDir = UnityObjectToWorldNormal(v.normal);
-                o.posWorld = mul(unity_ObjectToWorld, v.vertex);
-                o.pos = UnityMetaVertexPosition(v.vertex, v.texcoord1.xy, v.texcoord2.xy, unity_LightmapST, unity_DynamicLightmapST );
-                return o;
-            }
-            float4 frag(VertexOutput i) : SV_Target {
-                i.normalDir = normalize(i.normalDir);
-                float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
-                float3 normalDirection = i.normalDir;
-                UnityMetaInput o;
-                UNITY_INITIALIZE_OUTPUT( UnityMetaInput, o );
-                
-                float node_9764_if_leA = step(_Off,_ON);
-                float node_9764_if_leB = step(_ON,_Off);
-                float4 _Emission_var = tex2D(_Emission,TRANSFORM_TEX(i.uv0, _Emission));
-                float3 node_8802 = (_Emission_var.rgb+(pow(1.0-max(0,dot(normalDirection, viewDirection)),_Fresnell)*_ColorFresh.rgb));
-                o.Emission = lerp((node_9764_if_leA*saturate((node_8802 > 0.5 ?  (1.0-(1.0-2.0*(node_8802-0.5))*(1.0-_Intensity)) : (2.0*node_8802*_Intensity)) ))+(node_9764_if_leB*_Emission_var.rgb),_Emission_var.rgb,node_9764_if_leA*node_9764_if_leB);
-                
-                float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 diffColor = (_MainTex_var.rgb*_Color.rgb);
-                float specularMonochrome;
-                float3 specColor;
-                float4 _Metal_Rough_AO_var = tex2D(_Metal_Rough_AO,TRANSFORM_TEX(i.uv0, _Metal_Rough_AO));
-                diffColor = DiffuseAndSpecularFromMetallic( diffColor, _Metal_Rough_AO_var.r, specColor, specularMonochrome );
-                float roughness = _Metal_Rough_AO_var.g;
-                o.Albedo = diffColor + specColor * roughness * roughness * 0.5;
-                
-                return UnityMetaFragment( o );
             }
             ENDCG
         }

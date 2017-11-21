@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class CoreMovementController : MovementController
 {
@@ -7,8 +8,12 @@ public class CoreMovementController : MovementController
     private Vector2 smoothV;
     [SerializeField] private float minClamp;
     [SerializeField] private float maxClamp;
+    [SerializeField]
+    private float maxDistance;
     public float sensitivity = 5.0f;
     public float smoothing = 2.0f;
+
+
 
     private Ray ray;
     private RaycastHit hit;
@@ -23,11 +28,14 @@ public class CoreMovementController : MovementController
 
     private bool activate = false;
 
+    public List<GameObject> listOfDronesInRange = new List<GameObject>();
+
     protected override void Start()
     {
         base.Start();
         Cursor.lockState = CursorLockMode.Locked;
         character = transform.gameObject;
+        
 
     }
 
@@ -42,6 +50,7 @@ public class CoreMovementController : MovementController
 
     }
 
+
     public override void Look(Vector2 md)
     {
         md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
@@ -55,10 +64,11 @@ public class CoreMovementController : MovementController
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
 
         Vector3 fwd = transform.GetChild(0).transform.TransformDirection(Vector3.forward);
-        if (Physics.Raycast(transform.GetChild(0).transform.position, fwd, out hit, 100.0f))
+        if (Physics.Raycast(transform.GetChild(0).transform.position, fwd, out hit, maxDistance))
         {
             if (hit.collider.tag == "Drone")
             {
+                print(Vector3.Distance(hit.transform.position, transform.position));    
                 hitEmptyDrone = true;
                 lastMaterialHit = hit.collider.gameObject.GetComponent<DronePlayerController>().GetMaterial();
                 EnableHighlite();
@@ -74,6 +84,7 @@ public class CoreMovementController : MovementController
                 if (hitEmptyDrone)
                 {
                     DisableHighlite();
+                    
                 }
 
             }
@@ -83,6 +94,7 @@ public class CoreMovementController : MovementController
             if (hitEmptyDrone)
             {
                 DisableHighlite();
+                TurnOnPulse();
             }
 
         }
@@ -91,14 +103,21 @@ public class CoreMovementController : MovementController
     private void DisableHighlite()
     {
         //lastMaterialHit.DisableKeyword("_EMISSION");
-        lastMaterialHit.SetInt("_ON", 0);
+        //lastMaterialHit.SetInt("_ON", 0);
         hitEmptyDrone = false;
     }
 
     private void EnableHighlite()
     {
         //lastMaterialHit.EnableKeyword("_EMISSION");
-        lastMaterialHit.SetInt("_ON", 1);
+        //lastMaterialHit.SetInt("_ON", 1);
+    }
+
+    private void TurnOnPulse() {
+        foreach (GameObject drone in listOfDronesInRange) {
+            drone.GetComponentInChildren<DronePulse>().maxDistance = maxDistance;
+            drone.GetComponentInChildren<DronePulse>().StartPulse();
+        }
     }
 
     public override void Use(bool key)
@@ -110,6 +129,27 @@ public class CoreMovementController : MovementController
     {
         activate = key;
     }
+
+    private void OnTriggerStay(Collider other) {
+        if (!listOfDronesInRange.Contains(other.gameObject) && other.tag == "Drone") {
+            listOfDronesInRange.Add(other.gameObject);
+            
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Drone") {
+            listOfDronesInRange.Add(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.tag == "Drone") {
+            listOfDronesInRange.Remove(other.gameObject);
+            other.GetComponent<DronePlayerController>().GetMaterial().SetInt("_ON", 0);
+        }
+    }
+
 
 
 
