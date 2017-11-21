@@ -5,6 +5,9 @@ public abstract class MovementController : MonoBehaviour
     protected GameObject gameObject;*/
     protected PlayerControllerSupervisor playerControllerSupervisor;
 
+    public virtual void EnableController() { }
+    public virtual void DisableController() { }
+
     protected virtual void Start()
     {
         playerControllerSupervisor = PlayerControllerSupervisor.GetInstance();
@@ -58,7 +61,7 @@ public abstract class MovementController : MonoBehaviour
     public virtual void LeftPress(bool key) { }
     public virtual void LeftHold(bool key) { }
 
-    private void Update()
+    protected virtual void Update()
     {
         Vector2 md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         Look(md);

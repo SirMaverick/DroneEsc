@@ -17,16 +17,18 @@ public class MagnetButton : Button {
 
     public override void Toggle()
     {
-        if (!enabled)
-        {
-            playerControllerSupervisor.SwitchPlayerController(playerController);
-            enabled = true;
-        }
-        else
-        {
-            playerControllerSupervisor.SwitchPlayerControllerPrevious();
+        /*  if (!enabled)
+          {
+              playerControllerSupervisor.SwitchPlayerController(playerController);
+              enabled = true;
+          }
+          else
+          {
+              playerControllerSupervisor.SwitchPlayerControllerPrevious();
 
-            enabled = false;
-        }
+              enabled = false;
+          }
+          */
+        playerControllerSupervisor.SwitchPlayerController(playerController);
     }
 }
