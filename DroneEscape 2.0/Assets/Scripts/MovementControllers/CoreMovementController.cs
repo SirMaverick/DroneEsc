@@ -13,7 +13,7 @@ public class CoreMovementController : MovementController
     private GameObject character;
 
     private EmptyDrone lastDroneHit;
-    private bool hitEmptyDrone;
+    private bool hitEmptyDrone = false;
 
     private bool isThrown;
     private bool nearBelt;

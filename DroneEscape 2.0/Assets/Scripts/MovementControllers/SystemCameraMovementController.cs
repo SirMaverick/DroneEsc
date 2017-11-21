@@ -4,6 +4,10 @@ class SystemCameraMovementController : CameraMovementController
     private SystemMovementController systemMovementController;
     private EmptyDrone lastDroneHit;
     private bool hitEmptyDrone = false;
+    private bool pickupDrone = false;
+    private bool pickingUpDrone = false;
+
+    [SerializeField] private SystemArm systemArm;
 
     [SerializeField]
     private Camera ownCamera;
@@ -20,7 +24,7 @@ class SystemCameraMovementController : CameraMovementController
 
     public override void LeftClick(bool key)
     {
-        systemMovementController.LeftClick(key);
+        pickupDrone = key;
     }
 
     public override void Use(bool key)
@@ -44,6 +48,11 @@ class SystemCameraMovementController : CameraMovementController
                     newHit.StopLookingAt();
                     lastDroneHit = newHit;
                     lastDroneHit.LookingAt();
+                }
+
+                if (pickupDrone)
+                {
+                        PickUpDrone(newHit);
                 }
 
             }
@@ -81,5 +90,11 @@ class SystemCameraMovementController : CameraMovementController
             lastDroneHit.StopLookingAt();
         }
         base.DisableController();
+    }
+
+    private void PickUpDrone(EmptyDrone drone)
+    {
+        systemArm.MoveTo(drone.gameObject);
+
     }
 }

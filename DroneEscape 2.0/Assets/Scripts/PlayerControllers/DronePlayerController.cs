@@ -16,11 +16,22 @@ using System.Collections;
 
     [SerializeField] private GameObject objectPlacement;
 
-    protected void Start()
+    protected override void Start()
     {
         corePlayerController = FindObjectOfType<CorePlayerController>();
         cameraObject = corePlayerController.gameObject;
         core = FindObjectOfType<CoreObject>().gameObject;
+
+        if (camera.enabled) { 
+            GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
+            foreach (GuardFOV guard in guards)
+            {
+                // useless but prevents errors
+                guard.ChangePlayer(gameObject);
+            }
+        }
+
+        base.Start();
     }
 
     public override void EnableController()
