@@ -7,10 +7,13 @@ public class FmodTest : MonoBehaviour {
 
     FMOD.Studio.EventInstance backgroundMusic;
     FMOD.Studio.ParameterInstance currentHealth;
+    FMOD.Studio.PLAYBACK_STATE musicPlaybackState;
+    FMOD.Studio.EventDescription description;
+    string path;
 
 
     private void Awake() {
-        backgroundMusic = RuntimeManager.CreateInstance("event:/Drone/Walking/DroneWalk1");
+        backgroundMusic = RuntimeManager.CreateInstance("event:/Core/CoreEmotions");
     }
     // Use this for initialization
     void Start() {
@@ -18,11 +21,15 @@ public class FmodTest : MonoBehaviour {
     }
 
     void PlayStep(FMOD.Studio.EventInstance step, FMOD.Studio.PLAYBACK_STATE playState) {
-        step.setParameterValue("Start walking", 1);
-        step.setParameterValue("Stop Walking", 1);
-        step.setParameterValue("Keep Walking", 1);
+        //step.setParameterValue("Happy", 1.0f);
+        step.setParameterValue("Sad", 1.0f);
+        //step.setParameterValue("Keep Walking", 1.0f);
         if (playState != FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+            RuntimeManager.AttachInstanceToGameObject(step, transform, GetComponent<Rigidbody>());
             print(FMOD.Studio.PLAYBACK_STATE.PLAYING);
+            step.getDescription(out description);
+            description.getPath(out path);
+            print(path);
             step.start();
         }
     }
@@ -30,7 +37,8 @@ public class FmodTest : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            PlayStep(backgroundMusic, FMOD.Studio.PLAYBACK_STATE.PLAYING);
+            backgroundMusic.getPlaybackState(out musicPlaybackState);
+            PlayStep(backgroundMusic, musicPlaybackState);
             }
         }
         
