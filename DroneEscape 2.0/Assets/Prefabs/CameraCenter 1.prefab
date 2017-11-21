@@ -145,8 +145,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minClamp: -45
   maxClamp: 0
+  maxDistance: 1000
   sensitivity: 2
   smoothing: 2
+  listOfDronesInRange: []
 --- !u!114 &114096763771358098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8a0b50ed11ba244abf8e2eb74f2612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
   camera: {fileID: 20467823066009018}
   movementController: {fileID: 114079329201394200}
   core: {fileID: 0}
