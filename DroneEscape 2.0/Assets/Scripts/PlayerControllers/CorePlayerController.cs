@@ -14,6 +14,20 @@ public class CorePlayerController : AbstractPlayerController
 
     private bool isFlying;
 
+    protected override void Start()
+    {
+        if (camera.enabled)
+        {
+            GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
+
+            foreach (GuardFOV guard in guards)
+            {
+                guard.ChangePlayer(core);
+            }
+        }
+        base.Start();
+    }
+
 
     public GameObject GetCore()
     {
@@ -44,7 +58,7 @@ public class CorePlayerController : AbstractPlayerController
         core.GetComponent<MoveOnBelt>().flying = true;
         core.GetComponent<MoveOnBelt>().pickedUp = false;
 
-        camera.GetComponent<AudioListener>().enabled = true;
+        
 
      //   StartCoroutine(CheckGrounded());
         isFlying = true;

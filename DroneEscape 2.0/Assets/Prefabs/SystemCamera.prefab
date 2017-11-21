@@ -349,10 +349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f518e27e4f56d4a9927447572b7f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
   camera: {fileID: 20292739605506956}
   movementController: {fileID: 114866412768816186}
-  guardFOV: {fileID: 0}
 --- !u!114 &114866412768816186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,6 +365,12 @@ MonoBehaviour:
   clampX: 30
   clampY: 60
   speed: 10
+  antagonistArm: {fileID: 1030695485749388, guid: 62300e85c2ddbf3449e7d3fb00b56dfb,
+    type: 2}
+  targetPoint: {fileID: 1035896130126668, guid: 1cac33ac03d094746a6769dcf4077b8d,
+    type: 2}
+  yPositionArm: 30
+  ownCamera: {fileID: 20292739605506956}
 --- !u!136 &136303566969492376
 CapsuleCollider:
   m_ObjectHideFlags: 1

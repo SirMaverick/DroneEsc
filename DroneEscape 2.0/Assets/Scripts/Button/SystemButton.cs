@@ -14,17 +14,22 @@ public class SystemButton : Button
 
     public override void Toggle()
     {
-        if (!enabled)
-        {
-            playerControllerSupervisor.SwitchPlayerController(playerController);
-            playerController.SwitchToNextCamera();
-            enabled = true;
-        }
-        else
-        {
-            playerControllerSupervisor.SwitchPlayerControllerPrevious();
-            enabled = false;
-        }
+        /* if (!enabled)
+         {
+             playerControllerSupervisor.SwitchPlayerController(playerController);
+             playerController.SwitchToNextCamera();
+             enabled = true;
+         }
+         else
+         {
+             playerControllerSupervisor.SwitchPlayerControllerPrevious();
+             enabled = false;
+         }*/
+
+        playerControllerSupervisor.SwitchPlayerController(playerController);
+        // be sure to load the same one ;) yes ugly :D
+        playerController.SwitchToPreviousCamera();
+        playerController.SwitchToNextCamera();
     }
 
 
