@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 136243467210298028}
   - component: {fileID: 114441000722040320}
   - component: {fileID: 114504520462171184}
+  - component: {fileID: 95347497584886700}
   m_Layer: 0
   m_Name: Animation Drone - Intro Scene
   m_TagString: NPCDrone
@@ -106,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621949936082314}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -10.94, y: -49.958, z: -0.70000076}
+  m_LocalPosition: {x: -5.94, y: -49.958, z: -0.7000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4725866184838256}
@@ -287,6 +288,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1606312375418398}
   m_Enabled: 1
+--- !u!95 &95347497584886700
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621949936082314}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 87396a3a5609ab4428f1c681ccce31c8, type: 3}
+  m_Controller: {fileID: 9100000, guid: e2586f4e0d7bf2a4fa3ee2da3304e141, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95844463559432904
 Animator:
   serializedVersion: 3
@@ -349,9 +367,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0504f4eaf80634cbf82995fcbcd4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 23668856941160554}
   camera: {fileID: 20031633872475676}
   movementController: {fileID: 114441000722040320}
+  meshRenderer: {fileID: 23668856941160554}
   maxDistance: 1
   force: 8
   objectPlacement: {fileID: 1238951477196694}
@@ -367,6 +385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPlacement: {fileID: 1238951477196694}
+  meshRenderer: {fileID: 137955144589962226, guid: e586887e9cdb5014ebc40c80d994b560,
+    type: 2}
   minDist: 3
   moveSpeed: 2
 --- !u!124 &124123991901614518
