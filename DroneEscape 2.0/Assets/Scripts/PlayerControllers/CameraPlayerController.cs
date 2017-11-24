@@ -6,6 +6,12 @@ class CameraPlayerController : AbstractPlayerController
     [SerializeField]
     private GuardFOV guardFOV;
 
+    protected override void Start()
+    {
+        uiController = FindObjectOfType<CameraUIController>();
+        base.Start();
+    }
+
     public override void EnableController()
     {
         
