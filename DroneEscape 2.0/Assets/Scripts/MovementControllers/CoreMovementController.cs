@@ -10,6 +10,7 @@ public class CoreMovementController : MovementController
     [SerializeField] private float maxClamp;
     [SerializeField]
     private float maxDistance;
+    private GameObject core;
     public float sensitivity = 5.0f;
     public float smoothing = 2.0f;
 
@@ -30,6 +31,8 @@ public class CoreMovementController : MovementController
     protected override void Start()
     {
         base.Start();
+        TurnOnPulse();
+        core = GetComponent<CorePlayerController>().GetCore();
         Cursor.lockState = CursorLockMode.Locked;
         character = transform.gameObject;
         
@@ -61,11 +64,12 @@ public class CoreMovementController : MovementController
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
     RaycastHit hit;
     Vector3 fwd = transform.GetChild(0).transform.TransformDirection(Vector3.forward);
-        if (Physics.Raycast(transform.GetChild(0).transform.position, fwd, out hit, maxDistance))
+        if (Physics.Raycast(transform.GetChild(0).transform.position, fwd, out hit, maxDistance + Vector3.Distance(transform.GetChild(0).position, core.transform.position)))
         {
             if (hit.collider.tag == "Drone")
+                
             {
-                print(Vector3.Distance(hit.transform.position, transform.position));    
+                Debug.Log(maxDistance + Vector3.Distance(transform.GetChild(0).position, core.transform.position));    
                 hitEmptyDrone = true;
                 EmptyDrone newHit = hit.collider.gameObject.GetComponent<EmptyDrone>();
                 if (lastDroneHit != newHit) {
@@ -84,7 +88,7 @@ public class CoreMovementController : MovementController
             {
                 if (hitEmptyDrone)
                 {
-                    //NoHit();
+                    NoHit();
                     
                 }
 
@@ -94,8 +98,7 @@ public class CoreMovementController : MovementController
         {
             if (hitEmptyDrone)
             {
-                //NoHit();
-                TurnOnPulse();
+                NoHit();
             }
 
         }
@@ -103,12 +106,18 @@ public class CoreMovementController : MovementController
 
 
 
-    private void TurnOnPulse()
+    public void TurnOnPulse()
     {
         foreach (GameObject drone in listOfDronesInRange)
         {
             drone.GetComponentInChildren<DronePulse>().maxDistance = maxDistance;
             drone.GetComponentInChildren<DronePulse>().StartPulse();
+        }
+    }
+
+    public void TurnOffPulse() {
+        foreach (GameObject drone in listOfDronesInRange) {
+            drone.GetComponentInChildren<DronePulse>().StopPulse();
         }
     }
 
@@ -142,7 +151,6 @@ public class CoreMovementController : MovementController
         }
     }
 
-    /*
     private void NoHit()
     {
         lastDroneHit.StopLookingAt();
@@ -158,8 +166,6 @@ public class CoreMovementController : MovementController
         }
         base.DisableController();
     }
-    */
-
 
 }
 
