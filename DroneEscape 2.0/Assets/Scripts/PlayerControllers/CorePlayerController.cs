@@ -16,6 +16,7 @@ public class CorePlayerController : AbstractPlayerController
 
     protected override void Start()
     {
+        uiController = FindObjectOfType<CoreUIController>();
         if (camera.enabled)
         {
             GuardFOV[] guards = FindObjectsOfType<GuardFOV>();

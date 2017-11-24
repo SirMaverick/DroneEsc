@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114230519441088566}
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   EditorEvents:
   - {fileID: 114222868588220462}
   - {fileID: 114604756522199492}
@@ -26,10 +26,25 @@ MonoBehaviour:
   - {fileID: 114066794586950364}
   - {fileID: 114041075757787172}
   - {fileID: 114264420594175956}
-  MasterBankRef: {fileID: 114861508364779644}
+  MasterBankRef: {fileID: 114053886210429186}
   StringsBankRef: {fileID: 114230519441088566}
-  stringsBankWriteTime: 636467693020000000
+  stringsBankWriteTime: 636467688698413404
   cacheVersion: 2
+--- !u!114 &114005788305859944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Start walking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114013265029138802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,6 +57,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: STOP MOVEMENT
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114026611343449096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Keep Walking
   Min: 0
   Max: 1
   Default: 0
@@ -74,14 +104,14 @@ MonoBehaviour:
   Path: event:/Drone/Walking/DroneWalk3
   guid: 886553be3fba0b40aac8921ed6f983d5
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114621640684546826}
-  - {fileID: 114387078311495974}
-  - {fileID: 114081772993613028}
+  - {fileID: 114167174911106878}
+  - {fileID: 114340424783539942}
+  - {fileID: 114898934562980550}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114050348707127804
@@ -99,6 +129,25 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114053886210429186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\Jeroen\Documents\School\HKU\Git\DroneEsc\DroneEscape 2.0\Assets\Audio\Done.Esc(2)\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636467688698373783
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1622880
+  Exists: 1
 --- !u!114 &114066794586950364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,14 +162,14 @@ MonoBehaviour:
   Path: event:/Drone/Walking/DroneWalk4
   guid: 5bc72c125ae48a45a46196c35c863705
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114911955109247016}
-  - {fileID: 114364632693409350}
-  - {fileID: 114316152282682634}
+  - {fileID: 114516388351102332}
+  - {fileID: 114847096476867064}
+  - {fileID: 114026611343449096}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114071983225729288
@@ -243,7 +292,37 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114148789297729048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: START MOVEMENT
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114153250807145930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Keep Walking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114167174911106878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -392,7 +471,7 @@ MonoBehaviour:
   Path: event:/Core/CorePulse
   guid: 05f424238654ae4ba4d8116d6878e8d7
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -411,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\Done.Esc(2)\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636467693020000000
+  lastModified: 636467688698413404
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -429,6 +508,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Keep Walking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114241966632702000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Shoot
   Min: 0
   Max: 1
   Default: 0
@@ -506,14 +600,14 @@ MonoBehaviour:
   Path: event:/Drone/Walking/DroneWalk2
   guid: a396a20d4903ff438aa3a960eb694f92
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114153250807145930}
-  - {fileID: 114735933343268116}
-  - {fileID: 114555294650489990}
+  - {fileID: 114377020043665258}
+  - {fileID: 114599241192871390}
+  - {fileID: 114716766319098110}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114266632001358614
@@ -651,6 +745,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114340424783539942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Stop Walking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114351035236358116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,7 +805,52 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114376740832047634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Weld
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114377020043665258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Keep Walking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114387078311495974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Stop Walking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114433276855057086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -725,14 +879,14 @@ MonoBehaviour:
   Path: event:/Drone/Walking/DroneWalk1
   guid: 5af9760df4f6be48bcacfb71ebfb086e
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114533949257152384}
-  - {fileID: 114530420825841486}
-  - {fileID: 114769224389473174}
+  - {fileID: 114005788305859944}
+  - {fileID: 114433276855057086}
+  - {fileID: 114980675179958074}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114478482569567852
@@ -747,6 +901,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Sad
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114478803780251534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: STOP MOVEMENT
   Min: 0
   Max: 1
   Default: 0
@@ -796,6 +965,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: STOP MOVEMENT
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114516388351102332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Start walking
   Min: 0
   Max: 1
   Default: 0
@@ -886,6 +1070,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Stop Walking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114537954851274990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Start walking
   Min: 0
   Max: 1
   Default: 0
@@ -993,14 +1192,14 @@ MonoBehaviour:
   Path: event:/Drone/Walking/DroneWalk5
   guid: 4ba0f8d85c9357489c47da3a324bd94a
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114128224129507962}
-  - {fileID: 114786349293151064}
-  - {fileID: 114541054005513224}
+  - {fileID: 114537954851274990}
+  - {fileID: 114623309802677780}
+  - {fileID: 114758880379754128}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114592361365074608
@@ -1018,6 +1217,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114595463020906492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Happy
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114597281161983554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,16 +1246,31 @@ MonoBehaviour:
   Path: event:/Core/CoreEmotions
   guid: 43c2ac876442e048ada2feac0c44d6a7
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114314432782310510}
-  - {fileID: 114281970180401400}
-  - {fileID: 114672835940850802}
+  - {fileID: 114595463020906492}
+  - {fileID: 114874839764796790}
+  - {fileID: 114851046229329112}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114599241192871390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Stop Walking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114604756522199492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1056,12 +1285,12 @@ MonoBehaviour:
   Path: event:/Drone/Charge & Shoot/DroneCharge
   guid: 36fd4fbe2da84f41978624a7205b1980
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114171755953169330}
+  - {fileID: 114649187012984100}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114621253682240710
@@ -1091,6 +1320,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Keep Walking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114623309802677780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Stop Walking
   Min: 0
   Max: 1
   Default: 0
@@ -1154,6 +1398,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114649187012984100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Charge!
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114651420745740158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,6 +1470,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Stop Walking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114660003867665214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Movement
   Min: 0
   Max: 1
   Default: 0
@@ -1288,7 +1562,7 @@ MonoBehaviour:
   Path: event:/Core/CoreSplashAndReform
   guid: 4108cdac305178469c31de8d40166e63
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -1356,6 +1630,21 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114710592393593094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Start walking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114716766319098110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1457,6 +1746,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Stop Walking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114758880379754128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Keep Walking
   Min: 0
   Max: 1
   Default: 0
@@ -1564,15 +1868,15 @@ MonoBehaviour:
   Path: event:/Drone/Hinges/DroneArmMovementsAndWeld
   guid: 4a310d47a8ca344c80e9fa062c08c459
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114050348707127804}
-  - {fileID: 114706924135654950}
-  - {fileID: 114185476180370338}
-  - {fileID: 114827015544763684}
+  - {fileID: 114376740832047634}
+  - {fileID: 114660003867665214}
+  - {fileID: 114478803780251534}
+  - {fileID: 114148789297729048}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114804153653064592
@@ -1624,6 +1928,36 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1622880
   Exists: 1
+--- !u!114 &114847096476867064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Stop Walking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114851046229329112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Angry
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114861508364779644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,6 +1977,21 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1622880
   Exists: 1
+--- !u!114 &114874839764796790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Sad
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114877195301280396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1703,6 +2052,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114898934562980550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Start walking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114900860535800928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1717,12 +2081,12 @@ MonoBehaviour:
   Path: event:/Drone/Charge & Shoot/DroneShoot
   guid: 5b73fe00ce3d774d808ae98010efca60
   Banks:
-  - {fileID: 114861508364779644}
+  - {fileID: 114053886210429186}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114789783607632640}
+  - {fileID: 114241966632702000}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114911955109247016
@@ -1771,6 +2135,21 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114955970921415556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Keep Walking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114980675179958074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
