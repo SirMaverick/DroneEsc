@@ -10,7 +10,7 @@ public class Menu_Button_Pulse : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        step = maxScale / 3 ;
+        step = maxScale / 6 ;
         gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0.3f, 1.0f, 0.15f);
     }
 	
