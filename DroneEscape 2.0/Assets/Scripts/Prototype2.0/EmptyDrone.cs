@@ -51,6 +51,7 @@ public class EmptyDrone : MonoBehaviour, Selectable {
         coreCamera.GetComponent<AudioListener>().enabled = false;
         cameraObject.transform.position = transform.position;
         corePickUp = cameraObject.GetComponent<CorePlayerController>().GetCore();
+        cameraObject.GetComponent<CoreMovementController>().TurnOffPulse();
         corePickUp.GetComponent<BoxCollider>().enabled = false;
         corePickUp.GetComponent<MeshRenderer>().enabled = false;
         corePickUp.GetComponent<Rigidbody>().useGravity = false;
@@ -60,13 +61,14 @@ public class EmptyDrone : MonoBehaviour, Selectable {
         corePickUp.transform.parent = transform;
         corePickUp.transform.position = objectPlacement.transform.position;
         corePickUp.GetComponent<MoveOnBelt>().currentPart = 0;
+        cameraObject.GetComponent<CorePlayerController>().TurnOffPulses();
 
         TurnOnDrone();
     }
 
     void TurnOnDrone() {
         //GetComponent<MeshRenderer>().enabled = false;
-        
+        GetComponent<DronePlayerController>().SwitchLight();
         pcs.SwitchPlayerController(GetComponent<DronePlayerController>());
         ownCamera.GetComponent<AudioListener>().enabled = true;
         ownCamera.GetComponent<Camera>().enabled = true;
@@ -87,11 +89,11 @@ public class EmptyDrone : MonoBehaviour, Selectable {
 
     public void LookingAt()
     {
-        meshRenderer.material.SetInt("_ON", 1);
+        meshRenderer.material.SetColor("_ColorFresh", new Color(255.0f / 255.0f, 140.0f / 255.0f, 0));
     }
 
     public void StopLookingAt()
     {
-        meshRenderer.material.SetInt("_ON", 0);
+        meshRenderer.material.SetColor("_ColorFresh", new Color(0, 72.0f / 255.0f, 255.0f / 255.0f));
     }
 }
