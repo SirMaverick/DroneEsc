@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
+using FMOD;
+
 class GuardFOV: MonoBehaviour
 {
     // max distance a player can get detected
@@ -41,8 +43,6 @@ class GuardFOV: MonoBehaviour
     [SerializeField]
     private MeshRenderer cone;
 
-    [SerializeField]
-    private Text caughtText;
 
     // follow the player when it has been spotted by the camera (not caught yet)
     [SerializeField]
@@ -119,8 +119,6 @@ class GuardFOV: MonoBehaviour
                     if (time <= Time.time)
                     {
                         // you are caught
-                        // ui you got caught
-                        caughtText.enabled = true;
                         AntagonistArmPrototype arm = FindObjectOfType<AntagonistArmPrototype>();
                         StartCoroutine(arm.ArmGrabSequence(player));
                         //@TODO fix bad habbit but just for testing
