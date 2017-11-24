@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 124430976809672900}
   - component: {fileID: 81895073275371346}
   - component: {fileID: 114021508962747260}
+  - component: {fileID: 114370245202048638}
   m_Layer: 0
   m_Name: CoreCamera
   m_TagString: Untagged
@@ -53,8 +54,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1969677759228328}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.040871482, z: -0, w: 0.99916446}
+  m_LocalPosition: {x: 16.06, y: 0.122000575, z: -16.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4858265210790838}
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minClamp: -45
   maxClamp: 0
-  maxDistance: 7.5
+  maxDistance: 15
   sensitivity: 2
   smoothing: 2
   listOfDronesInRange: []
@@ -162,8 +163,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 20467823066009018}
   movementController: {fileID: 114079329201394200}
+  uiController: {fileID: 0}
   core: {fileID: 0}
   cameraCenter: {fileID: 1969677759228328}
+--- !u!114 &114370245202048638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344489925301168}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddd0c13528431547927e7b7b587b2fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 1
+  maxDistance: 4
+  smooth: 10
+  dollyDirAdjusted: {x: 0, y: 0, z: 0}
+  distance: 0
 --- !u!124 &124430976809672900
 Behaviour:
   m_ObjectHideFlags: 1
