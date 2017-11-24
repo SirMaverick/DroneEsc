@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 4710481145440554}
   - component: {fileID: 114210773646948246}
   - component: {fileID: 114081354406777864}
+  - component: {fileID: 114371204067889730}
   m_Layer: 0
   m_Name: SystemButton
   m_TagString: Untagged
@@ -223,9 +224,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef20622ee5cf8e4eb46c01967cadec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
   camera: {fileID: 0}
   movementController: {fileID: 114210773646948246}
+  uiController: {fileID: 0}
+  cameraPCS:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114210773646948246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,6 +246,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 114081354406777864}
+--- !u!114 &114371204067889730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1319988670223656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763a04917c126f443baf527773506d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnergy: 100
+  energyLevelTotal: 100
+  droneEnergyValue: 20
 --- !u!114 &114760597535056894
 MonoBehaviour:
   m_ObjectHideFlags: 1
