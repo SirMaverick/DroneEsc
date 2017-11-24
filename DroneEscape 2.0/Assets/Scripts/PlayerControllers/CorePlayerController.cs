@@ -8,6 +8,7 @@ public class CorePlayerController : AbstractPlayerController
     private GameObject core;
     [SerializeField]
     private GameObject cameraCenter;
+    private GameObject pulse1, pulse2;
 
     Vector3 lastPos;
     Vector3 currentPos;
@@ -26,6 +27,9 @@ public class CorePlayerController : AbstractPlayerController
             }
         }
         base.Start();
+        pulse1 = GameObject.Find("Pulse1");
+        pulse2 = GameObject.Find("Pulse2");
+        StartCoroutine(TurnOnPulses());
     }
 
 
@@ -67,6 +71,7 @@ public class CorePlayerController : AbstractPlayerController
     void CoreOnGround()
     {
         //camera.transform.parent = null;
+        StartCoroutine(TurnOnPulses());
         core.GetComponent<MoveOnBelt>().flying = false;
         //enabled = false;
     }
@@ -89,5 +94,17 @@ public class CorePlayerController : AbstractPlayerController
            
         }
         lastPos = core.transform.position;
+    }
+
+    public IEnumerator TurnOnPulses() {
+        GetComponent<CoreMovementController>().TurnOnPulse();
+        pulse1.GetComponent<Menu_Button_Pulse>().TurnOnPulse();
+        yield return new WaitForSeconds(3.0f);
+        pulse2.GetComponent<Menu_Button_Pulse>().TurnOnPulse();
+    }
+
+    public void TurnOffPulses() {
+        pulse1.GetComponent<Menu_Button_Pulse>().TurnOffPulse();
+        pulse2.GetComponent<Menu_Button_Pulse>().TurnOffPulse();
     }
 }

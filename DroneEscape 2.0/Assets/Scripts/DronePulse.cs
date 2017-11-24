@@ -36,14 +36,14 @@ public class DronePulse : MonoBehaviour {
             if (!stopwatch.IsRunning) {
                 stopwatch.Start();
             } else {
-                t = (0.001f * stopwatch.ElapsedMilliseconds) % 3;
+                t = (0.001f * stopwatch.ElapsedMilliseconds);
             }
 
-            if ( t >= 3.0f && !pulseActive) {
+            if ( t % 3 == 0 && !pulseActive) {
                 pulseActive = true;
                 pulseDeactive = false;
                 
-            } else if (t > 1.0f && !pulseDeactive) {
+            } else if (t % 3 > 1.0f && !pulseDeactive) {
                 pulseActive = false;
                 pulseDeactive = true;
             }
@@ -75,5 +75,11 @@ public class DronePulse : MonoBehaviour {
         
     }
     
+    public void StopPulse() {
+        startPulse = false;
+        GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Fressnel", 1);
+        GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Intensity", 0);
+        GetComponent<SkinnedMeshRenderer>().material.SetFloat("_ON", 0);
+    }
 
 }
