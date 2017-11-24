@@ -5,8 +5,10 @@ class SystemCameraPlayerController : AbstractPlayerController
 {
     private SystemCameraMovementController movementControllerSC;
 
-    public void Start()
+    protected override void Start()
     {
+        base.Start();
+        uiController = FindObjectOfType<SystemCameraUIController>();
         movementControllerSC = (SystemCameraMovementController)base.movementController;
     }
 

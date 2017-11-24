@@ -22,6 +22,7 @@ using System.Collections;
     {
         lights = GameObject.Find("LightCollection");
         corePlayerController = FindObjectOfType<CorePlayerController>();
+        uiController = FindObjectOfType<DroneUIController>();
         cameraObject = corePlayerController.gameObject;
         core = FindObjectOfType<CoreObject>().gameObject;
 
