@@ -26,7 +26,10 @@ public abstract class AbstractPlayerController : MonoBehaviour
         movementController.enabled = true;
         movementController.EnableController();
         camera.GetComponent<AudioListener>().enabled = true;
-        uiController.EnableController();
+        if (uiController != null)
+        {
+            uiController.EnableController();
+        }
     }
 
     public virtual void DisableController()
@@ -36,8 +39,10 @@ public abstract class AbstractPlayerController : MonoBehaviour
         movementController.DisableController();
         movementController.enabled = false;
         camera.GetComponent<AudioListener>().enabled = false;
-
-        uiController.DisableController();
+        if (uiController != null)
+        {
+            uiController.DisableController();
+        }
     }
 
 }
