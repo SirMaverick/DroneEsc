@@ -26,6 +26,7 @@ public abstract class AbstractPlayerController : MonoBehaviour
         movementController.enabled = true;
         movementController.EnableController();
         camera.GetComponent<AudioListener>().enabled = true;
+        // Other possiblity was to override this function
         if (uiController != null)
         {
             uiController.EnableController();
