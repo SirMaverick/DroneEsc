@@ -17,6 +17,7 @@ class SystemEnergyController : MonoBehaviour
      private float energyTimeLost = 1.0f;*/
 
     SystemUIController uiController;
+    bool systemMode = false;
 
     private void Start()
     {
@@ -26,13 +27,24 @@ class SystemEnergyController : MonoBehaviour
 
     private void Update()
     {
-        energyLevelCurrent = energyLevelTotal - Time.time;
-        uiController.SetEnergyLevelBar(energyLevelCurrent);
-        //Debug.Log(energyLevelCurrent);
-        if (energyLevelCurrent < 0)
+
+        if (systemMode)
         {
-            Debug.LogError("you lost");
+            energyLevelCurrent = energyLevelTotal - Time.time;
+            uiController.SetEnergyLevelBar(energyLevelCurrent);
+            //Debug.Log(energyLevelCurrent);
+            if (energyLevelCurrent < 0)
+            {
+                Debug.LogError("you lost");
+            }
         }
+    }
+    
+    // start lowering the energy
+    public void EnableController()
+    {
+        systemMode = true;
+        energyLevelTotal += Time.time;
     }
 
     public void AddEnergyFromCore()

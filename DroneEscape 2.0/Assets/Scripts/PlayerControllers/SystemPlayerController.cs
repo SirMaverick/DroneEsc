@@ -12,6 +12,9 @@ class SystemPlayerController : AbstractPlayerController
 
     protected PlayerControllerSupervisor playerControllerSupervisor;
 
+    [SerializeField]
+    private SystemEnergyController energyController;
+
 
     public void Start()
     {
@@ -28,6 +31,7 @@ class SystemPlayerController : AbstractPlayerController
         //base.EnableController();
         movementController.enabled = true;
         uiController.EnableController();
+        energyController.EnableController();
     }
 
     public override void DisableController()
