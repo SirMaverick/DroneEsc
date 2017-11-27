@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 class SystemEnergyController : MonoBehaviour
@@ -15,6 +16,8 @@ class SystemEnergyController : MonoBehaviour
 
     SystemUIController uiController;
     bool systemMode = false;
+
+    [SerializeField] private int sceneIndexGoodEnding;
 
     private void Start()
     {
@@ -33,7 +36,7 @@ class SystemEnergyController : MonoBehaviour
             if (energyLevelCurrent < 0)
             {
                 Debug.LogError("you lost");
-
+                SceneManager.LoadScene(sceneIndexGoodEnding);
             }
         }
     }
