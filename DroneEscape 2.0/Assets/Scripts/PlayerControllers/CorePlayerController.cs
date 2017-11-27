@@ -74,6 +74,10 @@ public class CorePlayerController : AbstractPlayerController
     {
         //camera.transform.parent = null;
         StartCoroutine(TurnOnPulses());
+        if (core.GetComponent<MoveOnBelt>().start)
+        {
+            core.GetComponent<MoveOnBelt>().currentCoroutine = StartCoroutine(core.GetComponent<MoveOnBelt>().MoveObject());
+        }
         core.GetComponent<MoveOnBelt>().flying = false;
         //enabled = false;
     }

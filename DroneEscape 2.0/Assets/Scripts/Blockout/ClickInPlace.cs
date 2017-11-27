@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClickInPlace : MonoBehaviour {
 
     [SerializeField] private GameObject triggerObjectT;
+    [SerializeField] private MagnetMove magnetMove;
     private Transform triggerT;
     private Rigidbody rb;
     private bool hasBeenSet;
@@ -20,9 +21,10 @@ public class ClickInPlace : MonoBehaviour {
     {
         if (other.gameObject == triggerObjectT && hasBeenSet == false)
         {
+            magnetMove.ReleaseOnConveyorClick(other.gameObject);
             triggerObjectT.tag = "Untagged";
-            other.transform.position = transform.parent.position;
             rb.isKinematic = true;
+            other.transform.position = transform.parent.position;
             hasBeenSet = true;
         }
     }

@@ -16,6 +16,7 @@ public class MoveOnBelt : MonoBehaviour {
     public bool sent;
     public bool flying;
     public bool pickedUp;
+    public bool start;
 
     // Use this for initialization
     void Start() {
@@ -37,6 +38,7 @@ public class MoveOnBelt : MonoBehaviour {
     }
 
     public IEnumerator MoveObject() {
+        print("hi");
         move = true;
         yield return new WaitForSeconds(1.5f);
         move = false;
@@ -62,6 +64,7 @@ public class MoveOnBelt : MonoBehaviour {
             transform.localRotation = other.transform.parent.localRotation;
             //movement = other.transform.parent.GetComponent<BeltInfo>().movement;
             nextPart = beltParts[currentPart + 1];
+            currentPart++;
         }
     }
 } 
