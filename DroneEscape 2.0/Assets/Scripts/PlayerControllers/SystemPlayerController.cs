@@ -15,6 +15,7 @@ class SystemPlayerController : AbstractPlayerController
     [SerializeField]
     private SystemEnergyController energyController;
 
+    private CoreDrone coreDrone;
 
     public void Start()
     {
@@ -71,5 +72,15 @@ class SystemPlayerController : AbstractPlayerController
     public void SwitchToPreviousPlayerController()
     {
         playerControllerSupervisor.SwitchPlayerController(previousPlayerController);
+    }
+
+    public void SetCoreDrone(CoreDrone coreDrone)
+    {
+        this.coreDrone = coreDrone;
+    }
+
+    public void GiveEnergy()
+    {
+        energyController.AddEnergyFromCore(coreDrone);
     }
 }

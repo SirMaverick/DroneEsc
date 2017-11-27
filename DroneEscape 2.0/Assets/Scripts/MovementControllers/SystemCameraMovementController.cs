@@ -2,7 +2,7 @@
 class SystemCameraMovementController : CameraMovementController
 {
     private SystemMovementController systemMovementController;
-    private EmptyDrone lastDroneHit;
+    private CoreDrone lastDroneHit;
     private bool hitEmptyDrone = false;
     private bool pickupDrone = false;
     private bool pickingUpDrone = false;
@@ -39,10 +39,10 @@ class SystemCameraMovementController : CameraMovementController
         Vector3 fwd = ownCamera.transform.TransformDirection(Vector3.forward);
         if (Physics.Raycast(ownCamera.transform.position, fwd, out hit))
         {
-            if (hit.collider.tag == "Drone")
+            if (hit.collider.tag == "CoreDrone")
             {
                 hitEmptyDrone = true;
-                EmptyDrone newHit = hit.collider.gameObject.GetComponent<EmptyDrone>();
+                CoreDrone newHit = hit.collider.gameObject.GetComponent<CoreDrone>();
                 if (lastDroneHit != newHit)
                 {
                     newHit.StopLookingAt();
@@ -52,7 +52,9 @@ class SystemCameraMovementController : CameraMovementController
 
                 if (pickupDrone)
                 {
-                        PickUpDrone(newHit);
+                    PickUpDrone(newHit);
+                    SystemPlayerController spc = FindObjectOfType<SystemPlayerController>();
+                    spc.SetCoreDrone(newHit);
                 }
 
             }
@@ -92,9 +94,12 @@ class SystemCameraMovementController : CameraMovementController
         base.DisableController();
     }
 
-    private void PickUpDrone(EmptyDrone drone)
+    private void PickUpDrone(CoreDrone drone)
     {
-        systemArm.MoveTo(drone.gameObject);
+        if (drone.IsAllowedToBePickup())
+        {
+            systemArm.MoveTo(drone.gameObject);
+        }
 
     }
 }
