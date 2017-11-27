@@ -6,10 +6,6 @@ public class ClickInPlace : MonoBehaviour {
 
     [SerializeField] private GameObject triggerObjectT;
     [SerializeField] private MagnetMove magnetMove;
-    [SerializeField]
-    private GameObject object1;
-    [SerializeField]
-    private GameObject object2;
     private Transform triggerT;
     private Rigidbody rb;
     private bool hasBeenSet;
@@ -27,11 +23,8 @@ public class ClickInPlace : MonoBehaviour {
         {
             magnetMove.ReleaseOnConveyorClick(other.gameObject);
             triggerObjectT.tag = "Untagged";
-            triggerObjectT.SetActive(false);
             rb.isKinematic = true;
             other.transform.position = transform.parent.position;
-            object1.SetActive(true);
-            object2.SetActive(true);
             hasBeenSet = true;
         }
     }
