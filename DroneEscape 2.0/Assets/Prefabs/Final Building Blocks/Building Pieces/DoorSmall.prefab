@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4948557682618678}
   - component: {fileID: 33193834607686576}
   - component: {fileID: 23095687465613086}
+  - component: {fileID: 65146251197617990}
   m_Layer: 0
   m_Name: DoorInsideSmall
   m_TagString: Untagged
@@ -56,6 +57,7 @@ GameObject:
   - component: {fileID: 4453878265300816}
   - component: {fileID: 33914385497793820}
   - component: {fileID: 23432461018780888}
+  - component: {fileID: 64753949329327442}
   m_Layer: 0
   m_Name: WallDoorPostBigHole001
   m_TagString: Untagged
@@ -73,6 +75,7 @@ GameObject:
   - component: {fileID: 4373023993856972}
   - component: {fileID: 33184697192036566}
   - component: {fileID: 23901471729692842}
+  - component: {fileID: 65713449345606650}
   m_Layer: 0
   m_Name: DoorInsideSmall (1)
   m_TagString: Untagged
@@ -258,6 +261,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1489310333183552}
   m_Mesh: {fileID: 4300006, guid: df6e1605ec0808c45ac875b51b774226, type: 3}
+--- !u!64 &64753949329327442
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1489310333183552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300006, guid: df6e1605ec0808c45ac875b51b774226, type: 3}
 --- !u!65 &65001578131753798
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -270,6 +287,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 5, z: 8}
   m_Center: {x: 0, y: 2.5, z: 0}
+--- !u!65 &65146251197617990
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1385863900049258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5839888, y: 0.8807035, z: 4.00035}
+  m_Center: {x: 0.70800215, y: -0.0000039339066, z: 1.9998616}
+--- !u!65 &65713449345606650
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931943427925280}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5839896, y: 0.88070446, z: 4.00035}
+  m_Center: {x: 0.7080101, y: -0.0000025033619, z: 1.9998616}
 --- !u!95 &95038032953434330
 Animator:
   serializedVersion: 3
