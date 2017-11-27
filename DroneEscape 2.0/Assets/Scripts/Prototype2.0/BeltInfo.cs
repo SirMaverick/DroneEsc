@@ -8,8 +8,6 @@ public class BeltInfo : MonoBehaviour {
     public Vector3 movement;
 	// Use this for initialization
 	void Start () {
-
-        movement = transform.TransformDirection(Vector3.forward);
 	}
 	
 	// Update is called once per frame
@@ -18,7 +16,7 @@ public class BeltInfo : MonoBehaviour {
 	}
 
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Object" && !other.GetComponent<MoveOnBelt>().flying) {
+        if (other.tag == "Object" ) {
             if (!other.GetComponent<MoveOnBelt>().sent) {
                 other.GetComponent<MoveOnBelt>().currentPart = currentBeltPart;
                 other.GetComponent<MoveOnBelt>().sent = true;
