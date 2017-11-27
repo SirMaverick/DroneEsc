@@ -31,7 +31,7 @@ public class ConveyerBelt : MonoBehaviour {
             obj.transform.rotation = transform.localRotation;
             obj.GetComponent<MoveOnBelt>().enabled = true;
             obj.GetComponent<MoveOnBelt>().beltParts = beltParts;
-            obj.GetComponent<MoveOnBelt>().currentCoroutine = StartCoroutine(obj.GetComponent<MoveOnBelt>().MoveObject());
+            obj.GetComponent<MoveOnBelt>().start = true;
         }
     }
 
@@ -40,6 +40,7 @@ public class ConveyerBelt : MonoBehaviour {
 
             obj.GetComponent<MoveOnBelt>().StopMoving();
             obj.GetComponent<MoveOnBelt>().enabled = false;
+            obj.GetComponent<MoveOnBelt>().start = false;
         }
     }
 }

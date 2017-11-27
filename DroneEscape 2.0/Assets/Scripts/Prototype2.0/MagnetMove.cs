@@ -69,6 +69,17 @@ public class MagnetMove : MonoBehaviour {
         }
     }
 
+    public void ReleaseOnConveyorClick(GameObject belt)
+    {
+        if(listOfMagneticObjects.Contains(belt))
+        {
+            belt.transform.parent = null;
+            belt.GetComponent<Rigidbody>().useGravity = true;
+            belt.GetComponent<Rigidbody>().isKinematic = false;
+            listOfMagneticObjects.Remove(belt);
+        }
+    }
+
     private void OnTriggerExit(Collider other) {
         if(other.transform.tag == "Drone" || other.transform.tag == "Magnetic") ReleaseObject(other.gameObject);     
     }

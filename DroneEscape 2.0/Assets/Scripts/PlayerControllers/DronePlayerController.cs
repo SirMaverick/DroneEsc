@@ -14,9 +14,14 @@ using System.Collections;
     [SerializeField] private float maxDistance;
 
     bool nearBelt;
+    [SerializeField] private bool startAsCore;
     [SerializeField] float force;
 
     [SerializeField] private GameObject objectPlacement;
+
+    private bool coreAmbient;
+    [SerializeField] private Color inCoreAmbient;
+    [SerializeField] private Color inDroneAmbient;
 
     protected override void Start()
     {
@@ -25,6 +30,20 @@ using System.Collections;
         uiController = FindObjectOfType<DroneUIController>();
         cameraObject = corePlayerController.gameObject;
         core = FindObjectOfType<CoreObject>().gameObject;
+
+        if (startAsCore)
+        {
+            TurnLightsOff();
+        } else
+        {
+            foreach (Light light in lights.GetComponentsInChildren<Light>())
+            {
+                light.enabled = true;
+            }
+            coreAmbient = false;
+            RenderSettings.ambientLight = inDroneAmbient;
+
+        }
 
         if (camera.enabled) { 
             GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
@@ -108,7 +127,27 @@ using System.Collections;
         foreach(Light light in lights.GetComponentsInChildren<Light>()) {
             light.enabled = !light.enabled;
         }
+        coreAmbient = !coreAmbient;
+        if (coreAmbient)
+        {
+            RenderSettings.ambientLight = inCoreAmbient;
+        }
+        else
+        {
+            RenderSettings.ambientLight = inDroneAmbient;
+        }
     }
+
+    void TurnLightsOff()
+    {
+        foreach (Light light in lights.GetComponentsInChildren<Light>())
+        {
+            light.enabled = false;  
+        }
+        coreAmbient = true;
+        RenderSettings.ambientLight = inCoreAmbient;
+    }
+
 
 }
 
