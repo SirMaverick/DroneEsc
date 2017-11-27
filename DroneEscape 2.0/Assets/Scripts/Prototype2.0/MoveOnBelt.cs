@@ -65,10 +65,10 @@ public class MoveOnBelt : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "ConveyorTurn") {
-            transform.localRotation = other.transform.localRotation;
+            movement = other.transform.parent.GetComponent<BeltInfo>().movement;
             //movement = other.transform.parent.GetComponent<BeltInfo>().movement;
             //nextPart = beltParts[currentPart + 1];
-            currentPart++;
+            //currentPart++;
         }
     }
 } 
