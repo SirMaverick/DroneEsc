@@ -67,7 +67,7 @@ public class MoveOnBelt : MonoBehaviour {
         if(other.tag == "ConveyorTurn") {
             transform.localRotation = other.transform.localRotation;
             //movement = other.transform.parent.GetComponent<BeltInfo>().movement;
-            nextPart = beltParts[currentPart + 1];
+            //nextPart = beltParts[currentPart + 1];
             currentPart++;
         }
     }
