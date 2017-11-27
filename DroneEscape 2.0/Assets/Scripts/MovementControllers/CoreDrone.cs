@@ -13,12 +13,14 @@ public class CoreDrone : MonoBehaviour, Selectable
     {
         if (IsAllowedToBePickup())
         {
+            meshRenderer.material.SetFloat("_ON", 1);
             meshRenderer.material.SetColor("_ColorFresh", new Color(255.0f / 255.0f, 140.0f / 255.0f, 0));
         }
     }
 
     public void StopLookingAt()
     {
+        meshRenderer.material.SetFloat("_ON", 0);
         meshRenderer.material.SetColor("_ColorFresh", new Color(0, 72.0f / 255.0f, 255.0f / 255.0f));
     }
 

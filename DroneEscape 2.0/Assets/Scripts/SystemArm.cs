@@ -36,10 +36,7 @@ class SystemArm : MonoBehaviour
                 reachedTarget = true;
                 reachedRoof = false;
 
-                // remove energy
-                //SystemEnergyController sec = FindObjectOfType<SystemEnergyController>();
-                //sec.AddEnergyFromCore();
-                playerController.GiveEnergy();
+
             } 
         }else if (!reachedRoof)
         {
@@ -58,6 +55,8 @@ class SystemArm : MonoBehaviour
                 {
                     targetDrone.GetComponent<Rigidbody>().isKinematic = false;
                     droneLift = false;
+                    // remove energy
+                    playerController.GiveEnergy();
                 }
 
             }

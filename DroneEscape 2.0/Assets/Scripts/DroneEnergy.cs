@@ -20,7 +20,7 @@ public class DroneEnergy : MonoBehaviour
     {
         float temp = energy;
         energy = 0;
-        return energy;
+        return temp;
     }
 
     public float GetEnergy()
