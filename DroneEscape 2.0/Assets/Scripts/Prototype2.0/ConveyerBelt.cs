@@ -26,10 +26,9 @@ public class ConveyerBelt : MonoBehaviour {
 	}
 
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Object" ) {
-
-
+        if (other.GetComponent<CoreObject>()) { 
             obj = other.gameObject;
+            obj.transform.rotation = transform.localRotation;
             obj.GetComponent<MoveOnBelt>().enabled = true;
             obj.GetComponent<MoveOnBelt>().beltParts = beltParts;
             obj.GetComponent<MoveOnBelt>().currentCoroutine = StartCoroutine(obj.GetComponent<MoveOnBelt>().MoveObject());
