@@ -12,12 +12,16 @@ class SystemPlayerController : AbstractPlayerController
 
     protected PlayerControllerSupervisor playerControllerSupervisor;
 
+    [SerializeField]
+    private SystemEnergyController energyController;
+
 
     public void Start()
     {
         // kind of ugly to hide it and cast it
         movementControllerSM = (SystemMovementController) movementController;
         playerControllerSupervisor = PlayerControllerSupervisor.GetInstance();
+        uiController = FindObjectOfType<SystemUIController>();
     }
 
     public override void EnableController()
@@ -26,12 +30,15 @@ class SystemPlayerController : AbstractPlayerController
         previousPlayerController = playerControllerSupervisor.GetCurrentPlayerController();
         //base.EnableController();
         movementController.enabled = true;
+        uiController.EnableController();
+        energyController.EnableController();
     }
 
     public override void DisableController()
     {
         //base.DisableController();
         movementController.enabled = false;
+        //uiController.DisableController();
     }
 
     public void SwitchToNextCamera()

@@ -17,6 +17,7 @@ public class CorePlayerController : AbstractPlayerController
 
     protected override void Start()
     {
+        core = FindObjectOfType<CoreObject>().gameObject;
         uiController = FindObjectOfType<CoreUIController>();
         if (camera.enabled)
         {

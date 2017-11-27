@@ -32,7 +32,8 @@ public class CoreMovementController : MovementController
     {
         base.Start();
         TurnOnPulse();
-        core = GetComponent<CorePlayerController>().GetCore();
+        //core = GetComponent<CorePlayerController>().GetCore();
+        core = FindObjectOfType<CoreObject>().gameObject;
         Cursor.lockState = CursorLockMode.Locked;
         character = transform.gameObject;
         
