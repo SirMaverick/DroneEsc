@@ -1,0 +1,39 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CoreDrone : MonoBehaviour, Selectable
+{
+    [SerializeField] SkinnedMeshRenderer meshRenderer;
+    [SerializeField] DroneEnergy energy;
+
+    [SerializeField] float minEnergyToPickup = 20;
+
+    public void LookingAt()
+    {
+        if (IsAllowedToBePickup())
+        {
+            meshRenderer.material.SetColor("_ColorFresh", new Color(255.0f / 255.0f, 140.0f / 255.0f, 0));
+        }
+    }
+
+    public void StopLookingAt()
+    {
+        meshRenderer.material.SetColor("_ColorFresh", new Color(0, 72.0f / 255.0f, 255.0f / 255.0f));
+    }
+
+    public DroneEnergy GetDroneEnergy()
+    {
+        return energy;
+    }
+
+    public float GetDroneEnergyValue()
+    {
+        return energy.GetEnergy();
+    }
+
+    public bool IsAllowedToBePickup()
+    {
+        return energy.GetEnergy() >= minEnergyToPickup;
+    }
+}

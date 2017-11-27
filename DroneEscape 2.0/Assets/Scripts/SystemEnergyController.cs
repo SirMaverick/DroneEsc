@@ -9,9 +9,6 @@ class SystemEnergyController : MonoBehaviour
     [SerializeField]
     private float energyLevelTotal = 10.0f;
 
-    [SerializeField]
-    private float droneEnergyValue = 20.0f;
-
     private float energyLevelCurrent;
     /* [SerializeField]
      private float energyTimeLost = 1.0f;*/
@@ -36,6 +33,7 @@ class SystemEnergyController : MonoBehaviour
             if (energyLevelCurrent < 0)
             {
                 Debug.LogError("you lost");
+
             }
         }
     }
@@ -47,9 +45,10 @@ class SystemEnergyController : MonoBehaviour
         energyLevelTotal += Time.time;
     }
 
-    public void AddEnergyFromCore()
+    public void AddEnergyFromCore(DroneEnergy coreDrone)
     {
-        energyLevelTotal += droneEnergyValue;
+        
+        energyLevelTotal += coreDrone.TakeEnergy(); 
         energyLevelCurrent = energyLevelTotal - Time.time;
         // limit the energy
         if (energyLevelCurrent > maxEnergy)
