@@ -19,7 +19,12 @@ public class DoorOpener : MonoBehaviour {
         if(other.tag == "Drone")
         {
             _animator.SetBool("openDoor", true);
-        }    
+        }
+
+        if (other.tag == "NPCDrone")
+        {
+            _animator.SetBool("openDoor", true);
+        }
     }
 
     private void OnTriggerExit(Collider other)

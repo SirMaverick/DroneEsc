@@ -16,9 +16,13 @@ class SystemArm : MonoBehaviour
 
     private GameObject targetDrone;
 
+    private SystemPlayerController playerController;
+
+
+
     private void Start()
     {
-        
+        playerController = FindObjectOfType<SystemPlayerController>();    
     }
 
     private void Update()
@@ -26,19 +30,22 @@ class SystemArm : MonoBehaviour
         if (!reachedTarget)
         {
             gameObject.transform.Translate(Vector3.down * Time.deltaTime * speed);
+            // Reached the drone
             if(gameObject.transform.position.y <= targetPosition.y)
             {
                 reachedTarget = true;
                 reachedRoof = false;
-                SystemEnergyController sec = FindObjectOfType<SystemEnergyController>();
-                sec.AddEnergyFromCore();
+
+
             } 
         }else if (!reachedRoof)
         {
             gameObject.transform.Translate(Vector3.up * Time.deltaTime * speed);
 
+            // Lifting a drone
             if (droneLift)
             {
+                // Reached max lifting height of the drone
                 if (targetDrone.transform.position.y < liftHeight)
                 {
                     targetDrone.transform.Translate(Vector3.up * Time.deltaTime * speed);
@@ -48,9 +55,12 @@ class SystemArm : MonoBehaviour
                 {
                     targetDrone.GetComponent<Rigidbody>().isKinematic = false;
                     droneLift = false;
+                    // remove energy
+                    playerController.GiveEnergy();
                 }
 
             }
+            // Reached roof
             if (gameObject.transform.position.y >= roofPosition.y)
             {
                 reachedRoof = true;
@@ -61,6 +71,7 @@ class SystemArm : MonoBehaviour
 
     public void MoveTo(GameObject target)
     {
+        // only do something if we are not tyring to lift or are lifting a drone.
         if (reachedRoof && reachedTarget)
         {
             targetDrone = target;
