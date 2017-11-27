@@ -4,39 +4,32 @@ using UnityEngine;
 
 public class DoorOpener : MonoBehaviour {
 
-    private Animator _animatorL;
-    private Animator _animatorR;
-    private Animator _animatorL1;
-    private Animator _animatorR1;
-    private Animator _animatorL2;
-    private Animator _animatorR2;
-    [SerializeField] private GameObject DoorL;
-    [SerializeField] private GameObject DoorR;
-    [SerializeField] private GameObject DoorL1;
-    [SerializeField] private GameObject DoorR1;
-    [SerializeField] private GameObject DoorL2;
-    [SerializeField] private GameObject DoorR2;
+    private Animator _animator;
+    [SerializeField] private float timeBeforeClose;
+    [SerializeField] private GameObject Door;
 
     // Use this for initialization
     void Start () {
-        _animatorL = DoorL.GetComponent<Animator>();
-        _animatorR = DoorR.GetComponent<Animator>();
-        _animatorL1 = DoorL1.GetComponent<Animator>();
-        _animatorR1 = DoorR1.GetComponent<Animator>();
-        _animatorL2 = DoorL2.GetComponent<Animator>();
-        _animatorR2 = DoorR2.GetComponent<Animator>();
+        _animator = Door.GetComponent<Animator>();
+        _animator.SetBool("openDoor", false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Drone")
         {
-            _animatorL.SetBool("Open", true);
-            _animatorR.SetBool("Open", true);
-            _animatorL1.SetBool("Open", true);
-            _animatorR1.SetBool("Open", true);
-            _animatorL2.SetBool("Open", true);
-            _animatorR2.SetBool("Open", true);
+            _animator.SetBool("openDoor", true);
         }    
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        StartCoroutine(DoorCloser());
+    }
+
+    IEnumerator DoorCloser()
+    {
+        yield return new WaitForSeconds(timeBeforeClose);
+        _animator.SetBool("openDoor", false);
     }
 }
