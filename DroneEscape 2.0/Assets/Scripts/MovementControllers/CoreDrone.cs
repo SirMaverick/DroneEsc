@@ -9,18 +9,28 @@ public class CoreDrone : MonoBehaviour, Selectable
 
     [SerializeField] float minEnergyToPickup = 20;
 
-    public void LookingAt()
+    public void Start()
     {
         if (IsAllowedToBePickup())
         {
             meshRenderer.material.SetFloat("_ON", 1);
+            StopLookingAt();
+        }
+    }
+
+
+    public void LookingAt()
+    {
+        if (IsAllowedToBePickup())
+        {
+            //meshRenderer.material.SetFloat("_ON", 1);
             meshRenderer.material.SetColor("_ColorFresh", new Color(255.0f / 255.0f, 140.0f / 255.0f, 0));
         }
     }
 
     public void StopLookingAt()
     {
-        meshRenderer.material.SetFloat("_ON", 0);
+        //meshRenderer.material.SetFloat("_ON", 0);
         meshRenderer.material.SetColor("_ColorFresh", new Color(0, 72.0f / 255.0f, 255.0f / 255.0f));
     }
 
@@ -32,10 +42,16 @@ public class CoreDrone : MonoBehaviour, Selectable
     public float GetDroneEnergyValue()
     {
         return energy.GetEnergy();
-    }
+    }   
 
     public bool IsAllowedToBePickup()
     {
         return energy.GetEnergy() >= minEnergyToPickup;
+    }
+
+    public float TakeEnergy()
+    {
+        meshRenderer.material.SetFloat("_ON", 0);
+        return energy.TakeEnergy();
     }
 }

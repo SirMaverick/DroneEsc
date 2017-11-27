@@ -81,6 +81,6 @@ class SystemPlayerController : AbstractPlayerController
 
     public void GiveEnergy()
     {
-        energyController.AddEnergyFromCore(coreDrone.GetDroneEnergy());
+        energyController.AddEnergyFromCore(coreDrone);
     }
 }

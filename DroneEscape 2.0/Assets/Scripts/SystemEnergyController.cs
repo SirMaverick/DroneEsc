@@ -45,7 +45,7 @@ class SystemEnergyController : MonoBehaviour
         energyLevelTotal += Time.time;
     }
 
-    public void AddEnergyFromCore(DroneEnergy coreDrone)
+    public void AddEnergyFromCore(CoreDrone coreDrone)
     {
         
         energyLevelTotal += coreDrone.TakeEnergy(); 
