@@ -5,6 +5,7 @@ using UnityEngine;
 public class activateDoorAfterTime : MonoBehaviour {
 
     [SerializeField] private float timeTilOpen;
+    [SerializeField] private float timeTilFade;
     [SerializeField] private GameObject Door;
     private Animator _animator;
 
@@ -19,5 +20,7 @@ public class activateDoorAfterTime : MonoBehaviour {
     {
         yield return new WaitForSeconds(timeTilOpen);
         _animator.SetBool("openDoor", true);
+        yield return new WaitForSeconds(timeTilFade);
+        FadeToWhite.Instance.CallFading();
     }
 }
