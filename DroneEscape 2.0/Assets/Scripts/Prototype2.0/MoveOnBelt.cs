@@ -26,8 +26,7 @@ public class MoveOnBelt : MonoBehaviour {
     void Update() {
         if (move && !flying && !pickedUp) {
             float step = speed * Time.deltaTime;
-            transform.position += movement * Time.deltaTime;
-            //transform.Translate(Vector3.left * Time.deltaTime, Space.Self);
+            transform.Translate(Vector3.left * Time.deltaTime, Space.Self);
             cameraCore.transform.position = transform.position;
          }
         
@@ -44,11 +43,8 @@ public class MoveOnBelt : MonoBehaviour {
         yield return new WaitForSeconds(1.5f);
         move = false;
         yield return new WaitForSeconds(1.0f);
-        if (start == false) {
-            StopMoving();
-        } else {
-            currentCoroutine = StartCoroutine("MoveObject");
-        }
+        currentCoroutine = StartCoroutine("MoveObject");    
+        
         /*move = true;
         yield return new WaitForSeconds(2.0f);
         move = false;
@@ -65,10 +61,10 @@ public class MoveOnBelt : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "ConveyorTurn") {
-            movement = other.transform.parent.GetComponent<BeltInfo>().movement;
+            transform.localRotation = other.transform.parent.localRotation;
             //movement = other.transform.parent.GetComponent<BeltInfo>().movement;
-            //nextPart = beltParts[currentPart + 1];
-            //currentPart++;
+            nextPart = beltParts[currentPart + 1];
+            currentPart++;
         }
     }
 } 
