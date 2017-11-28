@@ -5,11 +5,12 @@ using UnityEngine;
 public class ConveyerBelt : MonoBehaviour {
 
     public int currentPart;
-    [SerializeField] GameObject[] beltParts;
+    [SerializeField]
+    GameObject[] beltParts;
     GameObject obj;
-        
-	// Use this for initialization
-	void Awake () {
+
+    // Use this for initialization
+    void Awake() {
         int i = transform.childCount;
         beltParts = new GameObject[i];
         int counter = 0;
@@ -19,14 +20,14 @@ public class ConveyerBelt : MonoBehaviour {
             counter++;
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update() {
+
+    }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<CoreObject>()) { 
+        if (other.GetComponent<CoreObject>()) {
             obj = other.gameObject;
             obj.transform.rotation = transform.localRotation;
             obj.GetComponent<MoveOnBelt>().enabled = true;
@@ -44,3 +45,4 @@ public class ConveyerBelt : MonoBehaviour {
         }
     }
 }
+
