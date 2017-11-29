@@ -34,8 +34,9 @@ public class EmptyDrone : MonoBehaviour, Selectable {
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
             } else {
                 walk = false;
-                PickUpCore();
+                
                 UpdateGuards();
+                TurnOnDrone();
             }
         }
     }
@@ -46,33 +47,22 @@ public class EmptyDrone : MonoBehaviour, Selectable {
 
     }
 
-    void PickUpCore() {
-        coreCamera.GetComponent<Camera>().enabled = false;
-        coreCamera.GetComponent<AudioListener>().enabled = false;
+  
+
+    void TurnOnDrone() {
+
         cameraObject.transform.position = transform.position;
+
         corePickUp = cameraObject.GetComponent<CorePlayerController>().GetCore();
-        cameraObject.GetComponent<CoreMovementController>().TurnOffPulse();
-        corePickUp.GetComponent<BoxCollider>().enabled = false;
-        corePickUp.GetComponent<MeshRenderer>().enabled = false;
-        corePickUp.GetComponent<Rigidbody>().useGravity = false;
-        corePickUp.GetComponent<MoveOnBelt>().sent = false;
-        corePickUp.GetComponent<MoveOnBelt>().pickedUp = true;
-        corePickUp.GetComponent<MoveOnBelt>().StopMoving();
         corePickUp.GetComponent<MoveOnBelt>().start = false;
         corePickUp.transform.parent = transform;
         corePickUp.transform.position = objectPlacement.transform.position;
-        corePickUp.GetComponent<MoveOnBelt>().currentPart = 0;
-        cameraObject.GetComponent<CorePlayerController>().TurnOffPulses();
 
-        TurnOnDrone();
-    }
-
-    void TurnOnDrone() {
         //GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<DronePlayerController>().SwitchLight();
+        // GetComponent<DronePlayerController>().SwitchLight();
         pcs.SwitchPlayerController(GetComponent<DronePlayerController>());
-        ownCamera.GetComponent<AudioListener>().enabled = true;
-        ownCamera.GetComponent<Camera>().enabled = true;
+        //ownCamera.GetComponent<AudioListener>().enabled = true;
+       // ownCamera.GetComponent<Camera>().enabled = true;
        
 
         enabled = false;
