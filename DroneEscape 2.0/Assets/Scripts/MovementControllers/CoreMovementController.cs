@@ -124,7 +124,18 @@ public class CoreMovementController : MovementController
 
     public override void Use(bool key)
     {
-        
+        if (key)
+        {
+            AbstractPlayerController apc = playerControllerSupervisor.GetPreviousPlayerController();
+            if(Object.ReferenceEquals(apc.GetType(), typeof(DronePlayerController))) 
+            {
+                transform.position = apc.transform.position;
+                //transform.parent = apc.transform;
+                playerControllerSupervisor.SwitchPlayerControllerPrevious();
+
+            }
+            
+        }    
     }
 
     public override void LeftClick(bool key)

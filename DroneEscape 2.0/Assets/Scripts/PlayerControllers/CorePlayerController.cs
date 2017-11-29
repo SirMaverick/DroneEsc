@@ -51,6 +51,7 @@ public class CorePlayerController : AbstractPlayerController
     {
         base.DisableController();
         GetComponentInChildren<CameraCollision>().enabled = false;
+        TurnOffCore();
     }
 
 
@@ -63,11 +64,32 @@ public class CorePlayerController : AbstractPlayerController
         core.GetComponent<Rigidbody>().useGravity = true;
         core.GetComponent<MoveOnBelt>().flying = true;
         core.GetComponent<MoveOnBelt>().pickedUp = false;
+        core.GetComponent<MoveOnBelt>().start = false;
 
-        
 
-     //   StartCoroutine(CheckGrounded());
+        //   StartCoroutine(CheckGrounded());
         isFlying = true;
+    }
+
+    private void TurnOffCore()
+    {
+        //coreCamera.GetComponent<Camera>().enabled = false;
+        //coreCamera.GetComponent<AudioListener>().enabled = false;
+
+        TurnOffPulses();
+        CoreMovementController cmc = (CoreMovementController)movementController;
+        cmc.TurnOffPulse();
+       
+
+        core.GetComponent<BoxCollider>().enabled = false;
+        core.GetComponent<MeshRenderer>().enabled = false;
+        core.GetComponent<Rigidbody>().useGravity = false;
+
+        core.GetComponent<MoveOnBelt>().sent = false;
+        core.GetComponent<MoveOnBelt>().pickedUp = true;
+        core.GetComponent<MoveOnBelt>().StopMoving();
+        core.GetComponent<MoveOnBelt>().currentPart = 0;
+     
     }
 
     void CoreOnGround()

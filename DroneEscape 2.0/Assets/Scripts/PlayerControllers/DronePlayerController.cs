@@ -61,6 +61,7 @@ using System.Collections;
     {
         // dont see yourself 
         meshRenderer.enabled = false;
+        SwitchLight();
         base.EnableController();
     }
 
