@@ -64,10 +64,10 @@ public class CorePlayerController : AbstractPlayerController
         core.GetComponent<Rigidbody>().useGravity = true;
         core.GetComponent<MoveOnBelt>().flying = true;
         core.GetComponent<MoveOnBelt>().pickedUp = false;
+        core.GetComponent<MoveOnBelt>().start = false;
 
-        
 
-     //   StartCoroutine(CheckGrounded());
+        //   StartCoroutine(CheckGrounded());
         isFlying = true;
     }
 

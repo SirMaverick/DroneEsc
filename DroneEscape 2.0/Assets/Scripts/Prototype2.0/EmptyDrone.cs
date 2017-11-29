@@ -54,7 +54,6 @@ public class EmptyDrone : MonoBehaviour, Selectable {
         cameraObject.transform.position = transform.position;
 
         corePickUp = cameraObject.GetComponent<CorePlayerController>().GetCore();
-        corePickUp.GetComponent<MoveOnBelt>().start = false;
         corePickUp.transform.parent = transform;
         corePickUp.transform.position = objectPlacement.transform.position;
 
