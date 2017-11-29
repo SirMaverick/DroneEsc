@@ -151,25 +151,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 95050652843579066, guid: e586887e9cdb5014ebc40c80d994b560,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 061b89d47225cc14887080f046cd96eb, type: 2}
-    - target: {fileID: 114966095952728582, guid: e586887e9cdb5014ebc40c80d994b560,
-        type: 2}
-      propertyPath: droneAnimation
-      value: 
-      objectReference: {fileID: 1552123989}
-    - target: {fileID: 95050652843579066, guid: e586887e9cdb5014ebc40c80d994b560,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4976064518862320, guid: e586887e9cdb5014ebc40c80d994b560, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -126.00201
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e586887e9cdb5014ebc40c80d994b560, type: 2}
   m_IsPrefabParent: 0
@@ -652,32 +633,3 @@ Transform:
   m_Father: {fileID: 245180596}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1552123988 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1058202883371062, guid: e586887e9cdb5014ebc40c80d994b560,
-    type: 2}
-  m_PrefabInternal: {fileID: 111185576}
---- !u!114 &1552123989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1552123988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 257479712d527434b9640a1cc251c416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1552123995}
-  emptyDrone: {fileID: 1552123993}
---- !u!114 &1552123993 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114966095952728582, guid: e586887e9cdb5014ebc40c80d994b560,
-    type: 2}
-  m_PrefabInternal: {fileID: 111185576}
-  m_Script: {fileID: 11500000, guid: 34682cc4ac700304ea72c7da7f07ab46, type: 3}
---- !u!95 &1552123995 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95050652843579066, guid: e586887e9cdb5014ebc40c80d994b560,
-    type: 2}
-  m_PrefabInternal: {fileID: 111185576}

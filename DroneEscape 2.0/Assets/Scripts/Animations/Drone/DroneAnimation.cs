@@ -17,7 +17,7 @@ public class DroneAnimation : MonoBehaviour
     {
         Debug.Log("AnimationWakeUpDone");
         animator.SetBool("WakeUp", false);
-        emptyDrone.AnimationWakeUpDone();
+        emptyDrone.AnimWakeUpDone();
     }
 
 
@@ -29,7 +29,7 @@ public class DroneAnimation : MonoBehaviour
     {
         Debug.Log("PickupDone");
         animator.SetBool("PickUpCore", false);
-        emptyDrone.AnimationPickUpDone();
+        emptyDrone.AnimPickUpDone();
     }
 
 }

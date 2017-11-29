@@ -50,12 +50,12 @@ public class EmptyDrone : MonoBehaviour, Selectable {
 
     }
 
-    public void AnimationWakeUpDone()
+    public void AnimWakeUpDone()
     {
         walk = true;
     }
 
-    public void AnimationPickUpDone()
+    public void AnimPickUpDone()
     {
         //
         UpdateGuards();
