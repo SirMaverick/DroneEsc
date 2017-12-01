@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EmptyDrone : MonoBehaviour, Selectable {
 
+    [SerializeField] private DroneAnimation droneAnimation;
+
+
     private Transform cameraObject;
     private GameObject coreCamera;
     private GameObject corePickUp;
@@ -34,20 +37,31 @@ public class EmptyDrone : MonoBehaviour, Selectable {
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
             } else {
                 walk = false;
-                
-                UpdateGuards();
-                TurnOnDrone();
+                droneAnimation.PickUp();
+
             }
         }
     }
     public void WalkToPlayer(Transform tempCore) {
+        droneAnimation.WakeUp();
         cameraObject = tempCore.parent;
         coreCamera = tempCore.gameObject;
-        walk = true;
+       // walk = true;
 
     }
 
-  
+    public void AnimWakeUpDone()
+    {
+        walk = true;
+    }
+
+    public void AnimPickUpDone()
+    {
+        //
+        UpdateGuards();
+        TurnOnDrone();
+    }
+
 
     void TurnOnDrone() {
 
