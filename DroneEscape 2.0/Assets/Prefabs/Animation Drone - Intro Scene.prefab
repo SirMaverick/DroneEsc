@@ -369,10 +369,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 20031633872475676}
   movementController: {fileID: 114441000722040320}
+  uiController: {fileID: 0}
   meshRenderer: {fileID: 23668856941160554}
   maxDistance: 1
+  startAsCore: 0
   force: 8
   objectPlacement: {fileID: 1238951477196694}
+  inCoreAmbient: {r: 0, g: 0, b: 0, a: 0}
+  inDroneAmbient: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114867655154032020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,6 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34682cc4ac700304ea72c7da7f07ab46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  droneAnimation: {fileID: 0}
   objectPlacement: {fileID: 1238951477196694}
   meshRenderer: {fileID: 137955144589962226, guid: e586887e9cdb5014ebc40c80d994b560,
     type: 2}
