@@ -39,8 +39,6 @@ public class MagnetMove : MonoBehaviour {
             child.GetComponent<Rigidbody>().isKinematic = false;
         }
         listOfMagneticObjects.Clear();
-
-        
     }
 
     private void OnTriggerEnter(Collider other) {
