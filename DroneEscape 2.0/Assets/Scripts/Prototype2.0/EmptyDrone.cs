@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EmptyDrone : MonoBehaviour, Selectable {
 
+    [SerializeField] private DroneAnimation droneAnimation;
+
+
     private Transform cameraObject;
     private GameObject coreCamera;
     private GameObject corePickUp;
@@ -34,45 +37,45 @@ public class EmptyDrone : MonoBehaviour, Selectable {
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
             } else {
                 walk = false;
-                PickUpCore();
-                UpdateGuards();
+                droneAnimation.PickUp();
+
             }
         }
     }
     public void WalkToPlayer(Transform tempCore) {
+        droneAnimation.WakeUp();
         cameraObject = tempCore.parent;
         coreCamera = tempCore.gameObject;
-        walk = true;
+       // walk = true;
 
     }
 
-    void PickUpCore() {
-        coreCamera.GetComponent<Camera>().enabled = false;
-        coreCamera.GetComponent<AudioListener>().enabled = false;
-        cameraObject.transform.position = transform.position;
-        corePickUp = cameraObject.GetComponent<CorePlayerController>().GetCore();
-        cameraObject.GetComponent<CoreMovementController>().TurnOffPulse();
-        corePickUp.GetComponent<BoxCollider>().enabled = false;
-        corePickUp.GetComponent<MeshRenderer>().enabled = false;
-        corePickUp.GetComponent<Rigidbody>().useGravity = false;
-        corePickUp.GetComponent<MoveOnBelt>().sent = false;
-        corePickUp.GetComponent<MoveOnBelt>().pickedUp = true;
-        corePickUp.GetComponent<MoveOnBelt>().StopMoving();
-        corePickUp.GetComponent<MoveOnBelt>().start = false;
-        corePickUp.transform.parent = transform;
-        corePickUp.transform.position = objectPlacement.transform.position;
-        corePickUp.GetComponent<MoveOnBelt>().currentPart = 0;
-        cameraObject.GetComponent<CorePlayerController>().TurnOffPulses();
+    public void AnimWakeUpDone()
+    {
+        walk = true;
+    }
 
+    public void AnimPickUpDone()
+    {
+        //
+        UpdateGuards();
         TurnOnDrone();
     }
 
+
     void TurnOnDrone() {
+
+        cameraObject.transform.position = transform.position;
+
+        corePickUp = cameraObject.GetComponent<CorePlayerController>().GetCore();
+        corePickUp.transform.parent = transform;
+        corePickUp.transform.position = objectPlacement.transform.position;
+
         //GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<DronePlayerController>().SwitchLight();
+        // GetComponent<DronePlayerController>().SwitchLight();
         pcs.SwitchPlayerController(GetComponent<DronePlayerController>());
-        ownCamera.GetComponent<AudioListener>().enabled = true;
-        ownCamera.GetComponent<Camera>().enabled = true;
+        //ownCamera.GetComponent<AudioListener>().enabled = true;
+       // ownCamera.GetComponent<Camera>().enabled = true;
        
 
         enabled = false;

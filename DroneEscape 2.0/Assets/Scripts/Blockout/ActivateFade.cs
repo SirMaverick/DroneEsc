@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class ActivateFade : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	[SerializeField] private float timeBeforeFade;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        StartCoroutine(fadeToWhite());
+    }
+
+    IEnumerator fadeToWhite()
+    {
+        yield return new WaitForSeconds(timeBeforeFade);
         FadeToWhite.Instance.CallFading();
     }
 }

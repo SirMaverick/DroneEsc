@@ -70,7 +70,7 @@ public class CoreMovementController : MovementController
             if (hit.collider.tag == "Drone")
                 
             {
-                Debug.Log(maxDistance + Vector3.Distance(transform.GetChild(0).position, core.transform.position));    
+                //Debug.Log(maxDistance + Vector3.Distance(transform.GetChild(0).position, core.transform.position));    
                 hitEmptyDrone = true;
                 EmptyDrone newHit = hit.collider.gameObject.GetComponent<EmptyDrone>();
                 if (lastDroneHit != newHit) {
@@ -124,7 +124,18 @@ public class CoreMovementController : MovementController
 
     public override void Use(bool key)
     {
-        
+        if (key)
+        {
+            AbstractPlayerController apc = playerControllerSupervisor.GetPreviousPlayerController();
+            if(Object.ReferenceEquals(apc.GetType(), typeof(DronePlayerController))) 
+            {
+                transform.position = apc.transform.position;
+                //transform.parent = apc.transform;
+                playerControllerSupervisor.SwitchPlayerControllerPrevious();
+
+            }
+            
+        }    
     }
 
     public override void LeftClick(bool key)

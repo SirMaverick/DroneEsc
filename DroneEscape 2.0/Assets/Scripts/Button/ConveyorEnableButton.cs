@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConveyorEnableButton : Button {
+public class ConveyorEnableButton : MonoBehaviour {
 
     [SerializeField] private ClickInPlace[] puzzelParts;
     [SerializeField] private GameObject convBelt;
@@ -14,8 +14,7 @@ public class ConveyorEnableButton : Button {
         convBelt.GetComponent<ConveyerBelt>().enabled = false;
     }
 
-    public override void Toggle()
-    {
+    void Update() { 
         foreach(ClickInPlace part in puzzelParts)
         {
             if (!part.HasBeenSet())

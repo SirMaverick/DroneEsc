@@ -23,7 +23,9 @@ public class ClickInPlace : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject == triggerObjectT && hasBeenSet == false) {
+
+        
+    if (other.gameObject == triggerObjectT && hasBeenSet == false) {
             magnetMove.ReleaseOnConveyorClick(other.gameObject);
             triggerObjectT.tag = "Untagged";
             triggerObjectT.SetActive(false);
