@@ -30,6 +30,7 @@ public class ClickInPlace : MonoBehaviour {
                 go.SetActive(true);
             }
             hasBeenSet = true;
+            gameObject.SetActive(false);
         }
     }
 
