@@ -148,7 +148,7 @@ public class CoreMovementController : MovementController
     private void OnTriggerExit(Collider other) {
         if (other.tag == "Drone") {
             listOfDronesInRange.Remove(other.gameObject);
-            other.GetComponent<DronePlayerController>().GetMaterial().SetInt("_ON", 0);
+            other.GetComponent<DronePlayerController>().GetMaterial().SetFloat("_Heartbeat", 0);
         }
     }
 

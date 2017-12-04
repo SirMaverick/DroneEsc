@@ -70,16 +70,30 @@ public class DronePulse : MonoBehaviour {
     public IEnumerator WaitForPulse() {
         float time = Vector3.Distance(transform.position, cameraCenter.transform.position) / maxDistance * 3.0f;
         yield return new WaitForSeconds(time);
-        GetComponent<SkinnedMeshRenderer>().material.SetFloat("_ON", 1);
+        GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 1);
         startPulse = true;
         
     }
-    
+
     public void StopPulse() {
         startPulse = false;
         GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Fressnel", 1);
         GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Intensity", 0);
-        GetComponent<SkinnedMeshRenderer>().material.SetFloat("_ON", 0);
+        GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 0);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.name == "CameraCenter") {
+            GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 1);
+            startPulse = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.name == "CameraCenter") {
+            GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 0);
+            startPulse = false;
+        }
     }
 
 }

@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 4887482866693940}
   - component: {fileID: 137955144589962226}
   - component: {fileID: 114567394607659672}
+  - component: {fileID: 65347902826964752}
   m_Layer: 0
   m_Name: Drone1
   m_TagString: Untagged
@@ -870,6 +871,18 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!65 &65347902826964752
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201826522766476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: -0.0059165955, y: -0.018934488, z: 0.73829556}
 --- !u!81 &81084257593372914
 AudioListener:
   m_ObjectHideFlags: 1
@@ -914,10 +927,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 20466579848382922}
   movementController: {fileID: 114756896674703608}
+  uiController: {fileID: 0}
   meshRenderer: {fileID: 137955144589962226}
   maxDistance: 1
+  startAsCore: 0
   force: 8
   objectPlacement: {fileID: 1381229252271388}
+  inCoreAmbient: {r: 0, g: 0, b: 0, a: 0}
+  inDroneAmbient: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114444394749978432
 MonoBehaviour:
   m_ObjectHideFlags: 1
