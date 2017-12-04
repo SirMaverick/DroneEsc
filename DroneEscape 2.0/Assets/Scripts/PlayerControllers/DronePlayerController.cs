@@ -61,7 +61,9 @@ using System.Collections;
     {
         // dont see yourself 
         meshRenderer.enabled = false;
-        SwitchLight();
+        //SwitchLight();
+        TurnLightsOn();
+
         base.EnableController();
     }
 
@@ -92,7 +94,8 @@ using System.Collections;
             cameraObject.transform.position = core.transform.position;
 
             // actual throwing.
-            SwitchLight();
+            //SwitchLight();
+            TurnLightsOff();
             core.GetComponent<Rigidbody>().isKinematic = false;
             core.GetComponent<Rigidbody>().velocity = Vector3.zero;
             core.GetComponent<Rigidbody>().AddForce(transform.Find("DroneCamera").TransformDirection(Vector3.forward) * force, ForceMode.Impulse);
@@ -124,7 +127,7 @@ using System.Collections;
         return meshRenderer.material;
     }
 
-    public void SwitchLight() {
+    /*public void SwitchLight() {
         foreach(Light light in lights.GetComponentsInChildren<Light>()) {
             light.enabled = !light.enabled;
         }
@@ -137,6 +140,16 @@ using System.Collections;
         {
             RenderSettings.ambientLight = inDroneAmbient;
         }
+    }*/
+
+    private void TurnLightsOn()
+    {
+        foreach (Light light in lights.GetComponentsInChildren<Light>())
+        {
+            light.enabled = true;
+        }
+        coreAmbient = false;
+        RenderSettings.ambientLight = inDroneAmbient;
     }
 
     void TurnLightsOff()
