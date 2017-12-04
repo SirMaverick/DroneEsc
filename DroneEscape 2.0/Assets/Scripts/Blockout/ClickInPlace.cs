@@ -5,34 +5,30 @@ using UnityEngine;
 public class ClickInPlace : MonoBehaviour {
 
     [SerializeField]
-    private GameObject triggerObjectT;
+    private List<GameObject> objectList = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> showList = new List<GameObject>();
     [SerializeField]
     private MagnetMove magnetMove;
-    [SerializeField]
-    private GameObject object1;
-    [SerializeField]
-    private GameObject object2;
-    private Transform triggerT;
-    private Rigidbody rb;
     private bool hasBeenSet;
 
     private void Start() {
         hasBeenSet = false;
-        triggerT = gameObject.transform;
-        rb = triggerObjectT.GetComponent<Rigidbody>();
+        foreach(GameObject go in showList) {
+            go.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other) {
 
         
-    if (other.gameObject == triggerObjectT && hasBeenSet == false) {
+    if ( objectList.Contains(other.gameObject) && hasBeenSet == false) {
             magnetMove.ReleaseOnConveyorClick(other.gameObject);
-            triggerObjectT.tag = "Untagged";
-            triggerObjectT.SetActive(false);
-            rb.isKinematic = true;
-            other.transform.position = transform.parent.position;
-            object1.SetActive(true);
-            object2.SetActive(true);
+            other.gameObject.tag = "Untagged";
+            other.gameObject.SetActive(false);
+            foreach(GameObject go in showList) {
+                go.SetActive(true);
+            }
             hasBeenSet = true;
         }
     }

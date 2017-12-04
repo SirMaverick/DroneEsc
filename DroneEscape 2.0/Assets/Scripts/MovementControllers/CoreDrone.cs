@@ -13,7 +13,7 @@ public class CoreDrone : MonoBehaviour, Selectable
     {
         if (IsAllowedToBePickup())
         {
-            meshRenderer.material.SetFloat("_ON", 1);
+            meshRenderer.material.SetFloat("Heartbeat", 1);
             StopLookingAt();
         }
     }
@@ -51,7 +51,7 @@ public class CoreDrone : MonoBehaviour, Selectable
 
     public float TakeEnergy()
     {
-        meshRenderer.material.SetFloat("_ON", 0);
+        meshRenderer.material.SetFloat("Heartbeat", 0);
         return energy.TakeEnergy();
     }
 }
