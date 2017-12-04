@@ -18,8 +18,11 @@ public class EmptyDrone : MonoBehaviour, Selectable {
 
     public float minDist;
     [SerializeField] float moveSpeed;
+    [SerializeField] float rotationSpeed = 5;
 
     PlayerControllerSupervisor pcs;
+    [SerializeField] bool rotated = false;
+
 
     // Use this for initialization
     void Start () {
@@ -29,8 +32,14 @@ public class EmptyDrone : MonoBehaviour, Selectable {
 
     // Update is called once per frame
     void Update() {
+
         if (walk) {
-                transform.LookAt(new Vector3 (cameraObject.position.x, transform.position.y, cameraObject.position.z));
+            //transform.LookAt(new Vector3 (cameraObject.position.x, transform.position.y, cameraObject.position.z));
+            if (!rotated)
+            {
+                LookAtSlow();
+                return;
+            }
 
             if (Vector3.Distance(transform.position, cameraObject.position) >= minDist) {
 
@@ -99,5 +108,23 @@ public class EmptyDrone : MonoBehaviour, Selectable {
     public void StopLookingAt()
     {
         meshRenderer.material.SetColor("_ColorFresh", new Color(0, 72.0f / 255.0f, 255.0f / 255.0f));
+    }
+
+
+    public void LookAtSlow()
+    {
+        corePickUp = cameraObject.GetComponent<CorePlayerController>().GetCore();
+        Vector3 pointToLookAt =  new Vector3(corePickUp.transform.position.x, transform.position.y, corePickUp.transform.position.z) - transform.position;
+
+        
+        Quaternion previousRotation = transform.rotation;
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(pointToLookAt), 5);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(pointToLookAt), Time.deltaTime * rotationSpeed);
+        //transform.rotation = Quaternion.LookRotation(pointToLookAt);
+        if (previousRotation == transform.rotation)
+        {
+            rotated = true;
+        }
+        
     }
 }
