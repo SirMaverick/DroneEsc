@@ -9,8 +9,6 @@ using System.Collections;
     private GameObject cameraObject;
     private CorePlayerController corePlayerController;
 
-    private GameObject lights;
-
     [SerializeField] private float maxDistance;
 
     bool nearBelt;
@@ -19,31 +17,12 @@ using System.Collections;
 
     [SerializeField] private GameObject objectPlacement;
 
-    private bool coreAmbient;
-    [SerializeField] private Color inCoreAmbient;
-    [SerializeField] private Color inDroneAmbient;
-
     protected override void Start()
     {
-        lights = GameObject.Find("LightCollection");
         corePlayerController = FindObjectOfType<CorePlayerController>();
         uiController = FindObjectOfType<DroneUIController>();
         cameraObject = corePlayerController.gameObject;
         core = FindObjectOfType<CoreObject>().gameObject;
-
-        if (startAsCore)
-        {
-            TurnLightsOff();
-        } else
-        {
-            foreach (Light light in lights.GetComponentsInChildren<Light>())
-            {
-                light.enabled = true;
-            }
-            coreAmbient = false;
-            RenderSettings.ambientLight = inDroneAmbient;
-
-        }
 
         if (camera.enabled) { 
             GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
@@ -61,7 +40,7 @@ using System.Collections;
     {
         // dont see yourself 
         meshRenderer.enabled = false;
-        SwitchLight();
+
         base.EnableController();
     }
 
@@ -92,7 +71,6 @@ using System.Collections;
             cameraObject.transform.position = core.transform.position;
 
             // actual throwing.
-            SwitchLight();
             core.GetComponent<Rigidbody>().isKinematic = false;
             core.GetComponent<Rigidbody>().velocity = Vector3.zero;
             core.GetComponent<Rigidbody>().AddForce(transform.Find("DroneCamera").TransformDirection(Vector3.forward) * force, ForceMode.Impulse);
@@ -124,7 +102,7 @@ using System.Collections;
         return meshRenderer.material;
     }
 
-    public void SwitchLight() {
+    /*public void SwitchLight() {
         foreach(Light light in lights.GetComponentsInChildren<Light>()) {
             light.enabled = !light.enabled;
         }
@@ -137,17 +115,7 @@ using System.Collections;
         {
             RenderSettings.ambientLight = inDroneAmbient;
         }
-    }
-
-    void TurnLightsOff()
-    {
-        foreach (Light light in lights.GetComponentsInChildren<Light>())
-        {
-            light.enabled = false;  
-        }
-        coreAmbient = true;
-        RenderSettings.ambientLight = inCoreAmbient;
-    }
+    }*/
 
 
 }

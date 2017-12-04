@@ -15,8 +15,14 @@ public class CorePlayerController : AbstractPlayerController
 
     private bool isFlying;
 
+    private GameObject lights;
+    private bool coreAmbient;
+    [SerializeField] private Color inCoreAmbient;
+    [SerializeField] private Color inDroneAmbient;
+
     protected override void Start()
     {
+        lights = GameObject.Find("LightCollection");
         core = FindObjectOfType<CoreObject>().gameObject;
         uiController = FindObjectOfType<CoreUIController>();
         if (camera.enabled)
@@ -45,6 +51,7 @@ public class CorePlayerController : AbstractPlayerController
         base.EnableController();
         GetComponentInChildren<CameraCollision>().enabled = true;
         TurnOnCore();
+        TurnLightsOff();
     }
 
     public override void DisableController()
@@ -52,6 +59,7 @@ public class CorePlayerController : AbstractPlayerController
         base.DisableController();
         GetComponentInChildren<CameraCollision>().enabled = false;
         TurnOffCore();
+        TurnLightsOn();
     }
 
 
@@ -134,5 +142,26 @@ public class CorePlayerController : AbstractPlayerController
     public void TurnOffPulses() {
         pulse1.GetComponent<Menu_Button_Pulse>().TurnOffPulse();
         pulse2.GetComponent<Menu_Button_Pulse>().TurnOffPulse();
+    }
+
+
+    private void TurnLightsOn()
+    {
+        foreach (Light light in lights.GetComponentsInChildren<Light>())
+        {
+            light.enabled = true;
+        }
+        coreAmbient = false;
+        RenderSettings.ambientLight = inDroneAmbient;
+    }
+
+    void TurnLightsOff()
+    {
+        foreach (Light light in lights.GetComponentsInChildren<Light>())
+        {
+            light.enabled = false;
+        }
+        coreAmbient = true;
+        RenderSettings.ambientLight = inCoreAmbient;
     }
 }
