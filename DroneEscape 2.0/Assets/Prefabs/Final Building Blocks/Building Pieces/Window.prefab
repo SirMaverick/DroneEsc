@@ -21,13 +21,12 @@ GameObject:
   - component: {fileID: 4995641053563334}
   - component: {fileID: 33968684699946858}
   - component: {fileID: 23256846214154050}
-  - component: {fileID: 65356224353695586}
   m_Layer: 0
   m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4995641053563334
 Transform:
@@ -36,12 +35,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1334446381711710}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 50.3, y: 0, z: -25}
+  m_LocalPosition: {x: 12.5, y: -5, z: 8.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23256846214154050
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -56,7 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: aeeecf6e7b80b3540a85781fcff6565f, type: 2}
+  - {fileID: 2100000, guid: 7a9545c07a51bbf4689df1698c96cef8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,16 +81,4 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1334446381711710}
-  m_Mesh: {fileID: 4300004, guid: df6e1605ec0808c45ac875b51b774226, type: 3}
---- !u!65 &65356224353695586
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1334446381711710}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.602589, y: 1.4347379, z: 4.91657}
-  m_Center: {x: 0, y: 0, z: 2.5000002}
+  m_Mesh: {fileID: 4300002, guid: 8d298d61165b0c044aed8f088a455464, type: 3}
