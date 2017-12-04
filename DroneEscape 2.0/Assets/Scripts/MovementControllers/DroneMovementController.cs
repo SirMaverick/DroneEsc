@@ -144,7 +144,9 @@ class DroneMovementController : MovementController
 
     public override void EnableController()
     {
-        mouseLook = new Vector2(gameObject.transform.localRotation.eulerAngles.y, mouseLook.y );
+       
+        mouseLook = new Vector2(coreCamera.transform.localEulerAngles.y, mouseLook.y);
+        //mouseLook = new Vector2(gameObject.transform.localRotation.eulerAngles.y, mouseLook.y );
         smoothV = new Vector2(0, 0);
         base.EnableController();
     }
