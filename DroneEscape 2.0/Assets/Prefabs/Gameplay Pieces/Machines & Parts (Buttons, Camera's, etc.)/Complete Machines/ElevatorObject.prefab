@@ -27,7 +27,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1229470488007296
 GameObject:
@@ -89,7 +89,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1593568585849330
 GameObject:
@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 23155654625860216}
   - component: {fileID: 65611852383634450}
   - component: {fileID: 114623870701029864}
+  - component: {fileID: 208946642895966154}
   m_Layer: 0
   m_Name: ElevatorPlatform
   m_TagString: Untagged
@@ -127,7 +128,7 @@ GameObject:
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4111545743638490
 Transform:
@@ -440,3 +441,18 @@ MonoBehaviour:
   lowestPos: {fileID: 4342478573266430}
   highestPos: {fileID: 4592172577078668}
   speed: 1
+--- !u!208 &208946642895966154
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1593568585849330}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.030000001, y: 0.030000001, z: 0.001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.002}
+  m_TimeToStationary: 0.5
