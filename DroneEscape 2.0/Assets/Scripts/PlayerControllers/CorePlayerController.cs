@@ -132,6 +132,11 @@ public class CorePlayerController : AbstractPlayerController
         lastPos = core.transform.position;
     }
 
+    public Camera GetCamera()
+    {
+        return camera;
+    }
+
     public IEnumerator TurnOnPulses() {
         GetComponent<CoreMovementController>().TurnOnPulse();
         pulse1.GetComponent<Menu_Button_Pulse>().TurnOnPulse();

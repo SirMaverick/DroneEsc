@@ -55,8 +55,6 @@ public class EmptyDrone : MonoBehaviour, Selectable {
         droneAnimation.WakeUp();
         cameraObject = tempCore.parent;
         coreCamera = tempCore.gameObject;
-       // walk = true;
-
     }
 
     public void AnimWakeUpDone()
