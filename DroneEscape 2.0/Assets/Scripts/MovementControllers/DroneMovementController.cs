@@ -3,7 +3,7 @@ class DroneMovementController : MovementController
 {
 
     [SerializeField] private float speed;
-    [SerializeField] private GameObject coreCamera;
+    private GameObject coreCamera;
     private GameObject ownCamera;
     private float xMovement;
     private float zMovement;
@@ -41,6 +41,7 @@ class DroneMovementController : MovementController
         Cursor.lockState = CursorLockMode.Locked;
         ownCamera = transform.Find("DroneCamera").gameObject;
         corePlayerController = FindObjectOfType<CorePlayerController>();
+        coreCamera = corePlayerController.gameObject;
     }
 
     // no movement only looking
@@ -144,7 +145,9 @@ class DroneMovementController : MovementController
 
     public override void EnableController()
     {
-       
+        corePlayerController = FindObjectOfType<CorePlayerController>();
+        coreCamera = corePlayerController.gameObject;
+
         mouseLook = new Vector2(coreCamera.transform.localEulerAngles.y, mouseLook.y);
         //mouseLook = new Vector2(gameObject.transform.localRotation.eulerAngles.y, mouseLook.y );
         smoothV = new Vector2(0, 0);
