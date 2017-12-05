@@ -41,7 +41,7 @@ public class EmptyDrone : MonoBehaviour, Selectable {
                 return;
             }
 
-            if (Vector3.Distance(transform.position, cameraObject.position) >= minDist) {
+            if (Vector3.Distance(transform.position, cameraObject.GetComponent<CorePlayerController>().GetCore().transform.position) >= minDist) {
 
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
             } else {
@@ -55,8 +55,6 @@ public class EmptyDrone : MonoBehaviour, Selectable {
         droneAnimation.WakeUp();
         cameraObject = tempCore.parent;
         coreCamera = tempCore.gameObject;
-       // walk = true;
-
     }
 
     public void AnimWakeUpDone()
@@ -88,6 +86,7 @@ public class EmptyDrone : MonoBehaviour, Selectable {
        
 
         enabled = false;
+        rotated = false;
 
     }
     // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)

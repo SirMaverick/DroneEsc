@@ -94,29 +94,11 @@ using System.Collections;
                 guard.ChangePlayer(core);
             }
         }
-
     }
 
     public Material GetMaterial()
     {
         return meshRenderer.material;
     }
-
-    /*public void SwitchLight() {
-        foreach(Light light in lights.GetComponentsInChildren<Light>()) {
-            light.enabled = !light.enabled;
-        }
-        coreAmbient = !coreAmbient;
-        if (coreAmbient)
-        {
-            RenderSettings.ambientLight = inCoreAmbient;
-        }
-        else
-        {
-            RenderSettings.ambientLight = inDroneAmbient;
-        }
-    }*/
-
-
 }
 
