@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 class SystemEnergyController : MonoBehaviour
@@ -12,9 +13,15 @@ class SystemEnergyController : MonoBehaviour
     private float energyLevelCurrent;
     /* [SerializeField]
      private float energyTimeLost = 1.0f;*/
+    private float startTime;
+    [SerializeField]
+    private float badEndingTime = 60.0f;
 
     SystemUIController uiController;
     bool systemMode = false;
+
+    [SerializeField] private int sceneIndexGoodEnding;
+    [SerializeField] private int sceneIndexBadEnding;
 
     private void Start()
     {
@@ -33,22 +40,28 @@ class SystemEnergyController : MonoBehaviour
             if (energyLevelCurrent < 0)
             {
                 Debug.LogError("you lost");
-
+                SceneManager.LoadScene(sceneIndexGoodEnding);
+            }
+            // player played long enough to choose
+            if (Time.time >= startTime + badEndingTime)
+            {
+                SceneManager.LoadScene(sceneIndexBadEnding);
             }
         }
     }
-    
+
     // start lowering the energy
     public void EnableController()
     {
+        startTime = Time.time;
         systemMode = true;
-        energyLevelTotal += Time.time;
+        energyLevelTotal += startTime;
     }
 
     public void AddEnergyFromCore(CoreDrone coreDrone)
     {
-        
-        energyLevelTotal += coreDrone.TakeEnergy(); 
+
+        energyLevelTotal += coreDrone.TakeEnergy();
         energyLevelCurrent = energyLevelTotal - Time.time;
         // limit the energy
         if (energyLevelCurrent > maxEnergy)
@@ -58,4 +71,3 @@ class SystemEnergyController : MonoBehaviour
         }
     }
 }
-
