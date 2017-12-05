@@ -926,7 +926,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0504f4eaf80634cbf82995fcbcd4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 20466579848382922}
+  cameras:
+  - {fileID: 20466579848382922}
   movementController: {fileID: 114756896674703608}
   uiController: {fileID: 0}
   meshRenderer: {fileID: 137955144589962226}
@@ -934,8 +935,6 @@ MonoBehaviour:
   startAsCore: 0
   force: 8
   objectPlacement: {fileID: 1381229252271388}
-  inCoreAmbient: {r: 0, g: 0, b: 0, a: 0}
-  inDroneAmbient: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114444394749978432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -988,8 +987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f578016573128b142871e304531a6a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 114012188203034978}
   speed: 5
-  coreCamera: {fileID: 0}
   minClamp: -60
   maxClamp: 60
   sensitivity: 2
@@ -1012,6 +1011,8 @@ MonoBehaviour:
   meshRenderer: {fileID: 137955144589962226}
   minDist: 3
   moveSpeed: 5
+  rotationSpeed: 5
+  rotated: 0
 --- !u!124 &124855318540748206
 Behaviour:
   m_ObjectHideFlags: 1

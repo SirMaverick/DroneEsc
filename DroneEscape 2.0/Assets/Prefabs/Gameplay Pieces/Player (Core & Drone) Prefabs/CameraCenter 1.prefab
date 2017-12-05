@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6eca109d6aa89419abef67f11e3366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 114096763771358098}
   minClamp: -45
   maxClamp: 0
   maxDistance: 12
@@ -241,7 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8a0b50ed11ba244abf8e2eb74f2612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 20467823066009018}
+  cameras:
+  - {fileID: 20467823066009018}
   movementController: {fileID: 114079329201394200}
   uiController: {fileID: 0}
   core: {fileID: 0}
