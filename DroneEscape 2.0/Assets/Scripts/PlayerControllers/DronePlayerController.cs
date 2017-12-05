@@ -19,6 +19,9 @@ using System.Collections;
 
     protected override void Start()
     {
+
+        base.Start();
+
         corePlayerController = FindObjectOfType<CorePlayerController>();
         uiController = FindObjectOfType<DroneUIController>();
         cameraObject = corePlayerController.gameObject;
@@ -33,7 +36,6 @@ using System.Collections;
             }
         }
 
-        base.Start();
     }
 
     public override void EnableController()

@@ -5,7 +5,6 @@ public class MagnetMovementController : MovementController
 {
     [SerializeField]
     private GameObject magnet;
-    public Camera surveillanceCamera;
     public float speed = 2;
     public bool coreInside;
     public GameObject drone;

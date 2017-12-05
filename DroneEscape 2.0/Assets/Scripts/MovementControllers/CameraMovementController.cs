@@ -72,5 +72,9 @@ class CameraMovementController : MovementController
 
         }
     }
+    public override void RightClick(bool key)
+    {
+        // do nothing
+    }
 }
 

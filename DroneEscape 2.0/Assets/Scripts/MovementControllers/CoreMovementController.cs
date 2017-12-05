@@ -142,6 +142,11 @@ public class CoreMovementController : MovementController
     {
         activate = key;
     }
+    public override void RightClick(bool key)
+    {
+
+    }
+
 
     private void OnTriggerStay(Collider other) {
         if (!listOfDronesInRange.Contains(other.gameObject) && other.tag == "Drone") {

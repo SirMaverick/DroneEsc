@@ -22,9 +22,12 @@ public class CorePlayerController : AbstractPlayerController
 
     protected override void Start()
     {
+        base.Start();
+
         lights = GameObject.Find("LightCollection");
         core = FindObjectOfType<CoreObject>().gameObject;
         uiController = FindObjectOfType<CoreUIController>();
+ 
         if (camera.enabled)
         {
             GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
@@ -34,7 +37,6 @@ public class CorePlayerController : AbstractPlayerController
                 guard.ChangePlayer(core);
             }
         }
-        base.Start();
         pulse1 = GameObject.Find("Pulse1");
         pulse2 = GameObject.Find("Pulse2");
         StartCoroutine(TurnOnPulses());

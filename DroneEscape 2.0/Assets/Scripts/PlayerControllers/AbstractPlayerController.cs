@@ -2,8 +2,11 @@
 [System.Serializable]
 public abstract class AbstractPlayerController : MonoBehaviour
 {
-    [SerializeField]
     protected Camera camera;
+
+    [SerializeField]
+    protected Camera[] cameras;
+    private int cameraId = 0;
 
     [SerializeField]
     protected MovementController movementController;
@@ -13,6 +16,7 @@ public abstract class AbstractPlayerController : MonoBehaviour
 
     protected virtual void Start()
     {
+        camera = cameras[0];
         if (camera.enabled)
         {
             PlayerControllerSupervisor.GetInstance().SetCurrentPlayerController(this);
@@ -43,6 +47,21 @@ public abstract class AbstractPlayerController : MonoBehaviour
         if (uiController != null)
         {
             uiController.DisableController();
+        }
+    }
+
+    public void SwitchToNextCamera()
+    {
+        int previousCameraId = cameraId;
+        cameraId++;
+        if (cameraId >= cameras.Length)
+        {
+            cameraId = 0;
+        }
+        cameras[cameraId].enabled = true;
+        if (previousCameraId != cameraId)
+        {
+            cameras[previousCameraId].enabled = false;
         }
     }
 

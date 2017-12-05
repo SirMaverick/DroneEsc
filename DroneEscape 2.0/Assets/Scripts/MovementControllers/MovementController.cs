@@ -4,6 +4,7 @@ public abstract class MovementController : MonoBehaviour
     /*[SerializeField]
     protected GameObject gameObject;*/
     protected PlayerControllerSupervisor playerControllerSupervisor;
+    [SerializeField] protected AbstractPlayerController playerController;
 
     public virtual void EnableController() { }
     public virtual void DisableController() { }
@@ -53,7 +54,12 @@ public abstract class MovementController : MonoBehaviour
 
     public abstract void Use(bool key);
 
-    public virtual void RightClick(bool key) { }
+    public virtual void RightClick(bool key) {
+        if (key)
+        {
+            playerController.SwitchToNextCamera();
+        }
+    }
     public virtual void RightPress(bool key) { }
     public virtual void RightHold(bool key) { }
 
