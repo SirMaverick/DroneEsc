@@ -70,22 +70,6 @@ class DroneMovementController : MovementController
                 button.LookingAt();
 
             }
-
-          
-            /*else if (hit.collider.tag == "Magnet")
-            {
-                if (Input.GetKeyUp(KeyCode.E))
-                {
-                    hit.transform.GetComponent<MagnetButton>().coreInside = true;
-                    hit.transform.GetComponent<MagnetButton>().surveillanceCamera.enabled = true;
-                    hit.transform.GetComponent<MagnetButton>().drone = transform.gameObject;
-                    //transform.parent.GetComponent<PlayerMovement>().enabled = false;
-                    transform.GetComponent<MeshRenderer>().enabled = true;
-                    //GetComponent<Camera>().enabled = false;
-                    enabled = false;
-
-                }
-            }*/
         }
         else
         {
@@ -158,6 +142,15 @@ class DroneMovementController : MovementController
         //enabled = false;
     }
 
+    public override void EnableController()
+    {
+       
+        mouseLook = new Vector2(coreCamera.transform.localEulerAngles.y, mouseLook.y);
+        //mouseLook = new Vector2(gameObject.transform.localRotation.eulerAngles.y, mouseLook.y );
+        smoothV = new Vector2(0, 0);
+        base.EnableController();
+    }
+
     public override void DisableController()
     {
         if (button != null)
@@ -165,6 +158,7 @@ class DroneMovementController : MovementController
             button.StopLookingAt();
         }
         base.DisableController();
+
     }
 
 
