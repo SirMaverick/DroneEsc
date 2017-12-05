@@ -28,7 +28,7 @@ public class MoveOnBelt : MonoBehaviour {
     void Update() {
         if (move && !flying && !pickedUp) {
             float step = speed * Time.deltaTime;
-            transform.position += movement * Time.deltaTime;
+            transform.position += movement * Time.deltaTime * speed;
             //transform.Translate(Vector3.left * Time.deltaTime, Space.Self);
             cameraCore.transform.position = transform.position;
         }

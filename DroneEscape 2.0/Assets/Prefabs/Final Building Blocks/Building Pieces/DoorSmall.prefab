@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4694941735673216}
   - component: {fileID: 33923188928094886}
   - component: {fileID: 23032690119314478}
+  - component: {fileID: 208025913646301140}
   m_Layer: 0
   m_Name: DoorInsideSmall003 (3)
   m_TagString: Untagged
@@ -44,7 +45,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1314465790758986
 GameObject:
@@ -56,6 +57,7 @@ GameObject:
   - component: {fileID: 4022421673979796}
   - component: {fileID: 33174016098890348}
   - component: {fileID: 23985757851797194}
+  - component: {fileID: 208631826328363990}
   m_Layer: 0
   m_Name: DoorInsideSmall003 (2)
   m_TagString: Untagged
@@ -343,3 +345,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeClose: 2
   Door: {fileID: 1099882613020702}
+--- !u!208 &208025913646301140
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005204767662272}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.58, y: 0.514, z: 4.0210004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1.4300001, y: 0, z: 4.0210004}
+  m_TimeToStationary: 0.5
+--- !u!208 &208631826328363990
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314465790758986}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.58, y: 0.514, z: 4.0210004}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1.4300001, y: 0, z: 4.0210004}
+  m_TimeToStationary: 0.5
