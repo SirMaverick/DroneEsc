@@ -7,6 +7,8 @@ public class DroneArmsAnimation : MonoBehaviour
     [SerializeField] Animator animator;
     bool forwards = false;
     bool backwards = false;
+    bool shoot = false;
+    bool shootReady = false;
 
     public void WalkForwards()
     {
@@ -43,6 +45,28 @@ public class DroneArmsAnimation : MonoBehaviour
         {
             backwards = false;
             animator.SetBool("WalkBackwards", backwards);
+        }
+    }
+
+    internal void ShootReady()
+    {
+        if (!shootReady)
+        {
+            shoot = false;
+            animator.SetBool("Shoot", shoot);
+            shootReady = true;
+            animator.SetBool("ShootReady", shootReady);
+        }
+    }
+
+    internal void Shoot()
+    {
+        if (!shoot)
+        {
+            shoot = true;
+            animator.SetBool("Shoot", shoot);
+            shootReady = false;
+            animator.SetBool("ShootReady", shootReady);
         }
     }
 }

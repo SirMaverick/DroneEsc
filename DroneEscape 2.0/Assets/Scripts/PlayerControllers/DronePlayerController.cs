@@ -19,6 +19,13 @@ using System.Collections;
 
     [SerializeField] private GameObject objectPlacement;
 
+    [SerializeField]
+    private DroneArmsAnimation animationDroneArms;
+
+
+
+    [SerializeField] private float speed;
+
     protected override void Start()
     {
 
@@ -58,8 +65,13 @@ using System.Collections;
         base.DisableController();
     }
 
+    public void ShootReady()
+    {
+        animationDroneArms.ShootReady();
+    }
     public void Throw()
     {
+        animationDroneArms.Shoot();
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, maxDistance))
         {
@@ -108,6 +120,28 @@ using System.Collections;
     public void DisableHeartBeat()
     {
         droneMeshRenderer.material.SetFloat("_Heartbeat", 0);
+    }
+
+    public void MoveVertically(float value)
+    {
+        if (value > 0)
+        {
+            animationDroneArms.WalkForwards();
+        }
+        else if (value < 0)
+        {
+            animationDroneArms.WalkBackwards();
+        }
+        else
+        {
+            animationDroneArms.WalkNotVertically();
+        }
+        gameObject.transform.Translate(0, 0, value * Time.deltaTime * speed);
+    }
+
+    public void MoveHorizontally(float value)
+    {
+        gameObject.transform.Translate(value * Time.deltaTime * speed, 0, 0);
     }
 }
 

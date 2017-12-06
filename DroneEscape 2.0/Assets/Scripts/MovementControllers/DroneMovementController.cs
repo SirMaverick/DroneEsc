@@ -2,7 +2,6 @@
 class DroneMovementController : MovementController
 {
 
-    [SerializeField] private float speed;
     private GameObject coreCamera;
     private GameObject ownCamera;
     private float xMovement;
@@ -31,8 +30,6 @@ class DroneMovementController : MovementController
 
     [SerializeField]
     private DronePlayerController dronePlayerController;
-    [SerializeField]
-    private DroneArmsAnimation animationDroneArms;
 
 
     // Use this for initialization
@@ -83,24 +80,12 @@ class DroneMovementController : MovementController
 
     public override void Vertical(float value)
     {
-        if(value > 0)
-        {
-            animationDroneArms.WalkForwards();
-        }
-        else if(value < 0)
-        {
-            animationDroneArms.WalkBackwards();
-        }
-        else
-        {
-            animationDroneArms.WalkNotVertically();
-        }
-        gameObject.transform.Translate(0, 0, value * Time.deltaTime * speed);
+        dronePlayerController.MoveVertically(value);
     }
 
     public override void Horizontal(float value)
     {
-        gameObject.transform.Translate(value * Time.deltaTime * speed, 0, 0);
+        dronePlayerController.MoveHorizontally(value);
     }
 
     public override void Use(bool key)
@@ -115,6 +100,7 @@ class DroneMovementController : MovementController
     {
         if (key)
         {
+            dronePlayerController.ShootReady();
             GetComponentInChildren<LaunchArcMesh>().Enable();
         }
     }
