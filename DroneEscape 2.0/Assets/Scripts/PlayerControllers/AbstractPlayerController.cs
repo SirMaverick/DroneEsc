@@ -26,6 +26,7 @@ public abstract class AbstractPlayerController : MonoBehaviour
     public virtual void EnableController()
     {
         // meshRenderer.enabled = true;
+        camera = cameras[cameraId];
         camera.enabled = true;
         movementController.enabled = true;
         movementController.EnableController();
@@ -40,6 +41,7 @@ public abstract class AbstractPlayerController : MonoBehaviour
     public virtual void DisableController()
     {
         // meshRenderer.enabled = false;
+        camera = cameras[cameraId];
         camera.enabled = false;
         movementController.DisableController();
         movementController.enabled = false;
