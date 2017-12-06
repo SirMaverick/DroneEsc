@@ -349,7 +349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f518e27e4f56d4a9927447572b7f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 20292739605506956}
+  cameras:
+  - {fileID: 20292739605506956}
   movementController: {fileID: 114866412768816186}
   uiController: {fileID: 0}
 --- !u!114 &114866412768816186
@@ -363,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efcacc14ee47e548bb9591bbc5621f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 114815623403330912}
   clampX: 30
   clampY: 60
   speed: 10

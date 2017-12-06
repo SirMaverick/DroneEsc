@@ -2,7 +2,7 @@
 class SystemMovementController : MovementController
 {
     [SerializeField]
-    private SystemPlayerController playerController;
+    private new SystemPlayerController playerController;
 
 
 
