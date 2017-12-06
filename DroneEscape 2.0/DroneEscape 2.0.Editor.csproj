@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{00D9F188-4102-BE60-5306-40746AB0EFFC}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp-Editor.dll</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
@@ -18,7 +18,7 @@
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
     <RootNamespace></RootNamespace>
-    <LangVersion>4</LangVersion>
+    <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,7 +28,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_2_0;UNITY_2017_2;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_POST_PROCESSING_STACK_V2</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -38,7 +38,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_2_0;UNITY_2017_2;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_POST_PROCESSING_STACK_V2</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -50,242 +50,230 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AccessibilityModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.AccessibilityModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VehiclesModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.VehiclesModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClothModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.ClothModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.AIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TerrainPhysicsModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.TerrainPhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityWebRequestModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestTextureModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestWWWModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClusterInputModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.ClusterInputModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClusterRendererModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.ClusterRendererModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UNETModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UNETModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.DirectorModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.DirectorModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityAnalyticsModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityAnalyticsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.CrashReportingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PerformanceReportingModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.PerformanceReportingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityConnectModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.WebModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WebModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.WebModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ARModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.ARModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.VRModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UIElementsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StyleSheetsModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.StyleSheetsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GameCenterModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.GameCenterModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GridModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.GridModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.InputModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.JSONSerializeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ParticlesLegacyModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.ParticlesLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ScreenCaptureModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.ScreenCaptureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpriteMaskModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.SpriteMaskModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TerrainModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.TerrainModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TilemapModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.TilemapModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VideoModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.VideoModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.WindModule">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.WindModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Networking">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Timeline">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Timeline">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TreeEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.TreeEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIAutomation">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.UIAutomation.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UIAutomation">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.UIAutomation.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.GoogleAudioSpatializer">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.GoogleAudioSpatializer.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GoogleAudioSpatializer">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.GoogleAudioSpatializer.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.HoloLens">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.HoloLens.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.VR">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Graphs">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Android.Extensions">
-      <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.LinuxStandalone.Extensions">
-      <HintPath>Library\UnityAssemblies\UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
-      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.OSXStandalone.Extensions">
-      <HintPath>Library\UnityAssemblies\UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
-      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/Users/epsil/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@1.0.7/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/epsil/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Analytics">
-      <HintPath>C:/Users/epsil/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/Editor/UnityEditor.Analytics.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>C:/Users/epsil/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/epsil/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="ShaderForge">
-      <HintPath>Assets\ShaderForge\Editor\ShaderForge.dll</HintPath>
+      <HintPath>Library\UnityAssemblies\UnityEditor.Purchasing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="DroneEscape 2.0.Plugins.csproj">
-      <Project>{421516EE-775E-8F79-D069-772E7DF064AE}</Project>
-      <Name>DroneEscape 2.0.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="DroneEscape 2.0.csproj">
       <Project>{413AA165-0A3B-7910-1058-123867F2562E}</Project>
       <Name>DroneEscape 2.0</Name>
+    </ProjectReference>
+    <ProjectReference Include="DroneEscape 2.0.Plugins.csproj">
+      <Project>{421516EE-775E-8F79-D069-772E7DF064AE}</Project>
+      <Name>DroneEscape 2.0.Plugins</Name>
     </ProjectReference>
     <ProjectReference Include="DroneEscape 2.0.Editor.Plugins.csproj">
       <Project>{8FBB8C47-3763-12EC-F009-85CB77DF2276}</Project>
@@ -329,11 +317,125 @@
     <Compile Include="Assets\Effects\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\Effects\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
     <Compile Include="Assets\GoogleVR\Editor\FmodGvrAudioRoomEditor.cs" />
-    <Compile Include="Assets\ShaderForge\Editor\InternalResources\Inspectors\ShaderForgeInspector.cs" />
-    <Compile Include="Assets\ShaderForge\Editor\InternalResources\Inspectors\ShaderForgeMaterialInspector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Audio\Done.Esc(2)\Build\GUIDs.txt" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Asset\%7B5d4d2a46-377f-4367-a801-e33134a177c6%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B03380fd0-21b9-4a51-86b6-f03483cb5fc9%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B0d41776e-6ae3-45d7-9d38-c358c6ea72b7%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B0e206392-9c62-4875-8eab-7c3a59f56c0f%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B0e7c2d0c-a11b-469b-9dd5-7b49157ee065%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B0fd3b91e-981f-4139-8128-20a48ca4089c%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B15685f25-49bd-46f0-b453-16a993466e46%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B17469ac8-eaf1-442c-8f24-b38010be069f%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B18b27a07-11f9-46c6-9e5d-78491a0f68a4%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B1b4ad215-80c9-4211-ad32-4ce81fd66293%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B1c3f33dc-d145-4c37-9687-59204b6c4e2d%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B1fbc5303-4c9f-4263-b213-13f311ae5fdf%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B20938f29-66de-4865-8c97-b361cb742cae%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B25d9d32f-095a-44ab-a51f-900541f89223%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B27c5a9d4-25ba-4074-ab9e-0a89eedc671a%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B32523520-88b5-4180-81c4-c754af42614f%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B35df75a3-6320-44ec-a926-1ac668b8b685%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B3657f106-4efc-4f93-8124-3c6145fffbf7%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B3a2f4377-0234-4f81-b336-c92445130b86%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B4381ac3b-dacd-4c61-8df2-33ca2068a17b%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B45f8a3ef-9e56-49de-ad8f-c3e98f8ab0b2%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B46677de8-ab54-4ca6-9d87-7c39e306c2a5%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B498b01e2-423f-4da2-86e4-ae5da5c37c41%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B4dc005bc-836e-4df7-a48b-2c82deee7882%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B53384ecb-974a-42f9-87b8-372c778279e4%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B559d9add-6702-4b39-8d85-abd7235a5fc3%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B56364ed3-0db9-4ec8-bb14-f1f9abbb732d%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B56cb6340-fea0-4644-9eb4-6e33e74ff2c7%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B59b11b7b-b755-4b62-945d-7685882a8101%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B5b9f905a-8f88-4ae8-bb32-89854f8d80b4%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B68f4013f-92c1-41c0-8c17-79d5761f7e4f%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B6903674e-e311-4aac-95e5-669cb225fc72%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B6f7cfc6e-20c1-4350-993a-dbd43b34a4c0%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B74e2c0d4-2e23-47c3-8924-975d227cac7d%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B760e150e-472b-4a6b-86a3-db06adb3ba4d%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B7d73c953-bbc8-4d73-bc0e-95a55cc94c99%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B8b4c9ed5-d440-41bd-ba0c-176fa23c359d%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B8bcb6a71-abe6-4f67-b02d-e2f6dcad7271%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B8c059bf6-9020-4d0f-95db-5d18242d1ce2%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B8d9d2c1f-de34-4c93-ad97-7132c4113bc4%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B91c8dd2f-1cd1-4a42-b7db-96133f3d9924%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B942c2542-df3c-46ca-92e3-981c00913ba8%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B946718f5-513b-4dab-88b8-b613823682ed%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B97a0b526-9b2d-4f05-8a73-bb2e645282b0%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B982b7948-1340-414a-b463-e42de5df8ea2%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B9b89c7c7-2478-43fb-a612-167e41bbdd7d%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B9c117d3b-47d6-421d-9705-8631b83ceb36%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B9d5b3de0-6db7-45f3-9e84-c31833a579d4%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7B9ffcea03-5623-44cb-976b-6dce7e9dbdd6%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Ba55b42ac-5f32-4ad1-ae55-729df615a25c%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bb2700c3f-215e-406b-b9f4-94a18d66efbe%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bb6564fbb-c575-40a7-a86f-2156c5c84b55%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bc5dad009-717c-477b-bf3c-67d82ec0894d%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bc62e747e-e415-4360-bc76-d8013e972095%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bc6315398-deff-4da6-8517-7335737b6a44%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bc89d55bc-b72f-48ba-9798-3bf2e6d1b4e6%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bc9fc937d-5861-4cda-8345-ad07067bad1c%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bca4abc53-337b-42d6-a458-2b6d05f1931b%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bcb3850d7-2c8d-4c74-ab4a-9543e86c66f8%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bd4ac8a26-7f7a-456e-874e-7ed611d96f3c%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bd6410fe7-dc89-42e2-a938-a013036577dd%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bdee680e6-7f8a-46db-8ef6-8f1beace5e48%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bdfd983e3-7313-490c-b931-2f8ce7018afd%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Be0fc16d1-153c-406f-9fed-54449ef602d7%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Be435cdde-4ee5-4d73-aa38-ac8acf57abcb%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Be7ccfe2f-bcfb-4988-9dee-c022856b5460%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Be9747fb8-7746-43d4-a961-7c6c8603f87c%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Be987da01-8f47-45bf-8b74-780d69e08597%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Beab75325-1b7f-4875-b1c5-b0fbea934aa4%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bf008076e-8f0e-492e-b830-4c6ee9d1bc7d%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bf994bf54-65d5-4665-bae5-a313f0b2e72e%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\AudioFile\%7Bfe59725c-5f8a-4f90-b1a9-204e56d1fe63%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Bank\%7B4aa6b9b3-e858-4aa5-a850-16b05a7d1f6f%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\BankFolder\%7B7843c53a-43ce-496b-8c52-08d195d35fbc%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\EffectPresetFolder\%7Bf9ef8799-6197-4a5b-8165-d7803422be98%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\EncodingSetting\%7Bcde3b7d8-4e25-4762-8aae-1f8c84aa020b%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7B00fe735b-3dce-4d77-808a-e98010efca60%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7B0d76f95a-f6f4-48be-bcac-fb71ebfb086e%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7B0da296a3-0349-43ff-8aa3-a960eb694f92%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7B122cc75b-e45a-458a-a461-96c35c863705%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7B2324f405-5486-4bae-a4d8-116d6878e8d7%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7B470d314a-caa8-4c34-80e9-fa062c08c459%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7B87acc243-4264-48e0-ada2-feac0c44d6a7%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7Baccd0841-5130-4678-9c31-de8d40166e63%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7Bbe4ffd36-a82d-414f-9786-24a7205b1980%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7Bbe536588-ba3f-400b-aac8-921ed6f983d5%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Event\%7Bd8f8a04b-935c-4857-9c47-da3a324bd94a%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\EventFolder\%7B1b861d93-497f-4fb4-910a-d1ce5481f2c2%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\EventFolder\%7B2654d019-3c6c-4821-8fe2-8c8de76e2b8e%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\EventFolder\%7B351aac14-fc43-40e8-ac3b-0ef202b63aeb%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\EventFolder\%7B708ccaec-5912-4ce3-a411-58a4d39bead0%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\EventFolder\%7Bbeeccb3e-eaab-4828-b4bd-90a74b80000b%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\EventFolder\%7Bd2b66b91-5b34-4326-b79c-29ae9aad22c6%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Master.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Mixer.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7B05a5d1df-83f1-449a-8169-b2f796dbfc53%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7B05dd1998-03b2-4888-8c95-99bb6403b169%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7B276244bf-b783-4e9b-8ccc-92cddb4d7dff%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7B2ef48942-a443-40a4-aeaf-2e0ed4ba4c24%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7B3a08d1ec-94a4-44a9-b928-7d3e76deee1b%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7B3e611780-6268-48b2-8cca-0b73c5c2623a%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7B5931df68-2956-4374-9d16-d599c187695f%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7B8aedba75-377f-4634-bd02-46a1c39176d3%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7Ba4b51df6-0f7f-4a23-884e-05e8eed63196%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7Ba8764da9-ada9-4715-8c8c-6c1f67373cdf%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7Bc2cdad4d-104a-49a9-aa12-0ac9a8bbd979%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7Be396b60a-4a96-43aa-b72b-757b21ef9236%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7Be67d35b4-329a-4eb8-ba9a-5c8535f534ab%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7Be7f0e472-6511-4ed4-832f-6aa56d41960d%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPreset\%7Bfdca5fbd-584e-4c99-9cb5-ab5ea65c9fa1%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\ParameterPresetFolder\%7B68181e59-1fa5-4f4a-9eb5-3f3071acfcc7%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Platform\%7B4fc24bc1-d419-4cf3-abc6-6e0e360e4924%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Return\%7B9b2a37c5-890f-4990-8376-1538bffd2e9c%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\SnapshotGroup\%7B671f974b-8696-48a2-b1a8-b87686436f19%7D.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Tags.xml" />
+    <None Include="Assets\Audio\Done.Esc(2)\Metadata\Workspace.xml" />
     <None Include="Assets\BuildingBlocks.shader" />
     <None Include="Assets\Core\Core.shader" />
     <None Include="Assets\Drone\Drone.shader" />
@@ -383,201 +485,6 @@
     <None Include="Assets\Outline\Outline.shader" />
     <None Include="Assets\Plugins\FMOD\LICENSE.TXT" />
     <None Include="Assets\Scanner.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\ExtractChannel.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\FillColor.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\ReadPackedData.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Abs\SFN_Abs.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Add\SFN_Add_2.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Add\SFN_Add_3.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Add\SFN_Add_4.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Add\SFN_Add_5.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_AmbientLight\SFN_AmbientLight.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Append\SFN_Append.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcCos\SFN_ArcCos.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcSin\SFN_ArcSin.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcTan\SFN_ArcTan.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcTan2\SFN_ArcTan2_NOTO.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcTan2\SFN_ArcTan2_NPTP.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcTan2\SFN_ArcTan2_ZTO.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcTan2\SFN_ArcTan2_ZTOW.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Bitangent\SFN_Bitangent.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_ColorBurn.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_ColorDodge.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Darken.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Difference.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Divide.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Exclusion.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_HardLight.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_HardMix.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Lighten.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_LinearBurn.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_LinearDodge.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_LinearLight.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Multiply.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Overlay.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_PinLight.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Screen.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Subtract.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_VividLight.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Ceil\SFN_Ceil.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ChannelBlend\SFN_ChannelBlend.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Clamp\SFN_Clamp.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Clamp01\SFN_Clamp01.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Code\SFN_Code.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ComponentMask\SFN_ComponentMask_CC1.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ComponentMask\SFN_ComponentMask_CC2.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ComponentMask\SFN_ComponentMask_CC3.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ComponentMask\SFN_ComponentMask_CC4.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ConstantClamp\SFN_ConstantClamp.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ConstantLerp\SFN_ConstantLerp.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Cos\SFN_Cos.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Cross\SFN_Cross.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Cubemap\SFN_Cubemap.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_DDX\SFN_DDX.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_DDXY\SFN_DDXY.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_DDY\SFN_DDY.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Depth\SFN_Depth.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_DepthBlend\SFN_DepthBlend.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Desaturate\SFN_Desaturate_DES.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Desaturate\SFN_Desaturate_REQONLY.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Distance\SFN_Distance.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Divide\SFN_Divide.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Dot\SFN_Dot_ABS.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Dot\SFN_Dot_NEG.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Dot\SFN_Dot_NRM.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Dot\SFN_Dot_POS.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Dot\SFN_Dot_STD.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Exp\SFN_Exp.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_FaceSign\SFN_FaceSign.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Floor\SFN_Floor.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Fmod\SFN_Fmod.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_FogColor\SFN_FogColor.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Frac\SFN_Frac.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_FragmentPosition\SFN_FragmentPosition.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Fresnel\SFN_Fresnel_EXP.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Fresnel\SFN_Fresnel_NRM.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Fresnel\SFN_Fresnel_NRM_EXP.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Fresnel\SFN_Fresnel_REQONLY.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Get\SFN_Get.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_HalfVector\SFN_HalfVector.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_HsvToRgb\SFN_HsvToRgb.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Hue\SFN_Hue.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_If\SFN_If.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_InverseLerp\SFN_InverseLerp.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Length\SFN_Length.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Lerp\SFN_Lerp.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_LightAttenuation\SFN_LightAttenuation.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_LightColor\SFN_LightColor.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_LightPosition\SFN_LightPosition.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_LightVector\SFN_LightVector.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Log\SFN_Log_LOG.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Log\SFN_Log_LOG10.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Log\SFN_Log_LOG2.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Matrix4x4\SFN_Matrix4x4.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Matrix4x4Property\SFN_Matrix4x4Property.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Max\SFN_Max_2.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Max\SFN_Max_3.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Max\SFN_Max_4.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Max\SFN_Max_5.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Min\SFN_Min_2.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Min\SFN_Min_3.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Min\SFN_Min_4.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Min\SFN_Min_5.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Multiply\SFN_Multiply_2.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Multiply\SFN_Multiply_3.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Multiply\SFN_Multiply_4.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Multiply\SFN_Multiply_5.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_MultiplyMatrix\SFN_MultiplyMatrix.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Negate\SFN_Negate.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Noise\SFN_Noise.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_NormalBlend\SFN_NormalBlend.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_NormalVector\SFN_NormalVector.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Normalize\SFN_Normalize.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ObjectPosition\SFN_ObjectPosition.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ObjectScale\SFN_ObjectScale_Default.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ObjectScale\SFN_ObjectScale_Reciprocal.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_OneMinus\SFN_OneMinus.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Panner\SFN_Panner_DIST.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Panner\SFN_Panner_REQONLY.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_DEP.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_DEP_REF.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_REF.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_REQONLY.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_UV.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_UV_DEP.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_UV_DEP_REF.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_UV_REF.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_PixelSize\SFN_PixelSize.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Posterize\SFN_Posterize.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Power\SFN_Power.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ProjectionParameters\SFN_ProjectionParameters.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Reciprocal\SFN_Reciprocal.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Reflect\SFN_Reflect.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Relay\SFN_Relay.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_RemapRange\SFN_RemapRange.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_RemapRangeAdvanced\SFN_RemapRangeAdvanced.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_RgbToHsv\SFN_RgbToHsv.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_ANG.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_PIV.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_PIV_ANG.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_PIV_SPD.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_PIV_SPD_ANG.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_REQONLY.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_SPD.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_SPD_ANG.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Round\SFN_Round.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_SceneColor\SFN_SceneColor.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_SceneDepth\SFN_SceneDepth.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ScreenParameters\SFN_ScreenParameters.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ScreenPos\SFN_ScreenPos.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Set\SFN_Set.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Sign\SFN_Sign.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Sin\SFN_Sin.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Smoothstep\SFN_Smoothstep.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Sqrt\SFN_Sqrt.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Step\SFN_Step.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Subtract\SFN_Subtract.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_SwitchProperty\SFN_SwitchProperty.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tan\SFN_Tan.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tangent\SFN_Tangent.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2d\SFN_Tex2d_MIP.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2d\SFN_Tex2d_NoInputs.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2d\SFN_Tex2d_UV.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2d\SFN_Tex2d_UV_MIP.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2dAsset\SFN_Tex2dAsset.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_TexCoord\SFN_TexCoord.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Time\SFN_Time.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Transform\SFN_Transform.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Transpose\SFN_Transpose.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Trunc\SFN_Trunc.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_UVTile\SFN_UVTile.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_VectorProjection\SFN_VectorProjection.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_VectorRejection\SFN_VectorRejection.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_VertexColor\SFN_VertexColor.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ViewPosition\SFN_ViewPosition.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ViewReflectionVector\SFN_ViewReflectionVector.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ViewVector\SFN_ViewVector.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetBasic.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetCustomLighting.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetPBR.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleAdditive.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleAlphaBlended.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleMultiplicative.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetPostEffect.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetSky.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetSprite.shader" />
-    <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetUnlit.shader" />
-    <None Include="Assets\ShaderForge\Example Assets\Shaders\CustomLighting.shader" />
-    <None Include="Assets\ShaderForge\Example Assets\Shaders\LightWrapping.shader" />
-    <None Include="Assets\ShaderForge\Example Assets\Shaders\Parallax.shader" />
-    <None Include="Assets\ShaderForge\Example Assets\Shaders\PixelRotator.shader" />
-    <None Include="Assets\ShaderForge\Example Assets\Shaders\Refraction.shader" />
-    <None Include="Assets\ShaderForge\Example Assets\Shaders\TessellationDisplacement.shader" />
-    <None Include="Assets\ShaderForge\Example Assets\Shaders\Tiles.shader" />
-    <None Include="Assets\ShaderForge\Example Assets\Shaders\Vegetation.shader" />
-    <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexAnimation.shader" />
-    <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexColorRounding.shader" />
-    <None Include="Assets\ShaderForge\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
