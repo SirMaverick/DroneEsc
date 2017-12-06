@@ -3,7 +3,9 @@ using System.Collections;
     class DronePlayerController : AbstractPlayerController
     {
     [SerializeField]
-    protected SkinnedMeshRenderer meshRenderer;
+    protected SkinnedMeshRenderer droneMeshRenderer;
+    [SerializeField]
+    protected SkinnedMeshRenderer armsMeshRenderer;
 
     private GameObject core;
     private GameObject cameraObject;
@@ -41,7 +43,8 @@ using System.Collections;
     public override void EnableController()
     {
         // dont see yourself 
-        meshRenderer.enabled = false;
+        droneMeshRenderer.enabled = false;
+        armsMeshRenderer.enabled = true;
 
         base.EnableController();
     }
@@ -49,7 +52,9 @@ using System.Collections;
     public override void DisableController()
     {
         // when in another body you can see the drone again
-         meshRenderer.enabled = true;
+        armsMeshRenderer.enabled = false;
+        droneMeshRenderer.enabled = true;
+
         base.DisableController();
     }
 
@@ -98,9 +103,11 @@ using System.Collections;
         }
     }
 
-    public Material GetMaterial()
+    
+
+    public void DisableHeartBeat()
     {
-        return meshRenderer.material;
+        droneMeshRenderer.material.SetFloat("_Heartbeat", 0);
     }
 }
 

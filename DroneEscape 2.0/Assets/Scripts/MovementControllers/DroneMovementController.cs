@@ -31,6 +31,8 @@ class DroneMovementController : MovementController
 
     [SerializeField]
     private DronePlayerController dronePlayerController;
+    [SerializeField]
+    private DroneArmsAnimation animationDroneArms;
 
 
     // Use this for initialization
@@ -42,19 +44,6 @@ class DroneMovementController : MovementController
         ownCamera = transform.Find("DroneCamera").gameObject;
         corePlayerController = FindObjectOfType<CorePlayerController>();
         coreCamera = corePlayerController.gameObject;
-    }
-
-    // no movement only looking
-
-    // maybe other class
-    public void HorizontalLook(float direction)
-    {
-        // gameObject.
-    }
-
-    public void VerticalLook(float direction)
-    {
-
     }
 
     public override void Look(Vector2 md)
@@ -94,6 +83,18 @@ class DroneMovementController : MovementController
 
     public override void Vertical(float value)
     {
+        if(value > 0)
+        {
+            animationDroneArms.WalkForwards();
+        }
+        else if(value < 0)
+        {
+            animationDroneArms.WalkBackwards();
+        }
+        else
+        {
+            animationDroneArms.WalkNotVertically();
+        }
         gameObject.transform.Translate(0, 0, value * Time.deltaTime * speed);
     }
 
