@@ -14,11 +14,17 @@ public class DroneArmsAnimation : MonoBehaviour
     {
         if (!forwards)
         {
-            forwards = true;
-            backwards = false;
+            if (backwards)
+            {
+                backwards = false;
+                animator.SetFloat("BackwardsAnimSpeedMultiplier", -1);
+                animator.SetBool("WalkBackwards", backwards);
+            }
 
+            forwards = true;
+
+            animator.SetFloat("ForwardsAnimSpeedMultiplier", 1);
             animator.SetBool("WalkForwards", forwards);
-            animator.SetBool("WalkBackwards", backwards);
         }
     }
 
@@ -26,9 +32,15 @@ public class DroneArmsAnimation : MonoBehaviour
     {
         if (!backwards)
         {
-            forwards = false;
+            if (forwards)
+            {
+                forwards = false;
+                animator.SetFloat("ForwardsAnimSpeedMultiplier", -1);
+                animator.SetBool("WalkForwards", forwards);
+            }
+            
             backwards = true;
-            animator.SetBool("WalkForwards", forwards);
+            animator.SetFloat("BackwardsAnimSpeedMultiplier", 1);
             animator.SetBool("WalkBackwards", backwards);
         }
     }
@@ -39,11 +51,13 @@ public class DroneArmsAnimation : MonoBehaviour
         if (forwards)
         {
             forwards = false;
+            animator.SetFloat("ForwardsAnimSpeedMultiplier", -1);
             animator.SetBool("WalkForwards", forwards);
         }
         if (backwards)
         {
             backwards = false;
+            animator.SetFloat("BackwardsAnimSpeedMultiplier", -1);
             animator.SetBool("WalkBackwards", backwards);
         }
     }
