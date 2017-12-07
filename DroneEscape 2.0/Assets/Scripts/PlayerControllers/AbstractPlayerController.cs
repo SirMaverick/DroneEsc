@@ -52,7 +52,7 @@ public abstract class AbstractPlayerController : MonoBehaviour
         }
     }
 
-    public void SwitchToNextCamera()
+    public virtual void SwitchToNextCamera()
     {
         int previousCameraId = cameraId;
         cameraId++;

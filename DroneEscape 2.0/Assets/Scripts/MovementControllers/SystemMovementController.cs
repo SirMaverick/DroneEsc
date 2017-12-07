@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 class SystemMovementController : MovementController
 {
+    // Warning do not use playerController
     [SerializeField]
-    private new SystemPlayerController playerController;
+    private SystemPlayerController systemPlayerController;
 
 
 
@@ -24,7 +25,7 @@ class SystemMovementController : MovementController
     public override void RightClick(bool key) {
         if (key)
         {
-            playerController.SwitchToNextCamera();
+            systemPlayerController.SwitchToNextCamera();
         }
     }
 
@@ -33,7 +34,7 @@ class SystemMovementController : MovementController
         if (key)
         {
             // switch to the playerController which used to be used before this one
-            playerController.SwitchToPreviousPlayerController();
+            systemPlayerController.SwitchToPreviousPlayerController();
         }
     }
 

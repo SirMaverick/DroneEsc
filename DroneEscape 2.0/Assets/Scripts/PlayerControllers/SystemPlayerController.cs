@@ -42,7 +42,7 @@ class SystemPlayerController : AbstractPlayerController
         //uiController.DisableController();
     }
 
-    public void SwitchToNextCamera()
+    public override void SwitchToNextCamera()
     {
         cameraId++;
         if (cameraId >= cameraPCS.Length)
