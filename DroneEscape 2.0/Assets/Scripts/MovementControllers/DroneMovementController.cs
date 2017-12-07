@@ -132,11 +132,19 @@ class DroneMovementController : MovementController
     public override void EnableController()
     {
         corePlayerController = FindObjectOfType<CorePlayerController>();
-        coreCamera = corePlayerController.gameObject;
+        if(playerControllerSupervisor == null)
+        {
+            playerControllerSupervisor = PlayerControllerSupervisor.GetInstance();
+        }
+        // only if the playercontroller was the core than we should adept to the core.
+        if (playerControllerSupervisor.GetCurrentPlayerController() == corePlayerController)
+        {
+            coreCamera = corePlayerController.gameObject;
 
-        mouseLook = new Vector2(coreCamera.transform.localEulerAngles.y, mouseLook.y);
-        //mouseLook = new Vector2(gameObject.transform.localRotation.eulerAngles.y, mouseLook.y );
-        smoothV = new Vector2(0, 0);
+            mouseLook = new Vector2(coreCamera.transform.localEulerAngles.y, mouseLook.y);
+            //mouseLook = new Vector2(gameObject.transform.localRotation.eulerAngles.y, mouseLook.y );
+            smoothV = new Vector2(0, 0);
+        }
         base.EnableController();
     }
 
