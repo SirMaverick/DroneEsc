@@ -10,6 +10,11 @@ public class DroneArmsAnimation : MonoBehaviour
     bool shoot = false;
     bool shootReady = false;
 
+    bool insertIntoMachine = false;
+
+    //used for call backs
+    [SerializeField] DronePlayerController playerController;
+
     public void WalkForwards()
     {
         if (!forwards)
@@ -62,7 +67,7 @@ public class DroneArmsAnimation : MonoBehaviour
         }
     }
 
-    internal void ShootReady()
+    public void ShootReady()
     {
         if (!shootReady)
         {
@@ -73,7 +78,7 @@ public class DroneArmsAnimation : MonoBehaviour
         }
     }
 
-    internal void Shoot()
+    public void Shoot()
     {
         if (!shoot)
         {
@@ -82,6 +87,23 @@ public class DroneArmsAnimation : MonoBehaviour
             shootReady = false;
             animator.SetBool("ShootReady", shootReady);
         }
+    }
+
+    public void InsertIntoMachine()
+    {
+        if (!insertIntoMachine)
+        {
+            insertIntoMachine = true;
+            animator.SetBool("InsertIntoMachine", insertIntoMachine);
+        }
+    }
+
+    public void InsertIntoMachineDone()
+    {
+        // event from animation
+        insertIntoMachine = false;
+        animator.SetBool("InsertIntoMachine", insertIntoMachine);
+        playerController.AnimationInsertIntoMachineDone();
     }
 }
 

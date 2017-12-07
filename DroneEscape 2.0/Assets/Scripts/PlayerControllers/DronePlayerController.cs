@@ -144,5 +144,17 @@ using System.Collections;
     {
         gameObject.transform.Translate(value * Time.deltaTime * speed, 0, 0);
     }
+    // button just for temp action
+    private Button button;
+    public void ActivateButton(Button button)
+    {
+        animationDroneArms.InsertIntoMachine();
+        this.button = button;
+    }
+
+    public void AnimationInsertIntoMachineDone()
+    {
+        button.Toggle();
+    }
 }
 
