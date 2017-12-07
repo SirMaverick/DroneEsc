@@ -175,6 +175,14 @@ public class CoreMovementController : MovementController
         hitEmptyDrone = false;
     }
 
+    public override void EnableController()
+    {
+        base.EnableController();
+        // use the current location of the camera
+        mouseLook = new Vector2(transform.localEulerAngles.y, mouseLook.y);
+        smoothV = new Vector2(0, 0);
+    }
+
     public override void DisableController()
     {
         if (lastDroneHit != null)

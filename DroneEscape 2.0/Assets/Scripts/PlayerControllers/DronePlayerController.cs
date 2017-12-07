@@ -88,6 +88,7 @@ using System.Collections;
         if (!nearBelt)
         {
             cameraObject.transform.position = core.transform.position;
+            cameraObject.transform.rotation = transform.rotation;
 
             // actual throwing.
             core.GetComponent<Rigidbody>().isKinematic = false;

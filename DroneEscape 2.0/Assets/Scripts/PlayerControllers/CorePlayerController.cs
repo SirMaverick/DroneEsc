@@ -51,8 +51,6 @@ public class CorePlayerController : AbstractPlayerController
     public override void EnableController()
     {
         base.EnableController();
-        pulse1 = GameObject.Find("Pulse1");
-        pulse2 = GameObject.Find("Pulse2");
         GetComponentInChildren<CameraCollision>().enabled = true;
         TurnOnCore();
         TurnLightsOff();
