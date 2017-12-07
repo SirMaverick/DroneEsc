@@ -4,8 +4,6 @@ class DroneMovementController : MovementController
 
     private GameObject coreCamera;
     private GameObject ownCamera;
-    private float xMovement;
-    private float zMovement;
     //public bool throwCore;
 
 

@@ -4,8 +4,6 @@
 public abstract class Button : MonoBehaviour, Selectable
 {
     private Material lastMaterialHit;
-    [SerializeField]
-    protected bool enabled = false;
 
     protected PlayerControllerSupervisor playerControllerSupervisor;
 
