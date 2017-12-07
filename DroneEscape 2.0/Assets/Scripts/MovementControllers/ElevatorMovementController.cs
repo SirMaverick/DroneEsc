@@ -10,7 +10,7 @@ public class ElevatorMovementController : MovementController
     [SerializeField] private float speed;
     private ItemsOnElevator items;
 
-    protected void Start()
+    protected override void Start()
     {
         base.Start();
         items = elevator.GetComponent<ItemsOnElevator>();

@@ -6,7 +6,7 @@ public abstract class AbstractPlayerController : MonoBehaviour
 
     [SerializeField]
     protected Camera[] cameras;
-    private int cameraId = 0;
+    protected int cameraId = 0;
 
     [SerializeField]
     protected MovementController movementController;

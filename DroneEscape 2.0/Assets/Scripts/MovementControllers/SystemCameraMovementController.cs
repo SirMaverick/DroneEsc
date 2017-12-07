@@ -32,7 +32,7 @@ class SystemCameraMovementController : CameraMovementController
         systemMovementController.Use(key);
     }
 
-    public void Update()
+    protected override void Update()
     {
         RaycastHit hit;
 

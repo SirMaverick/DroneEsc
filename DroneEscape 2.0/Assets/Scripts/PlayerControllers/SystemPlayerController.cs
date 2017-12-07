@@ -3,7 +3,6 @@
 [System.Serializable]
 class SystemPlayerController : AbstractPlayerController
 {
-    private int cameraId = 0;
     [SerializeField]
     private SystemCameraPlayerController[] cameraPCS;
 
@@ -17,7 +16,7 @@ class SystemPlayerController : AbstractPlayerController
 
     private CoreDrone coreDrone;
 
-    public void Start()
+    protected override void Start()
     {
         // kind of ugly to hide it and cast it
         movementControllerSM = (SystemMovementController) movementController;
