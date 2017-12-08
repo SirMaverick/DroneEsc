@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef20622ee5cf8e4eb46c01967cadec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  cameras: []
   movementController: {fileID: 114210773646948246}
   uiController: {fileID: 0}
   cameraPCS:
@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 114081354406777864}
+  systemPlayerController: {fileID: 114081354406777864}
 --- !u!114 &114371204067889730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -260,6 +261,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 100
   energyLevelTotal: 100
+  badEndingTime: 60
+  sceneIndexGoodEnding: 0
+  sceneIndexBadEnding: 0
 --- !u!114 &114760597535056894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,5 +275,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35ab1882b6aaf04c940c6d3630523f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
   playerController: {fileID: 114081354406777864}
