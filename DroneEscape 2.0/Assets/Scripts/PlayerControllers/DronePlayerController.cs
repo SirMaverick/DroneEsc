@@ -148,8 +148,8 @@ using System.Collections;
     private Button button;
     public void ActivateButton(Button button)
     {
-        movementController.DisableController();
-        movementController.enabled = false;
+        //movementController.DisableController();
+        //movementController.enabled = false;
         animationDroneArms.InsertIntoMachine();
         this.button = button;
     }
