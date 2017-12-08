@@ -17,6 +17,10 @@ public class DroneArmsAnimation : MonoBehaviour
 
     public void WalkForwards()
     {
+        if (insertIntoMachine)
+        {
+            return;
+        }
         if (!forwards)
         {
             if (backwards)
@@ -35,6 +39,10 @@ public class DroneArmsAnimation : MonoBehaviour
 
     public void WalkBackwards()
     {
+        if (insertIntoMachine)
+        {
+            return;
+        }
         if (!backwards)
         {
             if (forwards)
@@ -58,6 +66,7 @@ public class DroneArmsAnimation : MonoBehaviour
             forwards = false;
             animator.SetFloat("ForwardsAnimSpeedMultiplier", -1);
             animator.SetBool("WalkForwards", forwards);
+            
         }
         if (backwards)
         {
@@ -93,8 +102,11 @@ public class DroneArmsAnimation : MonoBehaviour
     {
         if (!insertIntoMachine)
         {
+            WalkNotVertically();
             insertIntoMachine = true;
             animator.SetBool("InsertIntoMachine", insertIntoMachine);
+            bool test = animator.GetBool("WalkForwards");
+            Debug.Log("test:" + test);
         }
     }
 
