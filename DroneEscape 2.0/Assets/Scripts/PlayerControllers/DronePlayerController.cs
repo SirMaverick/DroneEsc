@@ -25,6 +25,7 @@ using System.Collections;
 
 
     [SerializeField] private float speed;
+    [SerializeField] private bool freezeDroneButton = true;
 
     protected override void Start()
     {
@@ -148,15 +149,24 @@ using System.Collections;
     private Button button;
     public void ActivateButton(Button button)
     {
-        //movementController.DisableController();
-        //movementController.enabled = false;
+        if (freezeDroneButton)
+        {
+            movementController.DisableController();
+            movementController.enabled = false;
+        }
         animationDroneArms.InsertIntoMachine();
         this.button = button;
     }
 
     public void AnimationInsertIntoMachineDone()
     {
+        if (freezeDroneButton)
+        {
+            movementController.EnableController();
+            movementController.enabled = true;
+        }
         button.Toggle();
+
     }
 }
 
