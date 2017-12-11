@@ -32,5 +32,10 @@ public class DroneAnimation : MonoBehaviour
         emptyDrone.AnimPickUpDone();
     }
 
+
+    public void Default()
+    {
+        animator.Play("Default");
+    }
 }
 
