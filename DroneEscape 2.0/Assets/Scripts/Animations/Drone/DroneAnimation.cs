@@ -35,6 +35,7 @@ public class DroneAnimation : MonoBehaviour
     public void HasShot()
     {
         animator.SetBool("Shot", true);
+        animator.Play("ShootCore");
     }
     public void AnimationHasShotDone()
     {
