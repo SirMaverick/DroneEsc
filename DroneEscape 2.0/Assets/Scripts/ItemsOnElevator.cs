@@ -44,6 +44,10 @@ public class ItemsOnElevator : MonoBehaviour {
                 other.GetComponent<Rigidbody>().useGravity = false;
                 other.GetComponent<Rigidbody>().isKinematic = true;
             }
+            if (other.tag == "Drone")
+            {
+                other.GetComponent<EmptyDrone>().DisableNavMesh();
+            }
         }
     }
 
@@ -53,6 +57,10 @@ public class ItemsOnElevator : MonoBehaviour {
             items.Remove(other.gameObject);
             other.GetComponent<Rigidbody>().useGravity = true;
             other.GetComponent<Rigidbody>().isKinematic = false;
+            if (other.tag == "Drone")
+            {
+                 other.GetComponent<EmptyDrone>().EnableNavMesh();
+            }
         }
     }
 }

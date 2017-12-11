@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -31,6 +32,8 @@ public class EmptyDrone : MonoBehaviour, Selectable {
     private bool reachedGoal = false;
     private float previousDistance;
 
+    [SerializeField] private bool useNavMesh = true;
+
     // Use this for initialization
     void Start () {
         ownCamera = transform.Find("DroneCamera").gameObject;
@@ -59,11 +62,17 @@ public class EmptyDrone : MonoBehaviour, Selectable {
                 float distance = Vector3.Distance(transform.position, coreLocation);
                 if (distance >= previousDistance && distance < minDist)
                 {
-                    navMeshAgent.isStopped = true;
-                    navMeshAgent.enabled = false;
+                    if (useNavMesh) { 
+                        navMeshAgent.isStopped = true;
+                        navMeshAgent.enabled = false;
+                    }
                     reachedGoal = true;
                     previousDistance = minDist + 1;
                     return;
+                }
+                if (!useNavMesh)
+                {
+                    transform.Translate(0, 0, moveSpeed * Time.deltaTime, Space.Self);
                 }
                 previousDistance = distance;
 
@@ -75,6 +84,18 @@ public class EmptyDrone : MonoBehaviour, Selectable {
             }
         }
     }
+
+    public void EnableNavMesh()
+    {
+        useNavMesh = true;
+    }
+
+    public void DisableNavMesh()
+    {
+        useNavMesh = false;
+
+    }
+
     public void WalkToPlayer(Transform tempCore) {
         droneAnimation.WakeUp();
         cameraObject = tempCore.parent;
@@ -161,19 +182,22 @@ public class EmptyDrone : MonoBehaviour, Selectable {
         {
             rotated = true;
 
-            navMeshAgent.enabled = true;
-            navMeshAgent.isStopped = false;
-
-            Vector3 coreLocation = cameraObject.GetComponent<CorePlayerController>().GetCore().transform.position;
-            bool success = navMeshAgent.SetDestination(coreLocation);
-
-            // can't reach it so just pick it up
-            // just for testing
-            // @ToDo find a decent way to resolve and test this
-            if (!success)
+            if (useNavMesh)
             {
-                //Debug.LogError("Can't reach core, just picking it up anyway");
-                //reachedGoal = true;
+                navMeshAgent.enabled = true;
+                navMeshAgent.isStopped = false;
+
+                Vector3 coreLocation = cameraObject.GetComponent<CorePlayerController>().GetCore().transform.position;
+                bool success = navMeshAgent.SetDestination(coreLocation);
+
+                // can't reach it so just pick it up
+                // just for testing
+                // @ToDo find a decent way to resolve and test this
+                if (!success)
+                {
+                    //Debug.LogError("Can't reach core, just picking it up anyway");
+                    //reachedGoal = true;
+                }
             }
 
         }
