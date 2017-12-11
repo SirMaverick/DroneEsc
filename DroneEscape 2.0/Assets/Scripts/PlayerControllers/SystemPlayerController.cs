@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 [System.Serializable]
 class SystemPlayerController : AbstractPlayerController
@@ -16,12 +17,16 @@ class SystemPlayerController : AbstractPlayerController
 
     private CoreDrone coreDrone;
 
+    private CoreDrone[] coreDrones;
+
     protected override void Start()
     {
         // kind of ugly to hide it and cast it
         movementControllerSM = (SystemMovementController) movementController;
         playerControllerSupervisor = PlayerControllerSupervisor.GetInstance();
         uiController = FindObjectOfType<SystemUIController>();
+
+        coreDrones = FindObjectsOfType<CoreDrone>();
     }
 
     public override void EnableController()
@@ -32,6 +37,7 @@ class SystemPlayerController : AbstractPlayerController
         movementController.enabled = true;
         uiController.EnableController();
         energyController.EnableController();
+        EnableAllCoreDrones();
     }
 
     public override void DisableController()
@@ -81,5 +87,13 @@ class SystemPlayerController : AbstractPlayerController
     public void GiveEnergy()
     {
         energyController.AddEnergyFromCore(coreDrone);
+    }
+
+    private void EnableAllCoreDrones()
+    {
+        foreach(CoreDrone cDrone in coreDrones)
+        {
+            cDrone.enabled = true;
+        }
     }
 }
