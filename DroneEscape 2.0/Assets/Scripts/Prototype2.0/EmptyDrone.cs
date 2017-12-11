@@ -97,22 +97,33 @@ public class EmptyDrone : MonoBehaviour, Selectable {
 
 
     void TurnOnDrone() {
+        Disable();
 
+        //GetComponent<MeshRenderer>().enabled = false;
+        // GetComponent<DronePlayerController>().SwitchLight();
+        pcs.SwitchPlayerController(GetComponent<DronePlayerController>());
+        //ownCamera.GetComponent<AudioListener>().enabled = true;
+        // ownCamera.GetComponent<Camera>().enabled = true;
+
+    }
+    public void Disable()
+    {
         cameraObject.transform.position = transform.position;
 
         corePickUp = cameraObject.GetComponent<CorePlayerController>().GetCore();
         corePickUp.transform.parent = transform;
         corePickUp.transform.position = objectPlacement.transform.position;
 
-        //GetComponent<MeshRenderer>().enabled = false;
-        // GetComponent<DronePlayerController>().SwitchLight();
-        pcs.SwitchPlayerController(GetComponent<DronePlayerController>());
-        //ownCamera.GetComponent<AudioListener>().enabled = true;
-       // ownCamera.GetComponent<Camera>().enabled = true;
-       
-
         enabled = false;
         rotated = false;
+        walk = false;
+
+        if (navMeshAgent.enabled)
+        {
+            navMeshAgent.isStopped = true;
+            navMeshAgent.enabled = false;
+        }
+        droneAnimation.Default();
 
     }
     // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)
