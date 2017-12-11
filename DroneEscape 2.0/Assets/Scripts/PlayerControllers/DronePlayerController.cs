@@ -25,6 +25,7 @@ using System.Collections;
 
 
     [SerializeField] private float speed;
+    [SerializeField] private bool freezeDroneButton = true;
 
     protected override void Start()
     {
@@ -88,6 +89,7 @@ using System.Collections;
         if (!nearBelt)
         {
             cameraObject.transform.position = core.transform.position;
+            cameraObject.transform.rotation = transform.rotation;
 
             // actual throwing.
             core.GetComponent<Rigidbody>().isKinematic = false;
@@ -142,6 +144,29 @@ using System.Collections;
     public void MoveHorizontally(float value)
     {
         gameObject.transform.Translate(value * Time.deltaTime * speed, 0, 0);
+    }
+    // button just for temp action
+    private Button button;
+    public void ActivateButton(Button button)
+    {
+        if (freezeDroneButton)
+        {
+            movementController.DisableController();
+            movementController.enabled = false;
+        }
+        animationDroneArms.InsertIntoMachine();
+        this.button = button;
+    }
+
+    public void AnimationInsertIntoMachineDone()
+    {
+        if (freezeDroneButton)
+        {
+            movementController.EnableController();
+            movementController.enabled = true;
+        }
+        button.Toggle();
+
     }
 }
 

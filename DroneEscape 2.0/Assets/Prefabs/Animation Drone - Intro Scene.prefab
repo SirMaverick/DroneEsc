@@ -106,7 +106,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621949936082314}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.94, y: -49.958, z: -0.7000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -115,7 +115,7 @@ Transform:
   - {fileID: 4322669331176318}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4383815347822814
 Transform:
   m_ObjectHideFlags: 1
@@ -258,7 +258,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621949936082314}
-  m_Mesh: {fileID: 4300000, guid: 1176bf9b4715b1f498cce2df946fd779, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 87396a3a5609ab4428f1c681ccce31c8, type: 3}
 --- !u!54 &54943462285415594
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -349,7 +349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 114504520462171184}
-  speed: 3
   minClamp: -60
   maxClamp: 60
   sensitivity: 2
@@ -370,11 +369,14 @@ MonoBehaviour:
   cameras: []
   movementController: {fileID: 114441000722040320}
   uiController: {fileID: 0}
-  meshRenderer: {fileID: 23668856941160554}
+  droneMeshRenderer: {fileID: 0}
+  armsMeshRenderer: {fileID: 0}
   maxDistance: 1
   startAsCore: 0
   force: 8
   objectPlacement: {fileID: 1238951477196694}
+  animationDroneArms: {fileID: 0}
+  speed: 0
 --- !u!114 &114867655154032020
 MonoBehaviour:
   m_ObjectHideFlags: 1
