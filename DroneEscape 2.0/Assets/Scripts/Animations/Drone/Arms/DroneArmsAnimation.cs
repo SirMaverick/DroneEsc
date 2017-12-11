@@ -10,25 +10,50 @@ public class DroneArmsAnimation : MonoBehaviour
     bool shoot = false;
     bool shootReady = false;
 
+    bool insertIntoMachine = false;
+
+    //used for call backs
+    [SerializeField] DronePlayerController playerController;
+
     public void WalkForwards()
     {
+        if (insertIntoMachine)
+        {
+            return;
+        }
         if (!forwards)
         {
-            forwards = true;
-            backwards = false;
+            if (backwards)
+            {
+                backwards = false;
+                animator.SetFloat("BackwardsAnimSpeedMultiplier", -1);
+                animator.SetBool("WalkBackwards", backwards);
+            }
 
+            forwards = true;
+
+            animator.SetFloat("ForwardsAnimSpeedMultiplier", 1);
             animator.SetBool("WalkForwards", forwards);
-            animator.SetBool("WalkBackwards", backwards);
         }
     }
 
     public void WalkBackwards()
     {
+        if (insertIntoMachine)
+        {
+            return;
+        }
         if (!backwards)
         {
-            forwards = false;
+            if (forwards)
+            {
+                forwards = false;
+                animator.SetFloat("ForwardsAnimSpeedMultiplier", -1);
+                animator.SetBool("WalkForwards", forwards);
+            }
+            
             backwards = true;
-            animator.SetBool("WalkForwards", forwards);
+            animator.SetFloat("BackwardsAnimSpeedMultiplier", 1);
             animator.SetBool("WalkBackwards", backwards);
         }
     }
@@ -39,16 +64,19 @@ public class DroneArmsAnimation : MonoBehaviour
         if (forwards)
         {
             forwards = false;
+            animator.SetFloat("ForwardsAnimSpeedMultiplier", -1);
             animator.SetBool("WalkForwards", forwards);
+            
         }
         if (backwards)
         {
             backwards = false;
+            animator.SetFloat("BackwardsAnimSpeedMultiplier", -1);
             animator.SetBool("WalkBackwards", backwards);
         }
     }
 
-    internal void ShootReady()
+    public void ShootReady()
     {
         if (!shootReady)
         {
@@ -59,7 +87,7 @@ public class DroneArmsAnimation : MonoBehaviour
         }
     }
 
-    internal void Shoot()
+    public void Shoot()
     {
         if (!shoot)
         {
@@ -68,6 +96,26 @@ public class DroneArmsAnimation : MonoBehaviour
             shootReady = false;
             animator.SetBool("ShootReady", shootReady);
         }
+    }
+
+    public void InsertIntoMachine()
+    {
+        if (!insertIntoMachine)
+        {
+            WalkNotVertically();
+            insertIntoMachine = true;
+            animator.SetBool("InsertIntoMachine", insertIntoMachine);
+            bool test = animator.GetBool("WalkForwards");
+            Debug.Log("test:" + test);
+        }
+    }
+
+    public void InsertIntoMachineDone()
+    {
+        // event from animation
+        insertIntoMachine = false;
+        animator.SetBool("InsertIntoMachine", insertIntoMachine);
+        playerController.AnimationInsertIntoMachineDone();
     }
 }
 

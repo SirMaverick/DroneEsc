@@ -22,6 +22,7 @@ class DroneMovementController : MovementController
     private bool hitButton = false;
 
     private Button button;
+    private bool use;
 
     
     private CorePlayerController corePlayerController;
@@ -53,7 +54,10 @@ class DroneMovementController : MovementController
                 hitButton = true;
                 button = hit.collider.gameObject.GetComponent<Button>();
                 button.LookingAt();
-
+                if (use)
+                {
+                    dronePlayerController.ActivateButton(button);
+                }
             }
         }
         else
@@ -88,10 +92,7 @@ class DroneMovementController : MovementController
 
     public override void Use(bool key)
     {
-        if (key)
-        {
-           // button.Toggle();
-        }
+        use = key;
     }
 
     public override void RightHold(bool key)
@@ -131,11 +132,19 @@ class DroneMovementController : MovementController
     public override void EnableController()
     {
         corePlayerController = FindObjectOfType<CorePlayerController>();
-        coreCamera = corePlayerController.gameObject;
+        if(playerControllerSupervisor == null)
+        {
+            playerControllerSupervisor = PlayerControllerSupervisor.GetInstance();
+        }
+        // only if the playercontroller was the core than we should adept to the core.
+        if (playerControllerSupervisor.GetCurrentPlayerController() == corePlayerController)
+        {
+            coreCamera = corePlayerController.gameObject;
 
-        mouseLook = new Vector2(coreCamera.transform.localEulerAngles.y, mouseLook.y);
-        //mouseLook = new Vector2(gameObject.transform.localRotation.eulerAngles.y, mouseLook.y );
-        smoothV = new Vector2(0, 0);
+            mouseLook = new Vector2(coreCamera.transform.localEulerAngles.y, mouseLook.y);
+            //mouseLook = new Vector2(gameObject.transform.localRotation.eulerAngles.y, mouseLook.y );
+            smoothV = new Vector2(0, 0);
+        }
         base.EnableController();
     }
 

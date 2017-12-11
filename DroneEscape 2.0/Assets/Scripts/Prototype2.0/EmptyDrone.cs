@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EmptyDrone : MonoBehaviour, Selectable {
 
@@ -10,24 +11,36 @@ public class EmptyDrone : MonoBehaviour, Selectable {
     private Transform cameraObject;
     private GameObject coreCamera;
     private GameObject corePickUp;
-    private bool walk;
+    private bool walk = false;
     private GameObject ownCamera;
-    [SerializeField] GameObject objectPlacement;
+    [SerializeField] private GameObject objectPlacement;
 
-    [SerializeField] SkinnedMeshRenderer meshRenderer;
+    [SerializeField] private SkinnedMeshRenderer meshRenderer;
 
-    public float minDist;
-    [SerializeField] float moveSpeed;
-    [SerializeField] float rotationSpeed = 5;
+    [SerializeField] private float minDist;
+    [SerializeField] private float maxDist = 1f;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotationSpeed = 5;
 
-    PlayerControllerSupervisor pcs;
-    [SerializeField] bool rotated = false;
+    private PlayerControllerSupervisor pcs;
+    [SerializeField] private bool rotated = false;
 
+
+    private NavMeshAgent navMeshAgent;
+
+    private bool reachedGoal = false;
+    private float previousDistance;
 
     // Use this for initialization
     void Start () {
         ownCamera = transform.Find("DroneCamera").gameObject;
         pcs = PlayerControllerSupervisor.GetInstance();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+        previousDistance = minDist + 1;
+
+        navMeshAgent.isStopped = true;
+        navMeshAgent.enabled = false;
     }
 
     // Update is called once per frame
@@ -40,11 +53,22 @@ public class EmptyDrone : MonoBehaviour, Selectable {
                 LookAtSlow();
                 return;
             }
+            if (!reachedGoal)
+            {
+                Vector3 coreLocation = cameraObject.GetComponent<CorePlayerController>().GetCore().transform.position;
+                float distance = Vector3.Distance(transform.position, coreLocation);
+                if (distance >= previousDistance && distance < minDist)
+                {
+                    navMeshAgent.isStopped = true;
+                    navMeshAgent.enabled = false;
+                    reachedGoal = true;
+                    previousDistance = minDist + 1;
+                    return;
+                }
+                previousDistance = distance;
 
-            if (Vector3.Distance(transform.position, cameraObject.GetComponent<CorePlayerController>().GetCore().transform.position) >= minDist) {
-
-                transform.position += transform.forward * moveSpeed * Time.deltaTime;
-            } else {
+            }
+            else {
                 walk = false;
                 droneAnimation.PickUp();
 
@@ -60,6 +84,8 @@ public class EmptyDrone : MonoBehaviour, Selectable {
     public void AnimWakeUpDone()
     {
         walk = true;
+        reachedGoal = false;
+
     }
 
     public void AnimPickUpDone()
@@ -123,6 +149,22 @@ public class EmptyDrone : MonoBehaviour, Selectable {
         if (previousRotation == transform.rotation)
         {
             rotated = true;
+
+            navMeshAgent.enabled = true;
+            navMeshAgent.isStopped = false;
+
+            Vector3 coreLocation = cameraObject.GetComponent<CorePlayerController>().GetCore().transform.position;
+            bool success = navMeshAgent.SetDestination(coreLocation);
+
+            // can't reach it so just pick it up
+            // just for testing
+            // @ToDo find a decent way to resolve and test this
+            if (!success)
+            {
+                //Debug.LogError("Can't reach core, just picking it up anyway");
+                //reachedGoal = true;
+            }
+
         }
         
     }

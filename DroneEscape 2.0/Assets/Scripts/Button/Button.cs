@@ -17,11 +17,6 @@ public abstract class Button : MonoBehaviour, Selectable
         // emision
         lastMaterialHit = gameObject.GetComponent<MeshRenderer>().material;
         lastMaterialHit.EnableKeyword("_EMISSION");
-        // ugly kill me
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Toggle();
-        }
     }
 
     public void StopLookingAt()
