@@ -21,6 +21,8 @@ using System.Collections;
 
     [SerializeField]
     private DroneArmsAnimation animationDroneArms;
+    [SerializeField]
+    private DroneAnimation animationDrone;
 
 
 
@@ -110,8 +112,9 @@ using System.Collections;
            
         }
         core.transform.parent = null;
+        animationDrone.HasShot();
         // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)
-       // private void UpdateGuards()
+        // private void UpdateGuards()
         {
             GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
             foreach (GuardFOV guard in guards)
