@@ -112,7 +112,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: ad78adf4734eb3a479e1675012fcbf28, type: 2}
 --- !u!1001 &146657
 Prefab:
   m_ObjectHideFlags: 0
@@ -1839,6 +1839,37 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74c901a2fcafa924a8aa0fc1a718a983, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &34322952 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 2095029002}
+--- !u!114 &34322953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 34322952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &39392643
 Prefab:
   m_ObjectHideFlags: 0
@@ -9910,7 +9941,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4022421673979796, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
       propertyPath: m_LocalPosition.x
@@ -15192,6 +15223,7 @@ GameObject:
   - component: {fileID: 307125222}
   - component: {fileID: 307125221}
   - component: {fileID: 307125220}
+  - component: {fileID: 307125224}
   m_Layer: 0
   m_Name: MachineCamera
   m_TagString: Untagged
@@ -15261,6 +15293,18 @@ Transform:
   m_Father: {fileID: 985210668}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 20, y: 110, z: 0.186}
+--- !u!114 &307125224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 307125219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!1001 &307635679
 Prefab:
   m_ObjectHideFlags: 0
@@ -16011,7 +16055,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &324451976
 Transform:
@@ -18035,6 +18079,37 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 367971744}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &368032390 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1036560546}
+--- !u!114 &368032391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 368032390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &368269248 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4506988753501834, guid: a6760e49551035a40b1cdc323bbb855b,
@@ -18491,12 +18566,12 @@ Prefab:
     - target: {fileID: 224302233019464442, guid: b4dfe643212d4d145b7c4212c0aa8ac2,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 359.7035
+      value: 271.7035
       objectReference: {fileID: 0}
     - target: {fileID: 224302233019464442, guid: b4dfe643212d4d145b7c4212c0aa8ac2,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 185.06386
+      value: 135.56386
       objectReference: {fileID: 0}
     - target: {fileID: 224302233019464442, guid: b4dfe643212d4d145b7c4212c0aa8ac2,
         type: 2}
@@ -18640,6 +18715,37 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11f2b1c554833fa44aec8cfce237dea1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &384760818 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 609321026}
+--- !u!114 &384760819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384760818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &385694966
 Prefab:
   m_ObjectHideFlags: 0
@@ -20220,6 +20326,37 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c78909cbc0659f4f9718e324df071c5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &412651438 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1948214986}
+--- !u!114 &412651439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 412651438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &412862544
 Prefab:
   m_ObjectHideFlags: 0
@@ -21628,6 +21765,90 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0589371, y: 0.6499989, z: 5.006439}
   m_Center: {x: 0.5289805, y: 0.999416, z: -2.5045204}
+--- !u!1 &453734844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 453734845}
+  - component: {fileID: 453734848}
+  - component: {fileID: 453734847}
+  - component: {fileID: 453734846}
+  m_Layer: 0
+  m_Name: Cube (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &453734845
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 453734844}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.16, y: 4.6300006, z: -12.83}
+  m_LocalScale: {x: 2.5093307, y: 1.18444, z: 23.84038}
+  m_Children: []
+  m_Father: {fileID: 526181080}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &453734846
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 453734844}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 975ffcb0b091fab47a5be198ccaf1bf9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &453734847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 453734844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &453734848
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 453734844}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &454964943
 Prefab:
   m_ObjectHideFlags: 0
@@ -21690,6 +21911,37 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6942c16ca160f51408f1c0c31b426e36, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &456120895 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1593135908}
+--- !u!114 &456120896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456120895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &456515118
 GameObject:
   m_ObjectHideFlags: 0
@@ -24681,6 +24933,10 @@ Transform:
   - {fileID: 1617784108}
   - {fileID: 2110989503}
   - {fileID: 350766823}
+  - {fileID: 1283381647}
+  - {fileID: 453734845}
+  - {fileID: 1225490517}
+  - {fileID: 2051630285}
   m_Father: {fileID: 1076539139}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36805,6 +37061,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4714409267306754, guid: 6942c16ca160f51408f1c0c31b426e36,
     type: 2}
   m_PrefabInternal: {fileID: 764280773}
+--- !u!1 &765464226 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1301218149}
+--- !u!114 &765464227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 765464226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &765505140
 Prefab:
   m_ObjectHideFlags: 0
@@ -37035,6 +37322,37 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 970b088b51943be4d920c6d47ba98710, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &769663464 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 141403886}
+--- !u!114 &769663465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 769663464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &770350925
 GameObject:
   m_ObjectHideFlags: 0
@@ -39242,7 +39560,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 810705794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 359.7035, y: 185.06386, z: 80.58444}
+  m_LocalPosition: {x: 271.7035, y: 135.56386, z: 80.58444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 570894424}
@@ -42920,6 +43238,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4331142217249748, guid: 5f7cd731ead1bbb42b164a243707832d,
     type: 2}
   m_PrefabInternal: {fileID: 894759570}
+--- !u!1 &894899138 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1354374025247720, guid: 8ae878e7576533b4b8a294bce5f3f678,
+    type: 2}
+  m_PrefabInternal: {fileID: 1619709995}
+--- !u!114 &894899139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 894899138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &895184830 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4587752562450836, guid: 74c901a2fcafa924a8aa0fc1a718a983,
@@ -43407,6 +43756,37 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74c901a2fcafa924a8aa0fc1a718a983, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &905779101 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1354374025247720, guid: 8ae878e7576533b4b8a294bce5f3f678,
+    type: 2}
+  m_PrefabInternal: {fileID: 1879899135}
+--- !u!114 &905779102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905779101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &907309681 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1924043040867004, guid: e1a006bae1ba1164581c93bf84767b99,
@@ -43990,70 +44370,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4331142217249748, guid: 5f7cd731ead1bbb42b164a243707832d,
     type: 2}
   m_PrefabInternal: {fileID: 921374924}
---- !u!1001 &921675284
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2013093483}
-    m_Modifications:
-    - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 6.5032806
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.0006747246
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 6.750002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 65001578131753798, guid: 65ea0610e8ca607498f3646ed08c57e9,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1099882613020702, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_Name
-      value: DoorSmall (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &921675285 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9,
-    type: 2}
-  m_PrefabInternal: {fileID: 921675284}
 --- !u!1001 &921982474
 Prefab:
   m_ObjectHideFlags: 0
@@ -51229,7 +51545,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1047977480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0, z: -2.1}
+  m_LocalPosition: {x: 24.9, y: 0, z: 21.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1565117659}
@@ -51354,6 +51670,18 @@ Transform:
   m_PrefabParentObject: {fileID: 4672041183198640, guid: 1e23bf7a5d6cbb94c836e171064262cd,
     type: 2}
   m_PrefabInternal: {fileID: 1456237973}
+--- !u!114 &1049633153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1049633147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!1001 &1049861459
 Prefab:
   m_ObjectHideFlags: 0
@@ -54963,6 +55291,37 @@ Transform:
   m_Father: {fileID: 1421628193}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1123897080 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1073385939}
+--- !u!114 &1123897081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1123897080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1123924513
 Prefab:
   m_ObjectHideFlags: 0
@@ -55835,7 +56194,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4625966335126612, guid: 65ea0610e8ca607498f3646ed08c57e9, type: 2}
       propertyPath: m_LocalScale.x
@@ -57664,7 +58023,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4976064518862320, guid: e586887e9cdb5014ebc40c80d994b560, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.01412642
+      value: -24.814125
       objectReference: {fileID: 0}
     - target: {fileID: 4976064518862320, guid: e586887e9cdb5014ebc40c80d994b560, type: 2}
       propertyPath: m_LocalPosition.y
@@ -57672,7 +58031,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4976064518862320, guid: e586887e9cdb5014ebc40c80d994b560, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -82.659996
+      value: -105.49999
       objectReference: {fileID: 0}
     - target: {fileID: 4976064518862320, guid: e586887e9cdb5014ebc40c80d994b560, type: 2}
       propertyPath: m_LocalRotation.x
@@ -58352,6 +58711,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4714409267306754, guid: 6942c16ca160f51408f1c0c31b426e36,
     type: 2}
   m_PrefabInternal: {fileID: 1197666312}
+--- !u!1 &1199053861 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 2048501179}
+--- !u!114 &1199053862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1199053861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1200110204
 Prefab:
   m_ObjectHideFlags: 0
@@ -59383,6 +59773,90 @@ Transform:
   m_PrefabParentObject: {fileID: 4919137959683182, guid: 732de5a766a926846a1613098dc72d3b,
     type: 2}
   m_PrefabInternal: {fileID: 1224990521}
+--- !u!1 &1225490516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1225490517}
+  - component: {fileID: 1225490520}
+  - component: {fileID: 1225490519}
+  - component: {fileID: 1225490518}
+  m_Layer: 0
+  m_Name: Cube (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1225490517
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1225490516}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.59, y: 4.6300006, z: -21.64}
+  m_LocalScale: {x: 7.020953, y: 1.18444, z: 6.317857}
+  m_Children: []
+  m_Father: {fileID: 526181080}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1225490518
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1225490516}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 975ffcb0b091fab47a5be198ccaf1bf9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &1225490519
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1225490516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1225490520
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1225490516}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1227679421
 Prefab:
   m_ObjectHideFlags: 0
@@ -59793,6 +60267,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4014747925031184, guid: 645e65498a5da614989d0e4f0dabe27d,
     type: 2}
   m_PrefabInternal: {fileID: 223493299}
+--- !u!1 &1232220922 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1484206883}
+--- !u!114 &1232220923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1232220922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1233575344
 Prefab:
   m_ObjectHideFlags: 0
@@ -60382,6 +60887,23 @@ GameObject:
   m_PrefabParentObject: {fileID: 1897579019030182, guid: 072a3d52aebc6d14baec38e2f5d3260c,
     type: 2}
   m_PrefabInternal: {fileID: 2110328901}
+--- !u!1 &1246085897 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1058202883371062, guid: e586887e9cdb5014ebc40c80d994b560,
+    type: 2}
+  m_PrefabInternal: {fileID: 1183047620}
+--- !u!114 &1246085906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1246085897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!1001 &1248223254
 Prefab:
   m_ObjectHideFlags: 0
@@ -61718,6 +62240,90 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 645e65498a5da614989d0e4f0dabe27d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1283381646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1283381647}
+  - component: {fileID: 1283381650}
+  - component: {fileID: 1283381649}
+  - component: {fileID: 1283381648}
+  m_Layer: 0
+  m_Name: Cube (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1283381647
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1283381646}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.97, y: 4.3, z: 4.79}
+  m_LocalScale: {x: 5.1598687, y: 2.0952778, z: 2.57756}
+  m_Children: []
+  m_Father: {fileID: 526181080}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1283381648
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1283381646}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 975ffcb0b091fab47a5be198ccaf1bf9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &1283381649
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1283381646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1283381650
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1283381646}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1284338234
 Prefab:
   m_ObjectHideFlags: 0
@@ -64354,7 +64960,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4605059364681720, guid: f628e9fa7f9507f4d868767c237c3b5b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.21
+      value: -24.59
       objectReference: {fileID: 0}
     - target: {fileID: 4605059364681720, guid: f628e9fa7f9507f4d868767c237c3b5b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -64362,7 +64968,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4605059364681720, guid: f628e9fa7f9507f4d868767c237c3b5b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -85.73
+      value: -108.57
       objectReference: {fileID: 0}
     - target: {fileID: 4605059364681720, guid: f628e9fa7f9507f4d868767c237c3b5b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -69762,7 +70368,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4672041183198640, guid: 1e23bf7a5d6cbb94c836e171064262cd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.21000612
+      value: -24.589993
       objectReference: {fileID: 0}
     - target: {fileID: 4672041183198640, guid: 1e23bf7a5d6cbb94c836e171064262cd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -69770,7 +70376,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4672041183198640, guid: 1e23bf7a5d6cbb94c836e171064262cd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -85.70103
+      value: -108.54102
       objectReference: {fileID: 0}
     - target: {fileID: 4672041183198640, guid: 1e23bf7a5d6cbb94c836e171064262cd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -78633,6 +79239,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4180285376970606, guid: 69007b3cbd9a4ef4fb14f7bee4bbac48,
     type: 2}
   m_PrefabInternal: {fileID: 1642185517}
+--- !u!1 &1642606171 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1227986950}
+--- !u!114 &1642606172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1642606171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1644218166
 Prefab:
   m_ObjectHideFlags: 0
@@ -80518,6 +81155,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4014747925031184, guid: 645e65498a5da614989d0e4f0dabe27d,
     type: 2}
   m_PrefabInternal: {fileID: 1673775352}
+--- !u!1 &1673972235 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1200602168}
+--- !u!114 &1673972236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673972235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &1674466573 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4587752562450836, guid: 74c901a2fcafa924a8aa0fc1a718a983,
@@ -84490,6 +85158,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4331142217249748, guid: 5f7cd731ead1bbb42b164a243707832d,
     type: 2}
   m_PrefabInternal: {fileID: 1759898310}
+--- !u!1 &1759905913 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1320522944}
+--- !u!114 &1759905914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1759905913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1760144244
 Prefab:
   m_ObjectHideFlags: 0
@@ -94805,7 +95504,6 @@ Transform:
   m_Children:
   - {fileID: 89566631}
   - {fileID: 498349970}
-  - {fileID: 921675285}
   - {fileID: 200446246}
   - {fileID: 1145545845}
   m_Father: {fileID: 1768535712}
@@ -95303,6 +96001,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4452621747137252, guid: f69f4c261458fa34eb533407189413d6,
     type: 2}
   m_PrefabInternal: {fileID: 762272171}
+--- !u!1 &2029383051 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578650773063924, guid: 00f3f4b65cf69d54884d5c613682dade,
+    type: 2}
+  m_PrefabInternal: {fileID: 1616615646}
+--- !u!114 &2029383052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2029383051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/ConveyorBelt/ConveyorBelt
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: ConveyorBLoop
+    Value: 1
+  - Name: ConveyorBStart
+    Value: 1
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &2031156596 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4506988753501834, guid: a6760e49551035a40b1cdc323bbb855b,
@@ -96434,6 +97163,90 @@ Transform:
   m_PrefabParentObject: {fileID: 4331142217249748, guid: 5f7cd731ead1bbb42b164a243707832d,
     type: 2}
   m_PrefabInternal: {fileID: 2050700845}
+--- !u!1 &2051630284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2051630285}
+  - component: {fileID: 2051630288}
+  - component: {fileID: 2051630287}
+  - component: {fileID: 2051630286}
+  m_Layer: 0
+  m_Name: Cube (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2051630285
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051630284}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.71, y: 4.6300006, z: -16.13}
+  m_LocalScale: {x: 4.223347, y: 1.18444, z: 6.3178596}
+  m_Children: []
+  m_Father: {fileID: 526181080}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &2051630286
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051630284}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 975ffcb0b091fab47a5be198ccaf1bf9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &2051630287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051630284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &2051630288
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2051630284}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &2052068379
 Prefab:
   m_ObjectHideFlags: 0

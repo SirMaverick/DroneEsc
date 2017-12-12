@@ -21,11 +21,15 @@ using System.Collections;
 
     [SerializeField]
     private DroneArmsAnimation animationDroneArms;
+    [SerializeField]
+    private DroneAnimation animationDrone;
 
 
 
     [SerializeField] private float speed;
     [SerializeField] private bool freezeDroneButton = true;
+
+    private EmptyDrone emptyDrone;
 
     protected override void Start()
     {
@@ -45,6 +49,7 @@ using System.Collections;
                 guard.ChangePlayer(gameObject);
             }
         }
+        emptyDrone = GetComponent<EmptyDrone>();
 
     }
 
@@ -53,7 +58,8 @@ using System.Collections;
         // dont see yourself 
         droneMeshRenderer.enabled = false;
         armsMeshRenderer.enabled = true;
-
+        emptyDrone.Disable();
+        emptyDrone.enabled = false;
         base.EnableController();
     }
 
@@ -62,7 +68,7 @@ using System.Collections;
         // when in another body you can see the drone again
         armsMeshRenderer.enabled = false;
         droneMeshRenderer.enabled = true;
-
+        emptyDrone.enabled = true;
         base.DisableController();
     }
 
@@ -106,8 +112,9 @@ using System.Collections;
            
         }
         core.transform.parent = null;
+        animationDrone.HasShot();
         // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)
-       // private void UpdateGuards()
+        // private void UpdateGuards()
         {
             GuardFOV[] guards = FindObjectsOfType<GuardFOV>();
             foreach (GuardFOV guard in guards)

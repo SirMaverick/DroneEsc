@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using FMODUnity;
 
 public class CorePlayerController : AbstractPlayerController
     {
@@ -10,6 +11,8 @@ public class CorePlayerController : AbstractPlayerController
     private GameObject cameraCenter;
     private GameObject pulse1, pulse2;
 
+    FMOD.Studio.EventInstance pulseSound;
+
     Vector3 lastPos;
     Vector3 currentPos;
 
@@ -19,6 +22,13 @@ public class CorePlayerController : AbstractPlayerController
     private bool coreAmbient;
     [SerializeField] private Color inCoreAmbient;
     [SerializeField] private Color inDroneAmbient;
+
+
+    private void Awake() {
+        pulseSound = RuntimeManager.CreateInstance("event:/Core/CorePulse");
+        RuntimeManager.AttachInstanceToGameObject(pulseSound, core.transform, core.GetComponent<Rigidbody>());
+        
+    }
 
     protected override void Start()
     {
@@ -141,6 +151,9 @@ public class CorePlayerController : AbstractPlayerController
     }
 
     public IEnumerator TurnOnPulses() {
+        RuntimeManager.AttachInstanceToGameObject(pulseSound, core.transform, core.GetComponent<Rigidbody>());
+        pulseSound.setParameterValue("Pulse", 1.0f);
+        pulseSound.start();
         GetComponent<CoreMovementController>().TurnOnPulse();
         pulse1.GetComponent<Menu_Button_Pulse>().TurnOnPulse();
         yield return new WaitForSeconds(3.0f);
@@ -148,6 +161,8 @@ public class CorePlayerController : AbstractPlayerController
     }
 
     public void TurnOffPulses() {
+        pulseSound.setParameterValue("Pulse", 0.0f);
+        pulseSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);    
         pulse1.GetComponent<Menu_Button_Pulse>().TurnOffPulse();
         pulse2.GetComponent<Menu_Button_Pulse>().TurnOffPulse();
     }
