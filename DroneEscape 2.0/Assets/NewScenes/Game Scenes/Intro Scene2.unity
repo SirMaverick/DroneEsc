@@ -11983,6 +11983,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114079329201394200, guid: 1e23bf7a5d6cbb94c836e171064262cd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e23bf7a5d6cbb94c836e171064262cd, type: 2}
   m_IsPrefabParent: 0
@@ -26229,11 +26234,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6760e49551035a40b1cdc323bbb855b, type: 2}
   m_IsPrefabParent: 0
---- !u!20 &874549683 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20467823066009018, guid: 1e23bf7a5d6cbb94c836e171064262cd,
-    type: 2}
-  m_PrefabInternal: {fileID: 388511979}
 --- !u!4 &877296120 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4180285376970606, guid: 69007b3cbd9a4ef4fb14f7bee4bbac48,
@@ -47050,7 +47050,6 @@ GameObject:
   - component: {fileID: 1607981940}
   - component: {fileID: 1607981939}
   - component: {fileID: 1607981938}
-  - component: {fileID: 1607981944}
   - component: {fileID: 1607981943}
   - component: {fileID: 1607981945}
   - component: {fileID: 1607981946}
@@ -47155,21 +47154,6 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &1607981944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1607981937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450c37e18df43a5409d95c54e4faaeb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1607981943}
-  animClip: {fileID: 7400000, guid: a353bf94c3ac1644e9a173214c7e08ca, type: 2}
-  cam: {fileID: 1607981941}
-  coreCam: {fileID: 874549683}
 --- !u!114 &1607981945
 MonoBehaviour:
   m_ObjectHideFlags: 0
