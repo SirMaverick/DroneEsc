@@ -25,6 +25,7 @@ public class CorePlayerController : AbstractPlayerController
 
 
     private void Awake() {
+        core = FindObjectOfType<CoreObject>().gameObject;
         pulseSound = RuntimeManager.CreateInstance("event:/Core/CorePulse");
         RuntimeManager.AttachInstanceToGameObject(pulseSound, core.transform, core.GetComponent<Rigidbody>());
         
@@ -35,7 +36,7 @@ public class CorePlayerController : AbstractPlayerController
         base.Start();
 
         lights = GameObject.Find("LightCollection");
-        core = FindObjectOfType<CoreObject>().gameObject;
+
         uiController = FindObjectOfType<CoreUIController>();
  
         if (camera.enabled)
