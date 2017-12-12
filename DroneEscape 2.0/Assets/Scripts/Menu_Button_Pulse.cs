@@ -7,11 +7,13 @@ public class Menu_Button_Pulse : MonoBehaviour {
     public float maxScale;
     private bool startPulse;
     float step;
+    [SerializeField]
+    float time;
 
 
-	// Use this for initialization
-	void Start () {
-        step = maxScale / 6 ;
+    // Use this for initialization
+    void Start () {
+        step = maxScale / (time * 2) ;
         gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0.3f, 1.0f, 0.15f);
     }
 

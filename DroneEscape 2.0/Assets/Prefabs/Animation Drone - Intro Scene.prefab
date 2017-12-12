@@ -75,10 +75,7 @@ GameObject:
   - component: {fileID: 33971571363225130}
   - component: {fileID: 23668856941160554}
   - component: {fileID: 54943462285415594}
-  - component: {fileID: 114867655154032020}
   - component: {fileID: 136243467210298028}
-  - component: {fileID: 114441000722040320}
-  - component: {fileID: 114504520462171184}
   - component: {fileID: 95347497584886700}
   m_Layer: 0
   m_Name: Animation Drone - Intro Scene
@@ -337,65 +334,6 @@ MonoBehaviour:
   velocity: 8
   angle: 45
   resolution: 10
---- !u!114 &114441000722040320
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1621949936082314}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f578016573128b142871e304531a6a24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 114504520462171184}
-  minClamp: -60
-  maxClamp: 60
-  sensitivity: 2
-  smoothing: 2
-  selectionRange: 1.5
-  dronePlayerController: {fileID: 114504520462171184}
---- !u!114 &114504520462171184
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1621949936082314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c0504f4eaf80634cbf82995fcbcd4d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameras: []
-  movementController: {fileID: 114441000722040320}
-  uiController: {fileID: 0}
-  droneMeshRenderer: {fileID: 0}
-  armsMeshRenderer: {fileID: 0}
-  maxDistance: 1
-  startAsCore: 0
-  force: 8
-  objectPlacement: {fileID: 1238951477196694}
-  animationDroneArms: {fileID: 0}
-  speed: 0
---- !u!114 &114867655154032020
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1621949936082314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34682cc4ac700304ea72c7da7f07ab46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  droneAnimation: {fileID: 0}
-  objectPlacement: {fileID: 1238951477196694}
-  meshRenderer: {fileID: 137955144589962226, guid: e586887e9cdb5014ebc40c80d994b560,
-    type: 2}
-  minDist: 3
-  moveSpeed: 2
-  rotationSpeed: 5
-  rotated: 0
 --- !u!124 &124123991901614518
 Behaviour:
   m_ObjectHideFlags: 1

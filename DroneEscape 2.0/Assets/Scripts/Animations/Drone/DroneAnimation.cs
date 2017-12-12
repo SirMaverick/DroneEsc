@@ -32,10 +32,20 @@ public class DroneAnimation : MonoBehaviour
         emptyDrone.AnimPickUpDone();
     }
 
+    public void HasShot()
+    {
+        animator.SetBool("Shot", true);
+        animator.Play("ShootCore");
+    }
+    public void AnimationHasShotDone()
+    {
+        animator.SetBool("Shot", false);
+    }
 
     public void Default()
     {
-        animator.Play("Default");
+        animator.SetBool("Shot", false);
+        animator.Play("DefaultInDrone");
     }
 }
 
