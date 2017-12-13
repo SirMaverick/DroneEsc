@@ -60,7 +60,13 @@ using System.Collections;
         armsMeshRenderer.enabled = true;
         emptyDrone.Disable();
         emptyDrone.enabled = false;
+
         base.EnableController();
+        if (ExitMachine())
+        {
+            // dont move when displaying exiting machine animation
+            movementController.enabled = false;
+        }
     }
 
     public override void DisableController()
@@ -174,6 +180,18 @@ using System.Collections;
         }
         button.Toggle();
 
+    }
+
+    public bool ExitMachine()
+    {
+        // if it is not in the machine nothing will happen
+        return animationDroneArms.ExitOutOfMachine();
+    }
+
+    public void AnimationExitMachineDone()
+    {
+        // can move again
+        movementController.enabled = true;
     }
 }
 

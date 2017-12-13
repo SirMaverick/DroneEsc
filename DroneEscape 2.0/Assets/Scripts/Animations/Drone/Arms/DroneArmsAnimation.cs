@@ -113,9 +113,25 @@ public class DroneArmsAnimation : MonoBehaviour
     public void InsertIntoMachineDone()
     {
         // event from animation
-        insertIntoMachine = false;
-        animator.SetBool("InsertIntoMachine", insertIntoMachine);
         playerController.AnimationInsertIntoMachineDone();
     }
+
+    public bool ExitOutOfMachine()
+    {
+        if (insertIntoMachine)
+        {
+            insertIntoMachine = false;
+            animator.SetBool("InsertIntoMachine", insertIntoMachine);
+            return true;
+        }
+        return false;
+    }
+
+    public void ExitMachineDone()
+    {
+        // event from animation
+        playerController.AnimationExitMachineDone();
+    }
+
 }
 
