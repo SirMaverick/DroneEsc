@@ -26,7 +26,7 @@ public class CorePlayerController : AbstractPlayerController
 
     private void Awake() {
         core = FindObjectOfType<CoreObject>().gameObject;
-        pulseSound = RuntimeManager.CreateInstance("event:/Core/CorePulse");
+        pulseSound = RuntimeManager.CreateInstance("event:/SFX/Core/CorePulse");
         RuntimeManager.AttachInstanceToGameObject(pulseSound, core.transform, core.GetComponent<Rigidbody>());
         
     }

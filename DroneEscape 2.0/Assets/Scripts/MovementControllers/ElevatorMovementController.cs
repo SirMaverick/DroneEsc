@@ -12,13 +12,14 @@ public class ElevatorMovementController : MovementController
     private ItemsOnElevator items;
     public FMOD.Studio.EventInstance elevatorSound;
     private FMOD.Studio.PLAYBACK_STATE playback;
+    private bool moving;
     
 
     protected override void Start()
     {
         base.Start();
         items = elevator.GetComponent<ItemsOnElevator>();
-        elevatorSound = RuntimeManager.CreateInstance("event:/Elevator/Elevator");
+        elevatorSound = RuntimeManager.CreateInstance("event:/SFX/Elevator/Elevator");
         RuntimeManager.AttachInstanceToGameObject(elevatorSound, transform, GetComponent<Rigidbody>());
     }
 
@@ -31,12 +32,13 @@ public class ElevatorMovementController : MovementController
     {
         // Do nothing
         if (direction != 0) {
-            elevatorSound.setParameterValue("ElevatorStart", 1.0f);
-            elevatorSound.setParameterValue("ElevatorLoop", 1.0f);
-            elevatorSound.setParameterValue("ElevatorStop", 0.0f);
+            moving = true;
             if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
-
+                elevatorSound.setParameterValue("ElevatorStart", 0.0f);
+                elevatorSound.setParameterValue("ElevatorLoop", 1.0f);
+                elevatorSound.setParameterValue("ElevatorStop", 0.0f);
             } else {
+                elevatorSound.setParameterValue("ElevatorStart", 1.0f);
                 elevatorSound.start();
             }
             if (direction > 0) {
@@ -52,11 +54,16 @@ public class ElevatorMovementController : MovementController
 
         else
         {
-            elevatorSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            elevatorSound.setParameterValue("ElevatorStart", 0.0f);
-            elevatorSound.setParameterValue("ElevatorLoop", 0.0f);
-            elevatorSound.setParameterValue("ElevatorStop", 1.0f);
-            elevatorSound.start();
+            if(moving) {
+                elevatorSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                elevatorSound.setParameterValue("ElevatorStart", 0.0f);
+                elevatorSound.setParameterValue("ElevatorLoop", 0.0f);
+                elevatorSound.setParameterValue("ElevatorStop", 1.0f);
+                elevatorSound.start();
+                elevatorSound.setParameterValue("ElevatorStop", 0.0f);
+                moving = false;
+            }
+
             items.enableElevator = false;
         }
     }
@@ -71,6 +78,7 @@ public class ElevatorMovementController : MovementController
         if (key)
         {
             items.enableElevator = false;
+            elevatorSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             playerControllerSupervisor.SwitchPlayerControllerPrevious();
         }
     }
