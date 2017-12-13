@@ -28,18 +28,17 @@ public class ElevatorMovementController : MovementController
 
     }
 
-    public override void Vertical(float direction)
-    {
+    public override void Vertical(float direction) {
         // Do nothing
         if (direction != 0) {
-            moving = true;
+            elevatorSound.setParameterValue("ElevatorStart", 1.0f);
+            elevatorSound.setParameterValue("ElevatorLoop", 1.0f);
+            elevatorSound.setParameterValue("ElevatorStop", 0.0f);
             if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
-                elevatorSound.setParameterValue("ElevatorStart", 0.0f);
-                elevatorSound.setParameterValue("ElevatorLoop", 1.0f);
-                elevatorSound.setParameterValue("ElevatorStop", 0.0f);
+
             } else {
-                elevatorSound.setParameterValue("ElevatorStart", 1.0f);
                 elevatorSound.start();
+                elevatorSound.setParameterValue("ElevatorStart", 0.0f);
             }
             if (direction > 0) {
                 elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, highestPos.position, speed * Time.deltaTime);
@@ -49,21 +48,12 @@ public class ElevatorMovementController : MovementController
                 elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, lowestPos.position, speed * Time.deltaTime);
                 items.enableElevator = true;
             }
-        }
-
-
-        else
-        {
-            if(moving) {
-                elevatorSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                elevatorSound.setParameterValue("ElevatorStart", 0.0f);
-                elevatorSound.setParameterValue("ElevatorLoop", 0.0f);
-                elevatorSound.setParameterValue("ElevatorStop", 1.0f);
-                elevatorSound.start();
-                elevatorSound.setParameterValue("ElevatorStop", 0.0f);
-                moving = false;
-            }
-
+        } else {
+            elevatorSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            elevatorSound.setParameterValue("ElevatorStart", 0.0f);
+            elevatorSound.setParameterValue("ElevatorLoop", 0.0f);
+            elevatorSound.setParameterValue("ElevatorStop", 1.0f);
+            elevatorSound.start();
             items.enableElevator = false;
         }
     }
