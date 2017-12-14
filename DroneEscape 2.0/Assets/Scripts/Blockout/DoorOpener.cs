@@ -39,7 +39,6 @@ public class DoorOpener : MonoBehaviour {
 
     private void Update() {
         doorSound.getPlaybackState(out playback);
-        print(audioLength);
     }
 
     private void OnTriggerExit(Collider other)
