@@ -86,23 +86,29 @@ public class MagnetMove : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        collision.rigidbody.velocity = new Vector3(0, 0, 0);
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);        
         if(collision.transform.tag == "Magnetic")
         {
             collision.transform.position -= new Vector3(0, Time.deltaTime * speed * 3, 0);
+            collision.rigidbody.velocity = new Vector3(0, 0, 0);
         }
     }
 
     private void OnCollisionStay(Collision collision)
     {
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        collision.rigidbody.velocity = new Vector3(0, 0, 0);
+        if (collision.transform.tag == "Magnetic")
+        {
+            collision.rigidbody.velocity = new Vector3(0, 0, 0);
+        }
     }
 
     private void OnCollisionExit(Collision collision)
     {
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        collision.rigidbody.velocity = new Vector3(0, 0, 0);
+        if (collision.transform.tag == "Magnetic")
+        {
+            collision.rigidbody.velocity = new Vector3(0, 0, 0);
+        }
     }
 }
