@@ -2419,7 +2419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29dbe6b60ced9a4cba1d4717a0ec3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Door: {fileID: 1160670512}
+  playerController: {fileID: 0}
 --- !u!23 &54282232
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6834,7 +6834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29dbe6b60ced9a4cba1d4717a0ec3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Door: {fileID: 284751441}
+  playerController: {fileID: 0}
 --- !u!23 &153517862
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11966,11 +11966,6 @@ Prefab:
 --- !u!4 &284751440 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4522722645786914, guid: d18792f01772f3549b1438c03413b43a,
-    type: 2}
-  m_PrefabInternal: {fileID: 284751439}
---- !u!1 &284751441 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1450891579260914, guid: d18792f01772f3549b1438c03413b43a,
     type: 2}
   m_PrefabInternal: {fileID: 284751439}
 --- !u!1001 &284845018
@@ -48443,6 +48438,23 @@ GameObject:
   m_PrefabParentObject: {fileID: 1450891579260914, guid: d18792f01772f3549b1438c03413b43a,
     type: 2}
   m_PrefabInternal: {fileID: 1160670510}
+--- !u!114 &1160670513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1160670512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414f567eb58bd3549963aaf6142dcf53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1160670514}
+--- !u!95 &1160670514 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95914985047588924, guid: d18792f01772f3549b1438c03413b43a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1160670510}
 --- !u!1001 &1161360990
 Prefab:
   m_ObjectHideFlags: 0
@@ -55950,6 +55962,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1361540318}
+  - component: {fileID: 1361540320}
+  - component: {fileID: 1361540319}
   m_Layer: 0
   m_Name: ElevatorButton
   m_TagString: Untagged
@@ -55973,6 +55987,34 @@ Transform:
   m_Father: {fileID: 985210668}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1361540319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1361540317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ca47b2fb46b741b76adc293c36f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1361540320}
+  gatePlayerController: {fileID: 1361540320}
+--- !u!114 &1361540320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1361540317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed0abae8b658a1499314b127ae4d29c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameras: []
+  movementController: {fileID: 1361540319}
+  uiController: {fileID: 0}
+  animation: {fileID: 1160670513}
 --- !u!224 &1361712685 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224302233019464442, guid: b4dfe643212d4d145b7c4212c0aa8ac2,
