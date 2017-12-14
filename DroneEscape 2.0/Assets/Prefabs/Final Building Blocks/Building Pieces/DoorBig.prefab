@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 4772418317614152}
   - component: {fileID: 33172646855459412}
   - component: {fileID: 23830800388098338}
+  - component: {fileID: 64738261087095576}
   m_Layer: 0
   m_Name: WallDoorPostBigHole
   m_TagString: Untagged
@@ -57,6 +58,7 @@ GameObject:
   - component: {fileID: 4961743976522816}
   - component: {fileID: 33520528420211140}
   - component: {fileID: 23793070073996816}
+  - component: {fileID: 65771249842400378}
   m_Layer: 0
   m_Name: DoorInsideSmall003 (1)
   m_TagString: Untagged
@@ -93,6 +95,7 @@ GameObject:
   - component: {fileID: 4786533729155700}
   - component: {fileID: 33098669136251322}
   - component: {fileID: 23262002628797168}
+  - component: {fileID: 65126712034539610}
   m_Layer: 0
   m_Name: DoorInsideSmall003
   m_TagString: Untagged
@@ -374,6 +377,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744190214121190}
   m_Mesh: {fileID: 4300008, guid: 8d298d61165b0c044aed8f088a455464, type: 3}
+--- !u!64 &64738261087095576
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1379510784460588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300006, guid: 8d298d61165b0c044aed8f088a455464, type: 3}
 --- !u!64 &64866633548424934
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -388,6 +405,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: 8d298d61165b0c044aed8f088a455464, type: 3}
+--- !u!65 &65126712034539610
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1773093041029768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1594863, y: 1.0288951, z: 8.04217}
+  m_Center: {x: 1.4304414, y: 0, z: 4.021084}
 --- !u!65 &65261694032146278
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -400,6 +429,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65771249842400378
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553817640710876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1594863, y: 1.0288951, z: 8.04217}
+  m_Center: {x: 1.4304414, y: 0, z: 4.021084}
 --- !u!95 &95553183703947640
 Animator:
   serializedVersion: 3
