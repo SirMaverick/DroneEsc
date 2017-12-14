@@ -34,7 +34,8 @@ public class ElevatorMovementController : MovementController
             elevatorSound.setParameterValue("ElevatorStart", 1.0f);
             elevatorSound.setParameterValue("ElevatorLoop", 1.0f);
             elevatorSound.setParameterValue("ElevatorStop", 0.0f);
-            if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+            elevatorSound.getPlaybackState(out playback);
+            if ( playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
 
             } else {
                 elevatorSound.start();
