@@ -17,10 +17,12 @@ public class MagnetMove : MonoBehaviour {
         if(!turnedOn) {
             ReleaseObjects();
         }
-        foreach (GameObject drone in listOfMagneticObjects) {
-            if(drone.transform.position.y < transform.position.y - 2f)
-            drone.transform.Translate(0, Time.deltaTime * speed, 0, Space.World);
-            drone.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);    
+        foreach (GameObject magnetic in listOfMagneticObjects) {
+            if (magnetic.transform.position.y < transform.position.y - 2f)
+            {
+                magnetic.transform.Translate(0, Time.deltaTime * speed, 0, Space.World);
+            }
+            magnetic.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);    
         }
 
     }
@@ -80,5 +82,27 @@ public class MagnetMove : MonoBehaviour {
 
     private void OnTriggerExit(Collider other) {
         if(other.transform.tag == "Drone" || other.transform.tag == "Magnetic") ReleaseObject(other.gameObject);     
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        collision.rigidbody.velocity = new Vector3(0, 0, 0);
+        if(collision.transform.tag == "Magnetic")
+        {
+            collision.transform.position -= new Vector3(0, Time.deltaTime * speed * 3, 0);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        collision.rigidbody.velocity = new Vector3(0, 0, 0);
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        collision.rigidbody.velocity = new Vector3(0, 0, 0);
     }
 }
