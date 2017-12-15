@@ -8,12 +8,13 @@ public class DoorOpener : MonoBehaviour {
     private Animator _animator;
     [SerializeField] private float timeBeforeClose;
     [SerializeField] private GameObject Door;
+    [SerializeField] private bool doorOpen;
 
     private FMOD.Studio.EventDescription description;
 
     private FMOD.Studio.EventInstance doorSound;
     private FMOD.Studio.PLAYBACK_STATE playback;
-    private int audioLength;
+    private float audioLength;
     bool startSound, stopSound;
         
     // Use this for initialization
@@ -21,8 +22,6 @@ public class DoorOpener : MonoBehaviour {
         doorSound = RuntimeManager.CreateInstance("event:/SFX/Door/DoorOpenAndClose");
         RuntimeManager.AttachInstanceToGameObject(doorSound, transform, GetComponent<Rigidbody>());
 
-        doorSound.getDescription(out description);
-        description.getLength(out audioLength);
         _animator = Door.GetComponent<Animator>();
         _animator.SetBool("openDoor", false);
     }
@@ -31,8 +30,13 @@ public class DoorOpener : MonoBehaviour {
     {
         if(other.tag == "Drone" || other.tag == "NPCDrone")
         {
-            _animator.SetBool("openDoor", true);
-            StartCoroutine(OpenDoor(audioLength));
+            if (doorOpen) {
+                _animator.SetBool("openDoor", true);
+                StartCoroutine(OpenDoor());
+            } else {
+                StartCoroutine(DenyDoor());
+            }
+
 
         }
     }
@@ -44,31 +48,55 @@ public class DoorOpener : MonoBehaviour {
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Drone" || other.tag == "NPCDrone") {
-            StartCoroutine(DoorCloser(audioLength));
+            if(doorOpen)
+            StartCoroutine(DoorCloser());
         }
          
     }
 
-    IEnumerator DoorCloser(float audioTime)
-    {
+    private float GetAudioLength(FMOD.Studio.EventInstance sound) {
+        FMOD.Studio.EventDescription _description;
+        int _audioLength;
+        sound.getDescription(out _description);
+        _description.getLength(out _audioLength);
 
+        return _audioLength / 1000.0f;
+    }
+
+    IEnumerator DoorCloser()
+    {
         yield return new WaitForSeconds(timeBeforeClose);
         _animator.SetBool("openDoor", false);
+        doorSound = RuntimeManager.CreateInstance("event:/SFX/Door/DoorOpenAndClose");
         RuntimeManager.AttachInstanceToGameObject(doorSound, transform, GetComponent<Rigidbody>());
         doorSound.setParameterValue("MainDoorClose", 1.0f);
         doorSound.setParameterValue("MainDoorOpen", 0.0f);
+        audioLength = GetAudioLength(doorSound);
         doorSound.start();
-        yield return new WaitForSeconds(audioTime / 1000.0f);
+        yield return new WaitForSeconds(audioLength);
         doorSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
     }
 
-    IEnumerator OpenDoor(float audioTime) {
+    IEnumerator OpenDoor() {
+        doorSound = RuntimeManager.CreateInstance("event:/SFX/Door/DoorOpenAndClose");
         RuntimeManager.AttachInstanceToGameObject(doorSound, transform, GetComponent<Rigidbody>());
         doorSound.setParameterValue("MainDoorClose", 0.0f);
         doorSound.setParameterValue("MainDoorOpen", 1.0f);
+        audioLength = GetAudioLength(doorSound);
+        print(audioLength);
         doorSound.start();
-        yield return new WaitForSeconds(audioTime / 1000.0f);
+        yield return new WaitForSeconds(audioLength);
+        doorSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
+    IEnumerator DenyDoor() {
+        doorSound = RuntimeManager.CreateInstance("event:/SFX/Door/DoorDenied");
+        RuntimeManager.AttachInstanceToGameObject(doorSound, transform, GetComponent<Rigidbody>());
+        doorSound.setParameterValue("DoorDenied", 1.0f);
+        audioLength = GetAudioLength(doorSound);
+        doorSound.start();
+        yield return new WaitForSeconds(audioLength);
         doorSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 }

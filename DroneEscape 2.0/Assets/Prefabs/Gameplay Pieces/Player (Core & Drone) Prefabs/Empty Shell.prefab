@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4976064518862320}
   - component: {fileID: 95050652843579066}
   - component: {fileID: 54371125597894312}
+  - component: {fileID: 114661773118823690}
   - component: {fileID: 114966095952728582}
   - component: {fileID: 136932867207464868}
   - component: {fileID: 114756896674703608}
@@ -1611,6 +1612,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 0
   startPulse: 0
+--- !u!114 &114661773118823690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1058202883371062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333c3ba15afa2cb48868054be64a5b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114756896674703608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1641,6 +1653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 95737639386274368}
+  droneSounds: {fileID: 0}
   playerController: {fileID: 114012188203034978}
 --- !u!114 &114966095952728582
 MonoBehaviour:
@@ -1661,6 +1674,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 5
   rotated: 0
+  useNavMesh: 1
 --- !u!124 &124855318540748206
 Behaviour:
   m_ObjectHideFlags: 1
