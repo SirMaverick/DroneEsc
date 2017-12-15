@@ -5,12 +5,18 @@ using UnityEngine;
 public class DroneArmsAnimation : MonoBehaviour
 {
     [SerializeField] Animator animator;
+    [SerializeField]
+    DroneSounds droneSounds;
     bool forwards = false;
     bool backwards = false;
     bool shoot = false;
     bool shootReady = false;
 
     bool insertIntoMachine = false;
+
+    
+
+
 
     //used for call backs
     [SerializeField] DronePlayerController playerController;
@@ -113,6 +119,7 @@ public class DroneArmsAnimation : MonoBehaviour
     public void InsertIntoMachineDone()
     {
         // event from animation
+        droneSounds.InsertIntoMachineSound();
         playerController.AnimationInsertIntoMachineDone();
     }
 
@@ -120,6 +127,7 @@ public class DroneArmsAnimation : MonoBehaviour
     {
         if (insertIntoMachine)
         {
+            droneSounds.ExitOutOfMachineSound();
             insertIntoMachine = false;
             animator.SetBool("InsertIntoMachine", insertIntoMachine);
             return true;
@@ -132,6 +140,8 @@ public class DroneArmsAnimation : MonoBehaviour
         // event from animation
         playerController.AnimationExitMachineDone();
     }
+
+    
 
 }
 
