@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
 class SystemArm : MonoBehaviour
 {
     private bool reachedTarget = true;
@@ -14,15 +17,18 @@ class SystemArm : MonoBehaviour
     [SerializeField]
     private float liftHeight = 3;
 
-    private GameObject targetDrone;
+    private CoreDrone targetDrone;
 
     private SystemPlayerController playerController;
 
+    private List<LiftDroneCallBack> callBacksLift;
+    private bool firstLift = true;
 
 
     private void Start()
     {
-        playerController = FindObjectOfType<SystemPlayerController>();    
+        playerController = FindObjectOfType<SystemPlayerController>();
+        callBacksLift = new List<LiftDroneCallBack>();
     }
 
     private void Update()
@@ -36,7 +42,7 @@ class SystemArm : MonoBehaviour
                 reachedTarget = true;
                 reachedRoof = false;
 
-
+                firstLift = true;
             } 
         }else if (!reachedRoof)
         {
@@ -49,7 +55,15 @@ class SystemArm : MonoBehaviour
                 if (targetDrone.transform.position.y < liftHeight)
                 {
                     targetDrone.transform.Translate(Vector3.up * Time.deltaTime * speed);
-                    
+                    if (firstLift)
+                    {
+                        foreach (LiftDroneCallBack callBack in callBacksLift)
+                        {
+                            callBack.CallBack();
+                        }
+                        firstLift = false;
+                        callBacksLift = new List<LiftDroneCallBack>();
+                    }
                 }
                 else
                 {
@@ -69,7 +83,7 @@ class SystemArm : MonoBehaviour
     }
 
 
-    public void MoveTo(GameObject target)
+    public void MoveTo(CoreDrone target)
     {
         // only do something if we are not tyring to lift or are lifting a drone.
         if (reachedRoof && reachedTarget)
@@ -83,5 +97,10 @@ class SystemArm : MonoBehaviour
             reachedTarget = false;
             droneLift = true;
         }
+    }
+
+    public void RegisterCallBack(LiftDroneCallBack callBack)
+    {
+        callBacksLift.Add(callBack);
     }
 }

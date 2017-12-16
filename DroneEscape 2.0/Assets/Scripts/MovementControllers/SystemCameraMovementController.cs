@@ -98,7 +98,7 @@ class SystemCameraMovementController : CameraMovementController
     {
         if (drone.IsAllowedToBePickup())
         {
-            systemArm.MoveTo(drone.gameObject);
+            systemArm.MoveTo(drone);
         }
 
     }
