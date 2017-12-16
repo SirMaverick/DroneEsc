@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 114312965814200674}
   - component: {fileID: 136823805001491328}
   - component: {fileID: 54355654634868422}
+  - component: {fileID: 114523802018720834}
   m_Layer: 0
   m_Name: Drone
   m_TagString: CoreDrone
@@ -707,7 +708,7 @@ Animator:
   m_GameObject: {fileID: 1206056412125944}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 87396a3a5609ab4428f1c681ccce31c8, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 709d7880857f17f4bb2519aad6737b7d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -743,6 +744,19 @@ MonoBehaviour:
   meshRenderer: {fileID: 137542533634529028}
   energy: {fileID: 114207422717640600}
   minEnergyToPickup: 10
+  coreDroneAnimation: {fileID: 114523802018720834}
+--- !u!114 &114523802018720834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206056412125944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bfc9c5a9ea45b4bbcc257ff54f9410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95271260101988034}
 --- !u!136 &136823805001491328
 CapsuleCollider:
   m_ObjectHideFlags: 1
