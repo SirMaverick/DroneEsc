@@ -11,7 +11,6 @@ public abstract class AbstractPlayerController : MonoBehaviour
     [SerializeField]
     protected MovementController movementController;
 
-    [SerializeField]
     protected UIController uiController;
 
     protected virtual void Start()
