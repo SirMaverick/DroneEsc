@@ -60,14 +60,16 @@ class SystemEnergyController : MonoBehaviour
 
     public void AddEnergyFromCore(CoreDrone coreDrone)
     {
-
-        energyLevelTotal += coreDrone.TakeEnergy();
-        energyLevelCurrent = energyLevelTotal - Time.time;
-        // limit the energy
-        if (energyLevelCurrent > maxEnergy)
+        if (systemMode)
         {
-            energyLevelTotal -= energyLevelCurrent - maxEnergy;
-            energyLevelCurrent -= energyLevelCurrent - maxEnergy;
+            energyLevelTotal += coreDrone.TakeEnergy();
+            energyLevelCurrent = energyLevelTotal - Time.time;
+            // limit the energy
+            if (energyLevelCurrent > maxEnergy)
+            {
+                energyLevelTotal -= energyLevelCurrent - maxEnergy;
+                energyLevelCurrent -= energyLevelCurrent - maxEnergy;
+            }
         }
     }
 }

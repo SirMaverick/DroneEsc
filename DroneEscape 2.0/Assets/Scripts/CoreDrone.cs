@@ -9,6 +9,8 @@ public class CoreDrone : MonoBehaviour, Selectable
 
     [SerializeField] float minEnergyToPickup = 20;
 
+    [SerializeField] CoreDroneAnimation coreDroneAnimation;
+
     public void Start()
     {
         if (IsAllowedToBePickup())
@@ -53,5 +55,15 @@ public class CoreDrone : MonoBehaviour, Selectable
     {
         meshRenderer.material.SetFloat("_Heartbeat", 0);
         return energy.TakeEnergy();
+    }
+
+    public void CaughtByArm()
+    {
+        coreDroneAnimation.CaughtByArm();
+    }
+
+    public void OtherDroneCaughtByArm()
+    {
+        coreDroneAnimation.Shocked();
     }
 }
