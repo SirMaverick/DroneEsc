@@ -87,13 +87,18 @@ class SystemArm : MonoBehaviour
     {
         if (targetDrone != null)
         {
-            MoveTo(targetDrone);
+            // check if the drone is allowed to be picked up (has enough energy)
+            if (targetDrone.IsAllowedToBePickup())
+            {
+                // MoveTo checks if the arm is allowed to pickup the drone
+                MoveTo(targetDrone);
+            }
         }
     }
 
     public void MoveTo(CoreDrone target)
     {
-        // only do something if we are not tyring to lift or are lifting a drone.
+        // only do something if we are not tyring to lift or are lifting a drone
         if (reachedRoof && reachedTarget)
         {
             targetDrone = target;
@@ -101,6 +106,7 @@ class SystemArm : MonoBehaviour
             targetPosition = target.transform.position;
             // length of the arm, yea ...
             targetPosition.y += 6.5f;
+            // Let the old y position be the same as the position it will start from and will move back to
             heightRoof = gameObject.transform.position.y;
             gameObject.transform.position = new Vector3(targetPosition.x, heightRoof, targetPosition.z);
             reachedTarget = false;
