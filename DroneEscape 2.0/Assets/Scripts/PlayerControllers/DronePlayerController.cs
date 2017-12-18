@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using FMODUnity;
     class DronePlayerController : AbstractPlayerController
     {
     [SerializeField]
@@ -67,6 +68,7 @@ using System.Collections;
             // dont move when displaying exiting machine animation
             movementController.enabled = false;
         }
+
     }
 
     public override void DisableController()
@@ -75,6 +77,7 @@ using System.Collections;
         armsMeshRenderer.enabled = false;
         droneMeshRenderer.enabled = true;
         emptyDrone.enabled = true;
+
         base.DisableController();
     }
 

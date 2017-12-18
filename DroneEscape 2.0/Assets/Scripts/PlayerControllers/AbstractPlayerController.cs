@@ -29,12 +29,15 @@ public abstract class AbstractPlayerController : MonoBehaviour
         camera.enabled = true;
         movementController.enabled = true;
         movementController.EnableController();
-        camera.GetComponent<AudioListener>().enabled = true;
         // Other possiblity was to override this function
         if (uiController != null)
         {
             uiController.EnableController();
         }
+        if (GetComponent<FMODUnity.StudioListener>() != null) {
+            GetComponent<FMODUnity.StudioListener>().enabled = true;
+        }
+
     }
 
     public virtual void DisableController()
@@ -44,11 +47,14 @@ public abstract class AbstractPlayerController : MonoBehaviour
         camera.enabled = false;
         movementController.DisableController();
         movementController.enabled = false;
-        camera.GetComponent<AudioListener>().enabled = false;
         if (uiController != null)
         {
             uiController.DisableController();
         }
+        if (GetComponent<FMODUnity.StudioListener>() != null) {
+            GetComponent<FMODUnity.StudioListener>().enabled = false;
+        }
+
     }
 
     public virtual void SwitchToNextCamera()
