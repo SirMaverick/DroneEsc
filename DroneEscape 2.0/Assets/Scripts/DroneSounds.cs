@@ -5,56 +5,79 @@ using FMODUnity;
 public class DroneSounds : MonoBehaviour {
 
 
-    private FMOD.Studio.EventInstance playSound;
+    private FMOD.Studio.EventInstance actionSound;
+    private FMOD.Studio.EventInstance moveSound;
     private FMOD.Studio.PLAYBACK_STATE playback;
     private FMOD.Studio.EventDescription description;
     private int insertMachineLength, shootChargeLength;
 
     public void InsertIntoMachineSound() {
-        playSound = RuntimeManager.CreateInstance("event:/SFX/Core/CoreInsertIntoMachine");
-        RuntimeManager.AttachInstanceToGameObject(playSound, transform, GetComponent<Rigidbody>());
-        playSound.setParameterValue("CoreInsertIn", 1.0f);
-        playSound.getDescription(out description);
+        actionSound = RuntimeManager.CreateInstance("event:/SFX/Core/CoreInsertIntoMachine");
+        RuntimeManager.AttachInstanceToGameObject(actionSound, transform, GetComponent<Rigidbody>());
+        actionSound.setParameterValue("CoreInsertIn", 1.0f);
+        actionSound.getDescription(out description);
         description.getLength(out insertMachineLength);
-        playSound.start();
-        StartCoroutine(TurnOffAudio(insertMachineLength));
+        actionSound.start();
+        StartCoroutine(TurnOffAudio(insertMachineLength, actionSound));
     }
 
     public void ExitOutOfMachineSound() {
-        playSound = RuntimeManager.CreateInstance("event:/SFX/Core/CoreInsertIntoMachine");
-        RuntimeManager.AttachInstanceToGameObject(playSound, transform, GetComponent<Rigidbody>());
-        playSound.setParameterValue("CoreInsertOut", 1.0f);
-        playSound.getDescription(out description);
+        actionSound = RuntimeManager.CreateInstance("event:/SFX/Core/CoreInsertIntoMachine");
+        RuntimeManager.AttachInstanceToGameObject(actionSound, transform, GetComponent<Rigidbody>());
+        actionSound.setParameterValue("CoreInsertOut", 1.0f);
+        actionSound.getDescription(out description);
         description.getLength(out insertMachineLength);
-        playSound.start();
-        StartCoroutine(TurnOffAudio(insertMachineLength));
+        actionSound.start();
+        StartCoroutine(TurnOffAudio(insertMachineLength, actionSound));
     }
 
     public void StartChargeSound() {
-        playSound = RuntimeManager.CreateInstance("event:/SFX/Drone/ChargeAndShoot/DroneCharge");
-        RuntimeManager.AttachInstanceToGameObject(playSound, transform, GetComponent<Rigidbody>());
-        playSound.setParameterValue("Charge!", 1.0f);
-        playSound.setParameterValue("Charge Loop", 1.0f);
-        playSound.getDescription(out description);
+        actionSound = RuntimeManager.CreateInstance("event:/SFX/Drone/ChargeAndShoot/DroneCharge");
+        RuntimeManager.AttachInstanceToGameObject(actionSound, transform, GetComponent<Rigidbody>());
+        actionSound.setParameterValue("Charge!", 1.0f);
+        actionSound.setParameterValue("Charge Loop", 1.0f);
+        actionSound.getDescription(out description);
         description.getLength(out shootChargeLength);
-        playSound.start();
-        StartCoroutine(TurnOffAudio(shootChargeLength));
+        actionSound.start();
+        StartCoroutine(TurnOffAudio(shootChargeLength, actionSound));
     }
 
     public void StartShootSound() {
-        playSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        playSound = RuntimeManager.CreateInstance("event:/SFX/Drone/ChargeAndShoot/DroneShoot");
-        RuntimeManager.AttachInstanceToGameObject(playSound, transform, GetComponent<Rigidbody>());
-        playSound.setParameterValue("Shoot", 1.0f);
-        playSound.getDescription(out description);
+        actionSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        actionSound = RuntimeManager.CreateInstance("event:/SFX/Drone/ChargeAndShoot/DroneShoot");
+        RuntimeManager.AttachInstanceToGameObject(actionSound, transform, GetComponent<Rigidbody>());
+        actionSound.setParameterValue("Shoot", 1.0f);
+        actionSound.getDescription(out description);
         description.getLength(out shootChargeLength);
-        playSound.start();
-        StartCoroutine(TurnOffAudio(shootChargeLength));
+        actionSound.start();
+        StartCoroutine(TurnOffAudio(shootChargeLength, actionSound));
     }
 
-    IEnumerator TurnOffAudio(float audioTime) {
+    public void StartMoveSound() {
+        moveSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        moveSound = RuntimeManager.CreateInstance("event:/SFX/Drone/Walking/DroneWalk4");
+        RuntimeManager.AttachInstanceToGameObject(moveSound, transform, GetComponent<Rigidbody>());
+        moveSound.setParameterValue("StartWalking", 1.0f);
+        moveSound.setParameterValue("StopWalking", 0.0f);
+        moveSound.setParameterValue("KeepWalking", 1.0f);
+        moveSound.getDescription(out description);
+        description.getLength(out shootChargeLength);
+        moveSound.start();
+        StartCoroutine(TurnOffParameter(shootChargeLength, "StartWalking", 0.0f, moveSound));
+    }
+
+    public void StopMoveSound() {
+        StartCoroutine(TurnOffAudio(0, moveSound));
+    }
+
+    IEnumerator TurnOffAudio(float audioTime, FMOD.Studio.EventInstance source) {
         yield return new WaitForSeconds(audioTime / 1000.0f);
-        playSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        source.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
+    IEnumerator TurnOffParameter(float audioTime, string parameterName, float value, FMOD.Studio.EventInstance source) {
+        yield return new WaitForSeconds(audioTime / 1000.0f);
+        source.setParameterValue(parameterName, value);
     }
 
 
