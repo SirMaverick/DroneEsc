@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-class NewSystemPlayerController : AbstractPlayerController
+class NewSystemPlayerController : AbstractPlayerController, LiftDroneCallBack
 {
 
 
@@ -25,6 +25,8 @@ class NewSystemPlayerController : AbstractPlayerController
         energyController = GetComponent<SystemEnergyController>();
 
         coreDrones = FindObjectsOfType<CoreDrone>();
+
+        base.Start();
 
     }
 
@@ -52,6 +54,12 @@ class NewSystemPlayerController : AbstractPlayerController
         energyController.AddEnergyFromCore(coreDrone);
     }
 
+    public void GiveEnergy(CoreDrone coreDrone)
+    {
+        this.coreDrone = coreDrone;
+        GiveEnergy();
+    }
+
     private void EnableAllCoreDrones()
     {
         foreach(CoreDrone cDrone in coreDrones)
@@ -63,5 +71,10 @@ class NewSystemPlayerController : AbstractPlayerController
     private void MoveArmToPosition(Vector3 position)
     {
         systemArm.transform.position = position;
+    }
+
+    public void CallBack()
+    {
+        coreDrone.GetComponent<CoreDroneAnimation>().CaughtByArm();
     }
 }

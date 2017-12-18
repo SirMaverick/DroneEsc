@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
-class NewSystemMovementController : MovementController
+class NewSystemMovementController : MovementController, LiftDroneCallBack
 {
     private GameObject systemArmObject;
     [SerializeField] private float movementSpeed = 5.0f;
+
     private SystemArm systemArm;
+    private NewSystemPlayerController newSystemPlayerController;
 
     protected override void Start()
     {
         base.Start();
         systemArm = FindObjectOfType<SystemArm>();
-        systemArmObject = systemArm.gameObject; 
+        systemArmObject = systemArm.gameObject;
+        newSystemPlayerController = GetComponent<NewSystemPlayerController>();
     }
 
 
@@ -37,10 +40,19 @@ class NewSystemMovementController : MovementController
     {
         if (key)
         {
-            systemArm.PickUpDrone();
+            bool success = systemArm.PickUpDrone();
+            if (success)
+            {
+                systemArm.RegisterCallBack(this);
+                systemArm.RegisterCallBack(newSystemPlayerController);
+                enabled = false;
+            }
         }
     }
 
-
+    public void CallBack()
+    {
+        enabled = true;
+    }
 }
 

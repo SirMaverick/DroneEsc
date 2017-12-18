@@ -20,7 +20,7 @@ class SystemArm : MonoBehaviour
 
     private CoreDrone targetDrone;
 
-    private SystemPlayerController playerController;
+    private NewSystemPlayerController playerController;
 
     private List<LiftDroneCallBack> callBacksLift;
     private bool firstLift = true;
@@ -28,7 +28,7 @@ class SystemArm : MonoBehaviour
 
     private void Start()
     {
-        playerController = FindObjectOfType<SystemPlayerController>();
+        playerController = FindObjectOfType<NewSystemPlayerController>();
         callBacksLift = new List<LiftDroneCallBack>();
     }
 
@@ -58,6 +58,7 @@ class SystemArm : MonoBehaviour
                     targetDrone.transform.Translate(Vector3.up * Time.deltaTime * speed);
                     if (firstLift)
                     {
+                        playerController.SetCoreDrone(targetDrone);
                         foreach (LiftDroneCallBack callBack in callBacksLift)
                         {
                             callBack.CallBack();
@@ -83,7 +84,7 @@ class SystemArm : MonoBehaviour
         }
     }
 
-    public void PickUpDrone()
+    public bool PickUpDrone()
     {
         if (targetDrone != null)
         {
@@ -91,12 +92,13 @@ class SystemArm : MonoBehaviour
             if (targetDrone.IsAllowedToBePickup())
             {
                 // MoveTo checks if the arm is allowed to pickup the drone
-                MoveTo(targetDrone);
+                return MoveTo(targetDrone);
             }
         }
+        return false;
     }
 
-    public void MoveTo(CoreDrone target)
+    public bool MoveTo(CoreDrone target)
     {
         // only do something if we are not tyring to lift or are lifting a drone
         if (reachedRoof && reachedTarget)
@@ -111,8 +113,9 @@ class SystemArm : MonoBehaviour
             gameObject.transform.position = new Vector3(targetPosition.x, heightRoof, targetPosition.z);
             reachedTarget = false;
             droneLift = true;
-            
+            return true;
         }
+        return false;
     }
 
     public void RegisterCallBack(LiftDroneCallBack callBack)
@@ -136,7 +139,29 @@ class SystemArm : MonoBehaviour
     {
         if (reachedRoof && reachedTarget)
         {
-            targetDrone = null;
+            CoreDrone coreDrone = other.GetComponent<CoreDrone>();
+            if (coreDrone != null)
+            {
+                if (targetDrone == coreDrone)
+                {
+                    targetDrone = null;
+                }
+            }
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+    }
+
+
 }
