@@ -28,7 +28,7 @@ RenderSettings:
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 2b4eeb16a6017bb4c932097acf38943d, type: 2}
   m_HaloStrength: 0.5
-  m_FlareStrength: 1
+  m_FlareStrength: 0.112
   m_FlareFadeSpeed: 1
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.76180536, g: 0.78125566, b: 0.7687695, a: 1}
+  m_IndirectSpecularColor: {r: 0.76182115, g: 0.78127193, b: 0.76878285, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5426,6 +5426,9 @@ MonoBehaviour:
   showList:
   - {fileID: 1628051679}
   magnetMove: {fileID: 1636966306}
+  guardFOV: {fileID: 0}
+  left: 0
+  right: 0
 --- !u!1 &109406337
 GameObject:
   m_ObjectHideFlags: 0
@@ -15908,6 +15911,9 @@ MonoBehaviour:
   showList:
   - {fileID: 1383092187}
   magnetMove: {fileID: 1636966306}
+  guardFOV: {fileID: 0}
+  left: 0
+  right: 0
 --- !u!1 &324608669 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1629300067849442, guid: 6b98d60caf587874288a3b647c13c237,
@@ -17947,6 +17953,12 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &368113052 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114286325289068748, guid: ebada88d1e90bce46ab2df9dd27c49ea,
+    type: 2}
+  m_PrefabInternal: {fileID: 1790557932}
+  m_Script: {fileID: 11500000, guid: 5797f6d3455e70147a55f5f2784b9c35, type: 3}
 --- !u!4 &368269248 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4506988753501834, guid: a6760e49551035a40b1cdc323bbb855b,
@@ -25108,6 +25120,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114431193808725782, guid: e1a006bae1ba1164581c93bf84767b99,
+        type: 2}
+      propertyPath: guardFOV
+      value: 
+      objectReference: {fileID: 368113052}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1a006bae1ba1164581c93bf84767b99, type: 2}
   m_IsPrefabParent: 0

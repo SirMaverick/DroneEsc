@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4221804921406726}
   - component: {fileID: 20292739605506956}
   - component: {fileID: 81185341161090756}
+  - component: {fileID: 114040890977779872}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -70,8 +71,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4360636710069106}
-  - component: {fileID: 114866412768816186}
-  - component: {fileID: 114815623403330912}
   m_Layer: 0
   m_Name: SystemCamera
   m_TagString: Untagged
@@ -156,16 +155,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1234552067988952}
-  m_LocalRotation: {x: -0.27059805, y: 0.6532815, z: -0.27059805, w: -0.6532815}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.92523336, z: -0.37939858, w: 0}
+  m_LocalPosition: {x: -0.1, y: 15.9, z: -19.55}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000002}
   m_Children:
   - {fileID: 4154906356616434}
   - {fileID: 4291403251679456}
   - {fileID: 4249658747768658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.593002, y: 180.00002, z: 0}
 --- !u!20 &20292739605506956
 Camera:
   m_ObjectHideFlags: 1
@@ -338,38 +337,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114815623403330912
+--- !u!114 &114040890977779872
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1234552067988952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f518e27e4f56d4a9927447572b7f2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameras:
-  - {fileID: 20292739605506956}
-  movementController: {fileID: 114866412768816186}
-  uiController: {fileID: 0}
---- !u!114 &114866412768816186
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1234552067988952}
+  m_GameObject: {fileID: 1154512669901472}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efcacc14ee47e548bb9591bbc5621f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 935d2b53457fa294b966ed80557c4c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 114815623403330912}
-  clampX: 30
-  clampY: 60
-  speed: 10
-  systemArm: {fileID: 0}
-  ownCamera: {fileID: 20292739605506956}
+  objectToLookAt: {fileID: 0}
+  rotationSpeed: 1
+  follow: 1
+  followSpeed: 2
 --- !u!136 &136303566969492376
 CapsuleCollider:
   m_ObjectHideFlags: 1
