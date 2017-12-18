@@ -8,7 +8,7 @@ public class DoorOpener : MonoBehaviour {
     private Animator _animator;
     [SerializeField] private float timeBeforeClose;
     [SerializeField] private GameObject Door;
-    [SerializeField] private bool doorOpen;
+    public bool doorOpen;
 
     private FMOD.Studio.EventDescription description;
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 class SystemArm : MonoBehaviour
 {
@@ -9,8 +10,8 @@ class SystemArm : MonoBehaviour
     private bool droneLift = true;
 
     private Vector3 targetPosition;
-    [SerializeField]
-    private Vector3 roofPosition;
+    //[SerializeField]
+    private float heightRoof;
 
     [SerializeField]
     private float speed = 5;
@@ -75,13 +76,20 @@ class SystemArm : MonoBehaviour
 
             }
             // Reached roof
-            if (gameObject.transform.position.y >= roofPosition.y)
+            if (gameObject.transform.position.y >= heightRoof)
             {
                 reachedRoof = true;
             }
         }
     }
 
+    public void PickUpDrone()
+    {
+        if (targetDrone != null)
+        {
+            MoveTo(targetDrone);
+        }
+    }
 
     public void MoveTo(CoreDrone target)
     {
@@ -93,14 +101,36 @@ class SystemArm : MonoBehaviour
             targetPosition = target.transform.position;
             // length of the arm, yea ...
             targetPosition.y += 6.5f;
-            gameObject.transform.position = new Vector3(targetPosition.x, roofPosition.y, targetPosition.z);
+            heightRoof = gameObject.transform.position.y;
+            gameObject.transform.position = new Vector3(targetPosition.x, heightRoof, targetPosition.z);
             reachedTarget = false;
             droneLift = true;
+            
         }
     }
 
     public void RegisterCallBack(LiftDroneCallBack callBack)
     {
         callBacksLift.Add(callBack);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (reachedRoof && reachedTarget)
+        {
+            CoreDrone coreDrone = other.GetComponent<CoreDrone>();
+            if (coreDrone != null)
+            {
+                targetDrone = coreDrone;
+            }
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (reachedRoof && reachedTarget)
+        {
+            targetDrone = null;
+        }
     }
 }
