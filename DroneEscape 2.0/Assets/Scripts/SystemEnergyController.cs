@@ -26,7 +26,7 @@ class SystemEnergyController : MonoBehaviour
     private void Start()
     {
         uiController = FindObjectOfType<SystemUIController>();
-        uiController.SetMaxEnergyLevel(energyLevelTotal);
+        uiController.SetMaxEnergyLevel(maxEnergy);
     }
 
     private void Update()
