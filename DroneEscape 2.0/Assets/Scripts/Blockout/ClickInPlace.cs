@@ -10,6 +10,9 @@ public class ClickInPlace : MonoBehaviour {
     private List<GameObject> showList = new List<GameObject>();
     [SerializeField]
     private MagnetMove magnetMove;
+    [SerializeField] private GuardFOV guardFOV;
+    [SerializeField] private bool left;
+    [SerializeField] private bool right;
     private bool hasBeenSet;
 
     private void Start() {
@@ -30,6 +33,16 @@ public class ClickInPlace : MonoBehaviour {
                 go.SetActive(true);
             }
             hasBeenSet = true;
+            if(guardFOV != null)
+            {
+                if (left)
+                {
+                    guardFOV.BlockLeft();
+                }else if (right)
+                {
+                    guardFOV.BlockRight();
+                }
+            }
             gameObject.SetActive(false);
         }
     }
