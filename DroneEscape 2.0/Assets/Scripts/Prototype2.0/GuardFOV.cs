@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 using FMOD;
+using System;
 
 class GuardFOV: MonoBehaviour
 {
@@ -40,9 +41,18 @@ class GuardFOV: MonoBehaviour
     private float minDetectionTime = 3;
 
     // fov visualation mesh
-    [SerializeField]
     private MeshRenderer cone;
+    [SerializeField]
+    private MeshRenderer coneLeft;
+    [SerializeField]
+    private MeshRenderer coneRight;
+    [SerializeField]
+    private MeshRenderer coneSmall;
+    [SerializeField]
+    private MeshRenderer coneFull;
 
+    private bool blockedRight = false;
+    private bool blockedLeft = false;
 
     // follow the player when it has been spotted by the camera (not caught yet)
     [SerializeField]
@@ -76,6 +86,7 @@ class GuardFOV: MonoBehaviour
 
     private void Start()
     {
+        cone = coneFull;
         defaultColor = cone.material.GetColor(defaultColorString);
         lineColor = cone.material.GetColor(lineColorString);
 
@@ -290,6 +301,41 @@ class GuardFOV: MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void BlockRight()
+    {
+        if (blockedLeft)
+        {
+            coneSmall.enabled = true;
+            cone.enabled = false;
+            cone = coneSmall;
+        }
+        else
+        {
+            coneLeft.enabled = true;
+            cone.enabled = false;
+            cone = coneLeft;
+        }
+        blockedRight = true;
+    }
+
+
+    public void BlockLeft()
+    {
+        if (blockedRight)
+        {
+            coneSmall.enabled = true;
+            cone.enabled = false;
+            cone = coneSmall;
+        }
+        else
+        {
+            coneRight.enabled = true;
+            cone.enabled = false;
+            cone = coneRight;
+        }
+        blockedLeft = true;
     }
 
 

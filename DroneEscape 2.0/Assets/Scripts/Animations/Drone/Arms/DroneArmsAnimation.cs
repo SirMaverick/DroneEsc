@@ -34,6 +34,8 @@ public class DroneArmsAnimation : MonoBehaviour
                 backwards = false;
                 animator.SetFloat("BackwardsAnimSpeedMultiplier", -1);
                 animator.SetBool("WalkBackwards", backwards);
+            } else {
+                droneSounds.StartMoveSound();
             }
 
             forwards = true;
@@ -56,8 +58,10 @@ public class DroneArmsAnimation : MonoBehaviour
                 forwards = false;
                 animator.SetFloat("ForwardsAnimSpeedMultiplier", -1);
                 animator.SetBool("WalkForwards", forwards);
+            } else {
+                droneSounds.StartMoveSound();
             }
-            
+
             backwards = true;
             animator.SetFloat("BackwardsAnimSpeedMultiplier", 1);
             animator.SetBool("WalkBackwards", backwards);
@@ -69,6 +73,7 @@ public class DroneArmsAnimation : MonoBehaviour
     {
         if (forwards)
         {
+            droneSounds.StopMoveSound();
             forwards = false;
             animator.SetFloat("ForwardsAnimSpeedMultiplier", -1);
             animator.SetBool("WalkForwards", forwards);
@@ -76,6 +81,7 @@ public class DroneArmsAnimation : MonoBehaviour
         }
         if (backwards)
         {
+            droneSounds.StopMoveSound();
             backwards = false;
             animator.SetFloat("BackwardsAnimSpeedMultiplier", -1);
             animator.SetBool("WalkBackwards", backwards);
@@ -88,6 +94,7 @@ public class DroneArmsAnimation : MonoBehaviour
         {
             shoot = false;
             animator.SetBool("Shoot", shoot);
+            droneSounds.StartChargeSound();
             shootReady = true;
             animator.SetBool("ShootReady", shootReady);
         }
@@ -99,6 +106,7 @@ public class DroneArmsAnimation : MonoBehaviour
         {
             shoot = true;
             animator.SetBool("Shoot", shoot);
+            droneSounds.StartShootSound();
             shootReady = false;
             animator.SetBool("ShootReady", shootReady);
         }

@@ -84,6 +84,7 @@ using FMODUnity;
     public void ShootReady()
     {
         animationDroneArms.ShootReady();
+        
     }
     public void Throw()
     {
