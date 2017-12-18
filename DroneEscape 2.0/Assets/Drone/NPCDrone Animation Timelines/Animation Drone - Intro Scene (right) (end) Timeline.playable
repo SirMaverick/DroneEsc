@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 337831424, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
-  m_Name: Animation Drone - Intro Scene (left) (unobtain) (2) Timeline
+  m_Name: Animation Drone - Intro Scene (right) (end) Timeline
   m_EditorClassIdentifier: 
   m_NextId: 0
   m_Tracks:
   - {fileID: 114127360658364638}
-  m_FixedDuration: 18.016666666666666
+  m_FixedDuration: 28.683333333333334
   m_EditorSettings:
     fps: 60
   m_DurationMode: 1
@@ -95,11 +95,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 2
+    m_PostExtrapolationTime: 14.916666666666668
     m_PreExtrapolationTime: 0
     m_DisplayName: ActivateSingleStartingFrame
     m_Version: 1
-  - m_Start: 6.583333333333333
+  - m_Start: 19.5
     m_ClipIn: 0
     m_Asset: {fileID: 114445826824710936}
     m_UnderlyingAsset: {fileID: 7400000, guid: 6c9fd2be0e2ac1c49a373b97c8ffaf38, type: 3}
@@ -109,7 +109,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 0.1666666666666652
+    m_BlendOutDuration: 0.1666666666666643
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
@@ -118,7 +118,19 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -133,7 +145,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Activate1
     m_Version: 1
-  - m_Start: 7.500000000000001
+  - m_Start: 20.416666666666668
     m_ClipIn: 0
     m_Asset: {fileID: 114959736130292786}
     m_UnderlyingAsset: {fileID: 7400000, guid: dc869ee3028fedf4cb3adfdf6c499283, type: 3}
@@ -142,7 +154,7 @@ MonoBehaviour:
     m_ParentTrack: {fileID: 114127360658364638}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.1666666666666652
+    m_BlendInDuration: 0.1666666666666643
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -175,11 +187,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 2
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 1.283333333333335
+    m_PostExtrapolationTime: 1.2833333333333314
     m_PreExtrapolationTime: 0
     m_DisplayName: Walk
     m_Version: 1
-  - m_Start: 9.583333333333336
+  - m_Start: 22.5
     m_ClipIn: 0
     m_Asset: {fileID: 114180828230231468}
     m_UnderlyingAsset: {fileID: 7400000, guid: 5bd12567c497d0a41a7a7c20f8b6c99d, type: 3}
@@ -189,7 +201,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 0.16666666666666785
+    m_BlendOutDuration: 0.1666666666666643
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
@@ -225,7 +237,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: NPCPickUpCore
     m_Version: 1
-  - m_Start: 12.916666666666668
+  - m_Start: 25.833333333333336
     m_ClipIn: 0
     m_Asset: {fileID: 114142999322014802}
     m_UnderlyingAsset: {fileID: 7400000, guid: dc869ee3028fedf4cb3adfdf6c499283, type: 3}
@@ -234,11 +246,23 @@ MonoBehaviour:
     m_ParentTrack: {fileID: 114127360658364638}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.16666666666666785
+    m_BlendInDuration: 0.1666666666666643
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
