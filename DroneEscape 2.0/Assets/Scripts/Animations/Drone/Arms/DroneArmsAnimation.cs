@@ -88,6 +88,7 @@ public class DroneArmsAnimation : MonoBehaviour
         {
             shoot = false;
             animator.SetBool("Shoot", shoot);
+            droneSounds.StartChargeSound();
             shootReady = true;
             animator.SetBool("ShootReady", shootReady);
         }
@@ -99,6 +100,7 @@ public class DroneArmsAnimation : MonoBehaviour
         {
             shoot = true;
             animator.SetBool("Shoot", shoot);
+            droneSounds.StartShootSound();
             shootReady = false;
             animator.SetBool("ShootReady", shootReady);
         }
