@@ -9,11 +9,12 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
     [SerializeField] private Transform startPosition;
     [SerializeField] private Transform endPosition;
     [SerializeField] private float speed = 2.0f;
+    [SerializeField] private float initialWaitTime = 0.0f;
     private int index = 0;
 
     // Use this for initialization
     void Start () {
-        StartCoroutine(SpawnItem());
+        StartCoroutine(Wait(initialWaitTime));
     }
 	
 	// Update is called once per frame
@@ -30,7 +31,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
 
     IEnumerator SpawnItem()
     {
-        items[index].GetComponent<Renderer>().enabled = true;
+        items[index].GetComponentInChildren<Renderer>().enabled = true;
         items[index].transform.position = startPosition.position;
         yield return new WaitForSeconds(spawnDelay);
         index++;
@@ -38,6 +39,12 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
         {
             index = 0;
         }
+        StartCoroutine(SpawnItem());
+    }
+
+    IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
         StartCoroutine(SpawnItem());
     }
 }
