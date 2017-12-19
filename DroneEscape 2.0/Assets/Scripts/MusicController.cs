@@ -7,11 +7,13 @@ public class MusicController : MonoBehaviour {
     public string eventName;
     public FMOD.Studio.EventInstance backgroundMusic;
     FMOD.Studio.EventDescription backgroundDescription;
+    GameObject core;
 
     // Use this for initialization
     void Start() {
+        core = GameObject.Find("Core");
         backgroundMusic = RuntimeManager.CreateInstance("event:/Music/" + eventName);
-        RuntimeManager.AttachInstanceToGameObject(backgroundMusic, transform, GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(backgroundMusic, core.transform, core.GetComponent<Rigidbody>());
         backgroundMusic.start();
     }
 
@@ -30,5 +32,10 @@ public class MusicController : MonoBehaviour {
             RuntimeManager.AttachInstanceToGameObject(backgroundMusic, transform, GetComponent<Rigidbody>());
             backgroundMusic.start();
         }
+    }
+
+    public void RemoveMusic() {
+        backgroundMusic.release();
+        backgroundMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 }
