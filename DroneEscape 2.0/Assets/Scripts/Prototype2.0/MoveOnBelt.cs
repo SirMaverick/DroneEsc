@@ -41,11 +41,8 @@ public class MoveOnBelt : MonoBehaviour {
     }
 
     public IEnumerator MoveObject() {
-        print("hi");
         move = true;
-        yield return new WaitForSeconds(1.5f);
-        move = false;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.1f);
         if (start == false) {
             StopMoving();
         } else {
