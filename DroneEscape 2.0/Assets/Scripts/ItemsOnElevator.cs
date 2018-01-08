@@ -17,10 +17,10 @@ public class ItemsOnElevator : MonoBehaviour {
     void Update()
     {
         if (enableElevator) { 
-            foreach (GameObject drone in items)
+            foreach (GameObject item in items)
             {
                 //if (drone.transform.position.y < transform.position.y - 2f)
-                drone.transform.Translate(0, Time.deltaTime * speed, 0, Space.World);
+                item.transform.Translate(0, Time.deltaTime * speed, 0, Space.World);
             }
         }
 
