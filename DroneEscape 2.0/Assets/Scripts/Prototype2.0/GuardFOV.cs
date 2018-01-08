@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
-using FMOD;
+using FMODUnity;
 using System;
 
 class GuardFOV: MonoBehaviour
@@ -53,6 +53,14 @@ class GuardFOV: MonoBehaviour
 
     private bool blockedRight = false;
     private bool blockedLeft = false;
+
+    private bool spottedAudioPlaying = false;
+    private bool moveAudioPlaying = false;
+
+    private FMOD.Studio.EventInstance cameraSound;
+    private FMOD.Studio.PLAYBACK_STATE playback;
+    private FMOD.Studio.EventDescription description;
+    private int audioLength;
 
     // follow the player when it has been spotted by the camera (not caught yet)
     [SerializeField]
@@ -183,6 +191,9 @@ class GuardFOV: MonoBehaviour
         }   
         else
         {
+            if(!moveAudioPlaying) {
+               // StartMoveAudio();
+            }
             if (done)
             {
                 if (Time.time >= nextTime)
@@ -227,6 +238,9 @@ class GuardFOV: MonoBehaviour
     {
         GetComponentInParent<MeshRenderer>().material.color = detectionDefaultColor;
         GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", detectionDefaultColor);
+        if(!spottedAudioPlaying) {
+           // StartWarnAudio();
+        }
     }
 
     private void colorNotSpotted()
@@ -249,6 +263,32 @@ class GuardFOV: MonoBehaviour
         cone.enabled = true;
         isDisabled = false;
        // Debug.Log("enabled");
+    }
+
+    private void StartMoveAudio() {
+        moveAudioPlaying = true;
+        spottedAudioPlaying = false;
+        cameraSound = RuntimeManager.CreateInstance("event:/SFX/Camera/CameraMovements");
+        RuntimeManager.AttachInstanceToGameObject(cameraSound, transform, GetComponent<Rigidbody>());
+        cameraSound.setParameterValue("CameraMov2", 1.0f);
+        cameraSound.setParameterValue("CameraWarn", 1.0f);
+        cameraSound.getDescription(out description);
+        description.getLength(out audioLength);
+        cameraSound.start();
+    }
+
+    private void StartWarnAudio() {
+        spottedAudioPlaying = true;
+        moveAudioPlaying = false;
+        cameraSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        cameraSound = RuntimeManager.CreateInstance("event:/SFX/Camera/CameraMovements");
+        RuntimeManager.AttachInstanceToGameObject(cameraSound, transform, GetComponent<Rigidbody>());
+        cameraSound.setParameterValue("CameraWarn", 1.0f);
+        cameraSound.setParameterValue("CameraMov2", 0.0f);
+        cameraSound.getDescription(out description);
+        description.getLength(out audioLength);
+        cameraSound.start();
+        StartCoroutine(StopSound(3.5f));
     }
 
     public void notSpotted()
@@ -300,6 +340,7 @@ class GuardFOV: MonoBehaviour
     private IEnumerator RestartLevel()
     {
         yield return new WaitForSeconds(3);
+        player.GetComponent<MusicController>().RemoveMusic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -338,5 +379,8 @@ class GuardFOV: MonoBehaviour
         blockedLeft = true;
     }
 
+    IEnumerator StopSound(float stopTime) {
+        yield return new WaitForSeconds(stopTime);
+    }
 
 }

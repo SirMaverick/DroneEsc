@@ -25795,6 +25795,11 @@ Prefab:
       propertyPath: cameras.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 320289739108187630, guid: fb636fb1ed8583d47922d379c6932f52,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4367527415086522, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
       propertyPath: m_LocalPosition.x
       value: -4.65
@@ -25848,6 +25853,29 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 399349a277bf24a4181f3a708beab15c, type: 2}
+    - target: {fileID: 320289739108187630, guid: fb636fb1ed8583d47922d379c6932f52,
+        type: 2}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a9e54530d5f8504cb502c02c3676aa0,
+        type: 2}
+    - target: {fileID: 320289739108187630, guid: fb636fb1ed8583d47922d379c6932f52,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: 114127360658364638, guid: 0ac5e8771d670144a9adbaca98031741,
+        type: 2}
+    - target: {fileID: 320289739108187630, guid: fb636fb1ed8583d47922d379c6932f52,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[2].key
+      value: 
+      objectReference: {fileID: 114127360658364638, guid: 2a9e54530d5f8504cb502c02c3676aa0,
+        type: 2}
+    - target: {fileID: 320289739108187630, guid: fb636fb1ed8583d47922d379c6932f52,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 2040082991}
     m_RemovedComponents:
     - {fileID: 95347497584886700, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
@@ -45725,6 +45753,11 @@ Prefab:
       value: 
       objectReference: {fileID: 114127360658364638, guid: 0ac5e8771d670144a9adbaca98031741,
         type: 2}
+    - target: {fileID: 320289739108187630, guid: fb636fb1ed8583d47922d379c6932f52,
+        type: 2}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 2069271106}
     m_RemovedComponents:
     - {fileID: 95347497584886700, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
@@ -49902,12 +49935,14 @@ PlayableDirector:
   m_GameObject: {fileID: 1481992297}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 0}
+  m_PlayableAsset: {fileID: 11400000, guid: 0f1c42cf9666fc543bbd8e6a4c515847, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: 114127360658364638, guid: 0f1c42cf9666fc543bbd8e6a4c515847, type: 2}
+    value: {fileID: 1481992297}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1481992302
@@ -50634,11 +50669,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4237395136150906, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 0.33676732
       objectReference: {fileID: 0}
     - target: {fileID: 4818714687860648, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -19.363997
+      value: 11.07666
       objectReference: {fileID: 0}
     - target: {fileID: 4818714687860648, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -50650,7 +50685,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4088299123767024, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -62.684017
+      value: -71.91417
       objectReference: {fileID: 0}
     - target: {fileID: 4148678356787006, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -50670,7 +50705,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4088299123767024, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -180
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 4492399292736418, guid: fb636fb1ed8583d47922d379c6932f52, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -70282,7 +70317,7 @@ Animator:
   m_GameObject: {fileID: 2040082991}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 81db472cf1c452e4194d930b1ecbd250, type: 2}
+  m_Controller: {fileID: 9100000, guid: f49b2ad3aa8680d48aaab00f31800a8e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
