@@ -260,16 +260,16 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 2
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 4.283333333333346
+    m_PostExtrapolationTime: 3.6833333333333247
     m_PreExtrapolationTime: 0
     m_DisplayName: Walk
     m_Version: 1
-  - m_Start: 16.00000000000002
+  - m_Start: 15.4
     m_ClipIn: 0
-    m_Asset: {fileID: 114524985006981264}
-    m_UnderlyingAsset: {fileID: 7400000, guid: 304329bd40cd6dc448a6a52316c24324, type: 3}
-    m_Duration: 0.016666666666666666
-    m_TimeScale: 1
+    m_Asset: {fileID: 114199333332263264}
+    m_UnderlyingAsset: {fileID: 7400000, guid: d8af7b22a50e4fd4d87ad4eaa2edeb38, type: 3}
+    m_Duration: 0.3
+    m_TimeScale: 2
     m_ParentTrack: {fileID: 114127360658364638}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
@@ -306,15 +306,15 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 0.23333333333332718
+    m_PostExtrapolationTime: 0.8833333333333311
     m_PreExtrapolationTime: 0
-    m_DisplayName: IdleSingleFrame
+    m_DisplayName: NPCStopWalk
     m_Version: 1
-  - m_Start: 16.250000000000014
-    m_ClipIn: 0.3
+  - m_Start: 16.583333333333332
+    m_ClipIn: 0.9666666666666667
     m_Asset: {fileID: 114098207335281334}
     m_UnderlyingAsset: {fileID: 7400000, guid: 820d5ee6f8967b244beba59f8c9cc8f7, type: 3}
-    m_Duration: 2.766666666666667
+    m_Duration: 2.4333333333333336
     m_TimeScale: 2
     m_ParentTrack: {fileID: 114127360658364638}
     m_EaseInDuration: 0
@@ -323,19 +323,7 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -401,6 +389,23 @@ MonoBehaviour:
   m_UseTrackMatchFields: 0
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
+--- !u!114 &114199333332263264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2024714994, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
+  m_Name: AnimationPlayableAsset of NPCStopWalk
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: 7400000, guid: d8af7b22a50e4fd4d87ad4eaa2edeb38, type: 3}
+  m_Position: {x: 0, y: 0, z: 0}
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+  m_UseTrackMatchFields: 0
+  m_MatchTargetFields: 63
+  m_RemoveStartOffset: 1
 --- !u!114 &114445826824710936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -413,23 +418,6 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset of Activate1
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 6c9fd2be0e2ac1c49a373b97c8ffaf38, type: 3}
-  m_Position: {x: 0, y: 0, z: 0}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_UseTrackMatchFields: 0
-  m_MatchTargetFields: 63
-  m_RemoveStartOffset: 1
---- !u!114 &114524985006981264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 2024714994, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
-  m_Name: AnimationPlayableAsset of IdleSingleFrame
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: 7400000, guid: 304329bd40cd6dc448a6a52316c24324, type: 3}
   m_Position: {x: 0, y: 0, z: 0}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_UseTrackMatchFields: 0
