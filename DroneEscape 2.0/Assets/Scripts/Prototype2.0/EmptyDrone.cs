@@ -122,7 +122,8 @@ public class EmptyDrone : MonoBehaviour, Selectable {
 
         //GetComponent<MeshRenderer>().enabled = false;
         // GetComponent<DronePlayerController>().SwitchLight();
-        pcs.SwitchPlayerController(GetComponent<DronePlayerController>());
+        pcs.SwitchPlayerController(GetComponent<DronePlayerController>());  
+
         //ownCamera.GetComponent<AudioListener>().enabled = true;
         // ownCamera.GetComponent<Camera>().enabled = true;
 
