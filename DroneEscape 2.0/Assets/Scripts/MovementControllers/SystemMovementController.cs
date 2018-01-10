@@ -29,7 +29,7 @@ class SystemMovementController : MovementController
         }
     }
 
-    public override void Use(bool key)
+    public override void LeftClick(bool key)
     {
         if (key)
         {

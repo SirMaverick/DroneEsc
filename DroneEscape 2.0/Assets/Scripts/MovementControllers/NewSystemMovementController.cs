@@ -31,11 +31,6 @@ class NewSystemMovementController : MovementController, LiftDroneCallBack
 
     }
 
-    public override void Use(bool key)
-    {
-        // don't leave the system.
-    }
-
     public override void LeftClick(bool key)
     {
         if (key)

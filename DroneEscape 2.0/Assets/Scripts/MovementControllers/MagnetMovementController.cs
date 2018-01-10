@@ -108,7 +108,7 @@ public class MagnetMovementController : MovementController
     }
 
 
-    public override void Use(bool key)
+    public override void RightClick(bool key)
     {
         if (key)
         {

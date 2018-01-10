@@ -27,11 +27,6 @@ class SystemCameraMovementController : CameraMovementController
         pickupDrone = key;
     }
 
-    public override void Use(bool key)
-    {
-        systemMovementController.Use(key);
-    }
-
     protected override void Update()
     {
         RaycastHit hit;

@@ -28,11 +28,6 @@ class AnimationMovementController : MovementController
 
     }
 
-    public override void Use(bool key)
-    {
-
-    }
-
 
 }
 

@@ -103,6 +103,8 @@ public class CoreMovementController : MovementController
             }
 
         }
+
+        CHEAT(Input.GetKeyDown(KeyCode.E));
     }
 
 
@@ -122,7 +124,7 @@ public class CoreMovementController : MovementController
         }
     }
 
-    public override void Use(bool key)
+    public void CHEAT(bool key)
     {
         if (key)
         {

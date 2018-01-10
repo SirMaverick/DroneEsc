@@ -90,12 +90,12 @@ class DroneMovementController : MovementController
         dronePlayerController.MoveHorizontally(value);
     }
 
-    public override void Use(bool key)
+    public override void RightClick(bool key)
     {
         use = key;
     }
 
-    public override void RightHold(bool key)
+    public override void LeftHold(bool key)
     {
         if (key)
         {
@@ -104,7 +104,7 @@ class DroneMovementController : MovementController
         }
     }
 
-    public override void RightClick(bool key)
+    public override void LeftClick(bool key)
     {
         if (key)
         {

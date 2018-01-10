@@ -13,46 +13,13 @@ public abstract class MovementController : MonoBehaviour
     {
         playerControllerSupervisor = PlayerControllerSupervisor.GetInstance();
     }
-    
-    /*public void Forward(float speed)
-    {
-
-    }
-
-    public void Backward(float speed)
-    {
-
-    }
-
-    public void Left(float speed)
-    {
-
-    }
-
-    public void Right(float speed)
-    {
-
-    }*/
 
     public abstract void Horizontal(float direction);
 
-
     public abstract void Vertical(float direction);
 
-    // maybe other class
-    /*public void HorizontalLook(float direction)
-    {
-
-    }
-
-    public void VerticalLook(float direction)
-    {
-
-    }*/
 
     public abstract void Look(Vector2 md);
-
-    public abstract void Use(bool key);
 
     public virtual void RightClick(bool key) {
         if (key)
@@ -74,14 +41,12 @@ public abstract class MovementController : MonoBehaviour
         Horizontal(Input.GetAxis("Horizontal"));
         Vertical(Input.GetAxis("Vertical"));
 
-        Use(Input.GetKeyDown(KeyCode.E));
-
-        RightClick(Input.GetMouseButtonUp(1));
-        RightPress(Input.GetMouseButtonDown(1));
-        RightHold(Input.GetMouseButton(1));
-        LeftPress(Input.GetMouseButtonDown(0));
-        LeftClick(Input.GetMouseButtonUp(0));
-        LeftHold(Input.GetMouseButton(0));
+        RightClick(Input.GetButtonUp("Fire2"));
+        RightPress(Input.GetButtonDown("Fire2"));
+        RightHold(Input.GetButton("Fire2"));
+        LeftClick(Input.GetButtonUp("Fire1"));
+        LeftPress(Input.GetButtonDown("Fire1"));
+        LeftHold(Input.GetButton("Fire1"));
 
     }
 }

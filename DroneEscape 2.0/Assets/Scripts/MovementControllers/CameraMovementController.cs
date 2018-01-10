@@ -63,7 +63,7 @@ class CameraMovementController : MovementController
         //gameObject.transform.Rotate(new Vector3(0, 1, 0), direction, Space.Self);
     }
 
-    public override void Use(bool key)
+    public override void LeftClick(bool key)
     {
         if (key)
         {
@@ -71,10 +71,6 @@ class CameraMovementController : MovementController
                 playerControllerSupervisor.SwitchPlayerControllerPrevious();
 
         }
-    }
-    public override void RightClick(bool key)
-    {
-        // do nothing
     }
 }
 
