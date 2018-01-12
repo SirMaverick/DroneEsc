@@ -17,7 +17,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
     private bool state = false;
 
     // Use this for initialization
-    /*void Start () {
+    void Start () {
         //StartCoroutine(Wait(initialWaitTime));
         startPosition = positions[0];
         endPosition = positions[positions.Length - 1];
