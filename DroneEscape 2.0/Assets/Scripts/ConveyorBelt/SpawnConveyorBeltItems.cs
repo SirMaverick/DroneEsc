@@ -10,7 +10,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
     [SerializeField] private Transform[] positions;
     [SerializeField] private float speed = 2.0f;
     [SerializeField] private float waitTime = 0.0f;
-    [SerializeField] private EndEventListener[] endEventListeners;
+    [SerializeField] private ArmEventListener[] armEventListeners;
     [SerializeField] private bool alreadyRunning = true;
     private int index = 0;
 
@@ -34,7 +34,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
                 }
                 else
                 {
-                    item.transform.position = positions[index].position;
+                    item.transform.position = positions[positions.Length -1 - index].position;
                     item.GetComponent<Renderer>().enabled = true;
                     index++;
                 }
@@ -47,8 +47,8 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
                 }
                 else
                 {
-                    item.nextPosition = positions[index];
-                    item.nextPositionId = index;
+                    item.nextPosition = positions[positions.Length - index];
+                    item.nextPositionId = positions.Length - index;
                 }
             }
             else
@@ -60,7 +60,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
 
         }
         //endEventListeners = new List<EndEventListener>();
-
+         
     }
 	
 	// Update is called once per frame
@@ -73,8 +73,9 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
 
             if (item.transform.position == endPosition.position)
             {
-                item.GetComponent<Renderer>().enabled = false;
-                SendEndEvent();
+                // Destroy box does this
+               // item.GetComponent<Renderer>().enabled = false;
+                //SendEndEvent();
             }
             else if (item.transform.position.Equals(item.nextPosition.position))
             {
@@ -96,6 +97,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
     // Start event to spawn an item (this is done by an animation as name suggests)
     public void AnimationArmDone()
     {
+        SendArmEvent();
         state = !state;
         if (index >= items.Length)
         {
@@ -111,11 +113,11 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
     }
 
     // Used to send an end event when an item has reached the endpoint which can be used for starting/synchronizing an animation
-    private void SendEndEvent()
+    private void SendArmEvent()
     {
-        foreach(EndEventListener endEventListener in endEventListeners)
+        foreach(ArmEventListener armEventListener in armEventListeners)
         {
-            endEventListener.EndEvent();
+            armEventListener.ArmEvent();
         }
     }
 

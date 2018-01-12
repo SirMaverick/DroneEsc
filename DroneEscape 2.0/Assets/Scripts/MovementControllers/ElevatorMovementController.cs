@@ -69,10 +69,12 @@ public class ElevatorMovementController : MovementController
         if (key)
         {
             items.enableElevator = false;
+            GenericFunctions.Instance.SetFadeInCamera("ElevatorCamera1");
             elevatorSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             playerControllerSupervisor.SwitchPlayerControllerPrevious();
         }
     }
+
 
 
 }
