@@ -5,14 +5,16 @@ using UnityEngine;
 public class SpawnConveyorBeltItems : MonoBehaviour {
 
     [SerializeField] private ConveyorBeltItem[] items;
-    [SerializeField] private float spawnDelay = 5.0f;
                      private Transform startPosition;
                      private Transform endPosition;
     [SerializeField] private Transform[] positions;
     [SerializeField] private float speed = 2.0f;
     [SerializeField] private float waitTime = 0.0f;
-    private List<EndEventListener> endEventListeners;
+    [SerializeField] private EndEventListener[] endEventListeners;
+    [SerializeField] private bool alreadyRunning;
     private int index = 0;
+
+    private bool state = false;
 
     // Use this for initialization
     /*void Start () {
@@ -25,7 +27,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
             item.nextPosition = endPosition;
             item.nextPositionId = -1;
         }
-        endEventListeners = new List<EndEventListener>();
+        //endEventListeners = new List<EndEventListener>();
 
     }
 	
@@ -44,7 +46,14 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
             }
             else if (item.transform.position.Equals(item.nextPosition.position))
             {
-                StartCoroutine(item.WaitAndGoToNextPosition(waitTime, positions[item.nextPositionId + 1], item.nextPositionId + 1));
+                // don't schedule multiple coroutines to do the same thing 
+                if (item.state != state)
+                {
+                    item.NextPosition(positions[item.nextPositionId + 1], item.nextPositionId + 1);
+                    item.state = state;
+                }
+
+
             
                 //item.nextPosition = positions[item.nextPositionId + 1];
                 //item.nextPositionId++;
@@ -55,11 +64,13 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
     // Start event to spawn an item (this is done by an animation as name suggests)
     public void AnimationArmDone()
     {
+        state = !state;
         // arm is done so "spawn" item at the start position
         items[index].GetComponentInChildren<Renderer>().enabled = true;
         items[index].transform.position = startPosition.position;
         items[index].nextPosition = positions[1]; // position after the startPosition ;)
         items[index].nextPositionId = 1;
+        items[index].state = state;
         index++;
         if (index >= items.Length)
         {
@@ -81,22 +92,4 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
         endEventListeners.Add(endEventListener);
     }*/
 
-    IEnumerator SpawnItem()
-    {
-        items[index].GetComponentInChildren<Renderer>().enabled = true;
-        items[index].transform.position = startPosition.position;
-        yield return new WaitForSeconds(spawnDelay);
-        index++;
-        if(index >= items.Length)
-        {
-            index = 0;
-        }
-        StartCoroutine(SpawnItem());
-    }
-
-    IEnumerator Wait(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        StartCoroutine(SpawnItem());
-    }
 }
