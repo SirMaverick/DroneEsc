@@ -1,7 +1,7 @@
 // Shader created with Shader Forge v1.38 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:1,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:3,bdst:7,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:False,rfrpn:Refraction,coma:14,ufog:True,aust:False,igpj:False,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:32719,y:32712,varname:node_2865,prsc:2|diff-6343-OUT,spec-7454-R,gloss-7454-G,normal-5964-RGB,emission-3832-RGB,difocc-7454-B,alpha-7454-A,clip-7454-A;n:type:ShaderForge.SFN_Multiply,id:6343,x:32132,y:32655,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31971,y:32822,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5019608,c2:0.5019608,c3:0.5019608,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31971,y:32613,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32275,y:32695,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Tex2d,id:7454,x:32395,y:32961,ptovrint:False,ptlb:MRA,ptin:_MRA,varname:node_7454,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:3832,x:32430,y:32770,ptovrint:False,ptlb:Emissive,ptin:_Emissive,varname:node_3832,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:2,isnm:False;proporder:5964-6665-7736-7454-3832;pass:END;sub:END;*/
+/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:True,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:1,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:3,bdst:7,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:False,rfrpn:Refraction,coma:14,ufog:False,aust:False,igpj:False,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:32719,y:32712,varname:node_2865,prsc:2|diff-6343-OUT,spec-7454-R,gloss-7454-G,normal-5964-RGB,emission-9432-OUT,difocc-7454-B,alpha-7454-A;n:type:ShaderForge.SFN_Multiply,id:6343,x:32132,y:32655,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31971,y:32822,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5019608,c2:0.5019608,c3:0.5019608,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31971,y:32613,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32234,y:32492,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Tex2d,id:7454,x:32416,y:32938,ptovrint:False,ptlb:MRA,ptin:_MRA,varname:node_7454,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:3832,x:32216,y:32792,ptovrint:False,ptlb:Emissive,ptin:_Emissive,varname:node_3832,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:2,isnm:False;n:type:ShaderForge.SFN_Multiply,id:9432,x:32497,y:32837,varname:node_9432,prsc:2|A-3832-RGB,B-5527-RGB,C-9443-OUT;n:type:ShaderForge.SFN_Color,id:5527,x:32327,y:32891,ptovrint:False,ptlb:Emissive_Color,ptin:_Emissive_Color,varname:node_5527,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5,c2:0.5,c3:0.5,c4:1;n:type:ShaderForge.SFN_Slider,id:9443,x:32259,y:33098,ptovrint:False,ptlb:Strength,ptin:_Strength,varname:node_9443,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:5;proporder:5964-6665-7736-7454-3832-5527-9443;pass:END;sub:END;*/
 
 Shader "Shader Forge/BuildingBlocks" {
     Properties {
@@ -10,12 +10,15 @@ Shader "Shader Forge/BuildingBlocks" {
         _MainTex ("Base Color", 2D) = "white" {}
         _MRA ("MRA", 2D) = "white" {}
         _Emissive ("Emissive", 2D) = "black" {}
+        _Emissive_Color ("Emissive_Color", Color) = (0.5,0.5,0.5,1)
+        _Strength ("Strength", Range(0, 5)) = 0
         [HideInInspector]_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
     }
     SubShader {
         Tags {
             "Queue"="Transparent"
             "RenderType"="Transparent"
+            "CanUseSpriteAtlas"="True"
         }
         Pass {
             Name "FORWARD"
@@ -41,7 +44,6 @@ Shader "Shader Forge/BuildingBlocks" {
             #pragma multi_compile LIGHTMAP_OFF LIGHTMAP_ON
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
-            #pragma multi_compile_fog
             #pragma only_renderers d3d9 d3d11 glcore gles 
             #pragma target 3.0
             uniform float4 _Color;
@@ -49,6 +51,8 @@ Shader "Shader Forge/BuildingBlocks" {
             uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
             uniform sampler2D _MRA; uniform float4 _MRA_ST;
             uniform sampler2D _Emissive; uniform float4 _Emissive_ST;
+            uniform float4 _Emissive_Color;
+            uniform float _Strength;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -67,9 +71,8 @@ Shader "Shader Forge/BuildingBlocks" {
                 float3 tangentDir : TEXCOORD5;
                 float3 bitangentDir : TEXCOORD6;
                 LIGHTING_COORDS(7,8)
-                UNITY_FOG_COORDS(9)
                 #if defined(LIGHTMAP_ON) || defined(UNITY_SHOULD_SAMPLE_SH)
-                    float4 ambientOrLightmapUV : TEXCOORD10;
+                    float4 ambientOrLightmapUV : TEXCOORD9;
                 #endif
             };
             VertexOutput vert (VertexInput v) {
@@ -91,7 +94,6 @@ Shader "Shader Forge/BuildingBlocks" {
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = UnityObjectToClipPos( v.vertex );
-                UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
             }
@@ -103,8 +105,6 @@ Shader "Shader Forge/BuildingBlocks" {
                 float3 normalLocal = _BumpMap_var.rgb;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
                 float3 viewReflectDirection = reflect( -viewDirection, normalDirection );
-                float4 _MRA_var = tex2D(_MRA,TRANSFORM_TEX(i.uv0, _MRA));
-                clip(_MRA_var.a - 0.5);
                 float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
                 float3 lightColor = _LightColor0.rgb;
                 float3 halfDirection = normalize(viewDirection+lightDirection);
@@ -114,6 +114,7 @@ Shader "Shader Forge/BuildingBlocks" {
                 float Pi = 3.141592654;
                 float InvPi = 0.31830988618;
 ///////// Gloss:
+                float4 _MRA_var = tex2D(_MRA,TRANSFORM_TEX(i.uv0, _MRA));
                 float gloss = 1.0 - _MRA_var.g; // Convert roughness to gloss
                 float perceptualRoughness = _MRA_var.g;
                 float roughness = perceptualRoughness * perceptualRoughness;
@@ -205,12 +206,10 @@ Shader "Shader Forge/BuildingBlocks" {
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 ////// Emissive:
                 float4 _Emissive_var = tex2D(_Emissive,TRANSFORM_TEX(i.uv0, _Emissive));
-                float3 emissive = _Emissive_var.rgb;
+                float3 emissive = (_Emissive_var.rgb*_Emissive_Color.rgb*_Strength);
 /// Final Color:
                 float3 finalColor = diffuse + specular + emissive;
-                fixed4 finalRGBA = fixed4(finalColor,_MRA_var.a);
-                UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
-                return finalRGBA;
+                return fixed4(finalColor,_MRA_var.a);
             }
             ENDCG
         }
@@ -238,7 +237,6 @@ Shader "Shader Forge/BuildingBlocks" {
             #pragma multi_compile LIGHTMAP_OFF LIGHTMAP_ON
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
-            #pragma multi_compile_fog
             #pragma only_renderers d3d9 d3d11 glcore gles 
             #pragma target 3.0
             uniform float4 _Color;
@@ -246,6 +244,8 @@ Shader "Shader Forge/BuildingBlocks" {
             uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
             uniform sampler2D _MRA; uniform float4 _MRA_ST;
             uniform sampler2D _Emissive; uniform float4 _Emissive_ST;
+            uniform float4 _Emissive_Color;
+            uniform float _Strength;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -264,7 +264,6 @@ Shader "Shader Forge/BuildingBlocks" {
                 float3 tangentDir : TEXCOORD5;
                 float3 bitangentDir : TEXCOORD6;
                 LIGHTING_COORDS(7,8)
-                UNITY_FOG_COORDS(9)
             };
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
@@ -277,7 +276,6 @@ Shader "Shader Forge/BuildingBlocks" {
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = UnityObjectToClipPos( v.vertex );
-                UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
             }
@@ -288,8 +286,6 @@ Shader "Shader Forge/BuildingBlocks" {
                 float3 _BumpMap_var = UnpackNormal(tex2D(_BumpMap,TRANSFORM_TEX(i.uv0, _BumpMap)));
                 float3 normalLocal = _BumpMap_var.rgb;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
-                float4 _MRA_var = tex2D(_MRA,TRANSFORM_TEX(i.uv0, _MRA));
-                clip(_MRA_var.a - 0.5);
                 float3 lightDirection = normalize(lerp(_WorldSpaceLightPos0.xyz, _WorldSpaceLightPos0.xyz - i.posWorld.xyz,_WorldSpaceLightPos0.w));
                 float3 lightColor = _LightColor0.rgb;
                 float3 halfDirection = normalize(viewDirection+lightDirection);
@@ -299,6 +295,7 @@ Shader "Shader Forge/BuildingBlocks" {
                 float Pi = 3.141592654;
                 float InvPi = 0.31830988618;
 ///////// Gloss:
+                float4 _MRA_var = tex2D(_MRA,TRANSFORM_TEX(i.uv0, _MRA));
                 float gloss = 1.0 - _MRA_var.g; // Convert roughness to gloss
                 float perceptualRoughness = _MRA_var.g;
                 float roughness = perceptualRoughness * perceptualRoughness;
@@ -337,68 +334,7 @@ Shader "Shader Forge/BuildingBlocks" {
                 float3 diffuse = directDiffuse * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse + specular;
-                fixed4 finalRGBA = fixed4(finalColor * _MRA_var.a,0);
-                UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
-                return finalRGBA;
-            }
-            ENDCG
-        }
-        Pass {
-            Name "ShadowCaster"
-            Tags {
-                "LightMode"="ShadowCaster"
-            }
-            Offset 1, 1
-            Cull Back
-            ColorMask RGB
-            
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            #define UNITY_PASS_SHADOWCASTER
-            #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
-            #define _GLOSSYENV 1
-            #include "UnityCG.cginc"
-            #include "Lighting.cginc"
-            #include "UnityPBSLighting.cginc"
-            #include "UnityStandardBRDF.cginc"
-            #pragma fragmentoption ARB_precision_hint_fastest
-            #pragma multi_compile_shadowcaster
-            #pragma multi_compile LIGHTMAP_OFF LIGHTMAP_ON
-            #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
-            #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
-            #pragma multi_compile_fog
-            #pragma only_renderers d3d9 d3d11 glcore gles 
-            #pragma target 3.0
-            uniform sampler2D _MRA; uniform float4 _MRA_ST;
-            struct VertexInput {
-                float4 vertex : POSITION;
-                float2 texcoord0 : TEXCOORD0;
-                float2 texcoord1 : TEXCOORD1;
-                float2 texcoord2 : TEXCOORD2;
-            };
-            struct VertexOutput {
-                V2F_SHADOW_CASTER;
-                float2 uv0 : TEXCOORD1;
-                float2 uv1 : TEXCOORD2;
-                float2 uv2 : TEXCOORD3;
-                float4 posWorld : TEXCOORD4;
-            };
-            VertexOutput vert (VertexInput v) {
-                VertexOutput o = (VertexOutput)0;
-                o.uv0 = v.texcoord0;
-                o.uv1 = v.texcoord1;
-                o.uv2 = v.texcoord2;
-                o.posWorld = mul(unity_ObjectToWorld, v.vertex);
-                o.pos = UnityObjectToClipPos( v.vertex );
-                TRANSFER_SHADOW_CASTER(o)
-                return o;
-            }
-            float4 frag(VertexOutput i) : COLOR {
-                float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
-                float4 _MRA_var = tex2D(_MRA,TRANSFORM_TEX(i.uv0, _MRA));
-                clip(_MRA_var.a - 0.5);
-                SHADOW_CASTER_FRAGMENT(i)
+                return fixed4(finalColor * _MRA_var.a,0);
             }
             ENDCG
         }
@@ -426,13 +362,14 @@ Shader "Shader Forge/BuildingBlocks" {
             #pragma multi_compile LIGHTMAP_OFF LIGHTMAP_ON
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
-            #pragma multi_compile_fog
             #pragma only_renderers d3d9 d3d11 glcore gles 
             #pragma target 3.0
             uniform float4 _Color;
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
             uniform sampler2D _MRA; uniform float4 _MRA_ST;
             uniform sampler2D _Emissive; uniform float4 _Emissive_ST;
+            uniform float4 _Emissive_Color;
+            uniform float _Strength;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float2 texcoord0 : TEXCOORD0;
@@ -461,7 +398,7 @@ Shader "Shader Forge/BuildingBlocks" {
                 UNITY_INITIALIZE_OUTPUT( UnityMetaInput, o );
                 
                 float4 _Emissive_var = tex2D(_Emissive,TRANSFORM_TEX(i.uv0, _Emissive));
-                o.Emission = _Emissive_var.rgb;
+                o.Emission = (_Emissive_var.rgb*_Emissive_Color.rgb*_Strength);
                 
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
                 float3 diffColor = (_MainTex_var.rgb*_Color.rgb);
