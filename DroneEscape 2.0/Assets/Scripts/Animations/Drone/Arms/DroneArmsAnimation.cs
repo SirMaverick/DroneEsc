@@ -139,6 +139,7 @@ public class DroneArmsAnimation : MonoBehaviour
         {
             droneSounds.ExitOutOfMachineSound();
             insertIntoMachine = false;
+            GenericFunctions.Instance.SetFade("BlackFadeImage", 0.0f, 0.1f, 0.0f);
             animator.SetBool("InsertIntoMachine", insertIntoMachine);
             return true;
         }
