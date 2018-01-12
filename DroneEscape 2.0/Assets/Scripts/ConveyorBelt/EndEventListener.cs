@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
-public abstract class EndEventListener : MonoBehaviour
+public abstract class ArmEventListener : MonoBehaviour
 {
-    public abstract void EndEvent();
+    public abstract void ArmEvent();
 }
 
