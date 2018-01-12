@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.PostProcessing;
 
 public class GenericFunctions : MonoBehaviour {
 
@@ -13,6 +14,11 @@ public class GenericFunctions : MonoBehaviour {
     Color color;
     Canvas canvas;
     bool fadeInOut;
+    PostProcessingProfile cameraProfile;
+    VignetteModel.Settings tempSettings;
+    CRTEffect cameraCRT;
+    
+    
 
     public static GenericFunctions _instance;
     public static GenericFunctions Instance {
@@ -38,9 +44,7 @@ public class GenericFunctions : MonoBehaviour {
                     } else {
                         color.a = targetAlpha;
                         image.color = color;
-                        print("hallo??");
                         if(fadeInOut) {
-                            print("allah");
                             StartCoroutine(WaitForFade(waitTime));
                         }
                         function = "";
@@ -58,22 +62,48 @@ public class GenericFunctions : MonoBehaviour {
                     }
                     break;
                 }
+            case "FadeCamera": {
+                    if (cameraProfile.vignette.settings.intensity > 0) {
+                        tempSettings.intensity -= 0.05f;
+                        cameraProfile.vignette.settings = tempSettings;
+                    } else {
+                        tempSettings.intensity = 0;
+                        cameraProfile.vignette.settings = tempSettings;
+                        cameraCRT.enabled = false;
+                        function = "";
+                    }
+
+                    break;
+                }
+            case "FadeScreenFromCamera": {
+                    if (cameraProfile.vignette.settings.intensity < 1) {
+                        tempSettings.intensity += 0.05f;
+                        cameraProfile.vignette.settings = tempSettings;
+                    } else {
+                        tempSettings.intensity = 1;
+                        cameraProfile.vignette.settings = tempSettings;
+                        cameraCRT.enabled = false;
+                        function = "";
+                    }
+
+                    break;
+                }
             default: {
                     break;
                 }
         }
     }
 
-    public void SetFade(string imageNameTemp, float targetAlphaTemp, float fadeRateTemp) {
+    public void SetFade(string imageNameTemp, float targetAlphaTemp, float fadeRateTemp, float waitStartTime) {
         canvas = GameObject.Find("FadeCanvas").GetComponent<Canvas>();
         image = GameObject.Find(imageNameTemp).GetComponent<Image>();
         targetAlpha = targetAlphaTemp;
         fadeRate = fadeRateTemp;
         color = image.color;
-        function = "FadeImage";
+        StartCoroutine(WaitForFadeIn(waitStartTime));
     }
 
-    public void SetFadeInAndOut(string imageNameTemp, float targetAlphaTemp, float fadeRateTemp, float waitTimeTemp) {
+    public void SetFadeInAndOut(string imageNameTemp, float targetAlphaTemp, float fadeRateTemp, float waitStartTime, float waitTimeTemp) {
         canvas = GameObject.Find("FadeCanvas").GetComponent<Canvas>();
         image = GameObject.Find(imageNameTemp).GetComponent<Image>();
         targetAlpha = targetAlphaTemp;
@@ -81,11 +111,33 @@ public class GenericFunctions : MonoBehaviour {
         color = image.color;
         waitTime = waitTimeTemp;
         fadeInOut = true;
+        StartCoroutine(WaitForFadeIn(waitStartTime));
+    }
+
+    public void SetFadeOutCamera(string cameraName) {
+        canvas = GameObject.Find("FadeCanvas").GetComponent<Canvas>();
+        canvas.enabled = false;
+        cameraProfile = GameObject.Find(cameraName).GetComponent<PostProcessingBehaviour>().profile;
+        cameraCRT = GameObject.Find(cameraName).GetComponent<CRTEffect>();
+        cameraCRT.enabled = true;
+        tempSettings = cameraProfile.vignette.settings;
+        function = "FadeCamera";
+    }
+
+    public void SetFadeInCamera(string cameraName) {
+        cameraProfile = GameObject.Find(cameraName).GetComponent<PostProcessingBehaviour>().profile;
+        cameraCRT = GameObject.Find(cameraName).GetComponent<CRTEffect>();
+        cameraCRT.enabled = true;
+        tempSettings = cameraProfile.vignette.settings;
+        function = "FadeScreenFromCamera";
+    }
+
+    IEnumerator WaitForFadeIn(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
         function = "FadeImage";
     }
 
     IEnumerator WaitForFade(float waitTime) {
-        print("ohaio");
         fadeInOut = false;
         targetAlpha = 1 - targetAlpha;
         yield return new WaitForSeconds(waitTime);

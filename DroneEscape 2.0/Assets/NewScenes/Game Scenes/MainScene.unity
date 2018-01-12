@@ -1023,6 +1023,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 17785083}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &20223293 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1997644080534254, guid: 630d0359059534e409f2072bcd0984e5,
+    type: 2}
+  m_PrefabInternal: {fileID: 447528176}
+--- !u!114 &20223294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 20223293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 0}
 --- !u!1001 &20670348
 Prefab:
   m_ObjectHideFlags: 0
@@ -18852,12 +18869,12 @@ Prefab:
     - target: {fileID: 224302233019464442, guid: b4dfe643212d4d145b7c4212c0aa8ac2,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 118.20349
+      value: 384.7035
       objectReference: {fileID: 0}
     - target: {fileID: 224302233019464442, guid: b4dfe643212d4d145b7c4212c0aa8ac2,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 49.063858
+      value: 199.06386
       objectReference: {fileID: 0}
     - target: {fileID: 224302233019464442, guid: b4dfe643212d4d145b7c4212c0aa8ac2,
         type: 2}
@@ -40365,7 +40382,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 810705794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 118.20349, y: 49.063858, z: 80.58444}
+  m_LocalPosition: {x: 384.7035, y: 199.06386, z: 80.58444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 570894424}
@@ -51937,7 +51954,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1047977480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.2, y: 0, z: 123.3}
+  m_LocalPosition: {x: -39.2, y: 0, z: 58.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1565117659}
@@ -80377,6 +80394,19 @@ Prefab:
       propertyPath: objectToLookAt
       value: 
       objectReference: {fileID: 1174131252}
+    - target: {fileID: 20727157610645896, guid: 630d0359059534e409f2072bcd0984e5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997644080534254, guid: 630d0359059534e409f2072bcd0984e5, type: 2}
+      propertyPath: m_Name
+      value: ElevatorCamera1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997644080534254, guid: 630d0359059534e409f2072bcd0984e5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 630d0359059534e409f2072bcd0984e5, type: 2}
   m_IsPrefabParent: 0
@@ -95895,6 +95925,39 @@ Transform:
   m_Father: {fileID: 1453681011}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2064398114 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1997644080534254, guid: 630d0359059534e409f2072bcd0984e5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1689062696}
+--- !u!114 &2064398115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2064398114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 9e2f6aebc42e1db43831497e6192c6e6, type: 2}
+--- !u!114 &2064398116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2064398114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3153da2e1f2da9e43b6ac4ef2b9328e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: d25115f05ab84594381078a81e55e9bf, type: 3}
+  displacementMap: {fileID: 2800000, guid: 362cf4b20cc2447439f0616c6ebb8b54, type: 3}
+  intensity: 6.96
+  flipIntensity: 3.4
+  colorIntensity: 7.05
 --- !u!1 &2065108116
 GameObject:
   m_ObjectHideFlags: 0

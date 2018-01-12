@@ -23,7 +23,7 @@ public class DroneAnimation : MonoBehaviour
 
     public void PickUp()
     {
-        GenericFunctions.Instance.SetFadeInAndOut("BlackFadeImage", 1.0f, 0.5f, 1.0f);
+        GenericFunctions.Instance.SetFadeInAndOut("BlackFadeImage", 1.0f, 0.5f, 0.63f, 0.2f);
         animator.SetBool("PickUpCore", true);
         
     }

@@ -119,6 +119,7 @@ public class DroneArmsAnimation : MonoBehaviour
             WalkNotVertically();
             insertIntoMachine = true;
             animator.SetBool("InsertIntoMachine", insertIntoMachine);
+            GenericFunctions.Instance.SetFade("BlackFadeImage", 1.0f, 0.1f, 0.8f);
             bool test = animator.GetBool("WalkForwards");
             Debug.Log("test:" + test);
         }
@@ -128,6 +129,7 @@ public class DroneArmsAnimation : MonoBehaviour
     {
         // event from animation
         droneSounds.InsertIntoMachineSound();
+        GenericFunctions.Instance.SetFadeOutCamera("ElevatorCamera1");
         playerController.AnimationInsertIntoMachineDone();
     }
 
