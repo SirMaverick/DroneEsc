@@ -11,7 +11,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
     [SerializeField] private float speed = 2.0f;
     [SerializeField] private float waitTime = 0.0f;
     [SerializeField] private EndEventListener[] endEventListeners;
-    [SerializeField] private bool alreadyRunning;
+    [SerializeField] private bool alreadyRunning = true;
     private int index = 0;
 
     private bool state = false;
@@ -24,8 +24,40 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
 
         foreach (ConveyorBeltItem item in items)
         {
-            item.nextPosition = endPosition;
-            item.nextPositionId = -1;
+            if (alreadyRunning)
+            {
+                if (index >= positions.Length)
+                {
+                    // already reached end so
+                    item.transform.position = endPosition.position;
+                    item.GetComponent<Renderer>().enabled = false;
+                }
+                else
+                {
+                    item.transform.position = positions[index].position;
+                    item.GetComponent<Renderer>().enabled = true;
+                    index++;
+                }
+
+                if (index >= positions.Length)
+                {
+                    // already reached end so
+                    item.nextPosition = endPosition;
+                    item.nextPositionId = -1;
+                }
+                else
+                {
+                    item.nextPosition = positions[index];
+                    item.nextPositionId = index;
+                }
+            }
+            else
+            {
+                item.nextPosition = endPosition;
+                item.nextPositionId = -1;
+                item.GetComponent<Renderer>().enabled = false;
+            }
+
         }
         //endEventListeners = new List<EndEventListener>();
 
@@ -65,6 +97,10 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
     public void AnimationArmDone()
     {
         state = !state;
+        if (index >= items.Length)
+        {
+            index = 0;
+        }
         // arm is done so "spawn" item at the start position
         items[index].GetComponentInChildren<Renderer>().enabled = true;
         items[index].transform.position = startPosition.position;
@@ -72,10 +108,6 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
         items[index].nextPositionId = 1;
         items[index].state = state;
         index++;
-        if (index >= items.Length)
-        {
-            index = 0;
-        }
     }
 
     // Used to send an end event when an item has reached the endpoint which can be used for starting/synchronizing an animation
