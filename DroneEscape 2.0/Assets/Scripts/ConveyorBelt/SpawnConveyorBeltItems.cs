@@ -34,7 +34,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
                 }
                 else
                 {
-                    item.transform.position = positions[index].position;
+                    item.transform.position = positions[positions.Length -1 - index].position;
                     item.GetComponent<Renderer>().enabled = true;
                     index++;
                 }
@@ -47,8 +47,8 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
                 }
                 else
                 {
-                    item.nextPosition = positions[index];
-                    item.nextPositionId = index;
+                    item.nextPosition = positions[positions.Length - index];
+                    item.nextPositionId = positions.Length - index;
                 }
             }
             else
@@ -60,7 +60,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
 
         }
         //endEventListeners = new List<EndEventListener>();
-
+         
     }
 	
 	// Update is called once per frame
