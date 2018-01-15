@@ -13,6 +13,8 @@ public class ElevatorMovementController : MovementController
     public FMOD.Studio.EventInstance elevatorSound;
     private FMOD.Studio.PLAYBACK_STATE playback;
     private bool moving;
+
+    ElevatorPlayerController elevatorPlayerController;
     
 
     protected override void Start()
@@ -21,6 +23,7 @@ public class ElevatorMovementController : MovementController
         items = elevator.GetComponent<ItemsOnElevator>();
         elevatorSound = RuntimeManager.CreateInstance("event:/SFX/Elevator/Elevator");
         RuntimeManager.AttachInstanceToGameObject(elevatorSound, transform, GetComponent<Rigidbody>());
+        elevatorPlayerController = (ElevatorPlayerController) playerController;
     }
 
     public override void Horizontal(float direction)
@@ -71,7 +74,8 @@ public class ElevatorMovementController : MovementController
             items.enableElevator = false;
             GenericFunctions.Instance.SetFadeInCamera("ElevatorCamera1");
             elevatorSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            playerControllerSupervisor.SwitchPlayerControllerPrevious();
+            elevatorPlayerController.PostFXExit();
+
         }
     }
 

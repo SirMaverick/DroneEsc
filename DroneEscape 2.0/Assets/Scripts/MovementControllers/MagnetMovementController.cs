@@ -114,6 +114,7 @@ public class MagnetMovementController : MovementController
         {
             playerControllerSupervisor.SwitchPlayerControllerPrevious();
             magnet.GetComponent<MagnetMove>().turnedOn = false;
+            GenericFunctions.Instance.SetFadeInCamera("MagnetCamera1");
             magnetSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }

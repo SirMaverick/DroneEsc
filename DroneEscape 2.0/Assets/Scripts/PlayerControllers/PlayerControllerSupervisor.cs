@@ -24,6 +24,7 @@ public class PlayerControllerSupervisor
 
     public void SwitchPlayerController(AbstractPlayerController apc)
     {
+
         apc.EnableController();
         currentPlayerController.DisableController();
         previousPlayerController = currentPlayerController;
