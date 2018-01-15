@@ -20,7 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4474970247020762}
   - component: {fileID: 95633856335252302}
-  - component: {fileID: 114652441890513892}
+  - component: {fileID: 54958776313476210}
+  - component: {fileID: 65529448267142574}
+  - component: {fileID: 114757478618512846}
   m_Layer: 0
   m_Name: Machine
   m_TagString: Untagged
@@ -95,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432399958179146}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.04935, y: 0.5069, z: 0.0005}
+  m_LocalPosition: {x: -0.05, y: -0.052, z: -0}
   m_LocalScale: {x: 0.01, y: 0.010000007, z: 0.010000007}
   m_Children:
   - {fileID: 4080806957110426}
@@ -185,6 +187,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1894562523627730}
   m_Mesh: {fileID: 4300000, guid: 5d5263ecc75db1e49926c6b9508dce02, type: 3}
+--- !u!54 &54958776313476210
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432399958179146}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65529448267142574
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432399958179146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 0.8, z: 1}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!95 &95633856335252302
 Animator:
   serializedVersion: 3
@@ -202,7 +231,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114652441890513892
+--- !u!114 &114757478618512846
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -210,11 +239,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1432399958179146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60401c17e8f24ac4f9a17ec51667c77c, type: 3}
+  m_Script: {fileID: 11500000, guid: 12c6d7a31a4e9aa40b1942a6a4880045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeClose: 3.75
-  timeBeforeOpen: 1
-  firstTimeClose: 7.5
-  animObject: {fileID: 1432399958179146}
-  Close: 0

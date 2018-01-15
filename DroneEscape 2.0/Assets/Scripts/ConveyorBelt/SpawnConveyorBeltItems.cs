@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnConveyorBeltItems : MonoBehaviour {
+public class SpawnConveyorBeltItems : ArmEventListener {
 
     [SerializeField] private ConveyorBeltItem[] items;
                      private Transform startPosition;
                      private Transform endPosition;
     [SerializeField] private Transform[] positions;
     [SerializeField] private float speed = 2.0f;
-    [SerializeField] private float waitTime = 0.0f;
     [SerializeField] private ArmEventListener[] armEventListeners;
     [SerializeField] private bool alreadyRunning = true;
     private int index = 0;
@@ -24,18 +23,26 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
 
         foreach (ConveyorBeltItem item in items)
         {
+            Renderer renderer = item.GetComponent<Renderer>();
+            if (renderer == null)
+            {
+                renderer = item.GetComponentInChildren<Renderer>();
+            }
+
+
             if (alreadyRunning)
             {
                 if (index >= positions.Length)
                 {
                     // already reached end so
                     item.transform.position = endPosition.position;
-                    item.GetComponent<Renderer>().enabled = false;
+                    renderer.enabled = false;
                 }
                 else
                 {
                     item.transform.position = positions[positions.Length -1 - index].position;
-                    item.GetComponent<Renderer>().enabled = true;
+
+                    renderer.enabled = true;
                     index++;
                 }
 
@@ -55,7 +62,7 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
             {
                 item.nextPosition = endPosition;
                 item.nextPositionId = -1;
-                item.GetComponent<Renderer>().enabled = false;
+                renderer.enabled = false;
             }
 
         }
@@ -119,6 +126,11 @@ public class SpawnConveyorBeltItems : MonoBehaviour {
         {
             armEventListener.ArmEvent();
         }
+    }
+
+    public override void ArmEvent()
+    {
+        AnimationArmDone();
     }
 
     /*public void AddEndEventListener(EndEventListener endEventListener)
