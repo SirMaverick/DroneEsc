@@ -41,20 +41,27 @@ public class GenericFunctions : MonoBehaviour {
                     if (color.a < targetAlpha) {
                         color.a += 1.0f / fadeRate * Time.deltaTime;
                         image.color = color;
+                        //print(color.a);
                     } else {
                         color.a = targetAlpha;
                         image.color = color;
                         if(fadeInOut) {
-                            StartCoroutine(WaitForFade(waitTime));
+                            fadeInOut = false;
+
+                            targetAlpha = 1 - targetAlpha;
+                            StartCoroutine(WaitForFade(waitTime, "FadeScreen"));
                         }
                         function = "";
                     }
                     break;
                 }
             case "FadeScreen": {
+                    
                     if (color.a > targetAlpha) {
-                        color.a -= 1.0f / fadeRate * Time.deltaTime;
+                        color.a -= (fadeRate * Time.deltaTime);
                         image.color = color;
+                        print(targetAlpha);
+                        print(color.a);
                     } else {
                         color.a = targetAlpha;
                         image.color = color;
@@ -83,7 +90,9 @@ public class GenericFunctions : MonoBehaviour {
                         tempSettings.intensity = 1;
                         cameraProfile.vignette.settings = tempSettings;
                         cameraCRT.enabled = false;
-                        SetFade("BlackFadeImage", 0.0f, 0.1f, 0.0f);
+                        SetFadeOut("BlackFadeImage", 0.0f, 1f, 0.0f);
+                        function = "";
+                        
                     }
 
                     break;
@@ -94,14 +103,25 @@ public class GenericFunctions : MonoBehaviour {
         }
     }
 
-    public void SetFade(string imageNameTemp, float targetAlphaTemp, float fadeRateTemp, float waitStartTime) {
+    public void SetFadeOut(string imageNameTemp, float targetAlphaTemp, float fadeRateTemp, float waitStartTime) {
         canvas = GameObject.Find("FadeCanvas").GetComponent<Canvas>();
         canvas.enabled = true;
         image = GameObject.Find(imageNameTemp).GetComponent<Image>();
         targetAlpha = targetAlphaTemp;
         fadeRate = fadeRateTemp;
         color = image.color;
-        StartCoroutine(WaitForFadeIn(waitStartTime));
+        print(color.a);
+        StartCoroutine(WaitForFade(waitStartTime, "FadeScreen"));
+    }
+
+    public void SetFadeIn(string imageNameTemp, float targetAlphaTemp, float fadeRateTemp, float waitStartTime) {
+        canvas = GameObject.Find("FadeCanvas").GetComponent<Canvas>();
+        canvas.enabled = true;
+        image = GameObject.Find(imageNameTemp).GetComponent<Image>();
+        targetAlpha = targetAlphaTemp;
+        fadeRate = fadeRateTemp;
+        color = image.color;
+        StartCoroutine(WaitForFade(waitStartTime, "FadeImage"));
     }
 
     public void SetFadeInAndOut(string imageNameTemp, float targetAlphaTemp, float fadeRateTemp, float waitStartTime, float waitTimeTemp) {
@@ -112,7 +132,7 @@ public class GenericFunctions : MonoBehaviour {
         color = image.color;
         waitTime = waitTimeTemp;
         fadeInOut = true;
-        StartCoroutine(WaitForFadeIn(waitStartTime));
+        StartCoroutine(WaitForFade(waitStartTime, "FadeImage"));
     }
 
     public void SetFadeOutCamera(string cameraName) {
@@ -133,15 +153,8 @@ public class GenericFunctions : MonoBehaviour {
         function = "FadeScreenFromCamera";
     }
 
-    IEnumerator WaitForFadeIn(float waitTime) {
+    IEnumerator WaitForFade(float waitTime, string functionName) {
         yield return new WaitForSeconds(waitTime);
-        function = "FadeImage";
-    }
-
-    IEnumerator WaitForFade(float waitTime) {
-        fadeInOut = false;
-        targetAlpha = 1 - targetAlpha;
-        yield return new WaitForSeconds(waitTime);
-        function = "FadeScreen";
+        function = functionName;
     }
 }
