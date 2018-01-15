@@ -83,7 +83,7 @@ public class GenericFunctions : MonoBehaviour {
                         tempSettings.intensity = 1;
                         cameraProfile.vignette.settings = tempSettings;
                         cameraCRT.enabled = false;
-                        function = "";
+                        SetFade("BlackFadeImage", 0.0f, 0.1f, 0.0f);
                     }
 
                     break;
@@ -96,6 +96,7 @@ public class GenericFunctions : MonoBehaviour {
 
     public void SetFade(string imageNameTemp, float targetAlphaTemp, float fadeRateTemp, float waitStartTime) {
         canvas = GameObject.Find("FadeCanvas").GetComponent<Canvas>();
+        canvas.enabled = true;
         image = GameObject.Find(imageNameTemp).GetComponent<Image>();
         targetAlpha = targetAlphaTemp;
         fadeRate = fadeRateTemp;
