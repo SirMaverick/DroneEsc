@@ -26,6 +26,8 @@ using FMODUnity;
     private DroneAnimation animationDrone;
 
 
+    private bool enteringMachine = false;
+
 
     [SerializeField] private float speed;
     [SerializeField] private bool freezeDroneButton = true;
@@ -135,6 +137,18 @@ using FMODUnity;
         gameObject.transform.Translate(0, 0, value * Time.deltaTime * speed);
     }
 
+    public void Update()
+    {
+        if (enteringMachine)
+        {
+            Vector3 eyePosition = transform.position;
+            eyePosition.y += 1;
+            Vector3 direction = button.transform.position - eyePosition;
+            transform.position = Vector3.MoveTowards(transform.position, button.GetDronePosition(), speed*Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), speed * Time.deltaTime);
+        }
+    }
+
     public void MoveHorizontally(float value)
     {
         gameObject.transform.Translate(value * Time.deltaTime * speed, 0, 0);
@@ -148,7 +162,9 @@ using FMODUnity;
             movementController.DisableController();
             movementController.enabled = false;
         }
+        button.GetDronePosition();
         animationDroneArms.InsertIntoMachine();
+        enteringMachine = true;
         this.button = button;
     }
 
@@ -159,6 +175,7 @@ using FMODUnity;
             movementController.EnableController();
             movementController.enabled = true;
         }
+        enteringMachine = false;
         button.Toggle();
 
     }

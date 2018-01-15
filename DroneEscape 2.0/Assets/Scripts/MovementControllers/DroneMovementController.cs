@@ -24,7 +24,10 @@ class DroneMovementController : MovementController
     private Button button;
     private bool use;
 
-    
+    private bool STUPIDTEST = false;
+
+
+
     private CorePlayerController corePlayerController;
 
     [SerializeField]
@@ -70,14 +73,18 @@ class DroneMovementController : MovementController
 
         }
         md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
-        smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
+        if (!STUPIDTEST)
+        {
+            smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
         mouseLook += smoothV;
 
         mouseLook.y = Mathf.Clamp(mouseLook.y, minClamp, maxClamp);
 
-        ownCamera.transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-        character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
+
+            ownCamera.transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
+            character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
+        }
     }
 
     public override void Vertical(float value)
@@ -136,6 +143,7 @@ class DroneMovementController : MovementController
         {
             playerControllerSupervisor = PlayerControllerSupervisor.GetInstance();
         }
+        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
         // only if the playercontroller was the core than we should adept to the core.
         if (playerControllerSupervisor.GetCurrentPlayerController() == corePlayerController)
         {
@@ -143,8 +151,14 @@ class DroneMovementController : MovementController
 
             mouseLook = new Vector2(coreCamera.transform.localEulerAngles.y, mouseLook.y);
             //mouseLook = new Vector2(gameObject.transform.localRotation.eulerAngles.y, mouseLook.y );
-            smoothV = new Vector2(0, 0);
+
         }
+        else
+        {
+            mouseLook = new Vector2(transform.localEulerAngles.y, mouseLook.y);
+        }
+
+        smoothV = new Vector2(0, 0);
         base.EnableController();
     }
 
