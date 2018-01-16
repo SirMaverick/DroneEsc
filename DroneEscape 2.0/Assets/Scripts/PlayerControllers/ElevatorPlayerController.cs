@@ -9,6 +9,7 @@ class ElevatorPlayerController : AbstractPlayerController
     }
 
     public void PostFXExit() {
+        movementController.DisableController();
         StartCoroutine(WaitForSwitchingCamera(0.5f));
     }
 
