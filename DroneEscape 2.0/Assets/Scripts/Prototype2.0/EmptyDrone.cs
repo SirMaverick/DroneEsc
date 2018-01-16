@@ -136,7 +136,7 @@ public class EmptyDrone : MonoBehaviour, Selectable {
         corePickUp.transform.parent = transform;
         corePickUp.transform.position = objectPlacement.transform.position;
 
-        enabled = false;
+        /*enabled = false;
         rotated = false;
         walk = false;
 
@@ -145,8 +145,9 @@ public class EmptyDrone : MonoBehaviour, Selectable {
             navMeshAgent.isStopped = true;
             navMeshAgent.enabled = false;
         }
-        droneAnimation.Default();
+        droneAnimation.DefaultInDrone();*/
 
+        ResetInDrone();
     }
     // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)
     private void UpdateGuards()
@@ -203,5 +204,31 @@ public class EmptyDrone : MonoBehaviour, Selectable {
 
         }
         
+    }
+
+    public void ResetInDrone()
+    {
+        enabled = false;
+        rotated = false;
+        walk = false;
+
+        if (navMeshAgent.enabled)
+        {
+            navMeshAgent.isStopped = true;
+            navMeshAgent.enabled = false;
+        }
+        droneAnimation.DefaultInDrone();
+    }
+
+    public void ResetInCore()
+    {
+        rotated = false;
+        walk = false;
+
+        if (navMeshAgent.enabled)
+        {
+            navMeshAgent.isStopped = true;
+        }
+        droneAnimation.Default();
     }
 }
