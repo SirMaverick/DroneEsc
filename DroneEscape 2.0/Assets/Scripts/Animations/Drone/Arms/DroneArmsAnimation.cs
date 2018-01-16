@@ -129,7 +129,6 @@ public class DroneArmsAnimation : MonoBehaviour
     {
         // event from animation
         droneSounds.InsertIntoMachineSound();
-        GenericFunctions.Instance.SetFadeOutCamera("ElevatorCamera1");
         playerController.AnimationInsertIntoMachineDone();
     }
 

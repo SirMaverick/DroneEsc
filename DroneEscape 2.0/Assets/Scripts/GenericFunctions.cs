@@ -135,19 +135,19 @@ public class GenericFunctions : MonoBehaviour {
         StartCoroutine(WaitForFade(waitStartTime, "FadeImage"));
     }
 
-    public void SetFadeOutCamera(string cameraName) {
+    public void SetFadeOutCamera(Camera cameraName) {
         canvas = GameObject.Find("FadeCanvas").GetComponent<Canvas>();
         canvas.enabled = false;
-        cameraProfile = GameObject.Find(cameraName).GetComponent<PostProcessingBehaviour>().profile;
-        cameraCRT = GameObject.Find(cameraName).GetComponent<CRTEffect>();
+        cameraProfile = cameraName.GetComponent<PostProcessingBehaviour>().profile;
+        cameraCRT = cameraName.GetComponent<CRTEffect>();
         cameraCRT.enabled = true;
         tempSettings = cameraProfile.vignette.settings;
         function = "FadeCamera";
     }
 
-    public void SetFadeInCamera(string cameraName) {
-        cameraProfile = GameObject.Find(cameraName).GetComponent<PostProcessingBehaviour>().profile;
-        cameraCRT = GameObject.Find(cameraName).GetComponent<CRTEffect>();
+    public void SetFadeInCamera(Camera cameraName) {
+        cameraProfile = cameraName.GetComponent<PostProcessingBehaviour>().profile;
+        cameraCRT = cameraName.GetComponent<CRTEffect>();
         cameraCRT.enabled = true;
         tempSettings = cameraProfile.vignette.settings;
         function = "FadeScreenFromCamera";

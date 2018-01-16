@@ -13,10 +13,15 @@ class ElevatorPlayerController : AbstractPlayerController
     }
 
     private IEnumerator WaitForSwitchingCamera(float waitTime) {
-        GenericFunctions.Instance.SetFadeInCamera(camera.name);
+        GenericFunctions.Instance.SetFadeInCamera(cameras[0]);
         yield return new WaitForSeconds(waitTime);
         PlayerControllerSupervisor.GetInstance().SwitchPlayerControllerPrevious();
 
+    }
+
+    public override void EnableController() {
+        base.EnableController();
+        GenericFunctions.Instance.SetFadeOutCamera(cameras[0]);
     }
 }
 
