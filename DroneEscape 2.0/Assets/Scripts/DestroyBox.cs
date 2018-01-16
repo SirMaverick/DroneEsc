@@ -9,6 +9,14 @@ public class DestroyBox : ArmEventListener {
     {
         //other.GetComponent<Renderer>().enabled = false;
         GetComponent<Animator>().SetBool("Close", true);
+        GameObject core = FindObjectOfType<CoreObject>().gameObject;
+        if (other.gameObject.Equals(core))
+        {
+            // core so you will die.
+            StartCoroutine(GenericFunctions.Instance.RestartLevel(1, core.GetComponent<MusicController>()));
+
+        }
+
     }
 
     public override void ArmEvent()

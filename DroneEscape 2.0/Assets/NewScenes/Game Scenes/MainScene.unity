@@ -14165,6 +14165,18 @@ MonoBehaviour:
   nextPosition: {fileID: 0}
   nextPositionId: 0
   state: 0
+--- !u!114 &276689264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 276689254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c90af2f64994fd41845d4bc472f340c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
 --- !u!1001 &278828859
 Prefab:
   m_ObjectHideFlags: 0
@@ -16191,6 +16203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 317230438}
   - component: {fileID: 317230439}
+  - component: {fileID: 317230440}
   m_Layer: 0
   m_Name: ConveyorSpawnerL2
   m_TagString: Untagged
@@ -16269,6 +16282,18 @@ MonoBehaviour:
   alreadyRunning: 1
   distanceToMove: 2.25
   coreOnConveyor: 0
+--- !u!65 &317230440
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 317230437}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.3, z: 17}
+  m_Center: {x: -5.04, y: 1, z: -35.5}
 --- !u!1001 &318872848
 Prefab:
   m_ObjectHideFlags: 0
@@ -19337,8 +19362,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 19, y: 0.3, z: 1}
-  m_Center: {x: -9.88, y: 1, z: 0}
+  m_Size: {x: 19, y: 0.3, z: 0.69}
+  m_Center: {x: -9.88, y: 1, z: -0.05}
 --- !u!4 &379037979 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4277221936212736, guid: 649fc5c440182ec4c9beef0c5c6a5dfe,
@@ -52259,7 +52284,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1047977480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 0, z: -46.81}
+  m_LocalPosition: {x: 0.07, y: 0, z: -49.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1565117659}
@@ -60272,6 +60297,18 @@ MonoBehaviour:
   alreadyRunning: 1
   distanceToMove: 2.25
   coreOnConveyor: 0
+--- !u!65 &1224398129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1224398126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19, y: 0.3, z: 0.69}
+  m_Center: {x: -9.88, y: 1, z: -0.05}
 --- !u!1001 &1225804343
 Prefab:
   m_ObjectHideFlags: 0
@@ -86733,6 +86770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1159235370}
   - component: {fileID: 1775610772}
+  - component: {fileID: 1775610773}
   m_Layer: 0
   m_Name: ConveyorSpawnerR2
   m_TagString: Untagged
@@ -86778,6 +86816,18 @@ MonoBehaviour:
   alreadyRunning: 1
   distanceToMove: 2.25
   coreOnConveyor: 0
+--- !u!65 &1775610773
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1775610771}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.3, z: 18}
+  m_Center: {x: 4.96, y: 1, z: -35.06}
 --- !u!4 &1775939676 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4506988753501834, guid: a6760e49551035a40b1cdc323bbb855b,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.PostProcessing;
+using UnityEngine.SceneManagement;
 
 public class GenericFunctions : MonoBehaviour {
 
@@ -156,5 +157,12 @@ public class GenericFunctions : MonoBehaviour {
     IEnumerator WaitForFade(float waitTime, string functionName) {
         yield return new WaitForSeconds(waitTime);
         function = functionName;
+    }
+
+    public IEnumerator RestartLevel(float seconds, MusicController musicController)
+    {
+        yield return new WaitForSeconds(seconds);
+        musicController.RemoveMusic();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
