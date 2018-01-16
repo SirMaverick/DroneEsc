@@ -139,11 +139,16 @@ public class CorePlayerController : AbstractPlayerController
             }
 
 
-            cameraCenter.transform.position = core.transform.position;
+            
 
            
         }
+        
         lastPos = core.transform.position;
+    }
+    private void Update()
+    {
+        cameraCenter.transform.position = core.transform.position;
     }
 
     public Camera GetCamera()
