@@ -28,6 +28,8 @@ public class CoreMovementController : MovementController
 
     public List<GameObject> listOfDronesInRange = new List<GameObject>();
 
+    private List<EmptyDrone> dronesComing = new List<EmptyDrone>();
+
     protected override void Start()
     {
         base.Start();
@@ -82,6 +84,10 @@ public class CoreMovementController : MovementController
                 if (activate)
                 {
                     lastDroneHit.WalkToPlayer(transform.GetChild(0).transform);
+                    if (!dronesComing.Contains(lastDroneHit))
+                    {
+                        dronesComing.Add(lastDroneHit);
+                    }
                 }
 
             }
@@ -187,6 +193,14 @@ public class CoreMovementController : MovementController
 
     public override void DisableController()
     {
+        // @ToDo ugly to have this here like most shit
+        foreach(EmptyDrone drone in dronesComing)
+        {
+            // This also resets the empty shell who actually picked you up
+            drone.ResetInCore();
+        }
+        dronesComing.Clear();
+
         if (lastDroneHit != null)
         {
             lastDroneHit.StopLookingAt();

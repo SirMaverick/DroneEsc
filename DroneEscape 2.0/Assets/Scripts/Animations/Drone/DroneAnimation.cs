@@ -15,7 +15,6 @@ public class DroneAnimation : MonoBehaviour
     }
     public void AnimationWakeUpDone()
     {
-        Debug.Log("AnimationWakeUpDone");
         animator.SetBool("WakeUp", false);
         emptyDrone.AnimWakeUpDone();
     }
@@ -28,9 +27,7 @@ public class DroneAnimation : MonoBehaviour
         
     }
     public void AnimationPickUpDone()
-    {
-        Debug.Log("PickupDone");
-        
+    {     
         animator.SetBool("PickUpCore", false);
         emptyDrone.AnimPickUpDone();
     }
@@ -46,6 +43,14 @@ public class DroneAnimation : MonoBehaviour
     }
 
     public void Default()
+    {
+        animator.SetBool("Shot", false);
+        animator.SetBool("WakeUp", false);
+        animator.SetBool("PickUpCore", false);
+        animator.Play("Default");
+    }
+
+    public void DefaultInDrone()
     {
         animator.SetBool("Shot", false);
         animator.Play("DefaultInDrone");
