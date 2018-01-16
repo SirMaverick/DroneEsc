@@ -15,10 +15,13 @@ public class MagnetMovementController : MovementController
     public FMOD.Studio.EventInstance magnetSound;
     private FMOD.Studio.PLAYBACK_STATE playback;
 
+    MagnetPlayerController magnetPlayerController;
+
     protected override void Start() {
         base.Start();
         magnetSound = RuntimeManager.CreateInstance("event:/SFX/Magnet/Magnet");
         RuntimeManager.AttachInstanceToGameObject(magnetSound, transform, GetComponent<Rigidbody>());
+        magnetPlayerController = (MagnetPlayerController)playerController;
     }
 
     public override void Horizontal(float direction) {
@@ -112,9 +115,8 @@ public class MagnetMovementController : MovementController
     {
         if (key)
         {
-            playerControllerSupervisor.SwitchPlayerControllerPrevious();
             magnet.GetComponent<MagnetMove>().turnedOn = false;
-            GenericFunctions.Instance.SetFadeInCamera("MagnetCamera1");
+            magnetPlayerController.PostFXExit();
             magnetSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
