@@ -24,6 +24,7 @@ public class ElevatorMovementController : MovementController
         elevatorSound = RuntimeManager.CreateInstance("event:/SFX/Elevator/Elevator");
         RuntimeManager.AttachInstanceToGameObject(elevatorSound, transform, GetComponent<Rigidbody>());
         elevatorPlayerController = (ElevatorPlayerController) playerController;
+        
     }
 
     public override void Horizontal(float direction)
@@ -34,6 +35,7 @@ public class ElevatorMovementController : MovementController
     public override void Vertical(float direction) {
         // Do nothing
         if (direction != 0) {
+            elevatorPlayerController.StopPulse();
             elevatorSound.setParameterValue("ElevatorStart", 1.0f);
             elevatorSound.setParameterValue("ElevatorLoop", 1.0f);
             elevatorSound.setParameterValue("ElevatorStop", 0.0f);

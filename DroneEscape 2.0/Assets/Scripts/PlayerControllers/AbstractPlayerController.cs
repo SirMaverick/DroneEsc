@@ -72,5 +72,9 @@ public abstract class AbstractPlayerController : MonoBehaviour
         }
     }
 
+
+    public void StopPulse() {
+        cameras[0].GetComponent<MachinePulse>().StopPulse();
+    }
 }
 

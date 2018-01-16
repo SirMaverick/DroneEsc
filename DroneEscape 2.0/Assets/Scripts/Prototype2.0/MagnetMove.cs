@@ -44,9 +44,11 @@ public class MagnetMove : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
+        if(other.GetComponent<MachinePulse>() ) other.GetComponent<MachinePulse>().StartPulse();
         // A drone is magnetic aswell but isn't tagged as magnetic
         if ((other.transform.tag == "Drone" || other.transform.tag == "Magnetic") && turnedOn && other.GetComponent<Rigidbody>().useGravity) {
             if (other.GetComponent<Rigidbody>().useGravity) {
+                print("hallo");
                 other.transform.parent = transform;
                 other.GetComponent<Rigidbody>().useGravity = false;
                 other.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
@@ -81,7 +83,8 @@ public class MagnetMove : MonoBehaviour {
     }
 
     private void OnTriggerExit(Collider other) {
-        if(other.transform.tag == "Drone" || other.transform.tag == "Magnetic") ReleaseObject(other.gameObject);     
+        if(other.transform.tag == "Drone" || other.transform.tag == "Magnetic") ReleaseObject(other.gameObject);
+        if (other.GetComponent<MachinePulse>()) other.GetComponent<MachinePulse>().StopPulse();
     }
 
     private void OnCollisionEnter(Collision collision)

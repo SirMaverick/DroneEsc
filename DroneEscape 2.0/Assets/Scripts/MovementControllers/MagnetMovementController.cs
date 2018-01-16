@@ -61,6 +61,7 @@ public class MagnetMovementController : MovementController
         magnet.transform.Translate(0, 0, direction * Time.deltaTime * speed);
         // Do nothing
         if (direction != 0) {
+            magnetPlayerController.StopPulse();
             magnetSound.setParameterValue("MagnetOn", 1.0f);
             magnetSound.setParameterValue("MagnetMovement", 1.0f);
             magnetSound.setParameterValue("MagnetLock", 0.0f);
