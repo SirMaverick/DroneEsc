@@ -11,6 +11,11 @@ public class SpawnConveyorBeltItems : ArmEventListener {
     [SerializeField] private float speed = 2.0f;
     [SerializeField] private ArmEventListener[] armEventListeners;
     [SerializeField] private bool alreadyRunning = true;
+    [SerializeField] private float distanceToMove = 2.25f;
+    [SerializeField] private bool coreOnConveyor = false;
+
+    private ConveyorBeltItem coreItem;
+
     private int index = 0;
 
     private bool state = false;
@@ -91,12 +96,25 @@ public class SpawnConveyorBeltItems : ArmEventListener {
                 {
                     item.NextPosition(positions[item.nextPositionId + 1], item.nextPositionId + 1);
                     item.state = state;
+                    if (coreOnConveyor)
+                    {
+                        coreItem.state = true;
+                    }
                 }
-
-
-            
+                else if (coreOnConveyor)
+                    {
+                        coreItem.state = false;
+                    }
+                
                 //item.nextPosition = positions[item.nextPositionId + 1];
                 //item.nextPositionId++;
+            }
+        }
+        if (coreOnConveyor)
+        {
+            if (coreItem.state)
+            {
+                coreItem.transform.position = Vector3.MoveTowards(coreItem.transform.position, endPosition.position, speed * Time.deltaTime);
             }
         }
 	}
@@ -131,6 +149,20 @@ public class SpawnConveyorBeltItems : ArmEventListener {
     public override void ArmEvent()
     {
         AnimationArmDone();
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        GameObject coreGameObject = other.gameObject;
+        if (coreGameObject == FindObjectOfType<CoreObject>().gameObject)
+        {
+            Vector3 xyz = coreGameObject.transform.position;
+            xyz.x = transform.position.x;
+            
+            coreItem = coreGameObject.GetComponent<ConveyorBeltItem>();
+            coreItem.transform.position = xyz;
+            coreOnConveyor = true;
+        }
     }
 
     /*public void AddEndEventListener(EndEventListener endEventListener)
