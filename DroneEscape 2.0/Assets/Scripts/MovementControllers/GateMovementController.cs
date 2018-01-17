@@ -28,7 +28,7 @@ public class GateMovementController : MovementController
     {
         if (key)
         {
-            playerControllerSupervisor.SwitchPlayerControllerPrevious();
+            gatePlayerController.PostFXExit();
         }
     }
 
