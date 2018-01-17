@@ -6930,7 +6930,7 @@ BoxCollider:
   m_GameObject: {fileID: 125116586}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 11.362389, y: 1.468235, z: 14.115646}
   m_Center: {x: 15.769167, y: -0.3291769, z: -46.445984}
@@ -58422,6 +58422,11 @@ Prefab:
       propertyPath: conveyorAnimatorEnd
       value: 
       objectReference: {fileID: 81281483}
+    - target: {fileID: 114236802341115040, guid: d18792f01772f3549b1438c03413b43a,
+        type: 2}
+      propertyPath: conveyorCollider
+      value: 
+      objectReference: {fileID: 125116589}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d18792f01772f3549b1438c03413b43a, type: 2}
   m_IsPrefabParent: 0
@@ -90177,6 +90182,7 @@ MonoBehaviour:
   conveyorAnimatorEnd: {fileID: 0}
   rollerAnimatorStart: {fileID: 0}
   rollerAnimatorEnd: {fileID: 0}
+  conveyorCollider: {fileID: 0}
 --- !u!1 &1845877136
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,12 +8,12 @@ public class GateAnimation : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] Animator conveyorAnimatorStart, conveyorAnimatorEnd, rollerAnimatorStart, rollerAnimatorEnd;
-    [SerializeField] GameObject conveyorCollider;
+    [SerializeField] BoxCollider conveyorCollider;
 
 
     public void OpenGate()
     {
-        conveyorCollider.SetActive(true);
+        conveyorCollider.enabled = true;
         animator.SetBool("Open", true);
         conveyorAnimatorStart.SetBool("Open", true);
         conveyorAnimatorEnd.SetBool("Open", true);
@@ -23,7 +23,7 @@ public class GateAnimation : MonoBehaviour
 
     public void CloseGate()
     {
-        conveyorCollider.SetActive(false);
+        conveyorCollider.enabled = false;
         animator.SetBool("Open", false);
         conveyorAnimatorStart.SetBool("Open", false);
         conveyorAnimatorEnd.SetBool("Open", false);
