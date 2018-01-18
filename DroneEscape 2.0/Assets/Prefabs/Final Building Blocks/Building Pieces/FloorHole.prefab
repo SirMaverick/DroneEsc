@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4212642488576048}
   - component: {fileID: 33386474147607560}
   - component: {fileID: 23800381368475272}
+  - component: {fileID: 65316805573682214}
   m_Layer: 0
   m_Name: FloorGapDoor
   m_TagString: Untagged
@@ -57,6 +58,7 @@ GameObject:
   - component: {fileID: 4696251708559214}
   - component: {fileID: 33484335415495192}
   - component: {fileID: 23431437333520604}
+  - component: {fileID: 65710629296023292}
   m_Layer: 0
   m_Name: FloorGapDoor (1)
   m_TagString: Untagged
@@ -213,14 +215,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1258481337974022}
-  m_Mesh: {fileID: 4300000, guid: 16ce64606ff65f446bca9dea9ce79042, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 27bda383dfc446d42a43bbfc1d64f150, type: 3}
 --- !u!33 &33484335415495192
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1695369000336102}
-  m_Mesh: {fileID: 4300000, guid: 16ce64606ff65f446bca9dea9ce79042, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 27bda383dfc446d42a43bbfc1d64f150, type: 3}
 --- !u!33 &33627583624425662
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -241,7 +243,31 @@ MeshCollider:
   m_Convex: 0
   m_InflateMesh: 0
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 5421a3ac684bc8644bb3daa0b0dff183, type: 3}
+  m_Mesh: {fileID: 4300014, guid: 27bda383dfc446d42a43bbfc1d64f150, type: 3}
+--- !u!65 &65316805573682214
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1258481337974022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0051999995, y: 0.010399998, z: 0.00049999997}
+  m_Center: {x: 0.0025999998, y: 0, z: 0.00024999614}
+--- !u!65 &65710629296023292
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1695369000336102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0051999995, y: 0.010399998, z: 0.00049999997}
+  m_Center: {x: 0.0025999998, y: 0, z: 0.00024999614}
 --- !u!95 &95625609030491980
 Animator:
   serializedVersion: 3
