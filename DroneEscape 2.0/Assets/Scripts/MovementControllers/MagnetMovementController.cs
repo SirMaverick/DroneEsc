@@ -12,15 +12,17 @@ public class MagnetMovementController : MovementController
 
     private float horizontalMove, verticalMove;
 
-    public FMOD.Studio.EventInstance magnetSound;
+    public FMOD.Studio.EventInstance magnetMoveSound, magneticSound;
     private FMOD.Studio.PLAYBACK_STATE playback;
 
     MagnetPlayerController magnetPlayerController;
 
     protected override void Start() {
         base.Start();
-        magnetSound = RuntimeManager.CreateInstance("event:/SFX/Magnet/Magnet");
-        RuntimeManager.AttachInstanceToGameObject(magnetSound, transform, GetComponent<Rigidbody>());
+        magnetMoveSound = RuntimeManager.CreateInstance("event:/SFX/Magnet/Magnet");
+        RuntimeManager.AttachInstanceToGameObject(magnetMoveSound, transform, GetComponent<Rigidbody>());
+        magneticSound = RuntimeManager.CreateInstance("event:/SFX/Magnet/MagneticSound");
+        RuntimeManager.AttachInstanceToGameObject(magneticSound, transform, GetComponent<Rigidbody>());
         magnetPlayerController = (MagnetPlayerController)playerController;
     }
 
@@ -31,27 +33,27 @@ public class MagnetMovementController : MovementController
 
         if (direction != 0) {
             magnetPlayerController.StopPulse();
-            magnetSound.setParameterValue("MagnetOn", 0.0f);
-            magnetSound.setParameterValue("MagnetMovement", 1.0f);
-            magnetSound.setParameterValue("MagnetLock", 0.0f);
-            magnetSound.setParameterValue("GrabSmall", 0.0f);
-            magnetSound.setParameterValue("GrabMedium", 0.0f);
-            magnetSound.setParameterValue("GrabBig", 0.0f);
-            magnetSound.setParameterValue("MagnetDrop", 0.0f);
-            magnetSound.setParameterValue("DropSmall", 0.0f);
-            magnetSound.setParameterValue("DropMedium", 0.0f);
-            magnetSound.setParameterValue("DropBig", 0.0f);
-            magnetSound.getPlaybackState(out playback);
+            magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
+            magnetMoveSound.setParameterValue("MagnetMovement", 1.0f);
+            magnetMoveSound.setParameterValue("MagnetLock", 0.0f);
+            magnetMoveSound.setParameterValue("GrabSmall", 0.0f);
+            magnetMoveSound.setParameterValue("GrabMedium", 0.0f);
+            magnetMoveSound.setParameterValue("GrabBig", 0.0f);
+            magnetMoveSound.setParameterValue("MagnetDrop", 0.0f);
+            magnetMoveSound.setParameterValue("DropSmall", 0.0f);
+            magnetMoveSound.setParameterValue("DropMedium", 0.0f);
+            magnetMoveSound.setParameterValue("DropBig", 0.0f);
+            magnetMoveSound.getPlaybackState(out playback);
             if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
 
             } else {
-                magnetSound.start();
-                magnetSound.setParameterValue("MagnetOn", 0.0f);
+                magnetMoveSound.start();
+                magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
             }
             
 
         } else if (verticalMove == 0 && horizontalMove == 0) {
-            magnetSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            magnetMoveSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         }
     }
@@ -63,26 +65,27 @@ public class MagnetMovementController : MovementController
         // Do nothing
         if (direction != 0) {
             magnetPlayerController.StopPulse();
-            magnetSound.setParameterValue("MagnetOn", 1.0f);
-            magnetSound.setParameterValue("MagnetMovement", 1.0f);
-            magnetSound.setParameterValue("MagnetLock", 0.0f);
-            magnetSound.setParameterValue("GrabSmall", 0.0f);
-            magnetSound.setParameterValue("GrabMedium", 0.0f);
-            magnetSound.setParameterValue("GrabBig", 0.0f);
-            magnetSound.setParameterValue("MagnetDrop", 0.0f);
-            magnetSound.setParameterValue("DropSmall", 0.0f);
-            magnetSound.setParameterValue("DropMedium", 0.0f);
-            magnetSound.setParameterValue("DropBig", 0.0f);
+            magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
+            magnetMoveSound.setParameterValue("MagnetMovement", 1.0f);
+            magnetMoveSound.setParameterValue("MagnetLock", 0.0f);
+            magnetMoveSound.setParameterValue("GrabSmall", 0.0f);
+            magnetMoveSound.setParameterValue("GrabMedium", 0.0f);
+            magnetMoveSound.setParameterValue("GrabBig", 0.0f);
+            magnetMoveSound.setParameterValue("MagnetDrop", 0.0f);
+            magnetMoveSound.setParameterValue("DropSmall", 0.0f);
+            magnetMoveSound.setParameterValue("DropMedium", 0.0f);
+            magnetMoveSound.setParameterValue("DropBig", 0.0f);
+            magnetMoveSound.getPlaybackState(out playback);
             if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
 
             } else {
-                magnetSound.start();
-                magnetSound.setParameterValue("MagnetOn", 0.0f);
+                magnetMoveSound.start();
+                magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
             }
             
 
         } else if (verticalMove == 0 && horizontalMove == 0) {
-            magnetSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            magnetMoveSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             
         }
     }
@@ -96,8 +99,11 @@ public class MagnetMovementController : MovementController
     {
         if (key)
         {
-            if(!magnet.GetComponent<MagnetMove>().turnedOn)
+            if (!magnet.GetComponent<MagnetMove>().turnedOn) { 
                 magnet.GetComponent<MagnetMove>().turnedOn = true;
+                magneticSound.setParameterValue("MagneticSound", 1.0f);
+                magneticSound.start();
+            }
         }
 
     }
@@ -109,7 +115,8 @@ public class MagnetMovementController : MovementController
             // released the button
             if (magnet.GetComponent<MagnetMove>().turnedOn)
                 magnet.GetComponent<MagnetMove>().turnedOn = false;
-        }
+            magneticSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }   
     }
 
 
@@ -119,7 +126,7 @@ public class MagnetMovementController : MovementController
         {
             magnet.GetComponent<MagnetMove>().turnedOn = false;
             magnetPlayerController.PostFXExit();
-            magnetSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            magnetMoveSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 

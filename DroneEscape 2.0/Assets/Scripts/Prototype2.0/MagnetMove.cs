@@ -1,16 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class MagnetMove : MonoBehaviour {
 
     public bool turnedOn;
     [SerializeField] private float speed = 2.5f;
+    [SerializeField]
+    private Transform audioPlacement;
     public List<GameObject> listOfMagneticObjects = new List<GameObject>();
 
-	// Use this for initialization
-	void Start () {
-	}
+    GameObject lastCollided;
+
+    public FMOD.Studio.EventInstance collisionSound;
+    private FMOD.Studio.PLAYBACK_STATE playback;
+
+
+    // Use this for initialization
+    void Start () {
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -48,7 +58,6 @@ public class MagnetMove : MonoBehaviour {
         // A drone is magnetic aswell but isn't tagged as magnetic
         if ((other.transform.tag == "Drone" || other.transform.tag == "Magnetic") && turnedOn && other.GetComponent<Rigidbody>().useGravity) {
             if (other.GetComponent<Rigidbody>().useGravity) {
-                print("hallo");
                 other.transform.parent = transform;
                 other.GetComponent<Rigidbody>().useGravity = false;
                 other.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
@@ -89,11 +98,29 @@ public class MagnetMove : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);        
-        if(collision.transform.tag == "Magnetic")
-        {
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        if (collision.transform.tag == "Magnetic") {
             collision.transform.position -= new Vector3(0, Time.deltaTime * speed * 3, 0);
             collision.rigidbody.velocity = new Vector3(0, 0, 0);
+            collisionSound.getPlaybackState(out playback);
+            if (playback != FMOD.Studio.PLAYBACK_STATE.PLAYING && playback != FMOD.Studio.PLAYBACK_STATE.STARTING && lastCollided != collision.gameObject) {
+                lastCollided = collision.gameObject;
+                collisionSound = RuntimeManager.CreateInstance("event:/SFX/Magnet/Magnet");
+                RuntimeManager.AttachInstanceToGameObject(collisionSound, audioPlacement, GetComponent<Rigidbody>());
+                collisionSound.setParameterValue("MagnetOn", 0.0f);
+                collisionSound.setParameterValue("MagnetMovement", 0.0f);
+                collisionSound.setParameterValue("MagnetLock", 1.0f);
+                collisionSound.setParameterValue("GrabSmall", 0.0f);
+                collisionSound.setParameterValue("GrabMedium", 0.0f);
+                collisionSound.setParameterValue("GrabBig", 1.0f);
+                collisionSound.setParameterValue("MagnetDrop", 0.0f);
+                collisionSound.setParameterValue("DropSmall", 0.0f);
+                collisionSound.setParameterValue("DropMedium", 0.0f);
+                collisionSound.setParameterValue("DropBig", 0.0f);
+                collisionSound.start();
+
+                StartCoroutine(StopFMODSound(0.8f));
+            }
         }
     }
 
@@ -113,5 +140,10 @@ public class MagnetMove : MonoBehaviour {
         {
             collision.rigidbody.velocity = new Vector3(0, 0, 0);
         }
+    }
+
+    IEnumerator StopFMODSound(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        collisionSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }
