@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.AI;
 
 class SystemArm : MonoBehaviour
 {
@@ -24,6 +25,9 @@ class SystemArm : MonoBehaviour
 
     private List<LiftDroneCallBack> callBacksLift;
     private bool firstLift = true;
+
+    [SerializeField] RuntimeAnimatorController droneAnimator;
+
 
 
     private void Start()
@@ -70,6 +74,12 @@ class SystemArm : MonoBehaviour
                 else
                 {
                     targetDrone.GetComponent<Rigidbody>().isKinematic = false;
+                    // make the drone an empty shell
+                    targetDrone.GetComponent<EmptyDrone>().enabled = true;
+                    targetDrone.tag = "Drone";// yes this is ugly as is the next few things
+                    targetDrone.GetComponent<Animator>().runtimeAnimatorController = droneAnimator;
+                    targetDrone.GetComponent<DronePlayerController>().enabled = true;
+                    targetDrone.GetComponent<NavMeshAgent>().enabled = true;
                     droneLift = false;
                     // remove energy
                     playerController.GiveEnergy();
