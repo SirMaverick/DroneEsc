@@ -9,6 +9,7 @@ public class DoorOpener : MonoBehaviour {
     [SerializeField] private float timeBeforeClose;
     [SerializeField] private GameObject Door;
     public bool doorOpen;
+    bool doorIsOpen;
 
     private FMOD.Studio.EventDescription description;
 
@@ -63,8 +64,7 @@ public class DoorOpener : MonoBehaviour {
         return _audioLength / 1000.0f;
     }
 
-    IEnumerator DoorCloser()
-    {
+    IEnumerator DoorCloser() {
         yield return new WaitForSeconds(timeBeforeClose);
         _animator.SetBool("openDoor", false);
         doorSound = RuntimeManager.CreateInstance("event:/SFX/Door/DoorOpenAndClose");
@@ -79,18 +79,24 @@ public class DoorOpener : MonoBehaviour {
     }
 
     IEnumerator OpenDoor() {
+        if(playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+            doorSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        } StopCoroutine("DoorCloser");
         doorSound = RuntimeManager.CreateInstance("event:/SFX/Door/DoorOpenAndClose");
         RuntimeManager.AttachInstanceToGameObject(doorSound, transform, GetComponent<Rigidbody>());
         doorSound.setParameterValue("MainDoorClose", 0.0f);
         doorSound.setParameterValue("MainDoorOpen", 1.0f);
         audioLength = GetAudioLength(doorSound);
-        print(audioLength);
         doorSound.start();
+        
         yield return new WaitForSeconds(audioLength);
         doorSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     IEnumerator DenyDoor() {
+        if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+            doorSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
         doorSound = RuntimeManager.CreateInstance("event:/SFX/Door/DoorDenied");
         RuntimeManager.AttachInstanceToGameObject(doorSound, transform, GetComponent<Rigidbody>());
         doorSound.setParameterValue("DoorDenied", 1.0f);
