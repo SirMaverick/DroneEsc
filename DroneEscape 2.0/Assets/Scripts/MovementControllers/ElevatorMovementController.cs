@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using FMODUnity;
 public class ElevatorMovementController : MovementController
@@ -44,7 +44,6 @@ public class ElevatorMovementController : MovementController
 
             } else {
                 elevatorSound.start();
-                elevatorSound.setParameterValue("ElevatorStart", 0.0f);
             }
             if (direction > 0) {
                 elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, highestPos.position, speed * Time.deltaTime);
@@ -80,6 +79,10 @@ public class ElevatorMovementController : MovementController
         }
     }
 
+    IEnumerator WaitToEndAudio(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        elevatorSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
 
 
 }

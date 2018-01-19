@@ -2,39 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DroneArmsAnimation : MonoBehaviour
-{
+public class DroneArmsAnimation : MonoBehaviour {
     [SerializeField] Animator animator;
     [SerializeField]
     DroneSounds droneSounds;
     bool forwards = false;
     bool backwards = false;
+    bool right = false;
+    bool left = false;
     bool shoot = false;
     bool shootReady = false;
 
     bool insertIntoMachine = false;
 
-    
+
 
 
 
     //used for call backs
     [SerializeField] DronePlayerController playerController;
 
-    public void WalkForwards()
-    {
-        if (insertIntoMachine)
-        {
+    public void WalkForwards() {
+        if (insertIntoMachine) {
             return;
         }
-        if (!forwards)
-        {
-            if (backwards)
-            {
+        if (!forwards) {
+            if (backwards) {
                 backwards = false;
                 animator.SetFloat("BackwardsAnimSpeedMultiplier", -1);
                 animator.SetBool("WalkBackwards", backwards);
-            } else {
+            } else if (!(left || right)){
                 droneSounds.StartMoveSound();
             }
 
@@ -45,20 +42,16 @@ public class DroneArmsAnimation : MonoBehaviour
         }
     }
 
-    public void WalkBackwards()
-    {
-        if (insertIntoMachine)
-        {
+    public void WalkBackwards() {
+        if (insertIntoMachine) {
             return;
         }
-        if (!backwards)
-        {
-            if (forwards)
-            {
+        if (!backwards) {
+            if (forwards) {
                 forwards = false;
                 animator.SetFloat("ForwardsAnimSpeedMultiplier", -1);
                 animator.SetBool("WalkForwards", forwards);
-            } else {
+            } else if (!(left || right)) {
                 droneSounds.StartMoveSound();
             }
 
@@ -68,23 +61,67 @@ public class DroneArmsAnimation : MonoBehaviour
         }
     }
 
+    public void WalkLeft() {
+        if (insertIntoMachine) {
+            return;
+        }
+        if (!left) {
+            if (right) {
+                right = false;
+            } else if (!(forwards || backwards)){
+                droneSounds.StartMoveSound();
+            }
 
-    public void WalkNotVertically()
-    {
+            left = true;
+        }
+    }
+
+    public void WalkRight() {
+        if (insertIntoMachine) {
+            return;
+        }
+        if (!right) {
+            if (left) {
+                left = false;
+            } else if (!(forwards || backwards)){
+                droneSounds.StartMoveSound();
+            }
+
+            right = true;
+        }
+    }
+
+
+    public void WalkNotVertically() {
         if (forwards)
         {
+            if(!(left||right))
             droneSounds.StopMoveSound();
             forwards = false;
             animator.SetFloat("ForwardsAnimSpeedMultiplier", -1);
             animator.SetBool("WalkForwards", forwards);
             
         }
-        if (backwards)
+        if (backwards )
         {
+            if(!(left || right))
             droneSounds.StopMoveSound();
             backwards = false;
             animator.SetFloat("BackwardsAnimSpeedMultiplier", -1);
             animator.SetBool("WalkBackwards", backwards);
+        }
+    }
+
+    public void WalkNotHorizontally() {
+        if (left) {
+            if(!(forwards || backwards))
+            droneSounds.StopMoveSound();
+            left = false;
+        }
+        if (right) {
+            if(!(forwards || backwards))
+            droneSounds.StopMoveSound();
+            right = false;
         }
     }
 

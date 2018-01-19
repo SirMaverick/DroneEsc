@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.PostProcessing;
 using UnityEngine.SceneManagement;
 
+using FMODUnity;
+
 public class GenericFunctions : MonoBehaviour {
 
     string function;
@@ -18,8 +20,12 @@ public class GenericFunctions : MonoBehaviour {
     PostProcessingProfile cameraProfile;
     VignetteModel.Settings tempSettings;
     CRTEffect cameraCRT;
-    
-    
+
+    public FMOD.Studio.EventInstance soundInstance;
+    private FMOD.Studio.PLAYBACK_STATE playback;
+    private FMOD.Studio.EventDescription description;
+
+
 
     public static GenericFunctions _instance;
     public static GenericFunctions Instance {
@@ -144,6 +150,13 @@ public class GenericFunctions : MonoBehaviour {
         cameraCRT.enabled = true;
         tempSettings = cameraProfile.vignette.settings;
         function = "FadeCamera";
+        soundInstance = RuntimeManager.CreateInstance("event:/SFX/Camera/CameraOnandOff");
+        RuntimeManager.AttachInstanceToGameObject(soundInstance, cameraName.transform, cameraName.GetComponent<Rigidbody>());
+        soundInstance.setParameterValue("CameraOn", 1.0f);
+        soundInstance.setParameterValue("CameraOff", 0.0f);
+        float audioLength = GetAudioLength(soundInstance);
+        StartCoroutine(WaitForAudioFinish(audioLength));
+        soundInstance.start();
     }
 
     public void SetFadeInCamera(Camera cameraName) {
@@ -152,6 +165,13 @@ public class GenericFunctions : MonoBehaviour {
         cameraCRT.enabled = true;
         tempSettings = cameraProfile.vignette.settings;
         function = "FadeScreenFromCamera";
+        soundInstance = RuntimeManager.CreateInstance("event:/SFX/Camera/CameraOnandOff");
+        RuntimeManager.AttachInstanceToGameObject(soundInstance, cameraName.transform, cameraName.GetComponent<Rigidbody>());
+        soundInstance.setParameterValue("CameraOn", 0.0f);
+        soundInstance.setParameterValue("CameraOff", 1.0f);
+        float audioLength = GetAudioLength(soundInstance);
+        StartCoroutine(WaitForAudioFinish(audioLength));
+        soundInstance.start();
     }
 
     IEnumerator WaitForFade(float waitTime, string functionName) {
@@ -164,5 +184,19 @@ public class GenericFunctions : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
         musicController.RemoveMusic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator WaitForAudioFinish(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        soundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
+    private float GetAudioLength(FMOD.Studio.EventInstance sound) {
+        FMOD.Studio.EventDescription _description;
+        int _audioLength;
+        sound.getDescription(out _description);
+        _description.getLength(out _audioLength);
+
+        return _audioLength / 1000.0f;
     }
 }

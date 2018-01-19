@@ -11,10 +11,10 @@ public class MusicController : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        core = GameObject.Find("Core");
-        backgroundMusic = RuntimeManager.CreateInstance("event:/Music/" + eventName);
-        RuntimeManager.AttachInstanceToGameObject(backgroundMusic, core.transform, core.GetComponent<Rigidbody>());
-        backgroundMusic.start();
+        //core = GameObject.Find("Core");
+        //backgroundMusic = RuntimeManager.CreateInstance("event:/Music/" + eventName);
+        //RuntimeManager.AttachInstanceToGameObject(backgroundMusic, core.transform, core.GetComponent<Rigidbody>());
+        //backgroundMusic.start();
     }
 
     // Update is called once per frame
@@ -24,13 +24,8 @@ public class MusicController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "MusicChange") {
-            print("ollah");
             eventName = other.GetComponent<MusicContainer>().FMODMusicName;
-            backgroundMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            backgroundMusic.release();
-            backgroundMusic = RuntimeManager.CreateInstance("event:/Music/" + eventName);
-            RuntimeManager.AttachInstanceToGameObject(backgroundMusic, transform, GetComponent<Rigidbody>());
-            backgroundMusic.start();
+            MusicPlayer.Instance.SwitchMusic(eventName);
         }
     }
 

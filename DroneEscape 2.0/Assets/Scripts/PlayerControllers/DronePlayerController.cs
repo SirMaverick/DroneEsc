@@ -151,6 +151,13 @@ using FMODUnity;
 
     public void MoveHorizontally(float value)
     {
+        if (value > 0) {
+            animationDroneArms.WalkRight();
+        } else if (value < 0) {
+            animationDroneArms.WalkLeft();
+        } else {
+            animationDroneArms.WalkNotHorizontally();
+        }
         gameObject.transform.Translate(value * Time.deltaTime * speed, 0, 0);
     }
     // button just for temp action
