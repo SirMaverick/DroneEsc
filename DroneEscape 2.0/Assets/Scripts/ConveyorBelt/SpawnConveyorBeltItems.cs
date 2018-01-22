@@ -114,7 +114,18 @@ public class SpawnConveyorBeltItems : ArmEventListener {
         {
             if (coreItem.state)
             {
-                coreItem.transform.position = Vector3.MoveTowards(coreItem.transform.position, endPosition.position, speed * Time.deltaTime);
+                // doesn't work for some reason
+                //if (coreItem.transform.position.Equals(coreItem.nextPosition.position))
+                Vector3 corePos = coreItem.transform.position;
+                Vector3 coreNextPos = coreItem.nextPosition.position;
+                if ((corePos-coreNextPos).sqrMagnitude < 0.01)
+                {
+                    if (coreItem.nextPositionId < positions.Length - 1){
+                        coreItem.NextPosition(positions[coreItem.nextPositionId + 1], coreItem.nextPositionId + 1);
+                    }
+                }
+
+                coreItem.transform.position = Vector3.MoveTowards(coreItem.transform.position, coreItem.nextPosition.position, speed * Time.deltaTime);
             }
         }
 	}
@@ -158,19 +169,53 @@ public class SpawnConveyorBeltItems : ArmEventListener {
         {
             Vector3 xyz = coreGameObject.transform.position;
             BoxCollider boxCollider = GetComponent<BoxCollider>() ;
-            if (boxCollider.center.x > boxCollider.center.z)
+            /*if (boxCollider.center.x > boxCollider.center.z)
             {
                 xyz.z = transform.position.z + boxCollider.center.z;
             }
             else
             {
                 xyz.x = transform.position.x;// + boxCollider.center.x;
-            }
+            }*/
             
             coreItem = coreGameObject.GetComponent<ConveyorBeltItem>();
             coreItem.transform.position = xyz;
+            int id = FindNextPosition(xyz);
+            coreItem.NextPosition(positions[id], id);
             coreOnConveyor = true;
         }
+    }
+
+    public int FindNextPosition(Vector3 position)
+    {
+        int id = -2;
+        float distance = 999999;
+        float distancePrev = 0;
+        for(int i = 0; i < positions.Length; i++)
+        {
+            Vector3 pos = positions[i].position;
+
+            float distanceTemp = Mathf.Abs(position.x - pos.x) + Mathf.Abs(position.y - pos.y) + Mathf.Abs(position.z - pos.z);
+            if(distanceTemp < distance)
+            {
+                distance = distanceTemp;
+                id = i;
+                if (i > 0)
+                {
+                    distancePrev = Mathf.Abs(position.x - positions[i - 1].position.x) + Mathf.Abs(position.y - positions[i - 1].position.y) + Mathf.Abs(position.z - positions[i - 1].position.z);
+                }
+            }
+            if(id == i - 1)
+            {
+                if(distancePrev > distanceTemp)
+                {
+                    id = i;
+                    distancePrev = distanceTemp;
+                }
+            }
+
+        }
+        return id;
     }
 
     /*public void AddEndEventListener(EndEventListener endEventListener)
