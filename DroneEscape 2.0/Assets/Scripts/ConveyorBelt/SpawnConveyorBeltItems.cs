@@ -169,14 +169,14 @@ public class SpawnConveyorBeltItems : ArmEventListener {
         {
             Vector3 xyz = coreGameObject.transform.position;
             BoxCollider boxCollider = GetComponent<BoxCollider>() ;
-            if (boxCollider.center.x > boxCollider.center.z)
+            /*if (boxCollider.center.x > boxCollider.center.z)
             {
                 xyz.z = transform.position.z + boxCollider.center.z;
             }
             else
             {
                 xyz.x = transform.position.x;// + boxCollider.center.x;
-            }
+            }*/
             
             coreItem = coreGameObject.GetComponent<ConveyorBeltItem>();
             coreItem.transform.position = xyz;
