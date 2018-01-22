@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using FMODUnity;
 using System.Collections.Generic;
 
 public class DronePulse : MonoBehaviour {
@@ -16,6 +17,9 @@ public class DronePulse : MonoBehaviour {
     bool pulseDeactive = false;
 
     GameObject cameraCenter;
+
+    FMOD.Studio.EventInstance droneSound;
+    FMOD.Studio.PLAYBACK_STATE playback;
 
 
     // Use this for initialization
@@ -70,6 +74,8 @@ public class DronePulse : MonoBehaviour {
     public IEnumerator WaitForPulse() {
         float time = Vector3.Distance(transform.position, cameraCenter.transform.position) / maxDistance * 3.0f;
         yield return new WaitForSeconds(time);
+        print("dikke hond");
+        StartCoroutine(PlayOneShotFMOD("event:/SFX/Core/CorePulseHitDrone", gameObject));
         GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 1);
         startPulse = true;
         
@@ -94,6 +100,19 @@ public class DronePulse : MonoBehaviour {
             GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 0);
             startPulse = false;
         }
+    }
+
+    IEnumerator PlayOneShotFMOD(string eventName, GameObject attachTo) {
+        FMOD.Studio.EventInstance oneShot = RuntimeManager.CreateInstance(eventName);
+        FMOD.Studio.EventDescription description;
+        oneShot.getDescription(out description);
+        int tempWaitTime;
+        description.getLength(out tempWaitTime);
+        RuntimeManager.AttachInstanceToGameObject(oneShot, attachTo.transform, attachTo.GetComponent<Rigidbody>());
+        oneShot.start();
+        yield return new WaitForSeconds(tempWaitTime / 1000.0f);
+        oneShot.release();
+        oneShot.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
 }

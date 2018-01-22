@@ -51,7 +51,7 @@ public class ClickInPlace : MonoBehaviour {
                     guardFOV.BlockRight();
                 }
             }
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
 
@@ -80,7 +80,8 @@ public class ClickInPlace : MonoBehaviour {
 
     IEnumerator StopFMODSound(float waitTime) {
         yield return new WaitForSeconds(waitTime);
-        lockInSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        lockInSound.release();
+        lockInSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
     /*
     private void OnTriggerExit(Collider other)
