@@ -70,6 +70,11 @@ public class DronePulse : MonoBehaviour {
         StartCoroutine(WaitForPulse());
     }
 
+    public void StartPulseHighlighted() {
+        GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 1);
+        startPulse = true;
+    }
+
 
     public IEnumerator WaitForPulse() {
         float time = Vector3.Distance(transform.position, cameraCenter.transform.position) / maxDistance * 3.0f;
