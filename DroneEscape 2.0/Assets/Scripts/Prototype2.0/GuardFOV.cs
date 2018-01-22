@@ -126,6 +126,7 @@ class GuardFOV: MonoBehaviour
                     {
                         // first time spotted so change color
                         colorSpotted();
+                        StartWarnAudio();
 
                         time = Time.time - (time - minDetectionTime) + Time.time;
                         //time = Time.time;
@@ -271,7 +272,6 @@ class GuardFOV: MonoBehaviour
         cameraSound = RuntimeManager.CreateInstance("event:/SFX/Camera/CameraMovements");
         RuntimeManager.AttachInstanceToGameObject(cameraSound, transform, GetComponent<Rigidbody>());
         cameraSound.setParameterValue("CameraMov2", 1.0f);
-        cameraSound.setParameterValue("CameraWarn", 1.0f);
         cameraSound.getDescription(out description);
         description.getLength(out audioLength);
         cameraSound.start();
@@ -280,15 +280,15 @@ class GuardFOV: MonoBehaviour
     private void StartWarnAudio() {
         spottedAudioPlaying = true;
         moveAudioPlaying = false;
+        cameraSound.release();
         cameraSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        cameraSound = RuntimeManager.CreateInstance("event:/SFX/Camera/CameraMovements");
+        cameraSound = RuntimeManager.CreateInstance("event:/SFX/Camera/CameraWarn");
         RuntimeManager.AttachInstanceToGameObject(cameraSound, transform, GetComponent<Rigidbody>());
         cameraSound.setParameterValue("CameraWarn", 1.0f);
-        cameraSound.setParameterValue("CameraMov2", 0.0f);
         cameraSound.getDescription(out description);
         description.getLength(out audioLength);
         cameraSound.start();
-        StartCoroutine(StopSound(3.5f));
+        StartCoroutine(StopSound(audioLength, cameraSound));
     }
 
     public void notSpotted()
@@ -296,6 +296,8 @@ class GuardFOV: MonoBehaviour
         if (spotted)
         {
             // first time here after detecting 
+            StartCoroutine(StopSound(0.0f, cameraSound));
+            StartMoveAudio();
             colorNotSpotted();
             time = Time.time - (time - minDetectionTime) + Time.time;
             // fully detected (shouln't happen)
@@ -379,8 +381,9 @@ class GuardFOV: MonoBehaviour
         blockedLeft = true;
     }
 
-    IEnumerator StopSound(float stopTime) {
+    IEnumerator StopSound(float stopTime, FMOD.Studio.EventInstance instance) {
         yield return new WaitForSeconds(stopTime);
+        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
 }
