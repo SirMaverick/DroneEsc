@@ -9,6 +9,7 @@ public class MagnetMovementController : MovementController
     public float speed = 2;
     public bool coreInside;
     public GameObject drone;
+    bool ready;
 
     private float horizontalMove, verticalMove;
 
@@ -24,70 +25,77 @@ public class MagnetMovementController : MovementController
         magneticSound = RuntimeManager.CreateInstance("event:/SFX/Magnet/MagneticSound");
         RuntimeManager.AttachInstanceToGameObject(magneticSound, transform, GetComponent<Rigidbody>());
         magnetPlayerController = (MagnetPlayerController)playerController;
+        ready = true;
     }
 
     public override void Horizontal(float direction) {
         // Do nothing
-        horizontalMove = direction;
-        magnet.transform.Translate(direction * Time.deltaTime * speed, 0, 0);
+        if(ready) {
+            horizontalMove = direction;
+            magnet.transform.Translate(direction * Time.deltaTime * speed, 0, 0);
 
-        if (direction != 0) {
-            magnetPlayerController.StopPulse();
-            magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
-            magnetMoveSound.setParameterValue("MagnetMovement", 1.0f);
-            magnetMoveSound.setParameterValue("MagnetLock", 0.0f);
-            magnetMoveSound.setParameterValue("GrabSmall", 0.0f);
-            magnetMoveSound.setParameterValue("GrabMedium", 0.0f);
-            magnetMoveSound.setParameterValue("GrabBig", 0.0f);
-            magnetMoveSound.setParameterValue("MagnetDrop", 0.0f);
-            magnetMoveSound.setParameterValue("DropSmall", 0.0f);
-            magnetMoveSound.setParameterValue("DropMedium", 0.0f);
-            magnetMoveSound.setParameterValue("DropBig", 0.0f);
-            magnetMoveSound.getPlaybackState(out playback);
-            if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
-
-            } else {
-                magnetMoveSound.start();
+            if (direction != 0 && ready) {
+                magnetPlayerController.StopPulse();
                 magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
+                magnetMoveSound.setParameterValue("MagnetMovement", 1.0f);
+                magnetMoveSound.setParameterValue("MagnetLock", 0.0f);
+                magnetMoveSound.setParameterValue("GrabSmall", 0.0f);
+                magnetMoveSound.setParameterValue("GrabMedium", 0.0f);
+                magnetMoveSound.setParameterValue("GrabBig", 0.0f);
+                magnetMoveSound.setParameterValue("MagnetDrop", 0.0f);
+                magnetMoveSound.setParameterValue("DropSmall", 0.0f);
+                magnetMoveSound.setParameterValue("DropMedium", 0.0f);
+                magnetMoveSound.setParameterValue("DropBig", 0.0f);
+                magnetMoveSound.getPlaybackState(out playback);
+                if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+
+                } else {
+                    magnetMoveSound.start();
+                    magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
+                }
+
+
+            } else if (verticalMove == 0 && horizontalMove == 0) {
+                magnetMoveSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
             }
-            
-
-        } else if (verticalMove == 0 && horizontalMove == 0) {
-            magnetMoveSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
         }
+
     }
 
     public override void Vertical(float direction)
     {
-        verticalMove = direction;
-        magnet.transform.Translate(0, 0, direction * Time.deltaTime * speed);
-        // Do nothing
-        if (direction != 0) {
-            magnetPlayerController.StopPulse();
-            magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
-            magnetMoveSound.setParameterValue("MagnetMovement", 1.0f);
-            magnetMoveSound.setParameterValue("MagnetLock", 0.0f);
-            magnetMoveSound.setParameterValue("GrabSmall", 0.0f);
-            magnetMoveSound.setParameterValue("GrabMedium", 0.0f);
-            magnetMoveSound.setParameterValue("GrabBig", 0.0f);
-            magnetMoveSound.setParameterValue("MagnetDrop", 0.0f);
-            magnetMoveSound.setParameterValue("DropSmall", 0.0f);
-            magnetMoveSound.setParameterValue("DropMedium", 0.0f);
-            magnetMoveSound.setParameterValue("DropBig", 0.0f);
-            magnetMoveSound.getPlaybackState(out playback);
-            if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
-
-            } else {
-                magnetMoveSound.start();
+        if(ready) {
+            verticalMove = direction;
+            magnet.transform.Translate(0, 0, direction * Time.deltaTime * speed);
+            // Do nothing
+            if (direction != 0) {
+                magnetPlayerController.StopPulse();
                 magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
-            }
-            
+                magnetMoveSound.setParameterValue("MagnetMovement", 1.0f);
+                magnetMoveSound.setParameterValue("MagnetLock", 0.0f);
+                magnetMoveSound.setParameterValue("GrabSmall", 0.0f);
+                magnetMoveSound.setParameterValue("GrabMedium", 0.0f);
+                magnetMoveSound.setParameterValue("GrabBig", 0.0f);
+                magnetMoveSound.setParameterValue("MagnetDrop", 0.0f);
+                magnetMoveSound.setParameterValue("DropSmall", 0.0f);
+                magnetMoveSound.setParameterValue("DropMedium", 0.0f);
+                magnetMoveSound.setParameterValue("DropBig", 0.0f);
+                magnetMoveSound.getPlaybackState(out playback);
+                if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
 
-        } else if (verticalMove == 0 && horizontalMove == 0) {
-            magnetMoveSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            
+                } else {
+                    magnetMoveSound.start();
+                    magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
+                }
+
+
+            } else if (verticalMove == 0 && horizontalMove == 0) {
+                magnetMoveSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+            }
         }
+
     }
 
     public override void Look(Vector2 md)
@@ -124,9 +132,11 @@ public class MagnetMovementController : MovementController
     {
         if (key)
         {
+            ready = false;
+            magnetMoveSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             magnet.GetComponent<MagnetMove>().turnedOn = false;
             magnetPlayerController.PostFXExit();
-            magnetMoveSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            
         }
     }
 

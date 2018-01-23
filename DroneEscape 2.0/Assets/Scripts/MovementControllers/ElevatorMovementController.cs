@@ -10,9 +10,10 @@ public class ElevatorMovementController : MovementController
     
     [SerializeField] private float speed;
     private ItemsOnElevator items;
-    public FMOD.Studio.EventInstance elevatorSound;
+    public FMOD.Studio.EventInstance elevatorStartSound, elevatorStopSound;
     private FMOD.Studio.PLAYBACK_STATE playback;
     private bool moving;
+    public bool ready;
 
     ElevatorPlayerController elevatorPlayerController;
     
@@ -21,10 +22,12 @@ public class ElevatorMovementController : MovementController
     {
         base.Start();
         items = elevator.GetComponent<ItemsOnElevator>();
-        elevatorSound = RuntimeManager.CreateInstance("event:/SFX/Elevator/Elevator");
-        RuntimeManager.AttachInstanceToGameObject(elevatorSound, transform, GetComponent<Rigidbody>());
+        elevatorStartSound = RuntimeManager.CreateInstance("event:/SFX/Elevator/Elevator");
+        elevatorStopSound = RuntimeManager.CreateInstance("event:/SFX/Elevator/Elevator");
+        RuntimeManager.AttachInstanceToGameObject(elevatorStartSound, transform, GetComponent<Rigidbody>());
+        RuntimeManager.AttachInstanceToGameObject(elevatorStopSound, transform, GetComponent<Rigidbody>());
         elevatorPlayerController = (ElevatorPlayerController) playerController;
-        
+        ready = true;
     }
 
     public override void Horizontal(float direction)
@@ -33,32 +36,44 @@ public class ElevatorMovementController : MovementController
     }
 
     public override void Vertical(float direction) {
+
+        print(moving);
         // Do nothing
         if (direction != 0) {
             elevatorPlayerController.StopPulse();
-            elevatorSound.setParameterValue("ElevatorStart", 1.0f);
-            elevatorSound.setParameterValue("ElevatorLoop", 1.0f);
-            elevatorSound.setParameterValue("ElevatorStop", 0.0f);
-            elevatorSound.getPlaybackState(out playback);
-            if ( playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+            elevatorStartSound.setParameterValue("ElevatorStart", 1.0f);
+            elevatorStartSound.setParameterValue("ElevatorLoop", 1.0f);
+            elevatorStartSound.setParameterValue("ElevatorStop", 0.0f);
+            elevatorStartSound.getPlaybackState(out playback);
+            print(playback);
+            if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
 
             } else {
-                elevatorSound.start();
+                elevatorStartSound.start();
             }
             if (direction > 0) {
+                moving = true;
                 elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, highestPos.position, speed * Time.deltaTime);
                 items.enableElevator = true;
             } else if (direction < 0) {
-
+                moving = true;
                 elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, lowestPos.position, speed * Time.deltaTime);
                 items.enableElevator = true;
             }
         } else {
-            elevatorSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            elevatorSound.setParameterValue("ElevatorStart", 0.0f);
-            elevatorSound.setParameterValue("ElevatorLoop", 0.0f);
-            elevatorSound.setParameterValue("ElevatorStop", 1.0f);
-            elevatorSound.start();
+            print("else if moving");
+            elevatorStartSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            elevatorStopSound.setParameterValue("ElevatorStart", 0.0f);
+            elevatorStopSound.setParameterValue("ElevatorLoop", 0.0f);
+            elevatorStopSound.setParameterValue("ElevatorStop", 1.0f);
+            elevatorStopSound.getPlaybackState(out playback);
+            if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+
+            } else if(moving){
+                elevatorStopSound.start();
+                StartCoroutine(WaitToEndAudio(0.4f));
+            }
+            moving = false;
             items.enableElevator = false;
         }
     }
@@ -72,8 +87,9 @@ public class ElevatorMovementController : MovementController
     {
         if (key)
         {
+            ready = false;
             items.enableElevator = false;
-            elevatorSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            elevatorStartSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             elevatorPlayerController.PostFXExit();
 
         }
@@ -81,7 +97,7 @@ public class ElevatorMovementController : MovementController
 
     IEnumerator WaitToEndAudio(float waitTime) {
         yield return new WaitForSeconds(waitTime);
-        elevatorSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        elevatorStopSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
 
