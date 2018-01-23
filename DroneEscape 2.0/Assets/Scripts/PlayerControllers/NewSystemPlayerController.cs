@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 [System.Serializable]
 class NewSystemPlayerController : AbstractPlayerController, LiftDroneCallBack
@@ -30,9 +31,23 @@ class NewSystemPlayerController : AbstractPlayerController, LiftDroneCallBack
 
     }
 
+    public void PostFXExit() {
+        movementController.DisableController();
+        StartCoroutine(WaitForSwitchingCamera(0.5f));
+    }
+
+    private IEnumerator WaitForSwitchingCamera(float waitTime) {
+        GenericFunctions.Instance.SetFadeInCamera(cameras[0]);
+        yield return new WaitForSeconds(waitTime);
+        PlayerControllerSupervisor.GetInstance().SwitchPlayerControllerPrevious();
+
+    }
+
     public override void EnableController()
     {
         base.EnableController();
+        GenericFunctions.Instance.SetFadeOutCamera(cameras[0]);
+        cameras[0].GetComponent<MachinePulse>().StartPulse();
         energyController.EnableController();
         EnableAllCoreDrones();
         MoveArmToPosition(startPosition.position);

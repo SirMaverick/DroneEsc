@@ -67,7 +67,7 @@ public class MagnetMovementController : MovementController
     {
         if(ready) {
             verticalMove = direction;
-            magnet.transform.Translate(0, 0, direction * Time.deltaTime * speed);
+            magnet.transform.Translate(0, -direction * Time.deltaTime * speed, 0);
             // Do nothing
             if (direction != 0) {
                 magnetPlayerController.StopPulse();
