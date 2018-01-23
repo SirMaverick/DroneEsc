@@ -73,7 +73,9 @@ class SystemArm : MonoBehaviour
                 }
                 else
                 {
+
                     targetDrone.GetComponent<Rigidbody>().isKinematic = false;
+                    targetDrone.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                     // make the drone an empty shell
                     targetDrone.GetComponent<EmptyDrone>().enabled = true;
                     targetDrone.tag = "Drone";// yes this is ugly as is the next few things
