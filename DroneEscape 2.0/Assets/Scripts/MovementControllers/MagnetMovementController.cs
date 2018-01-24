@@ -98,6 +98,11 @@ public class MagnetMovementController : MovementController
 
     }
 
+    public override void EnableController() {
+        base.EnableController();
+        ready = true;
+    }
+
     public override void Look(Vector2 md)
     {
         // Do nothing

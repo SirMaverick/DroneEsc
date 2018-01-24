@@ -30,6 +30,11 @@ public class ElevatorMovementController : MovementController
         ready = true;
     }
 
+    public override void EnableController() {
+        base.EnableController();
+        ready = true;
+    }
+
     public override void Horizontal(float direction)
     {
 
@@ -37,44 +42,45 @@ public class ElevatorMovementController : MovementController
 
     public override void Vertical(float direction) {
 
-        print(moving);
-        // Do nothing
-        if (direction != 0) {
-            elevatorPlayerController.StopPulse();
-            elevatorStartSound.setParameterValue("ElevatorStart", 1.0f);
-            elevatorStartSound.setParameterValue("ElevatorLoop", 1.0f);
-            elevatorStartSound.setParameterValue("ElevatorStop", 0.0f);
-            elevatorStartSound.getPlaybackState(out playback);
-            print(playback);
-            if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+        if (ready) {
+            // Do nothing
+            if (direction != 0) {
+                elevatorPlayerController.StopPulse();
+                elevatorStartSound.setParameterValue("ElevatorStart", 1.0f);
+                elevatorStartSound.setParameterValue("ElevatorLoop", 1.0f);
+                elevatorStartSound.setParameterValue("ElevatorStop", 0.0f);
+                elevatorStartSound.getPlaybackState(out playback);
+                print(playback);
+                if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
 
+                } else {
+                    elevatorStartSound.start();
+                }
+                if (direction > 0) {
+                    moving = true;
+                    elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, highestPos.position, speed * Time.deltaTime);
+                    items.enableElevator = true;
+                } else if (direction < 0) {
+                    moving = true;
+                    elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, lowestPos.position, speed * Time.deltaTime);
+                    items.enableElevator = true;
+                }
             } else {
-                elevatorStartSound.start();
-            }
-            if (direction > 0) {
-                moving = true;
-                elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, highestPos.position, speed * Time.deltaTime);
-                items.enableElevator = true;
-            } else if (direction < 0) {
-                moving = true;
-                elevator.transform.position = Vector3.MoveTowards(elevator.transform.position, lowestPos.position, speed * Time.deltaTime);
-                items.enableElevator = true;
-            }
-        } else {
-            print("else if moving");
-            elevatorStartSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            elevatorStopSound.setParameterValue("ElevatorStart", 0.0f);
-            elevatorStopSound.setParameterValue("ElevatorLoop", 0.0f);
-            elevatorStopSound.setParameterValue("ElevatorStop", 1.0f);
-            elevatorStopSound.getPlaybackState(out playback);
-            if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+                print("else if moving");
+                elevatorStartSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                elevatorStopSound.setParameterValue("ElevatorStart", 0.0f);
+                elevatorStopSound.setParameterValue("ElevatorLoop", 0.0f);
+                elevatorStopSound.setParameterValue("ElevatorStop", 1.0f);
+                elevatorStopSound.getPlaybackState(out playback);
+                if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
 
-            } else if(moving){
-                elevatorStopSound.start();
-                StartCoroutine(WaitToEndAudio(0.4f));
+                } else if (moving) {
+                    elevatorStopSound.start();
+                    StartCoroutine(WaitToEndAudio(0.4f));
+                }
+                moving = false;
+                items.enableElevator = false;
             }
-            moving = false;
-            items.enableElevator = false;
         }
     }
 
