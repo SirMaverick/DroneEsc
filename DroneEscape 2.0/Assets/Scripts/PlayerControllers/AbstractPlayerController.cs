@@ -40,6 +40,11 @@ public abstract class AbstractPlayerController : MonoBehaviour
 
     }
 
+    public Camera GetCamera()
+    {
+        return camera;
+    }
+
     public virtual void DisableController()
     {
         // meshRenderer.enabled = false;

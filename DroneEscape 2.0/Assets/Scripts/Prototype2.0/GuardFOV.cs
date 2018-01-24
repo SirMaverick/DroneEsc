@@ -140,6 +140,7 @@ class GuardFOV: MonoBehaviour
                     {
                         // you are caught
                         AntagonistArmPrototype arm = FindObjectOfType<AntagonistArmPrototype>();
+
                         StartCoroutine(arm.ArmGrabSequence(player));
                         //@TODO fix bad habbit but just for testing
                         StartCoroutine(GenericFunctions.Instance.RestartLevel(3, player.GetComponent<MusicController>()));
