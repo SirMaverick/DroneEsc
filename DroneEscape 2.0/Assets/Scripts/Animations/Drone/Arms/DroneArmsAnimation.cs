@@ -134,6 +134,7 @@ public class DroneArmsAnimation : MonoBehaviour {
             droneSounds.StartChargeSound();
             shootReady = true;
             animator.SetBool("ShootReady", shootReady);
+            animator.Play("ShootReady");
         }
     }
 
