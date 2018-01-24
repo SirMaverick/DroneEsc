@@ -122,6 +122,14 @@ public class SpawnConveyorBeltItems : ArmEventListener {
                 {
                     if (coreItem.nextPositionId < positions.Length - 1){
                         coreItem.NextPosition(positions[coreItem.nextPositionId + 1], coreItem.nextPositionId + 1);
+
+                        
+                    } else {
+                        if (coreItem.GetComponent<MoveOnBelt>().start) {
+                            coreItem.GetComponent<MoveOnBelt>().currentCoroutine = StartCoroutine(coreItem.GetComponent<MoveOnBelt>().MoveObject());
+                        }
+                        coreOnConveyor = false;
+
                     }
                 }
 
