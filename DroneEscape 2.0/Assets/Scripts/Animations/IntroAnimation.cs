@@ -46,13 +46,13 @@ public class IntroAnimation : MonoBehaviour
      }*/
 
      // Done playing the animation related to the walk event
-     public void WalkAnimationEvent(GameObject drone)
+     public void WalkAnimationEvent()
      {
          if(allowedToThrow){
             Throw();
           }
         walkingDone = true;
-        MakeEmptyShell(drone);
+        MakeEmptyShell(this.gameObject);
      }
 
      // the player walked in the wave trigger
