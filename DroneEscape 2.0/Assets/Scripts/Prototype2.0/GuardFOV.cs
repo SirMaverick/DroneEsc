@@ -98,7 +98,8 @@ class GuardFOV: MonoBehaviour
         defaultColor = cone.material.GetColor(defaultColorString);
         lineColor = cone.material.GetColor(lineColorString);
 
-        colorNotSpotted();
+        //colorNotSpotted();
+        isDisabled = true;
     }
 
     private void Update()
@@ -125,7 +126,7 @@ class GuardFOV: MonoBehaviour
                     if (!spotted)
                     {
                         // first time spotted so change color
-                        colorSpotted();
+                        //colorSpotted();
                         StartWarnAudio();
 
                         time = Time.time - (time - minDetectionTime) + Time.time;
@@ -236,7 +237,7 @@ class GuardFOV: MonoBehaviour
 
     }
 
-    private void colorSpotted()
+    /*private void colorSpotted()
     {
         GetComponentInParent<MeshRenderer>().material.color = detectionDefaultColor;
         GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", detectionDefaultColor);
@@ -249,11 +250,11 @@ class GuardFOV: MonoBehaviour
     {
         GetComponentInParent<MeshRenderer>().material.color = defaultColor;
         GetComponentInParent<MeshRenderer>().material.SetColor("_EmissionColor", defaultColor);
-    }
+    }*/
 
     public void DisableGuard()
     {
-        colorNotSpotted();
+        //colorNotSpotted();
         cone.enabled = false;
         isDisabled = true;
        // Debug.Log("Disabled");
@@ -261,7 +262,7 @@ class GuardFOV: MonoBehaviour
 
     public void EnableGuard()
     {
-        colorNotSpotted();
+        //colorNotSpotted();
         cone.enabled = true;
         isDisabled = false;
        // Debug.Log("enabled");
@@ -299,7 +300,7 @@ class GuardFOV: MonoBehaviour
             // first time here after detecting 
             StartCoroutine(StopSound(0.0f, cameraSound));
             StartMoveAudio();
-            colorNotSpotted();
+            //colorNotSpotted();
             time = Time.time - (time - minDetectionTime) + Time.time;
             // fully detected (shouln't happen)
             if (time <= Time.time)
@@ -336,6 +337,7 @@ class GuardFOV: MonoBehaviour
     // Let the guards know which GameObject is the player (only keeping track of one object for effeciency)
     public void ChangePlayer(GameObject newPlayer)
     {
+        isDisabled = false;
         player = newPlayer;
     }
 
