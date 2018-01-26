@@ -60,6 +60,7 @@ public class CoreDrone : MonoBehaviour, Selectable
     public void CaughtByArm()
     {
         coreDroneAnimation.CaughtByArm();
+        gameObject.tag = "Drone";
     }
 
     public void OtherDroneCaughtByArm()

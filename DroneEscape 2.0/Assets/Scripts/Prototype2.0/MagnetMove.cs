@@ -56,28 +56,41 @@ public class MagnetMove : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if(other.GetComponent<MachinePulse>() ) other.GetComponent<MachinePulse>().StartPulse();
         if (other.GetComponent<DronePulse>()) other.GetComponent<DronePulse>().StartPulseHighlighted();
-        // A drone is magnetic aswell but isn't tagged as magnetic
-        if ((other.transform.tag == "Drone" || other.transform.tag == "Magnetic") && turnedOn && other.GetComponent<Rigidbody>().useGravity) {
-            if (other.GetComponent<Rigidbody>().useGravity) {
-                other.transform.parent = transform;
-                other.GetComponent<Rigidbody>().useGravity = false;
-                other.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-                listOfMagneticObjects.Add(other.gameObject);
-            }
 
+
+        // A drone is magnetic aswell but isn't tagged as magnetic
+        if ((other.transform.tag == "Drone" || other.transform.tag == "Magnetic") && turnedOn && other.GetComponent<Rigidbody>().useGravity && listOfMagneticObjects.Count == 0) {
+            RaycastHit hit;
+            Vector3 direction = gameObject.transform.position - other.transform.position;
+            Physics.Raycast(gameObject.transform.position, direction, out hit);
+            if (hit.transform.gameObject == other.gameObject) {
+                if (other.GetComponent<Rigidbody>().useGravity) {
+                    other.transform.parent = transform;
+                    other.GetComponent<Rigidbody>().useGravity = false;
+                    other.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                    listOfMagneticObjects.Add(other.gameObject);
+                }
+            }
         }
     }
 
     private void OnTriggerStay(Collider other) {
         if(turnedOn) {
             // A drone is magnetic aswell but isn't tagged as magnetic
-            if((other.transform.tag == "Drone" || other.transform.tag == "Magnetic") && other.transform.parent != transform) {
-                other.transform.parent = transform;
-                other.GetComponent<Rigidbody>().useGravity = false;
-                other.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-                listOfMagneticObjects.Add(other.gameObject);
+            if ((other.transform.tag == "Drone" || other.transform.tag == "Magnetic") && other.transform.parent != transform && listOfMagneticObjects.Count == 0) {
+                RaycastHit hit;
+                Vector3 direction = other.transform.position - gameObject.transform.position;
+                Physics.Raycast(gameObject.transform.position, direction, out hit);
+                print(hit.transform.gameObject);
+                if (hit.transform.gameObject == other.gameObject) {
+                    if (other.GetComponent<Rigidbody>().useGravity) {
+                        other.transform.parent = transform;
+                        other.GetComponent<Rigidbody>().useGravity = false;
+                        other.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                        listOfMagneticObjects.Add(other.gameObject);
+                    }
+                }
             }
-
         }
     }
 

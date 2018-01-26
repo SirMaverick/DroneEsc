@@ -186,6 +186,7 @@ public class CoreMovementController : MovementController
     public override void EnableController()
     {
         base.EnableController();
+        GetComponent<SphereCollider>().enabled = true;
         // use the current location of the camera
         mouseLook = new Vector2(transform.localEulerAngles.y, mouseLook.y);
         smoothV = new Vector2(0, 0);
@@ -205,6 +206,7 @@ public class CoreMovementController : MovementController
         {
             lastDroneHit.StopLookingAt();
         }
+        GetComponent<SphereCollider>().enabled = false;
         base.DisableController();
     }
 

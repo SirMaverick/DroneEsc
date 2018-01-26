@@ -94,6 +94,14 @@ public class DronePulse : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
+        print(other.name);
+        if (other.name == "CameraCenter") {
+            GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 1);
+            startPulse = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other) {
         if (other.name == "CameraCenter") {
             GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 1);
             startPulse = true;

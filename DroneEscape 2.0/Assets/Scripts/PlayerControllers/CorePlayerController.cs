@@ -157,6 +157,8 @@ public class CorePlayerController : AbstractPlayerController
     }
 
     public IEnumerator TurnOnPulses() {
+        pulse1.SetActive(true);
+        pulse2.SetActive(true);
         RuntimeManager.AttachInstanceToGameObject(pulseSound, core.transform, core.GetComponent<Rigidbody>());
         pulseSound.setParameterValue("Pulse", 1.0f);
         pulseSound.start();
@@ -171,6 +173,8 @@ public class CorePlayerController : AbstractPlayerController
         pulseSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);    
         pulse1.GetComponent<Menu_Button_Pulse>().TurnOffPulse();
         pulse2.GetComponent<Menu_Button_Pulse>().TurnOffPulse();
+        pulse1.SetActive(false);
+        pulse2.SetActive(false);
     }
 
 
