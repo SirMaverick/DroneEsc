@@ -82,6 +82,7 @@ class SystemArm : MonoBehaviour
                     targetDrone.GetComponent<Animator>().runtimeAnimatorController = droneAnimator;
                     targetDrone.GetComponent<DronePlayerController>().enabled = true;
                     targetDrone.GetComponent<NavMeshAgent>().enabled = true;
+                    targetDrone.GetComponentInChildren<DronePulse>().GetComponent<BoxCollider>().enabled = true;
                     droneLift = false;
                     // remove energy
                     playerController.GiveEnergy();
