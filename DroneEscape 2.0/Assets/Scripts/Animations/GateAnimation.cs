@@ -12,12 +12,6 @@ public class GateAnimation : MonoBehaviour
     [SerializeField] bool conveyor;
     [SerializeField] bool door;
 
-    public void Start()
-    {
-        conveyor = false;
-        door = false;
-    }
-
     public void OpenGate()
     {
         conveyorCollider.enabled = true;
