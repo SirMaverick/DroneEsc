@@ -27,6 +27,11 @@ public class GatePlayerController : AbstractPlayerController
         cameras[0].GetComponent<MachinePulse>().StartPulse();
     }
 
+    public override void DisableController() {
+        base.DisableController();
+        cameras[0].GetComponent<MachinePulse>().StopPulse();
+    }
+
     public void ToggleGate()
     {
         if (openGate)
