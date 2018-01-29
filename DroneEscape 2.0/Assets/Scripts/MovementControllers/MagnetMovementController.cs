@@ -35,10 +35,10 @@ public class MagnetMovementController : MovementController
             magnet.transform.Translate(direction * Time.deltaTime * speed, 0, 0);
 
             if (direction != 0 && ready) {
-                if(tutorialOn) {
-                    TriggerButtonAnimation.Instance.TurnAnimationOff("anim_WASD");
+                if(!tutorialOn) {
+                    TriggerButtonAnimation.Instance.TurnAnimationOff("WASD");
                     TriggerButtonAnimation.Instance.moveMagnet = true;
-                    tutorialOn = false;
+                    tutorialOn = true;
                 }
                 magnetPlayerController.StopPulse();
                 magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
@@ -75,6 +75,11 @@ public class MagnetMovementController : MovementController
             magnet.transform.Translate(0, -direction * Time.deltaTime * speed, 0);
             // Do nothing
             if (direction != 0) {
+                if (!tutorialOn) {
+                    TriggerButtonAnimation.Instance.TurnAnimationOff("WASD");
+                    TriggerButtonAnimation.Instance.moveMagnet = true;
+                    tutorialOn = true;
+                }
                 magnetPlayerController.StopPulse();
                 magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
                 magnetMoveSound.setParameterValue("MagnetMovement", 1.0f);

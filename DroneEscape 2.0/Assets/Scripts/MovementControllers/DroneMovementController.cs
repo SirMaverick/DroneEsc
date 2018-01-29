@@ -106,6 +106,10 @@ class DroneMovementController : MovementController
     {
         if (key)
         {
+            if(!TriggerButtonAnimation.Instance.throwCore) {
+                TriggerButtonAnimation.Instance.TurnAnimationOff("leftMouseClick");
+                TriggerButtonAnimation.Instance.throwCore = true;
+            }
             dronePlayerController.ShootReady();
             GetComponentInChildren<LaunchArcMesh>().Enable();
         }

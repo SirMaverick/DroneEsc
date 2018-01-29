@@ -14,6 +14,7 @@ public class ElevatorMovementController : MovementController
     private FMOD.Studio.PLAYBACK_STATE playback;
     private bool moving;
     public bool ready;
+    private bool tutorialOn;
 
     ElevatorPlayerController elevatorPlayerController;
     
@@ -32,6 +33,9 @@ public class ElevatorMovementController : MovementController
 
     public override void EnableController() {
         base.EnableController();
+        if (!TriggerButtonAnimation.Instance.moveElevator) {
+            TriggerButtonAnimation.Instance.TurnAnimationOn("WS");
+        }
         ready = true;
     }
 
@@ -45,6 +49,11 @@ public class ElevatorMovementController : MovementController
         if (ready) {
             // Do nothing
             if (direction != 0) {
+                if (!tutorialOn) {
+                    TriggerButtonAnimation.Instance.TurnAnimationOff("WS");
+                    TriggerButtonAnimation.Instance.moveElevator = true;
+                    tutorialOn = true;
+                }
                 elevatorPlayerController.StopPulse();
                 elevatorStartSound.setParameterValue("ElevatorStart", 1.0f);
                 elevatorStartSound.setParameterValue("ElevatorLoop", 1.0f);
