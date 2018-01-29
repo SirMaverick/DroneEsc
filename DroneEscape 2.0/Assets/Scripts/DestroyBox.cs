@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DestroyBox : ArmEventListener {
-
+    [SerializeField] public string tag;
 
     private void OnTriggerEnter(Collider other)
     {
         //other.GetComponent<Renderer>().enabled = false;
-        GetComponent<Animator>().SetBool("Close", true);
+        if (other.tag == "Core" || other.tag == tag)
+        {
+            GetComponent<Animator>().SetBool("Close", true);
+        }
         GameObject core = FindObjectOfType<CoreObject>().gameObject;
         if (other.gameObject.Equals(core))
         {
