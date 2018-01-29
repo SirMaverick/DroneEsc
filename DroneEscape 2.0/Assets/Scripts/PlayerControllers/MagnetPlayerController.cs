@@ -22,6 +22,7 @@ public class MagnetPlayerController : AbstractPlayerController
 
     public override void EnableController() {
         base.EnableController();
+
         GenericFunctions.Instance.SetFadeOutCamera(cameras[0]);
         cameras[0].GetComponent<MachinePulse>().StartPulse();
     }

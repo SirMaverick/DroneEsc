@@ -27,6 +27,7 @@ using FMODUnity;
 
 
     private bool enteringMachine = false;
+    private bool tutorialOn;
 
 
     [SerializeField] private float speed;
@@ -177,6 +178,11 @@ using FMODUnity;
         }
         button.GetDronePosition();
         animationDroneArms.InsertIntoMachine();
+        if (!tutorialOn) {
+            TriggerButtonAnimation.Instance.TurnAnimationOff("rightMouseClick");
+            TriggerButtonAnimation.Instance.insertMachine = true;
+            tutorialOn = true;
+        }
         enteringMachine = true;
         this.button = button;
     }

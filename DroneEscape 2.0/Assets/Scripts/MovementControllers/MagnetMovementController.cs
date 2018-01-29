@@ -9,7 +9,7 @@ public class MagnetMovementController : MovementController
     public float speed = 2;
     public bool coreInside;
     public GameObject drone;
-    bool ready;
+    bool ready, tutorialOn;
 
     private float horizontalMove, verticalMove;
 
@@ -35,6 +35,11 @@ public class MagnetMovementController : MovementController
             magnet.transform.Translate(direction * Time.deltaTime * speed, 0, 0);
 
             if (direction != 0 && ready) {
+                if(tutorialOn) {
+                    TriggerButtonAnimation.Instance.TurnAnimationOff("anim_WASD");
+                    TriggerButtonAnimation.Instance.moveMagnet = true;
+                    tutorialOn = false;
+                }
                 magnetPlayerController.StopPulse();
                 magnetMoveSound.setParameterValue("MagnetOn", 0.0f);
                 magnetMoveSound.setParameterValue("MagnetMovement", 1.0f);
@@ -100,6 +105,9 @@ public class MagnetMovementController : MovementController
 
     public override void EnableController() {
         base.EnableController();
+        if (!TriggerButtonAnimation.Instance.moveMagnet) {
+            TriggerButtonAnimation.Instance.TurnAnimationOn("WASD");
+        }
         ready = true;
     }
 
