@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114714911552564706}
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   EditorEvents:
   - {fileID: 114627542692752220}
   - {fileID: 114433456411528194}
@@ -60,9 +60,9 @@ MonoBehaviour:
   - {fileID: 114386920293294280}
   - {fileID: 114176576083265534}
   - {fileID: 114842071701634096}
-  MasterBankRef: {fileID: 114975895363503974}
+  MasterBankRef: {fileID: 114331320040711694}
   StringsBankRef: {fileID: 114714911552564706}
-  stringsBankWriteTime: 636522290476963407
+  stringsBankWriteTime: 636519681484228692
   cacheVersion: 2
 --- !u!114 &114001442159428524
 MonoBehaviour:
@@ -228,13 +228,28 @@ MonoBehaviour:
   Path: event:/Music/02IntroGameplay
   guid: cf03507cb752c04586f25242ebe42c1c
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &114021423351988348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: KeepWalking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114024089836320588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +296,21 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114025129015527850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: KeepWalking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114028038049367032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -412,6 +442,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: StopWalking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114041517836424204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CameraWarn
   Min: 0
   Max: 1
   Default: 0
@@ -624,12 +669,12 @@ MonoBehaviour:
   Path: event:/SFX/Camera/CameraWarn
   guid: 2a3b15270f55b343925c46210fc96fe5
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114854847271095932}
+  - {fileID: 114041517836424204}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114066020290690514
@@ -659,6 +704,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HibernationLockin
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114069467187093682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Charge!
   Min: 0
   Max: 1
   Default: 0
@@ -719,6 +779,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: DropBig
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114074365637988560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Charge Loop
   Min: 0
   Max: 1
   Default: 0
@@ -856,22 +931,22 @@ MonoBehaviour:
   Path: event:/SFX/Magnet/Magnet
   guid: 1376cd4f025f404ab91f5adb0031815f
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114701041532959060}
-  - {fileID: 114653327912433364}
-  - {fileID: 114200377280103788}
-  - {fileID: 114433987981387584}
-  - {fileID: 114937812624397596}
-  - {fileID: 114547914261899320}
-  - {fileID: 114315098959461770}
-  - {fileID: 114928740119886634}
-  - {fileID: 114262537542647052}
-  - {fileID: 114440399624401014}
-  - {fileID: 114788437113660334}
+  - {fileID: 114750810437983284}
+  - {fileID: 114379590339479288}
+  - {fileID: 114221118653945580}
+  - {fileID: 114813644145977024}
+  - {fileID: 114169109422762590}
+  - {fileID: 114931013528786426}
+  - {fileID: 114353227754038526}
+  - {fileID: 114199357453279806}
+  - {fileID: 114104522530206674}
+  - {fileID: 114855711864715972}
+  - {fileID: 114839737832855780}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114091644520370026
@@ -946,6 +1021,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: DropBig
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114104522530206674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MagnetDrop
   Min: 0
   Max: 1
   Default: 0
@@ -1111,6 +1201,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: KeepWalking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114130534285067804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StartWalking
   Min: 0
   Max: 1
   Default: 0
@@ -1291,6 +1396,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: GrabMedium
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114149645009623144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: ElevatorStart
   Min: 0
   Max: 1
   Default: 0
@@ -1489,6 +1609,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114169109422762590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MagnetOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114169324327729234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,15 +1728,15 @@ MonoBehaviour:
   Path: event:/SFX/Door/DoorOpenandClose
   guid: ef41d97cce55da48b9d7c43220bd43ef
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114772210041170788}
-  - {fileID: 114459042990670902}
-  - {fileID: 114522901187782482}
-  - {fileID: 114612338747752776}
+  - {fileID: 114683479673650922}
+  - {fileID: 114663140641411628}
+  - {fileID: 114273173534941992}
+  - {fileID: 114510511723947706}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114178239175238078
@@ -1616,6 +1751,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: StartWalking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114179333273815048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DoorDenied
   Min: 0
   Max: 1
   Default: 0
@@ -1663,14 +1813,29 @@ MonoBehaviour:
   Path: event:/SFX/Magnet/MagneticSound
   guid: dcd3a1b51f7bcb48998d48b26d26be65
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114274873205581878}
+  - {fileID: 114622512522885198}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114186937678539512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Happy
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114188743786156468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,6 +1866,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114193437175090834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Sad
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114194724416615806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1728,6 +1908,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Pulse
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114199357453279806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DropSmall
   Min: 0
   Max: 1
   Default: 0
@@ -1820,7 +2015,7 @@ MonoBehaviour:
   Path: event:/Music/09IntheSystem_3D
   guid: 70a38a3196e94d47920e505b1bee5e06
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -1887,6 +2082,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114221118653945580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GrabBig
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114223523701279916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1947,6 +2157,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114228506429340734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Shoot
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114228891723043710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1976,7 +2201,7 @@ MonoBehaviour:
   Path: event:/Music/03TitleScreen
   guid: 7b4507e7aab1a241ad563d2751580ae8
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -2002,6 +2227,21 @@ MonoBehaviour:
   - Name: Desktop
     Value: 9559584
   Exists: 1
+--- !u!114 &114238093712973414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StopMovement
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114240364475313318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2136,14 +2376,14 @@ MonoBehaviour:
   Path: event:/SFX/ConveyorBelt/ConveyorBelt
   guid: 0ee7132b3cb9dc4bab0a074294df4b0c
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114009098480153794}
-  - {fileID: 114421354708365016}
-  - {fileID: 114060947645028736}
+  - {fileID: 114394464232789208}
+  - {fileID: 114520912907819472}
+  - {fileID: 114841092160310102}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114262537542647052
@@ -2220,13 +2460,13 @@ MonoBehaviour:
   Path: event:/SFX/Camera/CameraOnandOff
   guid: ac65c1d84bf2ec429113d92c7f918845
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114132458741695482}
-  - {fileID: 114825669677563736}
+  - {fileID: 114957807546857024}
+  - {fileID: 114869795983908730}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114265886532997564
@@ -2271,6 +2511,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: MagnetOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114273173534941992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GateClose
   Min: 0
   Max: 1
   Default: 0
@@ -2319,6 +2574,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114283947886672968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StartWalking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114287907456924478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2361,6 +2631,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: ElevatorStart
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114299595383716320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StartMovement
   Min: 0
   Max: 1
   Default: 0
@@ -2469,6 +2754,36 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114309737841774654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: HibernationCharge
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114309985526582970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: HibernationLockout
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114309996968109228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2483,16 +2798,31 @@ MonoBehaviour:
   Path: event:/SFX/Core/CoreEmotions
   guid: 43c2ac876442e048ada2feac0c44d6a7
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114639942938471092}
-  - {fileID: 114299848393584868}
-  - {fileID: 114240364475313318}
+  - {fileID: 114186937678539512}
+  - {fileID: 114193437175090834}
+  - {fileID: 114953322844606320}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114311764214107166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CameraMov2
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114315098959461770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2567,7 +2897,7 @@ MonoBehaviour:
   Path: event:/Music/04MainHall
   guid: 1ce4811b39498e44a0960d21070b2801
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -2649,6 +2979,25 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114331320040711694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\epsil\Desktop\Github Drone.esc\DroneEscape 2.0\Assets\Drone.Esc\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636522509678381215
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 9559584
+  Exists: 1
 --- !u!114 &114334004885806032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2768,14 +3117,14 @@ MonoBehaviour:
   Path: event:/SFX/Drone/Walking/DroneWalk1
   guid: 5af9760df4f6be48bcacfb71ebfb086e
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114249179961622232}
-  - {fileID: 114138564031623388}
-  - {fileID: 114760135751415356}
+  - {fileID: 114130534285067804}
+  - {fileID: 114549195900962998}
+  - {fileID: 114021423351988348}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114343038900136328
@@ -2868,6 +3217,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114350410402787342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StopWalking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114350813781911014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2895,6 +3259,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: GrabMedium
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114353227754038526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MagnetLock
   Min: 0
   Max: 1
   Default: 0
@@ -2942,14 +3321,14 @@ MonoBehaviour:
   Path: event:/SFX/Drone/Walking/DroneWalk5
   guid: 4ba0f8d85c9357489c47da3a324bd94a
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114158131590594308}
-  - {fileID: 114066020290690514}
-  - {fileID: 114581207953092234}
+  - {fileID: 114283947886672968}
+  - {fileID: 114350410402787342}
+  - {fileID: 114784123387774168}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114358632495522172
@@ -2981,7 +3360,7 @@ MonoBehaviour:
   Path: event:/Music/04MainHall_3D
   guid: c305a3be6f22a747bd33bd59a0aa599a
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -3017,7 +3396,7 @@ MonoBehaviour:
   Path: event:/Music/05Puzzle1
   guid: b94b623bb3ddbf428cd0f736cf756f4e
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -3098,7 +3477,7 @@ MonoBehaviour:
   Path: event:/Music/07Puzzle2
   guid: d53b0237b2d69345940265f2d6ed59d7
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -3134,7 +3513,7 @@ MonoBehaviour:
   Path: event:/Music/10BadEnding_3D
   guid: 3de0d7cfefab2245bb0bfbb0d2040386
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -3220,6 +3599,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114379590339479288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DropBig
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114379779083520760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3234,13 +3628,13 @@ MonoBehaviour:
   Path: event:/SFX/Drone/Hinges/DroneArmMovements
   guid: 4a310d47a8ca344c80e9fa062c08c459
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114862003405620062}
-  - {fileID: 114785243286046366}
+  - {fileID: 114238093712973414}
+  - {fileID: 114299595383716320}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114380175222040718
@@ -3272,13 +3666,28 @@ MonoBehaviour:
   Path: event:/Music/07Puzzle2_3D
   guid: 0f660f3a091a6941bc99b65e4ef9a0a2
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114383499837849414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CoreInsertOut
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114386920293294280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3293,7 +3702,7 @@ MonoBehaviour:
   Path: event:/Music/00MenuMusic
   guid: eca479ee3eeeb946bca1e3b00d5d7f4b
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -3312,6 +3721,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HibernationLockout
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114394464232789208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: ConveyorBLoop
   Min: 0
   Max: 1
   Default: 0
@@ -3389,7 +3813,7 @@ MonoBehaviour:
   Path: event:/Music/01IntroAnimatic
   guid: 8ce21529ae1dd04ebf913eb44071033f
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3470,14 +3894,14 @@ MonoBehaviour:
   Path: event:/SFX/Drone/Walking/DroneWalk3
   guid: 886553be3fba0b40aac8921ed6f983d5
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114798375771782512}
-  - {fileID: 114631576793592752}
-  - {fileID: 114024089836320588}
+  - {fileID: 114028038049367032}
+  - {fileID: 114481828618358122}
+  - {fileID: 114483863717568918}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114408740056241932
@@ -3494,7 +3918,7 @@ MonoBehaviour:
   Path: event:/SFX/Core/CorePulseHitDrone
   guid: 738a36dd37a5914f91a2b22ba2466445
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -3650,12 +4074,12 @@ MonoBehaviour:
   Path: event:/SFX/Core/CorePulse
   guid: 05f424238654ae4ba4d8116d6878e8d7
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114358632495522172}
+  - {fileID: 114868093624205788}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114433987981387584
@@ -3736,7 +4160,7 @@ MonoBehaviour:
   Path: event:/Music/00MenuMusic_3D
   guid: 3f3288f52824ab4caf41a6bc1214568c
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -3998,6 +4422,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114464984885697776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: HibernationMovementLoop
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114468107524315698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4040,6 +4479,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: StartMovement
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114469404070729088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StartWalking
   Min: 0
   Max: 1
   Default: 0
@@ -4102,7 +4556,7 @@ MonoBehaviour:
   Path: event:/Music/08WalkToSystem
   guid: 81ff03f3cb6346449a866e5db8683b88
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -4124,6 +4578,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114481828618358122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StopWalking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114483813023256048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4136,6 +4605,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: MagneticSound
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114483863717568918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StartWalking
   Min: 0
   Max: 1
   Default: 0
@@ -4226,6 +4710,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: GrabMedium
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114492521529659136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StopWalking
   Min: 0
   Max: 1
   Default: 0
@@ -4424,6 +4923,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114510511723947706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MainDoorOpen
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114516419438983132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4496,6 +5010,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Pulse
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114520912907819472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: ConveyorBStop
   Min: 0
   Max: 1
   Default: 0
@@ -4618,14 +5147,14 @@ MonoBehaviour:
   Path: event:/SFX/Drone/Walking/DroneWalk4
   guid: 5bc72c125ae48a45a46196c35c863705
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114932968617102062}
-  - {fileID: 114527052479917558}
-  - {fileID: 114834893689285070}
+  - {fileID: 114469404070729088}
+  - {fileID: 114696995174760466}
+  - {fileID: 114573211640078634}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114531094420436352
@@ -4700,6 +5229,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Happy
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114541653469803884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: HibernationMovementStop
   Min: 0
   Max: 1
   Default: 0
@@ -4823,6 +5367,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114549195900962998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StopWalking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114550636430413994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4837,7 +5396,7 @@ MonoBehaviour:
   Path: event:/Music/03TitleScreen_3D
   guid: 270ed6ed92bb414592e32f9797f95030
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -5100,6 +5659,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: StartMovement
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114573211640078634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: KeepWalking
   Min: 0
   Max: 1
   Default: 0
@@ -5527,6 +6101,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114622512522885198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MagneticSound
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114623855108503258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5571,7 +6160,7 @@ MonoBehaviour:
   Path: event:/Music/01IntroAnimatic_3D
   guid: 04128c818f1b1c4aa792ffb0e9251643
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5652,13 +6241,13 @@ MonoBehaviour:
   Path: event:/SFX/Core/CoreInsertIntoMachine
   guid: 8366458e61c0f842971928256c48eec5
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114440639670980340}
-  - {fileID: 114169672493714836}
+  - {fileID: 114935200578456220}
+  - {fileID: 114383499837849414}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114634097979467642
@@ -5840,7 +6429,7 @@ MonoBehaviour:
   Path: event:/SFX/Core/CoreSplashAndReform
   guid: 4108cdac305178469c31de8d40166e63
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -5874,6 +6463,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: ElevatorLoop
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114663140641411628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GateOpen
   Min: 0
   Max: 1
   Default: 0
@@ -5921,14 +6525,14 @@ MonoBehaviour:
   Path: event:/SFX/Drone/Walking/DroneWalk2
   guid: a396a20d4903ff438aa3a960eb694f92
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114812272891974882}
-  - {fileID: 114990115244200384}
-  - {fileID: 114748204995099706}
+  - {fileID: 114978680918002344}
+  - {fileID: 114492521529659136}
+  - {fileID: 114769543503296690}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114668850420646608
@@ -5958,6 +6562,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Sad
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114670932665935546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: HibernationLockin
   Min: 0
   Max: 1
   Default: 0
@@ -6081,6 +6700,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114683479673650922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MainDoorClose
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114683511158131720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6187,6 +6821,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: CameraOn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114696995174760466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StopWalking
   Min: 0
   Max: 1
   Default: 0
@@ -6371,7 +7020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Drone.Esc\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636522290476963407
+  lastModified: 636519681484228692
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -6482,6 +7131,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114723427794349590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: ElevatorLoop
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114727061736825428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6584,6 +7248,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Charge Loop
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114735051872826552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: ElevatorStop
   Min: 0
   Max: 1
   Default: 0
@@ -6722,6 +7401,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114750810437983284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GrabMedium
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114751203477626342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6809,6 +7503,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: HibernationCharge
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114769543503296690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: StartWalking
   Min: 0
   Max: 1
   Default: 0
@@ -6916,14 +7625,14 @@ MonoBehaviour:
   Path: event:/SFX/Hibernation Rack/HibernationMovement
   guid: a9265d19b4cd1542ac80751c6998d9a5
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114981634085061298}
-  - {fileID: 114739993487375912}
-  - {fileID: 114977939399063286}
+  - {fileID: 114541653469803884}
+  - {fileID: 114464984885697776}
+  - {fileID: 114801887369784334}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114783546842825354
@@ -6940,7 +7649,7 @@ MonoBehaviour:
   Path: event:/Music/09IntheSystem
   guid: 819c969430df494d9cbdd8abbed38b12
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -6959,6 +7668,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: CoreInsertIn
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114784123387774168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: KeepWalking
   Min: 0
   Max: 1
   Default: 0
@@ -7112,6 +7836,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114801887369784334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: HibernationMovementStart
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114803336528072230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7156,7 +7895,7 @@ MonoBehaviour:
   Path: event:/Music/02IntroGameplay_3D
   guid: 135f19b1a897f149af2f92590984348b
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -7253,6 +7992,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114813644145977024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: GrabSmall
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114814405226240652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7267,12 +8021,12 @@ MonoBehaviour:
   Path: event:/SFX/Drone/ChargeAndShoot/DroneShoot
   guid: 5b73fe00ce3d774d808ae98010efca60
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114824525486368646}
+  - {fileID: 114228506429340734}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114815586974673116
@@ -7635,6 +8389,36 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114839737832855780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DropMedium
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114841092160310102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: ConveyorBStart
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114842071701634096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7649,14 +8433,14 @@ MonoBehaviour:
   Path: event:/SFX/Elevator/Elevator
   guid: f8f525a84a927e4b8a7544aae13fbd4a
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114715395053512766}
-  - {fileID: 114710212453344500}
-  - {fileID: 114785877773908416}
+  - {fileID: 114735051872826552}
+  - {fileID: 114149645009623144}
+  - {fileID: 114723427794349590}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114842352954004346
@@ -7703,7 +8487,7 @@ MonoBehaviour:
   Path: event:/Music/08WalkToSystem_3D
   guid: e3b58186b1a058478e247978c1dce488
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -7845,6 +8629,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114855711864715972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MagnetMovement
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114856838761123340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7965,6 +8764,36 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114868093624205788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Pulse
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114869795983908730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CameraOn
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114872510349993898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8058,12 +8887,12 @@ MonoBehaviour:
   Path: event:/SFX/Door/DoorDenied
   guid: 13356297a11a6d4683ad7c703412de25
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114543421156831254}
+  - {fileID: 114179333273815048}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114890404048386728
@@ -8426,6 +9255,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114931013528786426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: MagneticSound
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114932534804160732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8468,6 +9312,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: StartWalking
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114935200578456220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CoreInsertIn
   Min: 0
   Max: 1
   Default: 0
@@ -8530,13 +9389,13 @@ MonoBehaviour:
   Path: event:/SFX/Drone/ChargeAndShoot/DroneCharge
   guid: 36fd4fbe2da84f41978624a7205b1980
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114968910349714170}
-  - {fileID: 114095347424308430}
+  - {fileID: 114074365637988560}
+  - {fileID: 114069467187093682}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114940248572164268
@@ -8628,7 +9487,7 @@ MonoBehaviour:
   Path: event:/Music/05Puzzle1_3D
   guid: 54f975c4579cb54cbbf8467e569ef18e
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -8694,12 +9553,12 @@ MonoBehaviour:
   Path: event:/SFX/Camera/CameraMovements
   guid: a2034435d76ec749a753ac4685ae15df
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114159538643712190}
+  - {fileID: 114311764214107166}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114948757068186518
@@ -8729,6 +9588,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Shoot
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114953322844606320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Angry
   Min: 0
   Max: 1
   Default: 0
@@ -8777,6 +9651,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114957807546857024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: CameraOff
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114959811783099562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8791,7 +9680,7 @@ MonoBehaviour:
   Path: event:/SFX/Drone/Hinges/DroneWeld
   guid: 824eab8fd7ff0e4b99b75ee9d04ca7f1
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -8997,6 +9886,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114978680918002344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: KeepWalking
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114980140630571676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9161,14 +10065,14 @@ MonoBehaviour:
   Path: event:/SFX/Hibernation Rack/HibernationLockinAndCharge
   guid: 6b7871ec793d664db6db3403bc716b0c
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114394448367416618}
-  - {fileID: 114069038010913166}
-  - {fileID: 114151490533630908}
+  - {fileID: 114309985526582970}
+  - {fileID: 114670932665935546}
+  - {fileID: 114309737841774654}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114997846760419456
@@ -9200,7 +10104,7 @@ MonoBehaviour:
   Path: event:/Music/10BadEnding
   guid: 31b92f5265d64f43855957bc4d4c02c8
   Banks:
-  - {fileID: 114975895363503974}
+  - {fileID: 114331320040711694}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
