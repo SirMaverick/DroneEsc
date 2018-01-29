@@ -20,7 +20,7 @@ public class LaunchArcMesh : MonoBehaviour {
     private void Awake() {
         mesh = GetComponent<MeshFilter>().mesh;
         g = Mathf.Abs(Physics2D.gravity.y);
-        camera = transform.parent.GetComponentInChildren<Camera>().gameObject;
+        camera = transform.parent.Find("DroneCamera").gameObject;
     }
 
     private void OnValidate() {

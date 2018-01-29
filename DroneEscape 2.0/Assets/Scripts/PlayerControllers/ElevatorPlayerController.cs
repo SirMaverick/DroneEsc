@@ -25,5 +25,10 @@ class ElevatorPlayerController : AbstractPlayerController
         GenericFunctions.Instance.SetFadeOutCamera(cameras[0]);
         cameras[0].GetComponent<MachinePulse>().StartPulse();
     }
+
+    public override void DisableController() {
+        base.DisableController();
+        cameras[0].GetComponent<MachinePulse>().StartPulse();
+    }
 }
 

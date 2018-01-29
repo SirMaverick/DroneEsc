@@ -34,6 +34,8 @@ using FMODUnity;
 
     private EmptyDrone emptyDrone;
 
+    [SerializeField]  private Camera droneArmCamera;
+
     protected override void Start()
     {
 
@@ -71,6 +73,8 @@ using FMODUnity;
             movementController.enabled = false;
         }
 
+        droneArmCamera.enabled = true;
+
     }
 
     public override void DisableController()
@@ -81,6 +85,8 @@ using FMODUnity;
         emptyDrone.enabled = true;
 
         base.DisableController();
+
+        droneArmCamera.enabled = false;
     }
 
     public void ShootReady()
