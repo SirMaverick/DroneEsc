@@ -34,6 +34,7 @@ class SystemArm : MonoBehaviour, LiftDroneCallBack
     private void Start()
     {
         playerController = FindObjectOfType<NewSystemPlayerController>();
+        animation = GetComponent<SystemArmAnimation>();
     }
 
     /*private void Update()
@@ -124,6 +125,7 @@ class SystemArm : MonoBehaviour, LiftDroneCallBack
             heightRoof = gameObject.transform.position.y;
             gameObject.transform.position = new Vector3(targetPosition.x, heightRoof, targetPosition.z);
             animation.PickUpDrone(this);
+            animation.RegisterCallBack(this);
             return true;
         }
         return false;
@@ -178,7 +180,20 @@ class SystemArm : MonoBehaviour, LiftDroneCallBack
     {
         // Arm is back in the old position
         armIsReady = true;
-        targetDrone.GetComponent<CoreDroneAnimation>().CaughtByArm();
+        //targetDrone.GetComponent<CoreDroneAnimation>().CaughtByArm();
+
+        targetDrone.GetComponent<Rigidbody>().isKinematic = false;
+        targetDrone.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        // make the drone an empty shell
+        targetDrone.GetComponent<EmptyDrone>().enabled = true;
+        targetDrone.tag = "Drone";// yes this is ugly as is the next few things
+        targetDrone.GetComponent<Animator>().runtimeAnimatorController = droneAnimator;
+        targetDrone.GetComponent<DronePlayerController>().enabled = true;
+        targetDrone.GetComponent<NavMeshAgent>().enabled = true;
+        targetDrone.GetComponentInChildren<DronePulse>().GetComponent<BoxCollider>().enabled = true;
+        
+        // remove energy
+        playerController.GiveEnergy();
     }
 
 }

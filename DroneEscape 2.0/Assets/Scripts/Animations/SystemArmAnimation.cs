@@ -12,6 +12,7 @@ public class SystemArmAnimation : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        callBacksLift = new List<LiftDroneCallBack>();
     }
 
     public void PickUpDrone(LiftDroneCallBack callback = null)
