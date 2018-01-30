@@ -61,7 +61,6 @@ public class ClickInPlace : MonoBehaviour {
 
 
     private void StartSoundOnClick() {
-        print("check");
         lockInSound = RuntimeManager.CreateInstance("event:/SFX/Magnet/Magnet");
         RuntimeManager.AttachInstanceToGameObject(lockInSound, audioPosition, GetComponent<Rigidbody>());
         lockInSound.setParameterValue("MagnetOn", 0.0f);

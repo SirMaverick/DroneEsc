@@ -36,10 +36,8 @@ class SystemEnergyController : MonoBehaviour
         {
             energyLevelCurrent = energyLevelTotal - Time.time;
             uiController.SetEnergyLevelBar(energyLevelCurrent);
-            //Debug.Log(energyLevelCurrent);
             if (energyLevelCurrent < 0)
             {
-                Debug.LogError("you lost");
                 SceneManager.LoadScene(sceneIndexGoodEnding);
             }
             // player played long enough to choose

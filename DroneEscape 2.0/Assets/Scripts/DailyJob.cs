@@ -52,7 +52,6 @@ using UnityEngine;
 
             lineRender.positionCount = maxAmount + 2;
             startPos = transform;
-            print(height);
             if (collumns % 2 == 1) {
                 for (int x = -maxAmountFixed + 1; x < maxAmountFixed; x++) {
                     int xFixed = x + maxAmountFixed - 1;

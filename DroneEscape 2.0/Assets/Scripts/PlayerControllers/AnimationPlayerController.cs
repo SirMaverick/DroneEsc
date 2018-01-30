@@ -27,8 +27,6 @@ class AnimationPlayerController : AbstractPlayerController
 
     IEnumerator AnimCheck(float animLength)
     {
-        Debug.Log("AnimCheck");
-        Debug.Log(animLength);
         yield return new WaitForSeconds(animLength);
         // after animation is done switch to the next playerController
         PlayerControllerSupervisor.GetInstance().SwitchPlayerController(nextPlayerController);

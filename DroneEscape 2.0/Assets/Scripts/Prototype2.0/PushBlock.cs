@@ -23,7 +23,6 @@ public class PushBlock : MonoBehaviour {
         if(other.tag == "Drone") {
             
             Vector3 point= transform.position - other.transform.position;
-            // Debug.Log(point);
             float angle = Mathf.Atan2(point.x, point.z) * Mathf.Rad2Deg + 180.0f;
             angle -= transform.localEulerAngles.y;
             

@@ -16,7 +16,6 @@ public class StandOnElevator : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision) {
         if(collision.transform.tag == "Drone") {
-            Debug.Log("Drone");
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             collision.transform.parent = gameObject.transform;
         }

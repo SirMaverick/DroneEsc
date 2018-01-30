@@ -26,10 +26,8 @@ public class FmodTest : MonoBehaviour {
         //step.setParameterValue("Keep Walking", 1.0f);
         if (playState != FMOD.Studio.PLAYBACK_STATE.PLAYING) {
             RuntimeManager.AttachInstanceToGameObject(step, transform, GetComponent<Rigidbody>());
-            print(FMOD.Studio.PLAYBACK_STATE.PLAYING);
             step.getDescription(out description);
             description.getPath(out path);
-            print(path);
             step.start();
         }
     }

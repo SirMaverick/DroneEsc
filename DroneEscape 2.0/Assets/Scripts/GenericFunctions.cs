@@ -48,7 +48,7 @@ public class GenericFunctions : MonoBehaviour {
                     if (color.a < targetAlpha) {
                         color.a += 1.0f / fadeRate * Time.deltaTime;
                         image.color = color;
-                        //print(color.a);
+                 
                     } else {
                         color.a = targetAlpha;
                         image.color = color;
@@ -67,8 +67,6 @@ public class GenericFunctions : MonoBehaviour {
                     if (color.a > targetAlpha) {
                         color.a -= (fadeRate * Time.deltaTime);
                         image.color = color;
-                        print(targetAlpha);
-                        print(color.a);
                     } else {
                         color.a = targetAlpha;
                         image.color = color;
@@ -117,7 +115,6 @@ public class GenericFunctions : MonoBehaviour {
         targetAlpha = targetAlphaTemp;
         fadeRate = fadeRateTemp;
         color = image.color;
-        print(color.a);
         StartCoroutine(WaitForFade(waitStartTime, "FadeScreen"));
     }
 

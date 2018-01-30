@@ -117,11 +117,10 @@ class GuardFOV: MonoBehaviour
             Vector3 direction = player.transform.position - transform.position;
             RaycastHit rayCastHit;
             if (Physics.Raycast(transform.position, direction, out rayCastHit, maxDistance, layerMask.value))
-            {
-                //Debug.Log(rayCastHit.collider.gameObject.name);
+            {;
                 if (rayCastHit.collider.gameObject == player)
                 {
-                    //Debug.DrawRay(transform.position, direction, new Color(0, 255, 0));
+
 
                     if (!spotted)
                     {
@@ -257,7 +256,6 @@ class GuardFOV: MonoBehaviour
         //colorNotSpotted();
         cone.enabled = false;
         isDisabled = true;
-       // Debug.Log("Disabled");
     }
 
     public void EnableGuard()
@@ -265,7 +263,6 @@ class GuardFOV: MonoBehaviour
         //colorNotSpotted();
         cone.enabled = true;
         isDisabled = false;
-       // Debug.Log("enabled");
     }
 
     private void StartMoveAudio() {

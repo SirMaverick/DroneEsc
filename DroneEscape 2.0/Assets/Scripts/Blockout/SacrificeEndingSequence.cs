@@ -28,7 +28,6 @@ public class SacrificeEndingSequence : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                print("E has been pressed");
                 StartCoroutine(sacrificeSequence());
             }
         }

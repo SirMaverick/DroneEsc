@@ -197,7 +197,6 @@ public class EmptyDrone : MonoBehaviour, Selectable {
                 // @ToDo find a decent way to resolve and test this
                 if (!success)
                 {
-                    //Debug.LogError("Can't reach core, just picking it up anyway");
                     //reachedGoal = true;
                 }
             }

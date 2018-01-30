@@ -59,7 +59,6 @@ public class ElevatorMovementController : MovementController
                 elevatorStartSound.setParameterValue("ElevatorLoop", 1.0f);
                 elevatorStartSound.setParameterValue("ElevatorStop", 0.0f);
                 elevatorStartSound.getPlaybackState(out playback);
-                print(playback);
                 if (playback == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
 
                 } else {
@@ -75,7 +74,6 @@ public class ElevatorMovementController : MovementController
                     items.enableElevator = true;
                 }
             } else {
-                print("else if moving");
                 elevatorStartSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 elevatorStopSound.setParameterValue("ElevatorStart", 0.0f);
                 elevatorStopSound.setParameterValue("ElevatorLoop", 0.0f);

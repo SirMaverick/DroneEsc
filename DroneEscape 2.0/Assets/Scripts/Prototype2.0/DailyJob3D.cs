@@ -53,7 +53,6 @@ public class DailyJob3D : MonoBehaviour {
 
         lineRender.positionCount = maxAmount + 2;
         startPos = transform;
-        print(height);
         if (collumns % 2 == 1) {
             for (int x = -maxAmountFixed + 1; x < maxAmountFixed; x++) {
                 int xFixed = x + maxAmountFixed - 1;
@@ -105,7 +104,6 @@ public class DailyJob3D : MonoBehaviour {
         for (int i = 1; i < lineRender.positionCount; i++) {
             lineLength += (lineRender.GetPosition(i) - lineRender.GetPosition(i - 1)).magnitude;
         }
-        Debug.Log(lineLength);
     }
 
     // Update is called once per frame

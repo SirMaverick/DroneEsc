@@ -159,7 +159,6 @@ public class DroneArmsAnimation : MonoBehaviour {
             animator.SetBool("InsertIntoMachine", insertIntoMachine);
             GenericFunctions.Instance.SetFadeIn("BlackFadeImage", 1.0f, 0.3f, 0.5f);
             bool test = animator.GetBool("WalkForwards");
-            Debug.Log("test:" + test);
         }
     }
 

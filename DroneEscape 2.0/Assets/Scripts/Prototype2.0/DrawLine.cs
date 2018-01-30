@@ -50,7 +50,6 @@ public class DrawLine : MonoBehaviour {
             for (int i = 1; i < line.positionCount; i++) {
                 drawnLineLength += (line.GetPosition(i) - line.GetPosition(i - 1)).magnitude;
             }
-            Debug.Log(drawnLineLength);
         }
         if (isMousePressed) {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

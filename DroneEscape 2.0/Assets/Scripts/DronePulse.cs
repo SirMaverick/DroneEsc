@@ -79,7 +79,6 @@ public class DronePulse : MonoBehaviour {
     public IEnumerator WaitForPulse() {
         float time = Vector3.Distance(transform.position, cameraCenter.transform.position) / maxDistance * 3.0f;
         yield return new WaitForSeconds(time);
-        print("dikke hond");
         StartCoroutine(PlayOneShotFMOD("event:/SFX/Core/CorePulseHitDrone", gameObject));
         GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 1);
         startPulse = true;
@@ -94,7 +93,6 @@ public class DronePulse : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        print(other.name);
         if (other.name == "CameraCenter") {
             GetComponent<SkinnedMeshRenderer>().material.SetFloat("_Heartbeat", 1);
             startPulse = true;

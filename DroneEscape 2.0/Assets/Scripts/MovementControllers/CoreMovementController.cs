@@ -71,8 +71,7 @@ public class CoreMovementController : MovementController
         {
             if (hit.collider.tag == "Drone")
                 
-            {
-                //Debug.Log(maxDistance + Vector3.Distance(transform.GetChild(0).position, core.transform.position));    
+            {  
                 hitEmptyDrone = true;
                 EmptyDrone newHit = hit.collider.gameObject.GetComponent<EmptyDrone>();
                 if (lastDroneHit != newHit) {

@@ -81,7 +81,6 @@ public class MagnetMove : MonoBehaviour {
                 RaycastHit hit;
                 Vector3 direction = other.transform.position - gameObject.transform.position;
                 Physics.Raycast(gameObject.transform.position, direction, out hit);
-                print(hit.transform.gameObject);
                 if (hit.transform.gameObject == other.gameObject) {
                     if (other.GetComponent<Rigidbody>().useGravity) {
                         other.transform.parent = transform;

@@ -15,13 +15,11 @@ public class LineCollision : MonoBehaviour {
 	void Update () {
       /*  colliders = Physics.OverlapSphere(transform.position, transform.localScale.x);
         if(colliders != null) {
-            Debug.Log("hello");
         }*/
 	}
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "DrawnLine") {
-            Debug.Log("entered");
             other.transform.parent.GetComponent<DrawLine>().AtTriggerEnter();
         }
     }

@@ -58,7 +58,6 @@ public class HackTimingLight : MonoBehaviour {
 
     IEnumerator TestHelp() {
         yield return new WaitForSeconds(1);
-        Debug.Log("hi");
     }
 
 

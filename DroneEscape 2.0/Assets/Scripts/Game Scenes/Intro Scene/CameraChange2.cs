@@ -29,8 +29,6 @@ public class CameraChange2 : MonoBehaviour
 
     IEnumerator AnimCheck(float animLength)
     {
-        Debug.Log("AnimCheck");
-        Debug.Log(animLength);
         yield return new WaitForSeconds(animLength);
         cam.enabled = false;
         coreCam.enabled = true;

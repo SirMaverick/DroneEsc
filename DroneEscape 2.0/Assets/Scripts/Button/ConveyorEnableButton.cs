@@ -19,11 +19,9 @@ public class ConveyorEnableButton : MonoBehaviour {
         {
             if (!part.HasBeenSet())
             {
-                Debug.Log("NOt done");
                 return;
             }
         }
-        Debug.Log("Enable conveyor");
         convBelt.GetComponent<ConveyerBelt>().enabled = true;
         // do something
         // enable conveyor belt
