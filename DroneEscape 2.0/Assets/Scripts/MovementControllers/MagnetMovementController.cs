@@ -116,6 +116,13 @@ public class MagnetMovementController : MovementController
         ready = true;
     }
 
+    public override void DisableController() {
+        base.DisableController();
+        if (!TriggerButtonAnimation.Instance.moveMagnet) {
+            TriggerButtonAnimation.Instance.TurnAnimationOff("WASD");
+        }
+    }
+
     public override void Look(Vector2 md)
     {
         // Do nothing

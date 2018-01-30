@@ -28,7 +28,7 @@ class ElevatorPlayerController : AbstractPlayerController
 
     public override void DisableController() {
         base.DisableController();
-        cameras[0].GetComponent<MachinePulse>().StartPulse();
+        cameras[0].GetComponent<MachinePulse>().StopPulse();
     }
 }
 

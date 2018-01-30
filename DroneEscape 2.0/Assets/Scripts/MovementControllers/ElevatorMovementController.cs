@@ -39,6 +39,13 @@ public class ElevatorMovementController : MovementController
         ready = true;
     }
 
+    public override void DisableController() {
+        base.DisableController();
+        if(!TriggerButtonAnimation.Instance.moveElevator) {
+            TriggerButtonAnimation.Instance.TurnAnimationOff("WS");
+        }
+    }
+
     public override void Horizontal(float direction)
     {
 
