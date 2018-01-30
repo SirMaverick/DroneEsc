@@ -52,7 +52,7 @@ public class IntroAnimation : MonoBehaviour
             Throw();
           }
         walkingDone = true;
-        MakeEmptyShell(this.gameObject);
+        //MakeEmptyShell(this.gameObject);
      }
 
      // the player walked in the wave trigger
@@ -104,7 +104,7 @@ public class IntroAnimation : MonoBehaviour
         }*/
     //}*/
 
-    public void MakeEmptyShell(GameObject drone)
+   /* public void MakeEmptyShell(GameObject drone)
     {
 
         // After throwing the core you can take control of the drone;
@@ -116,6 +116,6 @@ public class IntroAnimation : MonoBehaviour
         drone.GetComponent<DronePlayerController>().enabled = true;
         drone.GetComponent<NavMeshAgent>().enabled = true;
 
-    }
+    }*/
 }
 
