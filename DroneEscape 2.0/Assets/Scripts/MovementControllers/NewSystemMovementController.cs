@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-class NewSystemMovementController : MovementController, LiftDroneCallBack
+class NewSystemMovementController : MovementController
 {
     private GameObject systemArmObject;
     [SerializeField] private float movementSpeed = 5.0f;
@@ -36,18 +36,11 @@ class NewSystemMovementController : MovementController, LiftDroneCallBack
         if (key)
         {
             bool success = systemArm.PickUpDrone();
-            if (success)
+            /*if (success)
             {
-                systemArm.RegisterCallBack(this);
                 systemArm.RegisterCallBack(newSystemPlayerController);
-                enabled = false;
-            }
+            }*/
         }
-    }
-
-    public void CallBack()
-    {
-        enabled = true;
     }
 }
 

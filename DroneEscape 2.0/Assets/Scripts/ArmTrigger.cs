@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmTrigger : MonoBehaviour, LiftDroneCallBack
+public class ArmTrigger : MonoBehaviour
 {
     private SystemArm systemArm;
     [SerializeField] private CoreDrone droneObject;
@@ -26,13 +26,13 @@ public class ArmTrigger : MonoBehaviour, LiftDroneCallBack
             if (!alreadyTriggered)
             {
                 systemArm.MoveTo(droneObject);
-                systemArm.RegisterCallBack(this);
+  //              systemArm.RegisterCallBack(this);
                 alreadyTriggered = true;
             }
         }
 
     }
-    public void ShowEffects()
+/*    public void ShowEffects()
     {
         droneObject.CaughtByArm();
         foreach (CoreDrone shockedDrone in shockedDrones)
@@ -44,5 +44,5 @@ public class ArmTrigger : MonoBehaviour, LiftDroneCallBack
     public void CallBack()
     {
         ShowEffects();
-    }
+    }*/
 }

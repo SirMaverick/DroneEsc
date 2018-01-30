@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.AI;
 
-class SystemArm : MonoBehaviour
+class SystemArm : MonoBehaviour, LiftDroneCallBack
 {
-    private bool reachedTarget = true;
+    /*private bool reachedTarget = true;
     private bool reachedRoof = true;
-    private bool droneLift = true;
+    private bool droneLift = true;*/
+    private bool armIsReady = true;
 
     private Vector3 targetPosition;
     //[SerializeField]
@@ -23,20 +24,19 @@ class SystemArm : MonoBehaviour
 
     private NewSystemPlayerController playerController;
 
-    private List<LiftDroneCallBack> callBacksLift;
     private bool firstLift = true;
 
     [SerializeField] RuntimeAnimatorController droneAnimator;
 
+    private SystemArmAnimation animation;
 
 
     private void Start()
     {
         playerController = FindObjectOfType<NewSystemPlayerController>();
-        callBacksLift = new List<LiftDroneCallBack>();
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (!reachedTarget)
         {
@@ -95,7 +95,7 @@ class SystemArm : MonoBehaviour
                 reachedRoof = true;
             }
         }
-    }
+    }*/
 
     public bool PickUpDrone()
     {
@@ -114,31 +114,26 @@ class SystemArm : MonoBehaviour
     public bool MoveTo(CoreDrone target)
     {
         // only do something if we are not tyring to lift or are lifting a drone
-        if (reachedRoof && reachedTarget)
+        if (armIsReady)
         {
             targetDrone = target;
             targetDrone.GetComponent<Rigidbody>().isKinematic = true;
             targetPosition = target.transform.position;
-            // length of the arm, yea ...
-            targetPosition.y += 6.5f;
+            
             // Let the old y position be the same as the position it will start from and will move back to
             heightRoof = gameObject.transform.position.y;
             gameObject.transform.position = new Vector3(targetPosition.x, heightRoof, targetPosition.z);
-            reachedTarget = false;
-            droneLift = true;
+            animation.PickUpDrone(this);
             return true;
         }
         return false;
     }
 
-    public void RegisterCallBack(LiftDroneCallBack callBack)
-    {
-        callBacksLift.Add(callBack);
-    }
+
 
     public void OnTriggerEnter(Collider other)
     {
-        if (reachedRoof && reachedTarget)
+        if (armIsReady)
         {
             CoreDrone coreDrone = other.GetComponent<CoreDrone>();
             if (coreDrone != null)
@@ -150,7 +145,8 @@ class SystemArm : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (reachedRoof && reachedTarget)
+        
+        if (armIsReady)
         {
             CoreDrone coreDrone = other.GetComponent<CoreDrone>();
             if (coreDrone != null)
@@ -163,6 +159,8 @@ class SystemArm : MonoBehaviour
         }
     }
 
+
+    // Reset collisions
     private void OnCollisionEnter(Collision collision)
     {
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
@@ -176,5 +174,11 @@ class SystemArm : MonoBehaviour
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
     }
 
+    public void CallBack()
+    {
+        // Arm is back in the old position
+        armIsReady = true;
+        targetDrone.GetComponent<CoreDroneAnimation>().CaughtByArm();
+    }
 
 }
