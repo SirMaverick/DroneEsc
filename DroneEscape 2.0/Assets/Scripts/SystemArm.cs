@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.AI;
 
-class SystemArm : MonoBehaviour, LiftDroneCallBack
+class SystemArm : MonoBehaviour
 {
     /*private bool reachedTarget = true;
     private bool reachedRoof = true;
@@ -15,20 +15,19 @@ class SystemArm : MonoBehaviour, LiftDroneCallBack
     //[SerializeField]
     private float heightRoof;
 
-    [SerializeField]
-    private float speed = 5;
-    [SerializeField]
-    private float liftHeight = 3;
-
     private CoreDrone targetDrone;
 
     private NewSystemPlayerController playerController;
 
-    private bool firstLift = true;
+    private bool liftDroneUp = false;
 
     [SerializeField] RuntimeAnimatorController droneAnimator;
 
     private SystemArmAnimation animation;
+
+    [SerializeField] Transform targetTransform;
+
+
 
 
     private void Start()
@@ -98,6 +97,14 @@ class SystemArm : MonoBehaviour, LiftDroneCallBack
         }
     }*/
 
+    private void Update()
+    {
+        if (liftDroneUp)
+        {
+            targetDrone.transform.position = targetTransform.position;
+        }
+    }
+
     public bool PickUpDrone()
     {
         if (targetDrone != null)
@@ -118,14 +125,14 @@ class SystemArm : MonoBehaviour, LiftDroneCallBack
         if (armIsReady)
         {
             targetDrone = target;
+            animation.Animation_PickUpDrone();
             targetDrone.GetComponent<Rigidbody>().isKinematic = true;
             targetPosition = target.transform.position;
             
             // Let the old y position be the same as the position it will start from and will move back to
             heightRoof = gameObject.transform.position.y;
             gameObject.transform.position = new Vector3(targetPosition.x, heightRoof, targetPosition.z);
-            animation.PickUpDrone(this);
-            animation.RegisterCallBack(this);
+            armIsReady = false;
             return true;
         }
         return false;
@@ -176,10 +183,15 @@ class SystemArm : MonoBehaviour, LiftDroneCallBack
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
     }
 
-    public void CallBack()
+
+    public void PickingUpDrone()
     {
-        // Arm is back in the old position
-        armIsReady = true;
+        liftDroneUp = true;
+    }
+
+    public void DonePickingUpDrone()
+    {
+        liftDroneUp = false;
         //targetDrone.GetComponent<CoreDroneAnimation>().CaughtByArm();
 
         targetDrone.GetComponent<Rigidbody>().isKinematic = false;
@@ -191,9 +203,13 @@ class SystemArm : MonoBehaviour, LiftDroneCallBack
         targetDrone.GetComponent<DronePlayerController>().enabled = true;
         targetDrone.GetComponent<NavMeshAgent>().enabled = true;
         targetDrone.GetComponentInChildren<DronePulse>().GetComponent<BoxCollider>().enabled = true;
-        
         // remove energy
         playerController.GiveEnergy();
+
     }
 
+    public void PickUpDroneDone()
+    {
+        armIsReady = true;
+    }
 }

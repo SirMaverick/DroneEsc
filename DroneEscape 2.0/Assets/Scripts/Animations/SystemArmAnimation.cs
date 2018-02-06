@@ -1,44 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 public class SystemArmAnimation : MonoBehaviour
 {
     private Animator animator;
-    private List<LiftDroneCallBack> callBacksLift;
+    private SystemArm systemArm;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        callBacksLift = new List<LiftDroneCallBack>();
+        systemArm = GetComponent<SystemArm>();
     }
 
-    public void PickUpDrone(LiftDroneCallBack callback = null)
+    public void Animation_PickUpDrone()
     {
-        if(callback != null)
-        {
-            callBacksLift.Add(callback);
-        }
         animator.SetBool("PickUp", true);
     }
 
-    public void PickUpDroneDone()
+    // start actually lifting the drone
+    public void Animation_PickingUpDrone()
     {
         animator.SetBool("PickUp", false);
-
-        foreach(LiftDroneCallBack callback in callBacksLift)
-        {
-            callback.CallBack();
-        }
-        callBacksLift.Clear();
-
+        systemArm.PickingUpDrone();
     }
 
-    public void RegisterCallBack(LiftDroneCallBack callBack)
+    // drop the drone which was lifted
+    public void Animation_DonePickingUpDrone()
     {
-        callBacksLift.Add(callBack);
+        systemArm.DonePickingUpDrone();
     }
+
+    // full animation done
+    public void Animation_PickUpDroneDone()
+    {
+
+        systemArm.PickUpDroneDone();
+        
+
+    }
+
 }
 
