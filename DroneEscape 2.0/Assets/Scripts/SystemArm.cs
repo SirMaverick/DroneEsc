@@ -192,7 +192,7 @@ class SystemArm : MonoBehaviour
     public void DonePickingUpDrone()
     {
         liftDroneUp = false;
-        //targetDrone.GetComponent<CoreDroneAnimation>().CaughtByArm();
+        targetDrone.GetComponent<CoreDroneAnimation>().CaughtByArm();
 
         targetDrone.GetComponent<Rigidbody>().isKinematic = false;
         targetDrone.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;

@@ -151,8 +151,8 @@ using FMODUnity;
             Vector3 eyePosition = transform.position;
             eyePosition.y += 1;
             Vector3 direction = button.transform.position - eyePosition;
-            //transform.position = Vector3.MoveTowards(transform.position, button.GetDronePosition(), speed*Time.deltaTime);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, button.GetDronePosition(), speed*Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), speed * Time.deltaTime);
         }
     }
 
