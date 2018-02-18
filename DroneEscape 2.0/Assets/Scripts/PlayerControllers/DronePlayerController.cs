@@ -18,6 +18,9 @@ using FMODUnity;
     [SerializeField] private bool startAsCore;
     [SerializeField] float force;
 
+    [SerializeField]
+    DroneSounds droneSounds;
+
     [SerializeField] private GameObject objectPlacement;
 
     [SerializeField]
@@ -42,6 +45,7 @@ using FMODUnity;
 
         base.Start();
 
+        droneSounds = GetComponent<DroneSounds>();
         corePlayerController = FindObjectOfType<CorePlayerController>();
         uiController = FindObjectOfType<DroneUIController>();
         cameraObject = corePlayerController.gameObject;
@@ -98,6 +102,8 @@ using FMODUnity;
     public void Throw()
     {
         animationDroneArms.Shoot();
+
+        droneSounds.StopMoveSound();
 
         core.transform.position = objectPlacement.transform.position;
 
@@ -175,6 +181,7 @@ using FMODUnity;
         {
             movementController.DisableController();
             movementController.enabled = false;
+            droneSounds.StopMoveSound();
         }
         button.GetDronePosition();
         animationDroneArms.InsertIntoMachine();
